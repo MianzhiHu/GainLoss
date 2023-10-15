@@ -3,7 +3,7 @@ import scipy.stats as stats
 from utility import correlation_test
 
 # Read in the data
-data = pd.read_csv('C:/Users/zuire/PycharmProjects/GainLoss/data/data.csv')
+data = pd.read_csv('/data/data.csv')
 
 # test all the correlations
 
