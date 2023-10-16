@@ -16,6 +16,11 @@ BDoptimal = data[data['ChoiceSet'] == 'BD']
 CBoptimal = data[data['ChoiceSet'] == 'CB']
 ADoptimal = data[data['ChoiceSet'] == 'AD']
 
+# set list of trials and conditions
+trial_list = [ABoptimal, CDoptimal, CAoptimal, BDoptimal, CBoptimal, ADoptimal]
+condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
+
+
 # # check the sample size for each condition
 # print(ABoptimal['Condition'].value_counts())
 
@@ -32,12 +37,30 @@ ADoptimal = data[data['ChoiceSet'] == 'AD']
 # plt.show()
 
 # # Plot the distribution of PropOptimal for each trial
-# sns.displot(data=ADoptimal, x='PropOptimal', hue='Condition', kind='kde', clip=(0, 1))
+# fig, axes = plt.subplots(3, 2, figsize=(15, 10))
+#
+# # Subset the data based on ChoiceSet values
+# trial_data = {
+#     'AB': data[data['ChoiceSet'] == 'AB'],
+#     'CD': data[data['ChoiceSet'] == 'CD'],
+#     'CA': data[data['ChoiceSet'] == 'CA'],
+#     'BD': data[data['ChoiceSet'] == 'BD'],
+#     'CB': data[data['ChoiceSet'] == 'CB'],
+#     'AD': data[data['ChoiceSet'] == 'AD']
+# }
+#
+# # Create a 3x2 grid of plots
+# fig, axes = plt.subplots(3, 2, figsize=(10, 18))
+#
+# # Loop through each subset of data and plot
+# for i, (name, trial) in enumerate(trial_data.items()):
+#     sns.kdeplot(data=trial, x='PropOptimal', hue='Condition', ax=axes[i // 2, i % 2])
+#     axes[i // 2, i % 2].set_title(name)
+#     axes[i // 2, i % 2].set_xlim(0, 1)  # Ensuring all plots have the same x-axis limit
+#
+# # Adjust the layout for a neat look
+# plt.tight_layout()
 # plt.show()
-
-# test the normality of the distribution of PropOptimal for each trial
-trial_list = [ABoptimal, CDoptimal, CAoptimal, BDoptimal, CBoptimal, ADoptimal]
-condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
 
 # first, test the normality of the distribution for each trial overall
 # normal distribution failed (except for AB at the 1% level)
