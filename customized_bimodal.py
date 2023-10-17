@@ -28,12 +28,12 @@ condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
 
 
 # Starting parameter estimates
-mu1, sd1 = 0, 0.1
-mu2, sd2 = 1, 0.1
+mu1, sd1 = 0.25, 0.2
+mu2, sd2 = 0.75, 0.2
 ppi = 0.5
 
 # Assuming your data is stored in a list or numpy array named dat
-tolerance = 1e-12
+tolerance = 0.00001
 change = np.inf
 oldppi = 0
 

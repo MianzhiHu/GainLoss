@@ -90,6 +90,11 @@ for trial in trial_list:
 
 binomial_results = pd.DataFrame(binomial_results, columns=['trial', 'condition', 'statistic', 'p-value'])
 
+# check how many people are above 0.5
+for condition in condition_list:
+    print(condition)
+    print(np.sum(CAoptimal[CAoptimal['Condition'] == condition]['PropOptimal'] > 0.5))
+
 # # what about RT? Let's try split RT into two groups based on the median and test the difference
 # # not really a good differentiator
 # binomial_results_RT = []
