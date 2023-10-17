@@ -43,7 +43,7 @@ def correlation_test(df, trial, condition, variable_of_interest, checker=False, 
             return results_df
 
 
-def normality_test(trial_list, method, condition_list=None, distribution='norm'):
+def normality_test(trial_list, method, variable, condition_list=None, distribution='norm'):
     # preallocate a list to store the results
     results = []
 
@@ -51,16 +51,16 @@ def normality_test(trial_list, method, condition_list=None, distribution='norm')
     if method == 'anderson':
         if condition_list is None:
             for trial in trial_list:
-                result = stats.anderson(trial['PropOptimal'], dist=distribution)
+                result = stats.anderson(trial[variable], dist=distribution)
                 results.append({'trial': trial['ChoiceSet'].iloc[0], 'statistic': result.statistic,
                                 'critical_values': result.critical_values,
                                 'significance_level': result.significance_level})
             results = pd.DataFrame(results,
-                                      columns=['trial', 'statistic', 'critical_values', 'significance_level'])
+                                   columns=['trial', 'statistic', 'critical_values', 'significance_level'])
         else:
             for trial in trial_list:
                 for condition in condition_list:
-                    result = stats.anderson(trial[trial['Condition'] == condition]['PropOptimal'], dist=distribution)
+                    result = stats.anderson(trial[trial['Condition'] == condition][variable], dist=distribution)
                     results.append({'trial': trial['ChoiceSet'].iloc[0], 'condition': condition,
                                     'statistic': result.statistic, 'critical_values': result.critical_values,
                                     'significance_level': result.significance_level})
@@ -70,7 +70,7 @@ def normality_test(trial_list, method, condition_list=None, distribution='norm')
     elif method == 'shapiro':
         if condition_list is None:
             for trial in trial_list:
-                w, p = stats.shapiro(trial['PropOptimal'])
+                w, p = stats.shapiro(trial[variable])
                 results.append({'trial': trial['ChoiceSet'].iloc[0], 'statistic': w,
                                 'significance_level': p})
             results = pd.DataFrame(results,
@@ -78,7 +78,7 @@ def normality_test(trial_list, method, condition_list=None, distribution='norm')
         else:
             for trial in trial_list:
                 for condition in condition_list:
-                    w, p = stats.shapiro(trial[trial['Condition'] == condition]['PropOptimal'])
+                    w, p = stats.shapiro(trial[trial['Condition'] == condition][variable])
                     results.append({'trial': trial['ChoiceSet'].iloc[0], 'condition': condition,
                                     'statistic': w, 'significance_level': p})
             results = pd.DataFrame(results,
@@ -91,7 +91,7 @@ def normality_test(trial_list, method, condition_list=None, distribution='norm')
 
 def perform_gmm(data, n_components):
     # fit the model
-    gmm = GaussianMixture(n_components=n_components, means_init=[[0], [1]], random_state=0)
+    gmm = GaussianMixture(n_components=n_components, means_init=[[0], [1]], max_iter=10000, random_state=0)
     gmm.fit(data)
 
     # Getting the fitted parameters
@@ -134,7 +134,7 @@ def bimodal_test(trial_list, condition_list, n_components=2):
             results.append({'trial': trial['ChoiceSet'].iloc[0], 'weights_1': weights[0], 'weights_2': weights[1],
                             'means_1': means[0], 'means_2': means[1], 'covariances_1': covariances[0],
                             'covariances_2': covariances[1], 'aic': aic, 'bic': bic})
-        # Convert the list to a DataFrame
+            # Convert the list to a DataFrame
             results_df = pd.DataFrame(results, columns=['trial', 'weights_1', 'weights_2', 'means_1', 'means_2',
                                                         'covariances_1', 'covariances_2', 'aic', 'bic'])
     else:
@@ -150,7 +150,8 @@ def bimodal_test(trial_list, condition_list, n_components=2):
                                 'bic': bic})
 
         # Convert the list to a DataFrame
-        results_df = pd.DataFrame(results, columns=['trial', 'condition', 'weights_1', 'weights_2', 'means_1', 'means_2',
-                                                    'covariances_1', 'covariances_2', 'aic', 'bic'])
+        results_df = pd.DataFrame(results,
+                                  columns=['trial', 'condition', 'weights_1', 'weights_2', 'means_1', 'means_2',
+                                           'covariances_1', 'covariances_2', 'aic', 'bic'])
 
     return results_df
