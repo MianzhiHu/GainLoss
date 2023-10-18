@@ -1,13 +1,14 @@
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
+import matplotlib.pyplot as plt
 
 
 def log_likelihood(dat, mu1, mu2, sd1, sd2, ppi1, modality='bimodal',
                    mu3=None, sd3=None, ppi2=None, ppi3=None):
     if modality == 'trimodal':
         ll = np.sum(np.log((ppi1) * norm.pdf(dat, mu1, sd1) + ppi2 * norm.pdf(dat, mu2, sd2) +
-                             ppi3 * norm.pdf(dat, mu3, sd3)))
+                           ppi3 * norm.pdf(dat, mu3, sd3)))
 
         return ll
 
@@ -75,7 +76,6 @@ def initialize_parameters(data, size):
 
 def em_model(data, tolerance=0.0001, random_init=True, return_starting_params=False, modality='bimodal',
              mu1=None, mu2=None, mu3=None, sd1=None, sd2=None, sd3=None, ppi1=None, ppi2=None):
-
     # set global variables
     change = np.inf
 
@@ -88,14 +88,14 @@ def em_model(data, tolerance=0.0001, random_init=True, return_starting_params=Fa
 
             # randomly generate a starting ppi
             ppi1 = np.random.uniform(0.01, 1)
-            ppi2 = np.random.uniform(0.01, 1-ppi1)
+            ppi2 = np.random.uniform(0.01, 1 - ppi1)
             ppi3 = 1 - ppi1 - ppi2
 
             # record the starting parameters
             (starting_mu1, starting_mu2, starting_mu3, starting_sd1, starting_sd2,
              starting_sd3, starting_ppi1, starting_ppi2, starting_ppi3) = (mu1[0], mu2[0], mu3[0],
-                                                                          sd1[0], sd2[0], sd3[0],
-                                                                            ppi1, ppi2, ppi3)
+                                                                           sd1[0], sd2[0], sd3[0],
+                                                                           ppi1, ppi2, ppi3)
 
         else:
             # Starting parameter estimates
@@ -112,13 +112,12 @@ def em_model(data, tolerance=0.0001, random_init=True, return_starting_params=Fa
         oldppi3 = 0
 
         while change > tolerance:
-
             # E-Step
             resp1, resp2, resp3 = e_step(data, mu1, mu2, sd1, sd2, ppi1, modality='trimodal', mu3=mu3, sd3=sd3,
-                                            ppi2=ppi2, ppi3=ppi3)
+                                         ppi2=ppi2, ppi3=ppi3)
             # M-Step
             mu1, mu2, mu3, sd1, sd2, sd3, ppi1, ppi2, ppi3 = m_step(data, resp1, modality='trimodal', resp2=resp2,
-                                                                      resp3=resp3)
+                                                                    resp3=resp3)
 
             change1 = np.abs(ppi1 - oldppi1)
             change2 = np.abs(ppi2 - oldppi2)
@@ -173,7 +172,6 @@ def em_model(data, tolerance=0.0001, random_init=True, return_starting_params=Fa
         oldppi = 0
 
         while change > tolerance:
-
             # E-Step
             resp1 = e_step(data, mu1, mu2, sd1, sd2, ppi)
             # M-Step
@@ -227,3 +225,56 @@ def em_model(data, tolerance=0.0001, random_init=True, return_starting_params=Fa
 
         else:
             return mu1, mu2, sd1, sd2, ppi, ll, ll_null, aic, aic_null, bic, bic_null, R2
+
+
+def pdf_plot_generator(raw_data, result_df, modality="bimodal", bins=50, density=True, alpha=0.6, color='g',
+                       label="Data", x_label="Value", y_label="Density", title="EM Fitted Gaussian Mixture Model",
+                       legend=True):
+    plt.hist(raw_data, bins=bins, density=density, alpha=alpha, color=color, label=label)
+    x = np.linspace(min(raw_data), max(raw_data), 1000)
+
+    if modality == 'trimodal':
+        # Calculate the Gaussian distributions
+        pdf1 = norm.pdf(x, result_df['mu1'].mode(), result_df['sd1'].mode())
+        pdf2 = norm.pdf(x, result_df['mu2'].mode(), result_df['sd2'].mode())
+        pdf3 = norm.pdf(x, result_df['mu3'].mode(), result_df['sd3'].mode())
+
+        # Weight the pdfs by the mixing coefficients
+        ppi1 = result_df['ppi1'].mode()
+        ppi2 = result_df['ppi2'].mode()
+        ppi3 = result_df['ppi3'].mode()
+
+        weighted_pdf1 = ppi1.iloc[0] * pdf1
+        weighted_pdf2 = ppi2.iloc[0] * pdf2
+        weighted_pdf3 = ppi3.iloc[0] * pdf3
+
+        # Plot
+        plt.plot(x, weighted_pdf1, 'k', linewidth=2, label=f"Component 1: $\mu$={result_df['mu1'].mode().iloc[0]:.2f}, "
+                                                           f"$\sigma$={result_df['sd1'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf2, 'r', linewidth=2, label=f"Component 2: $\mu$={result_df['mu2'].mode().iloc[0]:.2f}, "
+                                                           f"$\sigma$={result_df['sd2'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf3, 'b', linewidth=2, label=f"Component 3: $\mu$={result_df['mu3'].mode().iloc[0]:.2f}, "
+                                                           f"$\sigma$={result_df['sd3'].mode().iloc[0]:.2f}")
+
+    else:
+        # Calculate the Gaussian distributions
+        pdf1 = norm.pdf(x, result_df['mu1'].mode(), result_df['sd1'].mode())
+        pdf2 = norm.pdf(x, result_df['mu2'].mode(), result_df['sd2'].mode())
+
+        # Weight the pdfs by the mixing coefficients
+        ppi = result_df['ppi'].mode().iloc[0]
+        weighted_pdf1 = (1 - ppi) * pdf1
+        weighted_pdf2 = ppi * pdf2
+
+        # Plot
+        plt.plot(x, weighted_pdf1, 'k', linewidth=2, label=f"Component 1: $\mu$={result_df['mu1'].mode().iloc[0]:.2f}, "
+                                                           f"$\sigma$={result_df['sd1'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf2, 'r', linewidth=2, label=f"Component 2: $\mu$={result_df['mu2'].mode().iloc[0]:.2f}, "
+                                                           f"$\sigma$={result_df['sd2'].mode().iloc[0]:.2f}")
+
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    if legend:
+        plt.legend()
+    plt.show()
