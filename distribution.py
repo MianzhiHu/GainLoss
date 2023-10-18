@@ -131,7 +131,8 @@ for condition in condition_list:
 #         rmse = np.sqrt(np.mean((trial[trial['Condition'] == condition]['PropOptimal'] - ev) ** 2))
 #
 #         # calculate the R2
-#         TSS = np.sum((trial[trial['Condition'] == condition]['PropOptimal'] - trial[trial['Condition'] == condition]['PropOptimal'].mean()) ** 2)
+#         TSS = np.sum((trial[trial['Condition'] == condition]['PropOptimal'] -
+#                       trial[trial['Condition'] == condition]['PropOptimal'].mean()) ** 2)
 #         print(TSS)
 #         RSS = np.sum((trial[trial['Condition'] == condition]['PropOptimal'] - ev) ** 2)
 #         print(RSS)
@@ -142,8 +143,6 @@ for condition in condition_list:
 #              'D': kstest.statistic, 'p-value': kstest.pvalue, 'RMSE': rmse, 'R2': R2})
 #
 # beta_results = pd.DataFrame(beta_results, columns=['trial', 'condition', 'a', 'b', 'D', 'p-value', 'RMSE', 'R2'])
-
-
 
 
 # # Fitting a Gaussian Mixture Model with 2 components (bimodal) to the data
