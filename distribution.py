@@ -8,9 +8,7 @@ from utilities.utility_tests import normality_test, bimodal_test
 
 # Read in the data
 data = pd.read_csv('./data/data.csv')
-
-# remove the outlier trials (RT > 10s)
-data = data[data['RT'] < 10000]
+data_with_assignment = pd.read_csv('./data/data_with_assignment.csv')
 
 # Subset the data
 ABoptimal = data[data['ChoiceSet'] == 'AB']
@@ -19,6 +17,11 @@ CAoptimal = data[data['ChoiceSet'] == 'CA']
 BDoptimal = data[data['ChoiceSet'] == 'BD']
 CBoptimal = data[data['ChoiceSet'] == 'CB']
 ADoptimal = data[data['ChoiceSet'] == 'AD']
+
+CAoptimal_with_assignment = data_with_assignment[data_with_assignment['ChoiceSet'] == 'CA']
+CA_group1 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 1]
+CA_group2 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 2]
+CA_group3 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 3]
 
 # set list of trials and conditions
 trial_list = [ABoptimal, CDoptimal, CAoptimal, BDoptimal, CBoptimal, ADoptimal]
@@ -31,9 +34,10 @@ condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
 # sns.displot(data=data, x='RT', hue='ChoiceSet', kind='kde')
 # plt.show()
 
-# # Plot the distribution of PropOptimal for each trial with histogram in facets
-# sns.displot(data=ABoptimal, x='PropOptimal', col='Condition', kind='hist')
-# plt.show()
+# Plot the distribution of PropOptimal for each trial with histogram in facets
+sns.displot(data=CA_group1, x='PropOptimal', col='Condition', kind='kde')
+plt.gca().set_xlim([0, 1])
+plt.show()
 
 # # Plot a Q-Q plot for the distribution of PropOptimal for each trial
 # stats.probplot(ABoptimal['PropOptimal'], plot=plt)
@@ -42,28 +46,42 @@ condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
 # # Plot the distribution of PropOptimal for each trial
 # fig, axes = plt.subplots(3, 2, figsize=(15, 10))
 #
-# # Subset the data based on ChoiceSet values
-# trial_data = {
-#     'AB': data[data['ChoiceSet'] == 'AB'],
-#     'CD': data[data['ChoiceSet'] == 'CD'],
-#     'CA': data[data['ChoiceSet'] == 'CA'],
-#     'BD': data[data['ChoiceSet'] == 'BD'],
-#     'CB': data[data['ChoiceSet'] == 'CB'],
-#     'AD': data[data['ChoiceSet'] == 'AD']
-# }
+# Subset the data based on ChoiceSet values
+trial_data = {
+    'AB': data[data['ChoiceSet'] == 'AB'],
+    'CD': data[data['ChoiceSet'] == 'CD'],
+    'CA': data[data['ChoiceSet'] == 'CA'],
+    'BD': data[data['ChoiceSet'] == 'BD'],
+    'CB': data[data['ChoiceSet'] == 'CB'],
+    'AD': data[data['ChoiceSet'] == 'AD']
+}
 
-# # Create a 3x2 grid of plots
-# fig, axes = plt.subplots(3, 2, figsize=(10, 18))
-#
-# # Loop through each subset of data and plot
-# for i, (name, trial) in enumerate(trial_data.items()):
-#     sns.kdeplot(data=trial, x='RT', hue='Condition', ax=axes[i // 2, i % 2])
-#     axes[i // 2, i % 2].set_title(name)
-#     # axes[i // 2, i % 2].set_xlim(0, 1)  # Ensuring all plots have the same x-axis limit
-#
-# # Adjust the layout for a neat look
-# plt.tight_layout()
-# plt.show()
+group_data = {
+    'CA_group1': CA_group1,
+    'CA_group2': CA_group2,
+    'CA_group3': CA_group3
+}
+
+condition_order = ['Gains', 'GainsEF', 'Losses', 'LossesEF']
+
+# Create a 3x2 grid of plots
+fig, axes = plt.subplots(3, 2, figsize=(10, 18))
+
+# Loop through each subset of data and plot
+for i, (name, trial) in enumerate(group_data.items()):
+    sns.kdeplot(data=trial, x='PropOptimal', hue='Condition', ax=axes[i // 2, i % 2],
+                hue_order=condition_order)
+    axes[i // 2, i % 2].set_title(name)
+
+    # Set only the left boundary of x-axis
+    current_xlim = axes[i // 2, i % 2].get_xlim()
+    axes[i // 2, i % 2].set_xlim(0, current_xlim[1])  # 0 is the new left boundary
+
+    # axes[i // 2, i % 2].set_xlim(0.75, 1)  # Ensuring all plots have the same x-axis limit
+
+# Adjust the layout for a neat look
+plt.tight_layout()
+plt.show()
 
 # first, test the normality of the distribution for each trial overall
 # normal distribution failed (except for AB at the 1% level)

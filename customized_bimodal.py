@@ -15,6 +15,7 @@ E3 = pd.read_csv('./data/PropOptimal_E3.csv')
 
 # Read in the results if necessary
 trimodal_CA = pd.read_csv('./data/trimodal_CA.csv')
+trimodal_BD = pd.read_csv('./data/trimodal_BD.csv')
 
 # combine E1 and E2 so that we have enough data points
 E_F = pd.concat([E1, E2], ignore_index=True)
@@ -62,7 +63,7 @@ n_iter = 10000
 # for i in range(n_iter):
 #     print(i)
 #     mu1, mu2, mu3, sd1, sd2, sd3, ppi1, ppi2, ppi3, ll, ll_null, aic, aic_null, bic, bic_null, R2\
-#         = em_model(CAoptimal, tolerance=1e-10, random_init=True, modality='trimodal')
+#         = em_model(BDoptimal, tolerance=1e-10, random_init=True, modality='trimodal')
 #
 #     result_tri.append([mu1, mu2, mu3, sd1, sd2, sd3, ppi1, ppi2, ppi3, ll, ll_null, aic, aic_null, bic, bic_null, R2])
 #
@@ -82,9 +83,10 @@ n_iter = 10000
 # likelihood_ratio_test(result_tri, 6)
 
 # # save the result to a csv file
-# result_tri.to_csv('./data/trimodal_CA.csv', index=False)
+# result_tri.to_csv('./data/trimodal_BD.csv', index=False)
 
-# now generate gamma probability and assign participants to each group
-assignments_CA = group_assignment(CAoptimal, trimodal_CA, 'trimodal')
+# # now generate gamma probability and assign participants to each group
+# assignments_CA = group_assignment(CAoptimal, trimodal_BD, 'trimodal')
+# assignments_BD = group_assignment(BDoptimal, trimodal_BD, 'trimodal')
 # assignments_CA.to_csv('./data/trimodal_assignments_CA.csv', index=False)
 

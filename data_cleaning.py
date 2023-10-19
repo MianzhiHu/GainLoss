@@ -24,5 +24,12 @@ data = data[data['RT'] < 10000]
 data.loc[data['PropOptimal'] == 1, 'PropOptimal'] = 0.9999
 data.loc[data['PropOptimal'] == 0, 'PropOptimal'] = 0.0001
 
+# in data, if the participants don't have all 6 trials, we need to remove them
+data = data.groupby('Subnum').filter(lambda x: len(x) == 6)
+
+# reindex the subnum
+data = data.reset_index(drop=True)
+data.iloc[:, 0] = (data.index // 6) + 1
+
 # save the data
 data.to_csv('./data/data.csv', index=False)

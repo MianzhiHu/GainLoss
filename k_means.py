@@ -9,22 +9,23 @@ import scipy.stats as stats
 # Read in the data
 data = pd.read_csv('./data/data.csv')
 CAoptimal = data[data['ChoiceSet'] == 'CA']['PropOptimal'].to_numpy().reshape(-1, 1)
+BDoptimal = data[data['ChoiceSet'] == 'BD']['PropOptimal'].to_numpy().reshape(-1, 1)
 trimodal_assignments_CA = pd.read_csv('./data/trimodal_assignments_CA.csv')['assignments'].to_numpy()
 
-# # first, we need to find the optimal number of clusters
-# # as expected, the optimal number of clusters is 3
-#
+# first, we need to find the optimal number of clusters
+# as expected, the optimal number of clusters is 3 for both CA and BD
+
 # # we first examine the elbow method and silhouette scores
 # WCSS = []  # Within-Cluster Sum of Squares
 # silhouette_scores = []
 #
 # # Evaluate k-means for k from 1 to 10
 # for k in range(1, 11):
-#     kmeans = KMeans(n_clusters=k, n_init='auto', tol=1e-10, random_state=42).fit(CAoptimal)
+#     kmeans = KMeans(n_clusters=k, n_init='auto', tol=1e-10, random_state=42).fit(BDoptimal)
 #     WCSS.append(kmeans.inertia_)
 #
 #     if k > 1:
-#         silhouette_scores.append(silhouette_score(CAoptimal, kmeans.labels_))
+#         silhouette_scores.append(silhouette_score(BDoptimal, kmeans.labels_))
 #
 # # visualize the results
 # plt.figure(figsize=(12, 6))
@@ -45,35 +46,49 @@ trimodal_assignments_CA = pd.read_csv('./data/trimodal_assignments_CA.csv')['ass
 # plt.show()
 #
 # # use the gap statistic proposed by Tibshirani et al. (2001)
-# optimal_k, gaps, sks = gap_statistic(CAoptimal, max_clusters=10, tol=1e-10)
+# optimal_k, gaps, sks = gap_statistic(BDoptimal, max_clusters=10, tol=1e-10)
 # print(f"Optimal number of clusters based on Gap statistic: {optimal_k}")
 
 
 # now we know the optimal number of clusters is 3, we can fit the model
-kmeans = KMeans(n_clusters=3, n_init='auto', tol=1e-10, random_state=42).fit(CAoptimal)
+kmeans_CA = KMeans(n_clusters=3, n_init='auto', tol=1e-10, random_state=42).fit(CAoptimal)
+kmeans_BD = KMeans(n_clusters=3, n_init='auto', tol=1e-10, random_state=42).fit(BDoptimal)
 
 # compare the labels with the results from the EM algorithm
-kmean_labels = kmeans.labels_ + 1
-print(kmeans.cluster_centers_)
-print(kmeans.inertia_)
+kmean_labels_CA = kmeans_CA.labels_ + 1
+kmean_labels_BD = kmeans_BD.labels_ + 1
+
+# print(kmeans_BD.cluster_centers_)
+# print(kmeans_CA.inertia_)
 
 # we can see that group 2 and 3 are switched
 # we can switch them back
-kmean_labels[kmean_labels == 2], kmean_labels[kmean_labels == 3] = -1, 2  # temporarily set group 2 to -1
-kmean_labels[kmean_labels == -1] = 3  # set group -1 to 3
+kmean_labels_CA[kmean_labels_CA == 2], kmean_labels_CA[kmean_labels_CA == 3] = -1, 2  # temporarily set group 2 to -1
+kmean_labels_CA[kmean_labels_CA == -1] = 3  # set group -1 to 3
+
+# switch for BD
+kmean_labels_BD[kmean_labels_BD == 1] = -1
+kmean_labels_BD[kmean_labels_BD == 2] = 1
+kmean_labels_BD[kmean_labels_BD == 3] = 2
+kmean_labels_BD[kmean_labels_BD == -1] = 3
 
 # combine into a dataframe
 # we can see that the conclusion is generally the same, albeit some minor differences (22%)
-kmean_results = pd.DataFrame({'PropOptimal': CAoptimal.flatten(), 'trimodal_assignments': trimodal_assignments_CA,
-                                'kmean_labels': kmean_labels})
+kmean_results = pd.DataFrame({'CAOptimal': CAoptimal.flatten(), 'trimodal_assignments': trimodal_assignments_CA,
+                                'kmean_labels_CA': kmean_labels_CA, 'BDOptimal': BDoptimal.flatten(), 'kmean_labels_BD': kmean_labels_BD})
 
-divergence = np.sum(kmean_results['trimodal_assignments'] != kmean_results['kmean_labels']) / len(kmean_results)
+divergence = np.sum(kmean_results['kmean_labels_CA'] != kmean_results['kmean_labels_BD']) / len(kmean_results)
 print(f"Proportion of divergent results: {divergence}")
+
+# check the percentage of each group
+print(kmean_results['kmean_labels_CA'].value_counts() / len(kmean_results))
+print(kmean_results['kmean_labels_BD'].value_counts() / len(kmean_results))
+print(kmean_results['trimodal_assignments'].value_counts() / len(kmean_results))
 
 # # conduct a permutation test on ari to see if the difference is significant
 # # ari = 0.411, p-value = 0.000, with 100k permutations
-# observed_ari, p_value, permuted_results = permutation_test_ari(kmean_results['trimodal_assignments'],
-#                                                                kmean_results['kmean_labels'])
+# observed_ari, p_value, permuted_results = permutation_test_ari(kmean_results['kmean_labels_CA'],
+#                                                                kmean_results['kmean_labels_BD'])
 #
 # print(f"Observed ARI: {observed_ari}")
 # print(f"P-value: {p_value}")

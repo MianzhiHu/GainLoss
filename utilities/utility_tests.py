@@ -5,12 +5,16 @@ from sklearn.mixture import GaussianMixture
 import matplotlib.pyplot as plt
 
 
-def correlation_test(df, trial, condition, variable_of_interest, checker=False, sig_only=False):
+def correlation_test(df, trial, variable_of_interest, condition=None, checker=False, sig_only=False):
     # Preallocate a list to store the results
     results = []
 
-    # separate by trial and condition
-    df = df[(df['ChoiceSet'] == trial) & (df['Condition'] == condition)]
+    if condition is None:
+        # separate by trial
+        df = df[df['ChoiceSet'] == trial]
+    else:
+        # separate by trial and condition
+        df = df[(df['ChoiceSet'] == trial) & (df['Condition'] == condition)]
 
     # Loop through the personality scales
     for scale in df.columns[4:20]:
