@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+from sklearn.metrics import adjusted_rand_score
 
 
 def wcss(X, labels):
@@ -43,3 +44,24 @@ def gap_statistic(X, max_clusters, b=1000, tol=1e-4):
             break
 
     return optimal_k, gaps, sks
+
+
+def permutation_test_ari(labels_method_1, labels_method_2, n_permutations=100000):
+    # Compute observed ARI
+    observed_ari = adjusted_rand_score(labels_method_1, labels_method_2)
+
+    permuted_aris = []
+    count_greater = 0
+    for _ in range(n_permutations):
+        print(_)
+        # Shuffle labels from one method
+        permuted_labels = np.random.permutation(labels_method_1)
+        # Compute ARI with permuted labels and second method
+        permuted_ari = adjusted_rand_score(permuted_labels, labels_method_2)
+        permuted_aris.append(permuted_ari)
+
+        if permuted_ari >= observed_ari:
+            count_greater += 1
+
+    p_value = count_greater / n_permutations
+    return observed_ari, p_value, permuted_aris

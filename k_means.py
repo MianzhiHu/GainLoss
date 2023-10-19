@@ -2,8 +2,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-from utilities.utility_k_means import gap_statistic
+from sklearn.metrics import silhouette_score, adjusted_rand_score
+from utilities.utility_k_means import gap_statistic, permutation_test_ari
+import scipy.stats as stats
 
 # Read in the data
 data = pd.read_csv('./data/data.csv')
@@ -69,8 +70,13 @@ kmean_results = pd.DataFrame({'PropOptimal': CAoptimal.flatten(), 'trimodal_assi
 divergence = np.sum(kmean_results['trimodal_assignments'] != kmean_results['kmean_labels']) / len(kmean_results)
 print(f"Proportion of divergent results: {divergence}")
 
-
-
+# # conduct a permutation test on ari to see if the difference is significant
+# # ari = 0.411, p-value = 0.000, with 100k permutations
+# observed_ari, p_value, permuted_results = permutation_test_ari(kmean_results['trimodal_assignments'],
+#                                                                kmean_results['kmean_labels'])
+#
+# print(f"Observed ARI: {observed_ari}")
+# print(f"P-value: {p_value}")
 
 
 
