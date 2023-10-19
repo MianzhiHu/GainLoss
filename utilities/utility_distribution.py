@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from scipy.stats import norm
+from scipy.stats import norm, chi2
 import matplotlib.pyplot as plt
 
 
@@ -278,3 +278,90 @@ def pdf_plot_generator(raw_data, result_df, modality="bimodal", bins=50, density
     if legend:
         plt.legend()
     plt.show()
+
+
+def likelihood_ratio_test(result_df, df, result_df_null=None):
+    # if we are comparing two the target model with a simple normal distribution
+    if result_df_null is None:
+        # get the log likelihood of the target model
+        ll = result_df['ll'].mode().iloc[0]
+
+        ll_null = result_df['ll_null'].mode().iloc[0]
+
+    # if we are comparing two target models
+    else:
+        # get the log likelihood of the target model
+        ll = result_df['ll'].mode().iloc[0]
+
+        ll_null = result_df_null['ll'].mode().iloc[0]
+
+    # calculate the likelihood ratio test
+    lr = -2 * (ll_null - ll)
+
+    # calculate the p-value
+    p_value = chi2.sf(lr, df)
+
+    return p_value
+
+
+def parameter_extractor(df, modality='bimodal'):
+    if modality == 'trimodal':
+        mu1 = df['mu1'].mode().iloc[0]
+        mu2 = df['mu2'].mode().iloc[0]
+        mu3 = df['mu3'].mode().iloc[0]
+        sd1 = df['sd1'].mode().iloc[0]
+        sd2 = df['sd2'].mode().iloc[0]
+        sd3 = df['sd3'].mode().iloc[0]
+        ppi1 = df['ppi1'].mode().iloc[0]
+        ppi2 = df['ppi2'].mode().iloc[0]
+        ppi3 = df['ppi3'].mode().iloc[0]
+
+        return mu1, mu2, mu3, sd1, sd2, sd3, ppi1, ppi2, ppi3
+
+    else:
+        mu1 = df['mu1'].mode().iloc[0]
+        mu2 = df['mu2'].mode().iloc[0]
+        sd1 = df['sd1'].mode().iloc[0]
+        sd2 = df['sd2'].mode().iloc[0]
+        ppi = df['ppi'].mode().iloc[0]
+
+        return mu1, mu2, sd1, sd2, ppi
+
+
+def group_assignment(df, result_df, modality='bimodal'):
+    if modality == 'trimodal':
+        # extract the parameters from the result
+        mu1, mu2, mu3, sd1, sd2, sd3, ppi1, ppi2, ppi3 = (
+            parameter_extractor(result_df, 'trimodal'))
+
+        # generate the probability density function
+        prob1 = ppi1 * norm.pdf(df, mu1, sd1)
+        prob2 = ppi2 * norm.pdf(df, mu2, sd2)
+        prob3 = ppi3 * norm.pdf(df, mu3, sd3)
+
+        # assign participants to each group
+        assignments = np.argmax(np.vstack([prob1, prob2, prob3]), axis=0) + 1
+
+        # combine the prob and assignments into a dataframe
+        prob_df = pd.DataFrame(np.vstack([prob1, prob2, prob3]).T, columns=['prob1', 'prob2', 'prob3'])
+        prob_df['assignments'] = assignments
+
+        return prob_df
+
+    else:
+        # extract the parameters from the result
+        mu1, mu2, sd1, sd2, ppi = (
+            parameter_extractor(df, 'bimodal'))
+
+        # generate the probability density function
+        prob1 = (1 - ppi) * norm.pdf(df, mu1, sd1)
+        prob2 = ppi * norm.pdf(df, mu2, sd2)
+
+        # assign participants to each group
+        assignments = np.argmax(np.vstack([prob1, prob2]), axis=0) + 1
+
+        # combine the prob and assignments into a dataframe
+        prob_df = pd.DataFrame(np.vstack([prob1, prob2]).T, columns=['prob1', 'prob2'])
+        prob_df['assignments'] = assignments
+
+        return prob_df
