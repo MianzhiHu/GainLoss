@@ -69,6 +69,11 @@ CA_prob1 = correlation_test(data, 'CA', 'prob1', condition='Gains', sig_only=Tru
 #     print(stats.f_oneway(group1[scale], group2[scale], group3[scale]))
 #     print('')
 #
+# for scale in data.columns[4:20]:
+#     print(scale)
+#     print(stats.ttest_ind(group3[scale], group2[scale], equal_var=False))
+#     print('')
+#
 #
 # data_to_be_plotted = [group1['Big5E'].mean(),
 #                       group2['Big5E'].mean(),
