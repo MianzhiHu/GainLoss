@@ -80,7 +80,7 @@ n_iter = 10000
 #
 # pdf_plot_generator(BDoptimal, result_tri, 'trimodal')
 #
-# likelihood_ratio_test(result_tri, 6)
+# likelihood_ratio_test(trimodal_CA, 6)
 
 # # save the result to a csv file
 # result_tri.to_csv('./data/trimodal_BD.csv', index=False)
@@ -90,3 +90,4 @@ n_iter = 10000
 # assignments_BD = group_assignment(BDoptimal, trimodal_BD, 'trimodal')
 # assignments_CA.to_csv('./data/trimodal_assignments_CA.csv', index=False)
 
+# print(trimodal_CA['mu1'].value_counts())

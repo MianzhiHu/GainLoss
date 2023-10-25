@@ -59,28 +59,28 @@ for probability in probability_list:
 CA_prob1_all = correlation_test(data, 'CA', 'prob1', sig_only=True)
 CA_prob1 = correlation_test(data, 'CA', 'prob1', condition='Gains', sig_only=True)
 
-# # do some t-tests
-# group1 = data[data['assignments'] == 1]
-# group2 = data[data['assignments'] == 2]
-# group3 = data[data['assignments'] == 3]
-#
-# for scale in data.columns[4:20]:
-#     print(scale)
-#     print(stats.f_oneway(group1[scale], group2[scale], group3[scale]))
-#     print('')
-#
-# for scale in data.columns[4:20]:
-#     print(scale)
-#     print(stats.ttest_ind(group3[scale], group2[scale], equal_var=False))
-#     print('')
-#
-#
-# data_to_be_plotted = [group1['Big5E'].mean(),
-#                       group2['Big5E'].mean(),
-#                       group3['Big5E'].mean()]
-# labels = ['Group 1', 'Group 2', 'Group 3']
-#
-# plt.bar(labels, data_to_be_plotted)
-# plt.ylabel('Mean Bis11Score')
-# plt.show()
+# do some t-tests
+group1 = data[data['assignments'] == 1]
+group2 = data[data['assignments'] == 2]
+group3 = data[data['assignments'] == 3]
+
+for scale in data.columns[4:20]:
+    print(scale)
+    print(stats.f_oneway(group1[scale], group2[scale], group3[scale]))
+    print('')
+
+for scale in data.columns[4:20]:
+    print(scale)
+    print(stats.ttest_ind(group3[scale], group2[scale], equal_var=False))
+    print('')
+
+
+data_to_be_plotted = [group1['ESIBF_SubstanceUse'].mean(),
+                      group2['ESIBF_SubstanceUse'].mean(),
+                      group3['ESIBF_SubstanceUse'].mean()]
+labels = ['Good Learner', 'Average Learner', 'Bad Learner']
+
+plt.bar(labels, data_to_be_plotted)
+plt.ylabel('Mean Substance Use Score')
+plt.show()
 

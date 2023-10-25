@@ -23,6 +23,8 @@ CA_group1 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] =
 CA_group2 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 2]
 CA_group3 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 3]
 
+CA_groups = [CA_group1, CA_group2, CA_group3]
+
 # set list of trials and conditions
 trial_list = [ABoptimal, CDoptimal, CAoptimal, BDoptimal, CBoptimal, ADoptimal]
 condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
@@ -34,10 +36,10 @@ condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
 # sns.displot(data=data, x='RT', hue='ChoiceSet', kind='kde')
 # plt.show()
 
-# Plot the distribution of PropOptimal for each trial with histogram in facets
-sns.displot(data=CA_group1, x='PropOptimal', col='Condition', kind='kde')
-plt.gca().set_xlim([0, 1])
-plt.show()
+# # Plot the distribution of PropOptimal for each trial with histogram in facets
+# sns.displot(data=CA_group1, x='PropOptimal', col='Condition', kind='kde')
+# plt.gca().set_xlim([0, 1])
+# plt.show()
 
 # # Plot a Q-Q plot for the distribution of PropOptimal for each trial
 # stats.probplot(ABoptimal['PropOptimal'], plot=plt)
@@ -57,31 +59,63 @@ trial_data = {
 }
 
 group_data = {
-    'CA_group1': CA_group1,
-    'CA_group2': CA_group2,
-    'CA_group3': CA_group3
+    'Good Learners': CA_group1,
+    'Average Learners': CA_group2,
+    'Bad Learners': CA_group3
 }
 
 condition_order = ['Gains', 'GainsEF', 'Losses', 'LossesEF']
 
-# Create a 3x2 grid of plots
-fig, axes = plt.subplots(3, 2, figsize=(10, 18))
+# # Create a 3x2 grid of plots
+# fig, axes = plt.subplots(3, 2, figsize=(10, 18))
+#
+# # Loop through each subset of data and plot
+# for i, (name, trial) in enumerate(trial_data.items()):
+#     sns.kdeplot(data=trial, x='PropOptimal', hue='Condition', ax=axes[i // 2, i % 2],
+#                 hue_order=condition_order)
+#     axes[i // 2, i % 2].set_title(name)
+#
+#     # Set only the left boundary of x-axis
+#     current_xlim = axes[i // 2, i % 2].get_xlim()
+#     axes[i // 2, i % 2].set_xlim(0, current_xlim[1])  # 0 is the new left boundary
+#
+#     # axes[i // 2, i % 2].set_xlim(0.75, 1)  # Ensuring all plots have the same x-axis limit
+#
+# # Adjust the layout for a neat look
+# plt.tight_layout()
+# plt.show()
 
-# Loop through each subset of data and plot
-for i, (name, trial) in enumerate(group_data.items()):
-    sns.kdeplot(data=trial, x='PropOptimal', hue='Condition', ax=axes[i // 2, i % 2],
-                hue_order=condition_order)
-    axes[i // 2, i % 2].set_title(name)
+# create plots individually
+ax = sns.kdeplot(data=CA_group1, x='PropOptimal', hue='Condition', hue_order=condition_order)
 
-    # Set only the left boundary of x-axis
-    current_xlim = axes[i // 2, i % 2].get_xlim()
-    axes[i // 2, i % 2].set_xlim(0, current_xlim[1])  # 0 is the new left boundary
+# Loop over each line to find the mode and draw a vertical line
+lines = ax.get_lines()
+for line in lines:
+    x, y = line.get_data()
+    mode = x[np.argmax(y)]
+    color = line.get_color()  # match the color of the KDE line
+    plt.axvline(mode, color=color, linestyle='--')
 
-    # axes[i // 2, i % 2].set_xlim(0.75, 1)  # Ensuring all plots have the same x-axis limit
-
-# Adjust the layout for a neat look
+plt.gca().set_xlim([0.75, 1])
+plt.title('Good Learners')
 plt.tight_layout()
-plt.show()
+plt.show(dpi=600)
+
+# fit the normal distribution individually
+# preallocate a list to store the results
+normal_results = []
+
+for groups in CA_groups:
+    for condition in condition_list:
+        result = stats.norm.fit(groups[groups['Condition'] == condition]['PropOptimal'])
+
+        normal_results.append(
+            {'condition': condition, 'group': groups['assignments'].iloc[0], 'mean': result[0], 'sd': result[1]})
+
+normal_results = pd.DataFrame(normal_results, columns=['condition', 'group', 'mean', 'sd'])
+
+
+
 
 # first, test the normality of the distribution for each trial overall
 # normal distribution failed (except for AB at the 1% level)

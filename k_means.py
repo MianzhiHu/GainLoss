@@ -21,11 +21,11 @@ trimodal_assignments_CA = pd.read_csv('./data/trimodal_assignments_CA.csv')['ass
 #
 # # Evaluate k-means for k from 1 to 10
 # for k in range(1, 11):
-#     kmeans = KMeans(n_clusters=k, n_init='auto', tol=1e-10, random_state=42).fit(BDoptimal)
+#     kmeans = KMeans(n_clusters=k, n_init='auto', tol=1e-10, random_state=42).fit(CAoptimal)
 #     WCSS.append(kmeans.inertia_)
 #
 #     if k > 1:
-#         silhouette_scores.append(silhouette_score(BDoptimal, kmeans.labels_))
+#         silhouette_scores.append(silhouette_score(CAoptimal, kmeans.labels_))
 #
 # # visualize the results
 # plt.figure(figsize=(12, 6))
@@ -46,8 +46,17 @@ trimodal_assignments_CA = pd.read_csv('./data/trimodal_assignments_CA.csv')['ass
 # plt.show()
 #
 # # use the gap statistic proposed by Tibshirani et al. (2001)
-# optimal_k, gaps, sks = gap_statistic(BDoptimal, max_clusters=10, tol=1e-10)
+# optimal_k, gaps, sks = gap_statistic(CAoptimal, max_clusters=10, tol=1e-10)
 # print(f"Optimal number of clusters based on Gap statistic: {optimal_k}")
+#
+# # visualize the gap statistic
+# plt.plot(range(1, 11), gaps, marker='o', linestyle='--')
+# plt.title('Gap Statistic')
+# plt.xlabel('Number of clusters')
+# plt.ylabel('Gap')
+#
+# plt.tight_layout()
+# plt.show()
 
 
 # now we know the optimal number of clusters is 3, we can fit the model
@@ -58,8 +67,8 @@ kmeans_BD = KMeans(n_clusters=3, n_init='auto', tol=1e-10, random_state=42).fit(
 kmean_labels_CA = kmeans_CA.labels_ + 1
 kmean_labels_BD = kmeans_BD.labels_ + 1
 
-# print(kmeans_BD.cluster_centers_)
-# print(kmeans_CA.inertia_)
+print(kmeans_BD.cluster_centers_)
+print(kmeans_CA.inertia_)
 
 # we can see that group 2 and 3 are switched
 # we can switch them back
@@ -77,7 +86,7 @@ kmean_labels_BD[kmean_labels_BD == -1] = 3
 kmean_results = pd.DataFrame({'CAOptimal': CAoptimal.flatten(), 'trimodal_assignments': trimodal_assignments_CA,
                                 'kmean_labels_CA': kmean_labels_CA, 'BDOptimal': BDoptimal.flatten(), 'kmean_labels_BD': kmean_labels_BD})
 
-divergence = np.sum(kmean_results['kmean_labels_CA'] != kmean_results['kmean_labels_BD']) / len(kmean_results)
+divergence = np.sum(kmean_results['kmean_labels_CA'] != kmean_results['trimodal_assignments']) / len(kmean_results)
 print(f"Proportion of divergent results: {divergence}")
 
 # check the percentage of each group
