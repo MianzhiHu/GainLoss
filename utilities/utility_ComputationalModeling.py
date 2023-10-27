@@ -7,10 +7,13 @@ from scipy.stats import chi2
 class ComputationalModels:
     def __init__(self, reward_means, reward_sd, model_type, condition="Gains"):
         """
-        Initialize the DecayModel.
+        Initialize the Model.
 
         Parameters:
-        - num_options: Number of possible choices.
+        - reward_means: List of mean rewards for each option.
+        - reward_sd: List of standard deviations for each option.
+        - model_type: Type of the model.
+        - condition: Condition of the model.
         """
         self.num_options = 4
         self.choices_count = np.zeros(self.num_options)
@@ -147,7 +150,6 @@ class ComputationalModels:
         - reward: List or array of observed rewards.
         - choiceset: List or array of available choicesets for each trial.
         - choice: List or array of chosen options for each trial.
-        - trial_numbers: List or array of trial numbers.
         """
         if self.model_type in ('decay', 'delta'):
             self.t = params[0]
@@ -184,10 +186,10 @@ class ComputationalModels:
         Fit the model to the provided data.
 
         Parameters:
-        - reward: List or array of observed rewards.
-        - choiceset: List or array of available choicesets for each trial.
-        - choice: List or array of chosen options for each trial.
-        - trial_numbers: List or array of trial numbers.
+        - data: Dictionary of data for each participant.
+        - num_iterations: Number of times to repeat the fitting.
+        - beta_lower: Lower bound for the beta parameter.
+        - beta_upper: Upper bound for the beta parameter.
         """
 
         all_results = []

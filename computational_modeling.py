@@ -29,7 +29,7 @@ for subnum, group in uncertainty_grouped:
 #                                                  model_type='decay_fre', condition='Gains')
 # uncertainty_results_decayfre = uncertainty_model_decayfre.fit(uncertainty_dict, num_iterations=1000)
 
-# likelihood_ratio_test(results_decay, results_decayfre, df=1)A
+# likelihood_ratio_test(results_decay, results_decayfre, df=1)
 
 
 # # simulation starts here
