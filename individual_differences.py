@@ -14,6 +14,16 @@ trimodal_CA['Subnum'] = trimodal_CA.index + 1
 data = pd.merge(data, trimodal_CA, on='Subnum')
 # data.to_csv('./data/data_with_assignment.csv', index=False)
 
+# explore the basic rate of optimal choices
+# visualize as four conditions and six trials
+subset = data[data['ChoiceSet'] == "CA"]
+aggregated = subset.groupby('Condition')['PropOptimal'].mean().reset_index()
+
+plt.bar(aggregated['Condition'], aggregated['PropOptimal'])
+plt.ylabel('Proportion of Optimal Choices')
+plt.ylim(0, 1)
+plt.show()
+
 
 # # test all the correlations
 #
