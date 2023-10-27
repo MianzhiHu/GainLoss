@@ -89,8 +89,8 @@ class ComputationalModels:
 
             print(f"Iteration {iteration + 1} of {num_iterations}")
 
-            self.a = np.random.uniform()  # Randomly set decay parameter between 0 and 1
             self.t = np.random.uniform(0, 5)
+            self.a = np.random.uniform()  # Randomly set decay parameter between 0 and 1
             self.b = np.random.uniform(beta_lower, beta_upper)
             self.choices_count = np.zeros(self.num_options)
 
@@ -129,9 +129,9 @@ class ComputationalModels:
             all_results.append({
                 "simulation_num": iteration + 1,
                 "trial_indices": trial_indices,
+                "t": self.t,
                 "a": self.a,
                 "b": self.b,
-                "t": self.t,
                 "trial_details": trial_details,
                 "EV_history": EV_history
             })

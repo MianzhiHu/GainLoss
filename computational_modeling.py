@@ -24,18 +24,19 @@ for subnum, group in uncertainty_grouped:
         'choice': group['KeyResponse'].tolist(),
     }
 
-# fit the data
-uncertainty_model_decayfre = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
-                                                 model_type='decay_fre', condition='Gains')
-uncertainty_results_decayfre = uncertainty_model_decayfre.fit(uncertainty_dict, num_iterations=1000)
+# # fit the data
+# uncertainty_model_decayfre = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
+#                                                  model_type='decay_fre', condition='Gains')
+# uncertainty_results_decayfre = uncertainty_model_decayfre.fit(uncertainty_dict, num_iterations=1000)
 
-# likelihood_ratio_test(results_decay, results_decayfre, df=1)
+# likelihood_ratio_test(results_decay, results_decayfre, df=1)A
 
 
 # # simulation starts here
 # model = ComputationalModels(reward_means, reward_sd, model_type='decay', condition='Gains')
 # results = model.simulate(AB_freq=75, CD_freq=75, num_iterations=1000)
-# #
+
+
 # # unpacking the results
 # all_data = []
 #
