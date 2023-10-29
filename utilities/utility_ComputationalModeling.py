@@ -55,7 +55,7 @@ class ComputationalModels:
 
         elif self.model_type == 'decay_fre':
             self.EVs = self.EVs * (1 - self.a)
-            multiplier = self.choices_count[chosen] ** self.b
+            multiplier = self.choices_count[chosen] ** (-self.b)
             self.EVs[chosen] += reward * multiplier
 
         elif self.model_type == 'delta':
@@ -238,6 +238,9 @@ class ComputationalModels:
                     best_initial_guess = initial_guess
                     best_parameters = result.x
 
+            aic = 2 * k + 2 * best_nll
+            bic = k * np.log(total_n) + 2 * best_nll
+
             total_nll += best_nll
 
             all_results.append({
@@ -245,17 +248,10 @@ class ComputationalModels:
                 'best_nll': best_nll,
                 'best_initial_guess': best_initial_guess,
                 'best_parameters': best_parameters,
-                'total_nll': total_nll
+                'total_nll': total_nll,
+                'AIC': aic,
+                'BIC': bic
             })
-
-        # Compute the AIC and BIC
-        aic = 2 * k + 2 * total_nll
-        bic = k * np.log(total_n) + 2 * total_nll
-
-        all_results.append({
-            'AIC': aic,
-            'BIC': bic
-        })
 
         return all_results
 
@@ -283,4 +279,24 @@ def likelihood_ratio_test(null_results, alternative_results, df):
     p_value = chi2.sf(lr_stat, df)
 
     return p_value
+
+
+def unpacking_results(results):
+    """
+    Unpack the results from the simulation.
+
+    Parameters:
+    - results: List of results from the simulation.
+
+    Returns:
+    - df: Dataframe of the results.
+    """
+    results_df = pd.DataFrame(results)
+    results_df['AIC'] = results_df['AIC'].fillna(results_df['AIC'].max())
+    results_df['BIC'] = results_df['BIC'].fillna(results_df['BIC'].max())
+    results_df = results_df.iloc[:-1]
+
+    return results_df
+
+
 

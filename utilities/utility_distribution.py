@@ -365,3 +365,33 @@ def group_assignment(df, result_df, modality='bimodal'):
         prob_df['assignments'] = assignments
 
         return prob_df
+
+
+def best_fitting_participants(*dfs, keys=None, p_index=None):
+    # Filter out None values and extract 'best_nll' column from each dataframe
+    cols = [df['best_nll'] for df in dfs if df is not None]
+
+    # Use the dataframe names (or you can provide another list of names) as keys
+    keys = [f'Model{i + 1}' for i, df in enumerate(dfs) if df is not None]
+
+    # Concatenate the columns side by side
+    stacked_df = pd.concat(cols, axis=1, keys=keys)
+
+    # Find the model with the smallest fitting index for each participant
+    best_models = stacked_df.idxmin(axis=1)
+
+    # Count the occurrences of each model being the best
+    model_counts = best_models.value_counts()
+
+    # Calculate percentages
+    total_participants = len(stacked_df)
+    percentages = model_counts / total_participants * 100
+
+    print(percentages)
+
+    if p_index is not None:
+        # get the participants who are best fitted by the target model
+        best = best_models[best_models == keys[p_index]].index + 1
+        best = best.tolist()
+
+        return best
