@@ -5,7 +5,7 @@ from scipy.stats import chi2
 
 
 class ComputationalModels:
-    def __init__(self, reward_means, reward_sd, model_type, condition="Gains"):
+    def __init__(self, reward_means, reward_sd, model_type, condition="Gains", num_trials=250):
         """
         Initialize the Model.
 
@@ -16,6 +16,7 @@ class ComputationalModels:
         - condition: Condition of the model.
         """
         self.num_options = 4
+        self.num_trials = num_trials
         self.choices_count = np.zeros(self.num_options)
         self.condition = condition
         self.a = np.random.uniform(0, 1)  # Randomly set decay parameter between 0 and 1
@@ -27,6 +28,8 @@ class ComputationalModels:
             self.EVs = np.full(self.num_options, 0.5)
         elif self.condition == "Losses":
             self.EVs = np.full(self.num_options, -0.5)
+        elif self.condition == "Both":
+            self.EVs = np.full(self.num_options, 0)
 
         # Reward structure
         self.reward_means = reward_means
@@ -171,7 +174,7 @@ class ComputationalModels:
             5: (1, 3)
         }
 
-        trial = np.arange(1, 251)
+        trial = np.arange(1, self.num_trials + 1)
 
         for r, cs, ch, trial in zip(reward, choiceset, choice, trial):
             cs_mapped = choiceset_mapping[cs]
@@ -211,6 +214,8 @@ class ComputationalModels:
                 self.EVs = np.array([0.5, 0.5, 0.5, 0.5])
             elif self.condition == "Losses":
                 self.EVs = np.array([-0.5, -0.5, -0.5, -0.5])
+            elif self.condition == "Both":
+                self.EVs = np.array([0, 0, 0, 0])
 
             best_nll = 100000  # Initialize best negative log likelihood to a large number
             best_initial_guess = None
@@ -279,24 +284,5 @@ def likelihood_ratio_test(null_results, alternative_results, df):
     p_value = chi2.sf(lr_stat, df)
 
     return p_value
-
-
-def unpacking_results(results):
-    """
-    Unpack the results from the simulation.
-
-    Parameters:
-    - results: List of results from the simulation.
-
-    Returns:
-    - df: Dataframe of the results.
-    """
-    results_df = pd.DataFrame(results)
-    results_df['AIC'] = results_df['AIC'].fillna(results_df['AIC'].max())
-    results_df['BIC'] = results_df['BIC'].fillna(results_df['BIC'].max())
-    results_df = results_df.iloc[:-1]
-
-    return results_df
-
 
 

@@ -369,7 +369,7 @@ def group_assignment(df, result_df, modality='bimodal'):
 
 def best_fitting_participants(*dfs, keys=None, p_index=None):
     # Filter out None values and extract 'best_nll' column from each dataframe
-    cols = [df['best_nll'] for df in dfs if df is not None]
+    cols = [df['AIC'] for df in dfs if df is not None]
 
     # Use the dataframe names (or you can provide another list of names) as keys
     keys = [f'Model{i + 1}' for i, df in enumerate(dfs) if df is not None]
