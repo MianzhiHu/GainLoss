@@ -5,7 +5,8 @@ from scipy.stats import chi2
 
 
 class ComputationalModels:
-    def __init__(self, reward_means, reward_sd, model_type, condition="Gains", num_trials=250):
+    def __init__(self, reward_means, reward_sd, model_type, condition="Gains", num_trials=250,
+                 num_params=2):
         """
         Initialize the Model.
 
@@ -17,11 +18,17 @@ class ComputationalModels:
         """
         self.num_options = 4
         self.num_trials = num_trials
+        self.num_params = num_params
         self.choices_count = np.zeros(self.num_options)
         self.condition = condition
-        self.a = np.random.uniform(0, 1)  # Randomly set decay parameter between 0 and 1
-        self.t = np.random.uniform(0, 5)
-        self.b = np.random.uniform(-1, 1)
+        self.memory_weights = []
+        self.choice_history = []
+        self.reward_history = []
+        self.AllProbs = []
+
+        self.t = None
+        self.a = None
+        self.b = None
         self.iteration = 0
 
         if self.condition == "Gains":
@@ -37,6 +44,23 @@ class ComputationalModels:
 
         # Model type
         self.model_type = model_type
+
+    def reset(self):
+        """
+        Reset the model.
+        """
+        self.choices_count = np.zeros(self.num_options)
+        self.memory_weights = []
+        self.choice_history = []
+        self.reward_history = []
+        self.AllProbs = []
+
+        if self.condition == "Gains":
+            self.EVs = np.full(self.num_options, 0.5)
+        elif self.condition == "Losses":
+            self.EVs = np.full(self.num_options, -0.5)
+        elif self.condition == "Both":
+            self.EVs = np.full(self.num_options, 0)
 
     def update(self, chosen, reward, trial):
         """
@@ -65,8 +89,28 @@ class ComputationalModels:
             prediction_error = reward - self.EVs[chosen]
             self.EVs[chosen] += self.a * prediction_error
 
-        # print(f'C: {chosen}, R: {reward}, EV: {self.EVs}; it has been {self.choices_count[chosen]} times')
+        elif self.model_type == 'sampler_decay':
 
+            if self.num_params == 2:
+                self.b = self.a
+
+            self.reward_history.append(reward)
+            self.choice_history.append(chosen)
+            self.memory_weights.append(1)
+
+            # Decay weights of past trials and EVs
+            self.EVs = self.EVs * (1 - self.a)
+            self.memory_weights = [w * (1 - self.b) for w in self.memory_weights]
+
+            # Compute the probabilities from memory weights
+            total_weight = sum(self.memory_weights)
+            self.AllProbs = [w / total_weight for w in self.memory_weights]
+
+            # Update EVs based on the samples from memory
+            for j in range(len(self.reward_history)):
+                self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.reward_history[j]
+
+        # print(f'C: {chosen}, R: {reward}, EV: {self.EVs}; it has been {self.choices_count[chosen]} times')
         return self.EVs
 
     def softmax(self, chosen, alt1):
@@ -154,6 +198,8 @@ class ComputationalModels:
         - choiceset: List or array of available choicesets for each trial.
         - choice: List or array of chosen options for each trial.
         """
+        self.reset()
+
         if self.model_type in ('decay', 'delta'):
             self.t = params[0]
             self.a = params[1]
@@ -161,9 +207,16 @@ class ComputationalModels:
             self.t = params[0]
             self.a = params[1]
             self.b = params[2]
+        elif self.model_type == 'sampler_decay':
+            if self.num_params == 2:
+                self.t = params[0]
+                self.a = params[1]
+            elif self.num_params == 3:
+                self.t = params[0]
+                self.a = params[1]
+                self.b = params[2]
 
         nll = 0
-        self.choices_count = np.zeros(self.num_options)
 
         choiceset_mapping = {
             0: (0, 1),
@@ -203,19 +256,21 @@ class ComputationalModels:
             k = 2  # Initialize the cumulative number of parameters
         elif self.model_type == 'decay_fre':
             k = 3
+        elif self.model_type == 'sampler_decay':
+            k = self.num_params
 
         for participant_id, pdata in data.items():
 
             print(f"Fitting data for {participant_id}...")
             self.iteration = 0
 
-            # Reset initial expected values for each participant
-            if self.condition == "Gains":
-                self.EVs = np.array([0.5, 0.5, 0.5, 0.5])
-            elif self.condition == "Losses":
-                self.EVs = np.array([-0.5, -0.5, -0.5, -0.5])
-            elif self.condition == "Both":
-                self.EVs = np.array([0, 0, 0, 0])
+            # # Reset initial expected values for each participant
+            # if self.condition == "Gains":
+            #     self.EVs = np.array([0.5, 0.5, 0.5, 0.5])
+            # elif self.condition == "Losses":
+            #     self.EVs = np.array([-0.5, -0.5, -0.5, -0.5])
+            # elif self.condition == "Both":
+            #     self.EVs = np.array([0, 0, 0, 0])
 
             best_nll = 100000  # Initialize best negative log likelihood to a large number
             best_initial_guess = None
@@ -233,6 +288,14 @@ class ComputationalModels:
                     initial_guess = [np.random.uniform(0, 5), np.random.uniform(0, 1),
                                      np.random.uniform(beta_lower, beta_upper)]
                     bounds = ((0, 5), (0, 1), (beta_lower, beta_upper))
+                elif self.model_type == 'sampler_decay':
+                    if self.num_params == 2:
+                        initial_guess = [np.random.uniform(0, 5), np.random.uniform(0, 1)]
+                        bounds = ((0, 5), (0, 1))
+                    elif self.num_params == 3:
+                        initial_guess = [np.random.uniform(0, 5), np.random.uniform(0, 1),
+                                         np.random.uniform(0, 1)]
+                        bounds = ((0, 5), (0, 1), (0, 1))
 
                 result = minimize(self.negative_log_likelihood, initial_guess,
                                   args=(pdata['reward'], pdata['choiceset'], pdata['choice']),
@@ -284,5 +347,52 @@ def likelihood_ratio_test(null_results, alternative_results, df):
     p_value = chi2.sf(lr_stat, df)
 
     return p_value
+
+
+def dict_generator(df):
+    """
+    Convert a dataframe into a dictionary.
+
+    Parameters:
+    - df: Dataframe to be converted.
+
+    Returns:
+    - A dictionary of the dataframe.
+    """
+    d = {}
+    for name, group in df.groupby('Subnum'):
+        d[name] = {
+            'reward': group['Reward'].tolist(),
+            'choiceset': group['SetSeen.'].tolist(),
+            'choice': group['KeyResponse'].tolist(),
+        }
+    return d
+
+
+def best_param_generator(df, param):
+    """
+
+    :param df:
+    :param param:
+    :return:
+    """
+    if param == 't':
+        t_best = df['best_parameters'].apply(
+            lambda x: float(x.strip('[]').split()[0]) if isinstance(x, str) else np.nan
+        )
+        return t_best
+
+    elif param == 'a':
+        a_best = df['best_parameters'].apply(
+            lambda x: float(x.strip('[]').split()[1]) if isinstance(x, str) else np.nan
+        )
+        return a_best
+
+    elif param == 'b':
+        b_best = df['best_parameters'].apply(
+            lambda x: float(x.strip('[]').split()[2]) if isinstance(x, str) else np.nan
+        )
+        return b_best
+
 
 

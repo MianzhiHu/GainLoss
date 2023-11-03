@@ -1,13 +1,17 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from utilities.utility_ComputationalModeling import ComputationalModels, likelihood_ratio_test
+from utilities.utility_ComputationalModeling import (ComputationalModels, likelihood_ratio_test, dict_generator,
+                                                     best_param_generator)
 from scipy.stats import pearsonr, spearmanr, ttest_ind
 from utilities.utility_distribution import best_fitting_participants
 
 # Read in the data
 data = pd.read_csv('./data/ABCDGainsLossesData_F2023.csv')
 assignment = pd.read_csv('./data/trimodal_assignments_CA.csv')
+
+# result_good = pd.read_csv('./data/decayfre_good_learners.csv')
+# result_bad = pd.read_csv('./data/decayfre_bad_learners.csv')
 
 # data_CA = data[data['SetSeen.'] == 2]
 # for name, group in data_CA.groupby('Subnum'):
@@ -21,35 +25,84 @@ data = data[data['Subnum'] != 122]
 # reindex the subnum
 data = data.reset_index(drop=True)
 data.iloc[:, 1] = (data.index // 250) + 1
+data['KeyResponse'] = data['KeyResponse'] - 1
 
 # copy the index of all participants assigned to 3
 bad_learners = assignment[assignment['assignments'] == 3].index.tolist()
 bad_learners = [x + 1 for x in bad_learners]
 
+good_learners = assignment[assignment['assignments'] == 1].index.tolist()
+good_learners = [x + 1 for x in good_learners]
+
+# sample one participant to serve as an example
+participant = data[data['Subnum'] == 6]
+
 # keep only the participants assigned to bad learners
 bad_learners_data = data[data['Subnum'].isin(bad_learners)]
-bad_learners_data = bad_learners_data[bad_learners_data['SetSeen.'].isin([0, 1, 2])]
-bad_learners_data['KeyResponse'] = bad_learners_data['KeyResponse'] - 1
+# bad_learners_data = bad_learners_data[bad_learners_data['SetSeen.'].isin([0, 1, 2])]
+# bad_learners_data = bad_learners_data[bad_learners_data['Condition'] == 'Gains']
+
+# keep only the participants assigned to good learners
+good_learners_data = data[data['Subnum'].isin(good_learners)]
+# good_learners_data = good_learners_data[good_learners_data['SetSeen.'].isin([0, 1, 2])]
+# good_learners_data = good_learners_data[good_learners_data['Condition'] == 'Gains']
+print(good_learners_data['SetSeen.'].unique())
 
 # convert into dictionary
-bad_learners_dict = {}
-
-for name, group in bad_learners_data.groupby('Subnum'):
-    bad_learners_dict[name] = {
-        'reward': group['Reward'].tolist(),
-        'choiceset': group['SetSeen.'].tolist(),
-        'choice': group['KeyResponse'].tolist(),
-    }
+bad_learners_dict = dict_generator(bad_learners_data)
+good_learners_dict = dict_generator(good_learners_data)
+participant_dict = dict_generator(participant)
 
 # set up the reward structure
 reward_means = [0.65, 0.35, 0.75, 0.25]
 reward_sd = [0.43, 0.43, 0.43, 0.43]
 
 # fit the data
-model_delta = ComputationalModels(reward_means, reward_sd,
-                                     model_type='delta', condition='Both', num_trials=175)
-results_delta = model_delta.fit(bad_learners_dict, num_iterations=1000)
+model_decayfre = ComputationalModels(reward_means, reward_sd,
+                                     model_type='decay_fre', condition='Gains', num_trials=175)
 
-result = pd.DataFrame(results_delta)
-# # sum up the AIC column
-print(result['AIC'].mean())
+model_decay = ComputationalModels(reward_means, reward_sd,
+                                  model_type='decay', condition='Gains', num_trials=175)
+
+model_sampler_decay = ComputationalModels(reward_means, reward_sd,
+                                          model_type='sampler_decay', condition='Both', num_trials=175, num_params=3)
+
+# sample = model_sampler_decay.fit(participant_dict, num_iterations=100)
+# sample_df = pd.DataFrame(sample)
+
+results_good = model_sampler_decay.fit(good_learners_dict, num_iterations=1000)
+
+result_good = pd.DataFrame(results_good)
+result_good.iloc[:, 3] = result_good.iloc[:, 3].astype(str)
+# result_good.to_csv('./data/decayfre_good_learners.csv', index=False)
+
+# sum up the AIC column
+print(result_good['AIC'].mean())
+print(result_good['BIC'].mean())
+
+results_bad = model_sampler_decay.fit(bad_learners_dict, num_iterations=1000)
+
+result_bad = pd.DataFrame(results_bad)
+result_bad.iloc[:, 3] = result_bad.iloc[:, 3].astype(str)
+# result_bad.to_csv('./data/decayfre_bad_learners.csv', index=False)
+
+# sum up the AIC column
+print(result_bad['AIC'].mean())
+print(result_bad['BIC'].mean())
+
+# extract the best beta
+best_t_good = best_param_generator(result_good, 't')
+best_beta_good = best_param_generator(result_good, 'b')
+best_t_bad = best_param_generator(result_bad, 't')
+best_beta_bad = best_param_generator(result_bad, 'b')
+
+# print out the mean and sd of the best beta
+print(sum(best_beta_good) / len(best_beta_good))
+print(sum(best_beta_bad) / len(best_beta_bad))
+
+# conduct t-test
+ttest_ind(best_t_good, best_t_bad)
+ttest_ind(best_beta_good, best_beta_bad)
+
+pearsonr(best_t_bad, best_beta_bad)
+pearsonr(best_t_good, best_beta_good)
