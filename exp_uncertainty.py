@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from utilities.utility_ComputationalModeling import ComputationalModels, likelihood_ratio_test, dict_generator
+from utilities.utility_ComputationalModeling import (ComputationalModels, likelihood_ratio_test, dict_generator,
+                                                     bayes_factor)
 from scipy.stats import pearsonr, spearmanr, ttest_ind
 from utilities.utility_distribution import best_fitting_participants
 
@@ -31,17 +32,18 @@ uncertainty_grouped = uncertainty_data.groupby('Subnum')
 uncertainty_dict = dict_generator(uncertainty_data)
 
 # # fit the data
-# uncertainty_model_decay = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
-#                                                  model_type='decay_fre', condition='Gains')
-# uncertainty_results_decay = uncertainty_model_decay.fit(uncertainty_dict, num_iterations=1000)
-#
-#
+# uncertainty_model_sampler_decay = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
+#                                                  model_type='sampler_decay', condition='Gains', num_params=3)
+# uncertainty_results_sampler_decay = uncertainty_model_sampler_decay.fit(uncertainty_dict, num_iterations=1000)
+
+
 # # unpack the results
-# result = pd.DataFrame(uncertainty_results_decay)
+# result = pd.DataFrame(uncertainty_results_sampler_decay)
 # # sum up the AIC column
 # print(result['AIC'].mean())
+# print(result['BIC'].mean())
 # # save the results
-# result.to_csv('./data/uncertainty_decayfre.csv', index=False)
+# result.to_csv('./data/uncertainty_sampler_decay_3.csv', index=False)
 
 
 # # unpack the best fitting beta
@@ -142,48 +144,49 @@ uncertainty_dict = dict_generator(uncertainty_data)
 # plt.show()
 
 
-# likelihood_ratio_test(results_decay, results_decayfre, df=1)
+# likelihood_ratio_test(uncertainty_decay, uncertainty_decayfre_neg, df=1)
+# BF = bayes_factor(uncertainty_decay, uncertainty_decayfre_neg)
+# print(BF)
 
 
-
-# since this is a new model, we need to find the boundaries for beta
-uncertainty_model_decayfre = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
-                                                    model_type='decay_fre', condition='Gains')
-
-best_bounds = []
-
-# potential_beta_upper = [x for x in np.arange(0, 1., 0.1) if x != 0]
-# potential_beta_lower = [x for x in np.arange(-1, 0, 0.1) if x != 0]
-# potential_beta_lower.reverse()
-
-potential_beta_upper = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0.5, 0.1, 0.01]
-potential_beta_lower = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, -0.5, -0.1, -0.01]
-
-potential_beta = list(zip(potential_beta_lower, potential_beta_upper))
-
-for beta_lower, beta_upper in potential_beta:
-    print(beta_lower, beta_upper)
-    best_bounds_results = uncertainty_model_decayfre.fit(uncertainty_dict, num_iterations=100,
-                                                                    beta_lower=beta_lower, beta_upper=beta_upper)
-
-    best_bounds_results = pd.DataFrame(best_bounds_results)
-    best_bounds_results.iloc[:, 3] = best_bounds_results.iloc[:, 3].astype(str)
-
-    # sum up the AIC column
-    aic = best_bounds_results['AIC'].mean()
-    bic = best_bounds_results['BIC'].mean()
-    beta = best_bounds_results['best_parameters'].apply(
-        lambda x: float(x.strip('[]').split()[2]) if isinstance(x, str) else np.nan
-    )
-    mean_beta = beta.mean()
-    sd_beta = beta.std()
-    max_beta = beta.max()
-    min_beta = beta.min()
-
-    best_bounds.append([beta_lower, beta_upper, aic, bic, mean_beta, sd_beta, max_beta, min_beta])
-
-best_bounds = pd.DataFrame(best_bounds, columns=['beta_lower', 'beta_upper', 'AIC', 'BIC', 'mean_beta', 'sd_beta',
-                                                 'max_beta', 'min_beta'])
+# # since this is a new model, we need to find the boundaries for beta
+# uncertainty_model_decayfre = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
+#                                                     model_type='decay_fre', condition='Gains')
+#
+# best_bounds = []
+#
+# # potential_beta_upper = [x for x in np.arange(0, 1., 0.1) if x != 0]
+# # potential_beta_lower = [x for x in np.arange(-1, 0, 0.1) if x != 0]
+# # potential_beta_lower.reverse()
+#
+# potential_beta_upper = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0.5, 0.1, 0.01]
+# potential_beta_lower = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, -0.5, -0.1, -0.01]
+#
+# potential_beta = list(zip(potential_beta_lower, potential_beta_upper))
+#
+# for beta_lower, beta_upper in potential_beta:
+#     print(beta_lower, beta_upper)
+#     best_bounds_results = uncertainty_model_decayfre.fit(uncertainty_dict, num_iterations=100,
+#                                                                     beta_lower=beta_lower, beta_upper=beta_upper)
+#
+#     best_bounds_results = pd.DataFrame(best_bounds_results)
+#     best_bounds_results.iloc[:, 3] = best_bounds_results.iloc[:, 3].astype(str)
+#
+#     # sum up the AIC column
+#     aic = best_bounds_results['AIC'].mean()
+#     bic = best_bounds_results['BIC'].mean()
+#     beta = best_bounds_results['best_parameters'].apply(
+#         lambda x: float(x.strip('[]').split()[2]) if isinstance(x, str) else np.nan
+#     )
+#     mean_beta = beta.mean()
+#     sd_beta = beta.std()
+#     max_beta = beta.max()
+#     min_beta = beta.min()
+#
+#     best_bounds.append([beta_lower, beta_upper, aic, bic, mean_beta, sd_beta, max_beta, min_beta])
+#
+# best_bounds = pd.DataFrame(best_bounds, columns=['beta_lower', 'beta_upper', 'AIC', 'BIC', 'mean_beta', 'sd_beta',
+#                                                  'max_beta', 'min_beta'])
 
 # best_bounds.to_csv('./data/best_bounds.csv', index=False)
 

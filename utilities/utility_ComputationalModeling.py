@@ -25,6 +25,7 @@ class ComputationalModels:
         self.choice_history = []
         self.reward_history = []
         self.AllProbs = []
+        self.PE = []
 
         self.t = None
         self.a = None
@@ -98,6 +99,10 @@ class ComputationalModels:
             self.choice_history.append(chosen)
             self.memory_weights.append(1)
 
+            # # use the following code if you want to use prediction errors as reward instead of actual rewards
+            # prediction_error = reward - self.EVs[chosen]
+            # self.PE.append(prediction_error)
+
             # Decay weights of past trials and EVs
             self.EVs = self.EVs * (1 - self.a)
             self.memory_weights = [w * (1 - self.b) for w in self.memory_weights]
@@ -109,6 +114,10 @@ class ComputationalModels:
             # Update EVs based on the samples from memory
             for j in range(len(self.reward_history)):
                 self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.reward_history[j]
+
+            # # For PE version
+            # for j in range(len(self.memory_weights)):
+            #     self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.PE[j]
 
         # print(f'C: {chosen}, R: {reward}, EV: {self.EVs}; it has been {self.choices_count[chosen]} times')
         return self.EVs
@@ -337,8 +346,11 @@ def likelihood_ratio_test(null_results, alternative_results, df):
     - p_value: p-value of the test.
     """
     # locate the nll values for the null and alternative models
-    null_nll = null_results[0]['total_nll']
-    alternative_nll = alternative_results[0]['total_nll']
+    null_nll = null_results['total_nll'].max()
+    print(null_nll)
+
+    alternative_nll = alternative_results['total_nll'].max()
+    print(alternative_nll)
 
     # Compute the likelihood ratio statistic
     lr_stat = 2 * (null_nll - alternative_nll)
@@ -347,6 +359,27 @@ def likelihood_ratio_test(null_results, alternative_results, df):
     p_value = chi2.sf(lr_stat, df)
 
     return p_value
+
+
+def bayes_factor(null_results, alternative_results):
+    """
+    Compute the Bayes factor.
+
+    Parameters:
+    - null_nll: Negative log-likelihood of the simpler (null) model.
+    - alternative_nll: Negative log-likelihood of the more complex (alternative) model.
+
+    Returns:
+    - bayes_factor: Bayes factor of the test.
+    """
+    # locate the nll values for the null and alternative models
+    null_BIC = null_results['BIC']
+    alternative_BIC = alternative_results['BIC']
+
+    # Compute the Bayes factor
+    BF = (np.exp(-(null_BIC - alternative_BIC) / 2)).mean()
+
+    return BF
 
 
 def dict_generator(df):
