@@ -14,11 +14,14 @@ assignment = pd.read_csv('./data/trimodal_assignments_CA.csv')
 # decay_bad = pd.read_csv('./data/decay_bad_learners.csv')
 # decayfre_good = pd.read_csv('./data/decayfre_good_learners.csv')
 # decayfre_bad = pd.read_csv('./data/decayfre_bad_learners.csv')
-#
-# # let's see if decayfre is better than decay
-# likelihood_ratio_test(decay_bad, decayfre_bad, 1)
-# bayes_factor(decay_bad, decayfre_bad)
-#
+decay_data = pd.read_csv('./data/decay_data.csv')
+decayfre_data = pd.read_csv('./data/decayfre_data.csv')
+
+
+# let's see if decayfre is better than decay
+likelihood_ratio_test(decay_data, decayfre_data, df=1)
+bayes_factor(decay_data, decayfre_data)
+
 # print(decay_good['AIC'].mean())
 # print(decayfre_good['AIC'].mean())
 # print(decay_good['BIC'].mean())
@@ -83,15 +86,15 @@ model_sampler_decay = ComputationalModels(reward_means, reward_sd,
 # # use a sample to test whether the model is functioning
 # sample = model_sampler_decay.fit(participant_dict, num_iterations=100)
 # sample_df = pd.DataFrame(sample)
-
-# # fit the model with all participants
-# results_data_decayfre = model_decayfre.fit(data_dict, num_iterations=100)
-# results_data_decayfre = pd.DataFrame(results_data_decayfre)
-# results_data_decayfre.iloc[:, 3] = results_data_decayfre.iloc[:, 3].astype(str)
-# # results_data_decay.to_csv('./data/decayfre_data.csv', index=False)
 #
-# print(results_data_decayfre['AIC'].mean())
-# print(results_data_decayfre['BIC'].mean())
+# fit the model with all participants
+results_data_sampler_decay = model_sampler_decay.fit(data_dict, num_iterations=100)
+results_data_sampler_decay = pd.DataFrame(results_data_sampler_decay)
+results_data_sampler_decay.iloc[:, 3] = results_data_sampler_decay.iloc[:, 3].astype(str)
+results_data_sampler_decay.to_csv('./data/sampler_decay_data.csv', index=False)
+
+print(results_data_sampler_decay['AIC'].mean())
+print(results_data_sampler_decay['BIC'].mean())
 
 # results_good = model_sampler_decay.fit(good_learners_dict, num_iterations=100)
 #
