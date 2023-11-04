@@ -346,14 +346,12 @@ def likelihood_ratio_test(null_results, alternative_results, df):
     - p_value: p-value of the test.
     """
     # locate the nll values for the null and alternative models
-    null_nll = null_results['total_nll'].max()
-    print(null_nll)
+    null_nll = null_results['best_nll']
 
-    alternative_nll = alternative_results['total_nll'].max()
-    print(alternative_nll)
+    alternative_nll = alternative_results['best_nll']
 
     # Compute the likelihood ratio statistic
-    lr_stat = 2 * (null_nll - alternative_nll)
+    lr_stat = 2 * np.mean((null_nll - alternative_nll))
 
     # Get the p-value
     p_value = chi2.sf(lr_stat, df)
@@ -366,8 +364,8 @@ def bayes_factor(null_results, alternative_results):
     Compute the Bayes factor.
 
     Parameters:
-    - null_nll: Negative log-likelihood of the simpler (null) model.
-    - alternative_nll: Negative log-likelihood of the more complex (alternative) model.
+    - null_BIC: BIC of the simpler (null) model.
+    - alternative_BIC: BIC of the more complex (alternative) model.
 
     Returns:
     - bayes_factor: Bayes factor of the test.
