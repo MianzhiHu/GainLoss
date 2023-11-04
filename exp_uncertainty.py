@@ -34,7 +34,7 @@ uncertainty_dict = dict_generator(uncertainty_data)
 
 # fit the data
 uncertainty_model_sampler_decay = ComputationalModels(uncertainty_reward_means, uncertainty_reward_sd,
-                                                 model_type='sampler_decay', condition='Gains', num_params=3)
+                                                      model_type='sampler_decay', condition='Gains', num_params=3)
 uncertainty_results_sampler_decay = uncertainty_model_sampler_decay.fit(uncertainty_dict, num_iterations=100)
 
 
@@ -45,7 +45,7 @@ result.iloc[:, 3] = result.iloc[:, 3].astype(str)
 print(result['AIC'].mean())
 print(result['BIC'].mean())
 # save the results
-result.to_csv('./data/uncertainty_sampler_decay_3.csv', index=False)
+result.to_csv('./data/uncertainty_sampler_decay2.csv', index=False)
 
 
 # extract the best beta
@@ -58,8 +58,8 @@ uncertainty_prop_optimal_CA = uncertainty_prop_optimal[uncertainty_prop_optimal[
 
 pearsonr(uncertainty_prop_optimal_CA['PropOptimal'], best_alpha)
 
-# likelihood_ratio_test(uncertainty_decay, uncertainty_decayfre_neg, df=1)
-# bayes_factor(uncertainty_decay, uncertainty_decayfre_neg)
+likelihood_ratio_test(uncertainty_decay, uncertainty_decayfre_neg, df=1)
+bayes_factor(uncertainty_decay, uncertainty_decayfre_neg)
 
 
 # # since this is a new model, we need to find the boundaries for beta

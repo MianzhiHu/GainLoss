@@ -273,14 +273,6 @@ class ComputationalModels:
             print(f"Fitting data for {participant_id}...")
             self.iteration = 0
 
-            # # Reset initial expected values for each participant
-            # if self.condition == "Gains":
-            #     self.EVs = np.array([0.5, 0.5, 0.5, 0.5])
-            # elif self.condition == "Losses":
-            #     self.EVs = np.array([-0.5, -0.5, -0.5, -0.5])
-            # elif self.condition == "Both":
-            #     self.EVs = np.array([0, 0, 0, 0])
-
             best_nll = 100000  # Initialize best negative log likelihood to a large number
             best_initial_guess = None
             best_parameters = None
@@ -375,7 +367,9 @@ def bayes_factor(null_results, alternative_results):
     alternative_BIC = alternative_results['BIC']
 
     # Compute the Bayes factor
-    BF = (np.exp(-(null_BIC - alternative_BIC) / 2)).mean()
+    log_BF_array = -0.5 * (alternative_BIC - null_BIC)
+    mean_log_BF = np.mean(log_BF_array)
+    BF = np.exp(mean_log_BF)
 
     return BF
 

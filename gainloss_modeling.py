@@ -8,19 +8,48 @@ from utilities.utility_distribution import best_fitting_participants
 
 # Read in the data
 data = pd.read_csv('./data/ABCDGainsLossesData_F2023.csv')
+propOptimal = pd.read_csv('./data/data_with_assignment.csv')
+propOptimal_CA = propOptimal[propOptimal['ChoiceSet'] == 'CA']
 assignment = pd.read_csv('./data/trimodal_assignments_CA.csv')
 
-# decay_good = pd.read_csv('./data/decay_good_learners.csv')
-# decay_bad = pd.read_csv('./data/decay_bad_learners.csv')
-# decayfre_good = pd.read_csv('./data/decayfre_good_learners.csv')
-# decayfre_bad = pd.read_csv('./data/decayfre_bad_learners.csv')
+decay_good = pd.read_csv('./data/decay_good_learners.csv')
+decay_bad = pd.read_csv('./data/decay_bad_learners.csv')
+decayfre_good = pd.read_csv('./data/decayfre_good_learners.csv')
+decayfre_bad = pd.read_csv('./data/decayfre_bad_learners.csv')
 decay_data = pd.read_csv('./data/decay_data.csv')
 decayfre_data = pd.read_csv('./data/decayfre_data.csv')
 
 
 # let's see if decayfre is better than decay
-likelihood_ratio_test(decay_data, decayfre_data, df=1)
-bayes_factor(decay_data, decayfre_data)
+likelihood_ratio_test(decay_bad, decayfre_bad, df=1)
+bayes_factor(decay_bad, decayfre_bad)
+
+# print(decayfre_good['AIC'].mean())
+
+best_beta = best_param_generator(decayfre_data, 'b')
+best_a = best_param_generator(decay_data, 'a')
+best_t = best_param_generator(decay_data, 't')
+pearsonr(propOptimal_CA['PropOptimal'], best_t)
+
+best_beta_good = best_param_generator(decayfre_good, 'b')
+best_a_good = best_param_generator(decay_good, 'a')
+best_t_good = best_param_generator(decay_good, 't')
+best_beta_bad = best_param_generator(decayfre_bad, 'b')
+best_a_bad = best_param_generator(decay_bad, 'a')
+best_t_bad = best_param_generator(decay_bad, 't')
+
+# combine the best fitting parameters into a dataframe
+best_param = pd.DataFrame({'best_beta_good': best_beta_good,
+                            'best_beta_bad': best_beta_bad,
+                            'best_a_good': best_a_good,
+                            'best_a_bad': best_a_bad,
+                            'best_t_good': best_t_good,
+                            'best_t_bad': best_t_bad})
+best_param.to_csv('./data/best_param.csv', index=False)
+
+ttest_ind(best_beta_good, best_beta_bad)
+ttest_ind(best_a_good, best_a_bad)
+ttest_ind(best_t_good, best_t_bad)
 
 # print(decay_good['AIC'].mean())
 # print(decayfre_good['AIC'].mean())
@@ -86,21 +115,21 @@ model_sampler_decay = ComputationalModels(reward_means, reward_sd,
 # # use a sample to test whether the model is functioning
 # sample = model_sampler_decay.fit(participant_dict, num_iterations=100)
 # sample_df = pd.DataFrame(sample)
+
+# # fit the model with all participants
+# results_data_sampler_decay = model_sampler_decay.fit(data_dict, num_iterations=100)
+# results_data_sampler_decay = pd.DataFrame(results_data_sampler_decay)
+# results_data_sampler_decay.iloc[:, 3] = results_data_sampler_decay.iloc[:, 3].astype(str)
+# # results_data_sampler_decay.to_csv('./data/sampler_decay2_data.csv', index=False)
 #
-# fit the model with all participants
-results_data_sampler_decay = model_sampler_decay.fit(data_dict, num_iterations=100)
-results_data_sampler_decay = pd.DataFrame(results_data_sampler_decay)
-results_data_sampler_decay.iloc[:, 3] = results_data_sampler_decay.iloc[:, 3].astype(str)
-results_data_sampler_decay.to_csv('./data/sampler_decay_data.csv', index=False)
-
-print(results_data_sampler_decay['AIC'].mean())
-print(results_data_sampler_decay['BIC'].mean())
-
+# print(results_data_sampler_decay['AIC'].mean())
+# print(results_data_sampler_decay['BIC'].mean())
+#
 # results_good = model_sampler_decay.fit(good_learners_dict, num_iterations=100)
 #
 # result_good = pd.DataFrame(results_good)
 # result_good.iloc[:, 3] = result_good.iloc[:, 3].astype(str)
-# # result_good.to_csv('./data/decayfre_good_learners.csv', index=False)
+# result_good.to_csv('./data/sampler_decay3_good_learners.csv', index=False)
 #
 # # sum up the AIC column
 # print(result_good['AIC'].mean())
@@ -110,7 +139,7 @@ print(results_data_sampler_decay['BIC'].mean())
 #
 # result_bad = pd.DataFrame(results_bad)
 # result_bad.iloc[:, 3] = result_bad.iloc[:, 3].astype(str)
-# # result_bad.to_csv('./data/decayfre_bad_learners.csv', index=False)
+# result_bad.to_csv('./data/sampler_decay3_bad_learners.csv', index=False)
 #
 # # sum up the AIC column
 # print(result_bad['AIC'].mean())
