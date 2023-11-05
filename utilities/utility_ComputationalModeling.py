@@ -26,6 +26,7 @@ class ComputationalModels:
         self.reward_history = []
         self.AllProbs = []
         self.PE = []
+        self.AV = 0
 
         self.t = None
         self.a = None
@@ -58,10 +59,13 @@ class ComputationalModels:
 
         if self.condition == "Gains":
             self.EVs = np.full(self.num_options, 0.5)
+            self.AV = 0.5
         elif self.condition == "Losses":
             self.EVs = np.full(self.num_options, -0.5)
+            self.AV = -0.5
         elif self.condition == "Both":
             self.EVs = np.full(self.num_options, 0)
+            self.AV = 0
 
     def update(self, chosen, reward, trial):
         """
@@ -100,8 +104,14 @@ class ComputationalModels:
             self.memory_weights.append(1)
 
             # # use the following code if you want to use prediction errors as reward instead of actual rewards
-            # prediction_error = reward - self.EVs[chosen]
+            # prediction_error = self.a * (reward - self.EVs[chosen])
             # self.PE.append(prediction_error)
+
+            # use the following code if you want to use average reward as reward instead of actual rewards
+            prediction_error = reward - self.AV
+            weighted_PE = prediction_error * self.a
+            self.AV += weighted_PE
+            self.PE.append(weighted_PE)
 
             # Decay weights of past trials and EVs
             self.EVs = self.EVs * (1 - self.a)
@@ -111,13 +121,13 @@ class ComputationalModels:
             total_weight = sum(self.memory_weights)
             self.AllProbs = [w / total_weight for w in self.memory_weights]
 
-            # Update EVs based on the samples from memory
-            for j in range(len(self.reward_history)):
-                self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.reward_history[j]
+            # # Update EVs based on the samples from memory
+            # for j in range(len(self.reward_history)):
+            #     self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.reward_history[j]
 
-            # # For PE version
-            # for j in range(len(self.memory_weights)):
-            #     self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.PE[j]
+            # For PE and AV version
+            for j in range(len(self.memory_weights)):
+                self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.PE[j]
 
         # print(f'C: {chosen}, R: {reward}, EV: {self.EVs}; it has been {self.choices_count[chosen]} times')
         return self.EVs

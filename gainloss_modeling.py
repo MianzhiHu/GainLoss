@@ -12,44 +12,51 @@ propOptimal = pd.read_csv('./data/data_with_assignment.csv')
 propOptimal_CA = propOptimal[propOptimal['ChoiceSet'] == 'CA']
 assignment = pd.read_csv('./data/trimodal_assignments_CA.csv')
 
-decay_good = pd.read_csv('./data/decay_good_learners.csv')
-decay_bad = pd.read_csv('./data/decay_bad_learners.csv')
-decayfre_good = pd.read_csv('./data/decayfre_good_learners.csv')
-decayfre_bad = pd.read_csv('./data/decayfre_bad_learners.csv')
-decay_data = pd.read_csv('./data/decay_data.csv')
-decayfre_data = pd.read_csv('./data/decayfre_data.csv')
+# decay_good = pd.read_csv('./data/decay_good_learners.csv')
+# decay_bad = pd.read_csv('./data/decay_bad_learners.csv')
+# decayfre_good = pd.read_csv('./data/decayfre_good_learners.csv')
+# decayfre_bad = pd.read_csv('./data/decayfre_bad_learners.csv')
+# delta_data = pd.read_csv('./data/delta_data.csv')
+# decay_data = pd.read_csv('./data/decay_data.csv')
+# decayfre_data = pd.read_csv('./data/decayfre_data.csv')
 
 
-# let's see if decayfre is better than decay
-likelihood_ratio_test(decay_bad, decayfre_bad, df=1)
-bayes_factor(decay_bad, decayfre_bad)
+# # let's see if decayfre is better than decay
+# likelihood_ratio_test(decay_data, decayfre_data, df=1)
+# bayes_factor(decay_data, decayfre_data)
+# bayes_factor(delta_data, decay_data)
 
-# print(decayfre_good['AIC'].mean())
+# # unlike delta versus decay, where decay is generally better than delta, decayfre is not always better than decay
+# # although decayfre has a better model fit than decay, the difference lies in the huge BIC diff in some participants
+# # in fact, more participants are better fitted by decay than decayfre
+# diff = decay_data['BIC'] - delta_data['BIC']
+# diff.mean()
+# sum(diff < 0)
 
-best_beta = best_param_generator(decayfre_data, 'b')
-best_a = best_param_generator(decay_data, 'a')
-best_t = best_param_generator(decay_data, 't')
-pearsonr(propOptimal_CA['PropOptimal'], best_t)
+# best_beta = best_param_generator(decayfre_data, 'b')
+# best_a = best_param_generator(decay_data, 'a')
+# best_t = best_param_generator(decay_data, 't')
+# pearsonr(propOptimal_CA['PropOptimal'], best_t)
+#
+# best_beta_good = best_param_generator(decayfre_good, 'b')
+# best_a_good = best_param_generator(decay_good, 'a')
+# best_t_good = best_param_generator(decay_good, 't')
+# best_beta_bad = best_param_generator(decayfre_bad, 'b')
+# best_a_bad = best_param_generator(decay_bad, 'a')
+# best_t_bad = best_param_generator(decay_bad, 't')
 
-best_beta_good = best_param_generator(decayfre_good, 'b')
-best_a_good = best_param_generator(decay_good, 'a')
-best_t_good = best_param_generator(decay_good, 't')
-best_beta_bad = best_param_generator(decayfre_bad, 'b')
-best_a_bad = best_param_generator(decay_bad, 'a')
-best_t_bad = best_param_generator(decay_bad, 't')
+# # combine the best fitting parameters into a dataframe
+# best_param = pd.DataFrame({'best_beta_good': best_beta_good,
+#                             'best_beta_bad': best_beta_bad,
+#                             'best_a_good': best_a_good,
+#                             'best_a_bad': best_a_bad,
+#                             'best_t_good': best_t_good,
+#                             'best_t_bad': best_t_bad})
+# best_param.to_csv('./data/best_param.csv', index=False)
 
-# combine the best fitting parameters into a dataframe
-best_param = pd.DataFrame({'best_beta_good': best_beta_good,
-                            'best_beta_bad': best_beta_bad,
-                            'best_a_good': best_a_good,
-                            'best_a_bad': best_a_bad,
-                            'best_t_good': best_t_good,
-                            'best_t_bad': best_t_bad})
-best_param.to_csv('./data/best_param.csv', index=False)
-
-ttest_ind(best_beta_good, best_beta_bad)
-ttest_ind(best_a_good, best_a_bad)
-ttest_ind(best_t_good, best_t_bad)
+# ttest_ind(best_beta_good, best_beta_bad)
+# ttest_ind(best_a_good, best_a_bad)
+# ttest_ind(best_t_good, best_t_bad)
 
 # print(decay_good['AIC'].mean())
 # print(decayfre_good['AIC'].mean())
@@ -102,6 +109,9 @@ reward_means = [0.65, 0.35, 0.75, 0.25]
 reward_sd = [0.43, 0.43, 0.43, 0.43]
 
 # fit the data
+model_delta = ComputationalModels(reward_means, reward_sd,
+                                    model_type='delta', condition='Both', num_trials=250)
+
 model_decayfre = ComputationalModels(reward_means, reward_sd,
                                      model_type='decay_fre', condition='Both', num_trials=250)
 
@@ -109,22 +119,22 @@ model_decay = ComputationalModels(reward_means, reward_sd,
                                   model_type='decay', condition='Both', num_trials=250)
 
 model_sampler_decay = ComputationalModels(reward_means, reward_sd,
-                                          model_type='sampler_decay', condition='Both', num_trials=250, num_params=3)
+                                          model_type='sampler_decay', condition='Both', num_trials=250)
 
 
 # # use a sample to test whether the model is functioning
 # sample = model_sampler_decay.fit(participant_dict, num_iterations=100)
 # sample_df = pd.DataFrame(sample)
 
-# # fit the model with all participants
-# results_data_sampler_decay = model_sampler_decay.fit(data_dict, num_iterations=100)
-# results_data_sampler_decay = pd.DataFrame(results_data_sampler_decay)
-# results_data_sampler_decay.iloc[:, 3] = results_data_sampler_decay.iloc[:, 3].astype(str)
-# # results_data_sampler_decay.to_csv('./data/sampler_decay2_data.csv', index=False)
-#
-# print(results_data_sampler_decay['AIC'].mean())
-# print(results_data_sampler_decay['BIC'].mean())
-#
+# fit the model with all participants
+results_data_sampler_decay = model_sampler_decay.fit(data_dict, num_iterations=100)
+results_data_sampler_decay = pd.DataFrame(results_data_sampler_decay)
+results_data_sampler_decay.iloc[:, 3] = results_data_sampler_decay.iloc[:, 3].astype(str)
+results_data_sampler_decay.to_csv('./data/sampler_decayAV_data.csv', index=False)
+
+print(results_data_sampler_decay['AIC'].mean())
+print(results_data_sampler_decay['BIC'].mean())
+
 # results_good = model_sampler_decay.fit(good_learners_dict, num_iterations=100)
 #
 # result_good = pd.DataFrame(results_good)
