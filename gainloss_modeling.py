@@ -130,7 +130,7 @@ model_sampler_decay = ComputationalModels(reward_means, reward_sd,
 results_data_sampler_decay = model_sampler_decay.fit(data_dict, num_iterations=100)
 results_data_sampler_decay = pd.DataFrame(results_data_sampler_decay)
 results_data_sampler_decay.iloc[:, 3] = results_data_sampler_decay.iloc[:, 3].astype(str)
-results_data_sampler_decay.to_csv('./data/sampler_decayAV_data.csv', index=False)
+# results_data_sampler_decay.to_csv('./data/sampler_decayAV_data.csv', index=False)
 
 print(results_data_sampler_decay['AIC'].mean())
 print(results_data_sampler_decay['BIC'].mean())

@@ -16,6 +16,9 @@ E3 = pd.read_csv('./data/PropOptimal_E3.csv')
 # Read in the results if necessary
 trimodal_CA = pd.read_csv('./data/trimodal_CA.csv')
 trimodal_BD = pd.read_csv('./data/trimodal_BD.csv')
+bimodal_CA = pd.read_csv('./data/bimodal_CA.csv')
+
+# bimodal_CA = bimodal_CA[bimodal_CA['mu1'] < 0.9]
 
 # combine E1 and E2 so that we have enough data points
 E_F = pd.concat([E1, E2], ignore_index=True)
@@ -37,7 +40,7 @@ CAoptimal_Gains = data[(data['ChoiceSet'] == 'CA') & (data['Condition'] == 'Gain
 
 # validate the model with 1000 iterations
 # In BD trials, too many participants had 0 optimal choices, which makes the model fail to converge
-n_iter = 10000
+n_iter = 1000
 
 # result = []
 # for i in range(n_iter):
@@ -52,10 +55,11 @@ n_iter = 10000
 # result = result.dropna()
 # # round the result to 3 decimal places
 # result = result.round(3)
+# # result.to_csv('./data/bimodal_CA.csv', index=False)
 #
 # print(result['mu1'].value_counts())
-#
-# pdf_plot_generator(E_F_CA, result, 'bimodal')
+
+# pdf_plot_generator(CAoptimal, bimodal_CA, 'bimodal')
 
 # # only run if needed because it takes a long time with 10000 iterations
 # # let's see how the model converge with 3 components
@@ -84,6 +88,8 @@ n_iter = 10000
 
 # # save the result to a csv file
 # result_tri.to_csv('./data/trimodal_BD.csv', index=False)
+
+# pdf_plot_generator(CAoptimal, trimodal_CA, 'trimodal')
 
 # # now generate gamma probability and assign participants to each group
 # assignments_CA = group_assignment(CAoptimal, trimodal_BD, 'trimodal')

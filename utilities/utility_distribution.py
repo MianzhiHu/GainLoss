@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm, chi2
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def log_likelihood(dat, mu1, mu2, sd1, sd2, ppi1, modality='bimodal',
@@ -227,9 +228,15 @@ def em_model(data, tolerance=0.0001, random_init=True, return_starting_params=Fa
             return mu1, mu2, sd1, sd2, ppi, ll, ll_null, aic, aic_null, bic, bic_null, R2
 
 
-def pdf_plot_generator(raw_data, result_df, modality="bimodal", bins=50, density=True, alpha=0.6, color='g',
-                       label="Data", x_label="Value", y_label="Density", title="EM Fitted Gaussian Mixture Model",
+def pdf_plot_generator(raw_data, result_df, modality="bimodal", bins=50, density=True, alpha=0.4, color='gray',
+                       label="Data", x_label="PropOptimal", y_label="Density", title="EM Fitted Gaussian Mixture Model",
                        legend=True):
+    # Use a clear and modern style for the plot
+    plt.style.use('seaborn-white')
+
+    # # Increase the size of the plot
+    # plt.figure(figsize=(10, 6))
+
     plt.hist(raw_data, bins=bins, density=density, alpha=alpha, color=color, label=label)
     x = np.linspace(min(raw_data), max(raw_data), 1000)
 
@@ -249,12 +256,15 @@ def pdf_plot_generator(raw_data, result_df, modality="bimodal", bins=50, density
         weighted_pdf3 = ppi3.iloc[0] * pdf3
 
         # Plot
-        plt.plot(x, weighted_pdf1, 'k', linewidth=2, label=f"Component 1: $\mu$={result_df['mu1'].mode().iloc[0]:.2f}, "
-                                                           f"$\sigma$={result_df['sd1'].mode().iloc[0]:.2f}")
-        plt.plot(x, weighted_pdf2, 'r', linewidth=2, label=f"Component 2: $\mu$={result_df['mu2'].mode().iloc[0]:.2f}, "
-                                                           f"$\sigma$={result_df['sd2'].mode().iloc[0]:.2f}")
-        plt.plot(x, weighted_pdf3, 'b', linewidth=2, label=f"Component 3: $\mu$={result_df['mu3'].mode().iloc[0]:.2f}, "
-                                                           f"$\sigma$={result_df['sd3'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf3, '#E74C3C', linewidth=2,
+                 label=f"Disadvantageous Learners: $\mu$={result_df['mu3'].mode().iloc[0]:.2f}, "
+                       f"$\sigma$={result_df['sd3'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf2, '#F39C12', linewidth=2,
+                 label=f"Average Learners: $\mu$={result_df['mu2'].mode().iloc[0]:.2f}, "
+                       f"$\sigma$={result_df['sd2'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf1, '#2ECC71', linewidth=2,
+                 label=f"Advantageous Learners: $\mu$={result_df['mu1'].mode().iloc[0]:.2f}, "
+                       f"$\sigma$={result_df['sd1'].mode().iloc[0]:.2f}")
 
     else:
         # Calculate the Gaussian distributions
@@ -267,17 +277,31 @@ def pdf_plot_generator(raw_data, result_df, modality="bimodal", bins=50, density
         weighted_pdf2 = ppi * pdf2
 
         # Plot
-        plt.plot(x, weighted_pdf1, 'k', linewidth=2, label=f"Component 1: $\mu$={result_df['mu1'].mode().iloc[0]:.2f}, "
-                                                           f"$\sigma$={result_df['sd1'].mode().iloc[0]:.2f}")
-        plt.plot(x, weighted_pdf2, 'r', linewidth=2, label=f"Component 2: $\mu$={result_df['mu2'].mode().iloc[0]:.2f}, "
-                                                           f"$\sigma$={result_df['sd2'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf2, '#E74C3C', linewidth=2,
+                 label=f"Disdvantageous Learners: $\mu$={result_df['mu2'].mode().iloc[0]:.2f}, "
+                       f"$\sigma$={result_df['sd2'].mode().iloc[0]:.2f}")
+        plt.plot(x, weighted_pdf1, '#F39C12', linewidth=2,
+                 label=f"Average Learners: $\mu$={result_df['mu1'].mode().iloc[0]:.2f}, "
+                       f"$\sigma$={result_df['sd1'].mode().iloc[0]:.2f}")
 
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     if legend:
         plt.legend()
-    plt.show()
+
+    # Remove background and grid
+    plt.gca().set_facecolor('none')
+    plt.grid(False)
+
+    # Adjust spines to be less prominent
+    plt.gca().spines['top'].set_visible(False)
+    plt.gca().spines['right'].set_visible(False)
+    plt.gca().spines['left'].set_edgecolor('gray')
+    plt.gca().spines['bottom'].set_edgecolor('gray')
+
+    plt.tight_layout()
+    plt.show(dpi=600)
 
 
 def likelihood_ratio_test(result_df, df, result_df_null=None):

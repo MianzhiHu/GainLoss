@@ -86,7 +86,7 @@ condition_order = ['Gains', 'GainsEF', 'Losses', 'LossesEF']
 # plt.show()
 
 # create plots individually
-ax = sns.kdeplot(data=CA_group1, x='PropOptimal', hue='Condition', hue_order=condition_order)
+ax = sns.kdeplot(data=CA_group3, x='PropOptimal', hue='Condition', hue_order=condition_order)
 
 # Loop over each line to find the mode and draw a vertical line
 lines = ax.get_lines()
@@ -96,8 +96,8 @@ for line in lines:
     color = line.get_color()  # match the color of the KDE line
     plt.axvline(mode, color=color, linestyle='--')
 
-plt.gca().set_xlim([0.75, 1])
-plt.title('Good Learners')
+plt.gca().set_xlim([0, 0.2])
+plt.title('Disadvantageous Learners')
 plt.tight_layout()
 plt.show(dpi=600)
 

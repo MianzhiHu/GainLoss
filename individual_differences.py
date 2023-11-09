@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import scipy.stats as stats
 from utilities.utility_tests import correlation_test
 import matplotlib.pyplot as plt
@@ -14,15 +15,15 @@ trimodal_CA['Subnum'] = trimodal_CA.index + 1
 data = pd.merge(data, trimodal_CA, on='Subnum')
 # data.to_csv('./data/data_with_assignment.csv', index=False)
 
-# explore the basic rate of optimal choices
-# visualize as four conditions and six trials
-subset = data[data['ChoiceSet'] == "CA"]
-aggregated = subset.groupby('Condition')['PropOptimal'].mean().reset_index()
-
-plt.bar(aggregated['Condition'], aggregated['PropOptimal'])
-plt.ylabel('Proportion of Optimal Choices')
-plt.ylim(0, 1)
-plt.show()
+# # explore the basic rate of optimal choices
+# # visualize as four conditions and six trials
+# subset = data[data['ChoiceSet'] == "CA"]
+# aggregated = subset.groupby('Condition')['PropOptimal'].mean().reset_index()
+#
+# plt.bar(aggregated['Condition'], aggregated['PropOptimal'])
+# plt.ylabel('Proportion of Optimal Choices')
+# plt.ylim(0, 1)
+# plt.show()
 
 
 # # test all the correlations
@@ -81,16 +82,59 @@ for scale in data.columns[4:20]:
 
 for scale in data.columns[4:20]:
     print(scale)
-    print(stats.ttest_ind(group3[scale], group2[scale], equal_var=False))
+    print(stats.ttest_ind(group3[scale], group1[scale], equal_var=False))
     print('')
 
 
-data_to_be_plotted = [group1['ESIBF_SubstanceUse'].mean(),
-                      group2['ESIBF_SubstanceUse'].mean(),
-                      group3['ESIBF_SubstanceUse'].mean()]
-labels = ['Good Learner', 'Average Learner', 'Bad Learner']
+# Variables to plot
+variables = ['ESIBF_SubstanceUse', 'Big5E', 'TPM_Boldness']
+labels = ['Advantageous Learners', 'Average Learners', 'Disadvantageous Learners']
 
-plt.bar(labels, data_to_be_plotted)
-plt.ylabel('Mean Substance Use Score')
-plt.show()
+# Calculate means and standard errors
+means = [[np.mean(group[var]) for group in [group1, group2, group3]] for var in variables]
+std_errors = [[np.std(group[var]) / np.sqrt(len(group[var])) for group in [group1, group2, group3]] for var in variables]
 
+# Number of groups and number of variables
+n_groups = len(labels)
+n_vars = len(variables)
+
+# The x location for the groups
+ind = np.arange(n_groups)
+# The width of the bars
+width = 0.8 / n_vars
+# Colors for each variable
+colors = ['#1F77B4', '#FF7F0E', '#2CA02C']
+
+# Create the plot
+# Use a clear and modern style for the plot
+plt.style.use('seaborn-white')
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Create bars for each variable
+for i in range(n_vars):
+    # Offset each bar by the width of the bars so they don't overlap
+    bar_positions = ind + i * width
+    ax.bar(bar_positions, means[i], width, yerr=std_errors[i], capsize=5, color=colors[i], label=variables[i], alpha=0.5)
+
+# Add some text for labels, title and axes ticks
+ax.set_ylabel('Scores')
+ax.set_title('Group-Level Individual Differences', fontsize=24)
+ax.set_xticks(ind + width / n_vars + 0.2)
+ax.set_xticklabels(labels, ha='center')
+
+# Add a legend
+ax.legend(title='Variables', loc='upper left')
+
+# Remove background and grid
+plt.gca().set_facecolor('none')
+plt.grid(False)
+
+# Adjust spines to be less prominent
+plt.gca().spines['top'].set_visible(False)
+plt.gca().spines['right'].set_visible(False)
+plt.gca().spines['left'].set_edgecolor('gray')
+plt.gca().spines['bottom'].set_edgecolor('gray')
+
+# Show the plot
+plt.tight_layout()
+plt.show(dpi=600)

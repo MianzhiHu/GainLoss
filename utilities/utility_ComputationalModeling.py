@@ -103,15 +103,15 @@ class ComputationalModels:
             self.choice_history.append(chosen)
             self.memory_weights.append(1)
 
-            # # use the following code if you want to use prediction errors as reward instead of actual rewards
-            # prediction_error = self.a * (reward - self.EVs[chosen])
-            # self.PE.append(prediction_error)
+            # use the following code if you want to use prediction errors as reward instead of actual rewards
+            prediction_error = self.a * (reward - self.EVs[chosen])
+            self.PE.append(prediction_error)
 
-            # use the following code if you want to use average reward as reward instead of actual rewards
-            prediction_error = reward - self.AV
-            weighted_PE = prediction_error * self.a
-            self.AV += weighted_PE
-            self.PE.append(weighted_PE)
+            # # use the following code if you want to use average reward as reward instead of actual rewards
+            # prediction_error = reward - self.AV
+            # weighted_PE = prediction_error * self.a
+            # self.AV += weighted_PE
+            # self.PE.append(weighted_PE)
 
             # Decay weights of past trials and EVs
             self.EVs = self.EVs * (1 - self.a)
