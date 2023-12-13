@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 # Read in the data
 data = pd.read_csv('./data/data.csv')
+data = data[data['Condition'].isin(['Gains', 'Losses'])]
 trimodal_CA = pd.read_csv('./data/trimodal_assignments_CA.csv')
 
 # add a index column to trimodal_CA
@@ -13,7 +14,7 @@ trimodal_CA['Subnum'] = trimodal_CA.index + 1
 
 # merge the data with trimodal_CA
 data = pd.merge(data, trimodal_CA, on='Subnum')
-# data.to_csv('./data/data_with_assignment.csv', index=False)
+data.to_csv('./data/data_with_assignment.csv', index=False)
 
 # # explore the basic rate of optimal choices
 # # visualize as four conditions and six trials
@@ -83,6 +84,10 @@ for scale in data.columns[4:20]:
 for scale in data.columns[4:20]:
     print(scale)
     print(stats.ttest_ind(group3[scale], group1[scale], equal_var=False))
+    # print degree of freedom
+    print((np.var(group3[scale], ddof=1) / len(group3[scale]) + np.var(group1[scale], ddof=1) / len(group1[scale])) ** 2 /
+            ((np.var(group3[scale], ddof=1) / len(group3[scale])) ** 2 / (len(group3[scale]) - 1) +
+                (np.var(group1[scale], ddof=1) / len(group1[scale])) ** 2 / (len(group1[scale]) - 1)))
     print('')
 
 

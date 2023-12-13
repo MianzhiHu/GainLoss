@@ -82,13 +82,30 @@ class ComputationalModels:
         self.choices_count[chosen] += 1
 
         if self.model_type == 'decay':
-            self.EVs = self.EVs * (1 - self.a)
             self.EVs[chosen] += reward
+            self.EVs = self.EVs * (1 - self.a)
 
         elif self.model_type == 'decay_fre':
-            self.EVs = self.EVs * (1 - self.a)
             multiplier = self.choices_count[chosen] ** (-self.b)
             self.EVs[chosen] += reward * multiplier
+            self.EVs = self.EVs * (1 - self.a)
+
+        elif self.model_type == 'decay_choice':
+            self.EVs[chosen] += 1
+            self.EVs = self.EVs * (1 - self.a)
+
+        elif self.model_type == 'decay_win':
+            # # if use PE instead of AV
+            # prediction_error = reward - self.EVs[chosen]
+
+            # if use AV instead of PE
+            prediction_error = reward - self.AV
+            weighted_PE = prediction_error * self.a
+            self.AV += weighted_PE
+            if prediction_error > 0:
+                self.EVs[chosen] += 1
+
+            self.EVs = self.EVs * (1 - self.a)
 
         elif self.model_type == 'delta':
             prediction_error = reward - self.EVs[chosen]
@@ -103,9 +120,9 @@ class ComputationalModels:
             self.choice_history.append(chosen)
             self.memory_weights.append(1)
 
-            # use the following code if you want to use prediction errors as reward instead of actual rewards
-            prediction_error = self.a * (reward - self.EVs[chosen])
-            self.PE.append(prediction_error)
+            # # use the following code if you want to use prediction errors as reward instead of actual rewards
+            # prediction_error = self.a * (reward - self.EVs[chosen])
+            # self.PE.append(prediction_error)
 
             # # use the following code if you want to use average reward as reward instead of actual rewards
             # prediction_error = reward - self.AV
@@ -121,13 +138,13 @@ class ComputationalModels:
             total_weight = sum(self.memory_weights)
             self.AllProbs = [w / total_weight for w in self.memory_weights]
 
-            # # Update EVs based on the samples from memory
-            # for j in range(len(self.reward_history)):
-            #     self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.reward_history[j]
+            # Update EVs based on the samples from memory
+            for j in range(len(self.reward_history)):
+                self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.reward_history[j]
 
-            # For PE and AV version
-            for j in range(len(self.memory_weights)):
-                self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.PE[j]
+            # # For PE and AV versions
+            # for j in range(len(self.memory_weights)):
+            #     self.EVs[self.choice_history[j]] += self.AllProbs[j] * self.PE[j]
 
         # print(f'C: {chosen}, R: {reward}, EV: {self.EVs}; it has been {self.choices_count[chosen]} times')
         return self.EVs
@@ -190,9 +207,10 @@ class ComputationalModels:
                     prob_optimal = self.softmax(self.EVs[optimal], self.EVs[suboptimal])
                     chosen = optimal if np.random.rand() < prob_optimal else suboptimal
 
-                trial_details.append(
-                    {"trial": trial + 1, "pair": (chr(65 + pair[0]), chr(65 + pair[1])), "choice": chr(65 + chosen)})
                 reward = np.random.normal(self.reward_means[chosen], self.reward_sd[chosen])
+                trial_details.append(
+                    {"trial": trial + 1, "pair": (chr(65 + pair[0]), chr(65 + pair[1])), "choice": chr(65 + chosen),
+                     "reward": reward})
                 EV_history[trial] = self.update(chosen, reward, trial + 1)
 
             all_results.append({
@@ -219,7 +237,7 @@ class ComputationalModels:
         """
         self.reset()
 
-        if self.model_type in ('decay', 'delta'):
+        if self.model_type in ('decay', 'delta', 'decay_choice', 'decay_win'):
             self.t = params[0]
             self.a = params[1]
         elif self.model_type == 'decay_fre':
@@ -269,9 +287,9 @@ class ComputationalModels:
 
         all_results = []
         total_nll = 0  # Initialize the cumulative negative log likelihood
-        total_n = len(data)  # Initialize the cumulative number of participants
+        total_n = self.num_trials  # Initialize the cumulative number of participants
 
-        if self.model_type in ('decay', 'delta'):
+        if self.model_type in ('decay', 'delta', 'decay_choice', 'decay_win'):
             k = 2  # Initialize the cumulative number of parameters
         elif self.model_type == 'decay_fre':
             k = 3
@@ -292,7 +310,7 @@ class ComputationalModels:
                 self.iteration += 1
                 print(f"\n=== Iteration {self.iteration} ===\n")
 
-                if self.model_type in ('decay', 'delta'):
+                if self.model_type in ('decay', 'delta', 'decay_choice', 'decay_win'):
                     initial_guess = [np.random.uniform(0, 5), np.random.uniform(0, 1)]
                     bounds = ((0, 5), (0, 1))
                 elif self.model_type == 'decay_fre':

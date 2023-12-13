@@ -10,6 +10,8 @@ from utilities.utility_tests import normality_test, bimodal_test
 data = pd.read_csv('./data/data.csv')
 data_with_assignment = pd.read_csv('./data/data_with_assignment.csv')
 
+print(data_with_assignment['Ethnicity'].value_counts()/6)
+
 # Subset the data
 ABoptimal = data[data['ChoiceSet'] == 'AB']
 CDoptimal = data[data['ChoiceSet'] == 'CD']
@@ -24,6 +26,11 @@ CA_group2 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] =
 CA_group3 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 3]
 
 CA_groups = [CA_group1, CA_group2, CA_group3]
+
+# t-test for the difference between EF and non-EF conditions
+stats.ttest_ind(CA_group2[CA_group2['Condition'] == 'Gains']['PropOptimal'],
+                CA_group2[CA_group2['Condition'] == 'GainsEF']['PropOptimal'])
+
 
 # set list of trials and conditions
 trial_list = [ABoptimal, CDoptimal, CAoptimal, BDoptimal, CBoptimal, ADoptimal]

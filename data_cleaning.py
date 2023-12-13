@@ -4,6 +4,12 @@ import numpy as np
 # Read in the data
 prop_optimal = pd.read_csv('./data/PropOptimal.csv')
 data_raw = pd.read_csv('./data/ABCDGainsLossesData_F2023.csv')
+data_2nd_raw = pd.read_csv('./data/ABCDGainsLossesData_F20232ndBatch.csv')
+data_3rd_raw = pd.read_csv('./data/ABCDAllLossesData_F2023_LastBatch.csv')
+
+# combine the data
+gain_losses = pd.concat([data_raw, data_2nd_raw], ignore_index=True)
+gain_losses.to_csv('./data/data.csv', index=False)
 
 # Drop the first column and the last 7 columns
 data_raw = data_raw.drop(columns=['Unnamed: 0']).iloc[:, :-8]
