@@ -15,6 +15,8 @@ class ComputationalModels:
         - reward_sd: List of standard deviations for each option.
         - model_type: Type of the model.
         - condition: Condition of the model.
+        - num_trials: Number of trials for the simulation.
+        - num_params: Number of parameters for the model.
         """
         self.num_options = 4
         self.num_trials = num_trials
@@ -38,7 +40,7 @@ class ComputationalModels:
         elif self.condition == "Losses":
             self.EVs = np.full(self.num_options, -0.5)
         elif self.condition == "Both":
-            self.EVs = np.full(self.num_options, 0)
+            self.EVs = np.full(self.num_options, 0.0)
 
         # Reward structure
         self.reward_means = reward_means
@@ -65,7 +67,7 @@ class ComputationalModels:
             self.AV = -0.5
         elif self.condition == "Both":
             self.EVs = np.full(self.num_options, 0)
-            self.AV = 0
+            self.AV = 0.0
 
     def update(self, chosen, reward, trial):
         """
@@ -106,6 +108,12 @@ class ComputationalModels:
                 self.EVs[chosen] += 1
 
             self.EVs = self.EVs * (1 - self.a)
+            print(f'PE: {prediction_error}, EV: {self.EVs}, reward: {reward}, a: {self.a}')
+
+        elif self.model_type == 'delta_decay':
+            prediction_error = reward - self.EVs[chosen]
+            self.EVs[chosen] += self.a * prediction_error
+            self.EVs = self.EVs * (1 - self.b)
 
         elif self.model_type == 'delta':
             prediction_error = reward - self.EVs[chosen]
@@ -165,6 +173,8 @@ class ComputationalModels:
         - AB_freq: Frequency of appearance for the AB pair in the first 150 trials.
         - CD_freq: Frequency of appearance for the CD pair in the first 150 trials.
         - num_iterations: Number of times to repeat the simulation.
+        - beta_lower: Lower bound for the beta parameter.
+        - beta_upper: Upper bound for the beta parameter.
 
         Returns:
         - A list of simulation results.
@@ -291,7 +301,7 @@ class ComputationalModels:
 
         if self.model_type in ('decay', 'delta', 'decay_choice', 'decay_win'):
             k = 2  # Initialize the cumulative number of parameters
-        elif self.model_type == 'decay_fre':
+        elif self.model_type in ('decay_fre', 'delta_decay'):
             k = 3
         elif self.model_type == 'sampler_decay':
             k = self.num_params
@@ -313,7 +323,7 @@ class ComputationalModels:
                 if self.model_type in ('decay', 'delta', 'decay_choice', 'decay_win'):
                     initial_guess = [np.random.uniform(0, 5), np.random.uniform(0, 1)]
                     bounds = ((0, 5), (0, 1))
-                elif self.model_type == 'decay_fre':
+                elif self.model_type in ('decay_fre', 'delta_decay'):
                     initial_guess = [np.random.uniform(0, 5), np.random.uniform(0, 1),
                                      np.random.uniform(beta_lower, beta_upper)]
                     bounds = ((0, 5), (0, 1), (beta_lower, beta_upper))

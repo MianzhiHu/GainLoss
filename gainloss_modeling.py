@@ -8,6 +8,10 @@ from utilities.utility_distribution import best_fitting_participants
 
 # Read in the data
 data = pd.read_csv('./data/data.csv')
+
+data = data[data['Condition'] == 'Losses']
+
+# data = pd.read_csv('./data/ABCDAllLossesData_F2023_LastBatch.csv')
 propOptimal = pd.read_csv('./data/data_with_assignment.csv')
 propOptimal_CA = propOptimal[propOptimal['ChoiceSet'] == 'CA']
 assignment = pd.read_csv('./data/trimodal_assignments_CA.csv')
@@ -68,12 +72,12 @@ data = data.reset_index(drop=True)
 data.iloc[:, 1] = (data.index // 250) + 1
 data['KeyResponse'] = data['KeyResponse'] - 1
 
-# copy the index of all participants assigned to 3
-bad_learners = assignment[assignment['assignments'] == 3].index.tolist()
-bad_learners = [x + 1 for x in bad_learners]
-
-good_learners = assignment[assignment['assignments'] == 1].index.tolist()
-good_learners = [x + 1 for x in good_learners]
+# # copy the index of all participants assigned to 3
+# bad_learners = assignment[assignment['assignments'] == 3].index.tolist()
+# bad_learners = [x + 1 for x in bad_learners]
+#
+# good_learners = assignment[assignment['assignments'] == 1].index.tolist()
+# good_learners = [x + 1 for x in good_learners]
 
 # keep only the participants assigned to bad learners
 # bad_learners_data = data[data['Subnum'].isin(bad_learners)]
@@ -92,39 +96,55 @@ data_dict = dict_generator(data)
 # good_learners_dict = dict_generator(good_learners_data)
 
 # set up the reward structure
-reward_means = [0.65, 0.35, 0.75, 0.25]
-reward_sd = [0.43, 0.43, 0.43, 0.43]
+
+# reward_means = [0.65, 0.35, 0.75, 0.25]
+# reward_sd = [0.43, 0.43, 0.43, 0.43]
+
+reward_means = [-16.5, -13.5, -17.5, -12.5]
+reward_sd = [4.3, 4.3, 4.3, 4.3]
 
 alt_reward_means = [-0.35, -0.65, -0.25, -0.75]
 
 # fit the data
 model_delta = ComputationalModels(reward_means, reward_sd,
-                                    model_type='delta', condition='Both', num_trials=250)
+                                  model_type='delta', condition='Losses', num_trials=250)
 
 model_decayfre = ComputationalModels(reward_means, reward_sd,
-                                     model_type='decay_fre', condition='Both', num_trials=250)
+                                     model_type='decay_fre', condition='Losses', num_trials=250)
 
 model_decay = ComputationalModels(reward_means, reward_sd,
-                                  model_type='decay', condition='Both', num_trials=250)
+                                  model_type='decay', condition='Losses', num_trials=250)
+
+model_delta_decay = ComputationalModels(alt_reward_means, reward_sd,
+                                        model_type='delta_decay', condition='Losses', num_trials=250)
 
 model_decay_choice = ComputationalModels(reward_means, reward_sd,
-                                            model_type='decay_choice', condition='Both', num_trials=250)
+                                         model_type='decay_choice', condition='Losses', num_trials=250)
 
 model_decay_win = ComputationalModels(reward_means, reward_sd,
-                                        model_type='decay_win', condition='Both', num_trials=250)
+                                      model_type='decay_win', condition='Losses', num_trials=250)
 
 model_sampler_decay = ComputationalModels(reward_means, reward_sd,
-                                          model_type='sampler_decay', condition='Both', num_trials=250, num_params=3)
+                                          model_type='sampler_decay', condition='Losses', num_trials=250, num_params=2)
 
 
-# fit the model with all participants
-results_data_decay_win = model_decay_win.fit(data_dict, num_iterations=100)
-results_data_decay_win = pd.DataFrame(results_data_decay_win)
-results_data_decay_win.iloc[:, 3] = results_data_decay_win.iloc[:, 3].astype(str)
-results_data_decay_win.to_csv('./data/decay_win_gainloss.csv', index=False)
+# fit all the models
+for model in [model_delta, model_decayfre, model_decay, model_decay_choice, model_decay_win, model_sampler_decay]:
+    results = model.fit(data_dict, num_iterations=100)
+    results = pd.DataFrame(results)
+    results.iloc[:, 3] = results.iloc[:, 3].astype(str)
+    results.to_csv('./data/' + model.model_type + '_losses.csv', index=False)
+    print(results['AIC'].mean())
+    print(results['BIC'].mean())
 
-print(results_data_decay_win['AIC'].mean())
-print(results_data_decay_win['BIC'].mean())
+# # fit the model with all participants
+# results_data_decayfre = model_decayfre.fit(data_dict, num_iterations=100)
+# results_data_decayfre = pd.DataFrame(results_data_decayfre)
+# results_data_decayfre.iloc[:, 3] = results_data_decayfre.iloc[:, 3].astype(str)
+# results_data_decayfre.to_csv('./data/decay_fre_allloss.csv', index=False)
+#
+# print(results_data_decayfre['AIC'].mean())
+# print(results_data_decayfre['BIC'].mean())
 
 # results_good = model_sampler_decay.fit(good_learners_dict, num_iterations=100)
 #
@@ -187,7 +207,7 @@ print(results_data_decay_win['BIC'].mean())
 # pearsonr(best_t_good, good_learners_prob['prob3'])
 
 # # some simulations
-# decay_choice = model_decay_win.simulate(AB_freq=100, CD_freq=50, num_iterations=1000)
+# decay_choice = model_decay.simulate(AB_freq=100, CD_freq=50, num_iterations=1000, beta_lower=0)
 #
 # # unpacking the results
 # all_data = []
@@ -195,12 +215,14 @@ print(results_data_decay_win['BIC'].mean())
 # for res in decay_choice:
 #     sim_num = res['simulation_num']
 #     a_val = res['a']
+#     b_val = res['b']
 #     t_val = res['t']
 #     for trial_idx, trial_detail, ev in zip(res['trial_indices'], res['trial_details'], res['EV_history']):
 #         data_row = {
 #             'simulation_num': sim_num,
 #             'trial_index': trial_idx,
 #             'a': a_val,
+#             'b': b_val,
 #             't': t_val,
 #             'pair': trial_detail['pair'],
 #             'choice': trial_detail['choice'],
