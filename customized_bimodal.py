@@ -10,9 +10,6 @@ from utilities.utility_tests import normality_test, bimodal_test
 # Read in the data
 data = pd.read_csv('./data/data.csv')
 data = data[data['Condition'].isin(['Gains', 'Losses'])]
-E1 = pd.read_csv('./data/PropOptimal_E1.csv')
-E2 = pd.read_csv('./data/PropOptimal_E2.csv')
-E3 = pd.read_csv('./data/PropOptimal_E3.csv')
 
 # Read in the results if necessary
 trimodal_CA = pd.read_csv('./data/trimodal_CA_fre.csv')
@@ -20,13 +17,6 @@ trimodal_BD = pd.read_csv('./data/trimodal_BD.csv')
 bimodal_CA = pd.read_csv('./data/bimodal_CA.csv')
 
 # bimodal_CA = bimodal_CA[bimodal_CA['mu1'] < 0.9]
-
-# combine E1 and E2 so that we have enough data points
-E_F = pd.concat([E1, E2], ignore_index=True)
-E_F_CA = E_F[E_F['ChoiceSet'] == 'CA']['PropOptimal']
-E3_CA = E3[E3['ChoiceSet'] == 'CA']['PropOptimal']
-E_F_all = pd.concat([E1, E2, E3], ignore_index=True)
-E_F_all_CA = E_F_all[E_F_all['ChoiceSet'] == 'CA']['PropOptimal']
 
 # Subset the data
 ABoptimal = data[data['ChoiceSet'] == 'AB']['PropOptimal']

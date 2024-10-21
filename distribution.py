@@ -7,7 +7,7 @@ from utilities.utility_tests import normality_test, bimodal_test
 
 
 # Read in the data
-data = pd.read_csv('./data/data.csv')
+data = pd.read_csv('./data/data_PropOptimal.csv')
 data_with_assignment = pd.read_csv('./data/data_with_assignment.csv')
 
 print(data_with_assignment['Ethnicity'].value_counts()/6)

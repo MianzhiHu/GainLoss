@@ -108,7 +108,6 @@ class ComputationalModels:
                 self.EVs[chosen] += 1
 
             self.EVs = self.EVs * (1 - self.a)
-            print(f'PE: {prediction_error}, EV: {self.EVs}, reward: {reward}, a: {self.a}')
 
         elif self.model_type == 'delta_decay':
             prediction_error = reward - self.EVs[chosen]
