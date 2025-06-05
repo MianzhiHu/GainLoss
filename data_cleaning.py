@@ -21,6 +21,10 @@ gain_losses['Subnum'] = gain_losses.index // 250 + 1
 # Drop the first column and the last 7 columns
 gain_losses = gain_losses.drop(columns=['Unnamed: 0'])
 
+# Print the frequency of AB and CD trials during training per condition
+print(gain_losses.groupby(['Condition', 'SetSeen.']).size().unstack(fill_value=0))
+
+
 # save the data
 gain_losses.to_csv('./data/data_gains.csv', index=False)
 
