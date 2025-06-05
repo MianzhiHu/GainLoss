@@ -11,9 +11,6 @@ from utilities.utility_distribution import best_fitting_participants
 E1_data = pd.read_csv('./data/data_gains.csv')
 E2_data = pd.read_csv('./data/data_id.csv')
 
-# # test the data
-# data = data[data['Subnum'] <= 1]
-
 # Some data cleaning
 E1_data['KeyResponse'] = E1_data['KeyResponse'] - 1
 
@@ -43,33 +40,40 @@ if __name__ == '__main__':
     model_dual = DualProcessModel()
 
     n_iterations = 100
+
+    # # test the data
+    # test_data = E1_data[E1_data['Subnum'] <= 1]
+    # test_dict = dict_generator(test_data)
+    #
+    # testing_results = model_dual.fit(test_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #                                     weight_Dir='softmax', weight_Gau='softmax', num_iterations=1)
     # ------------------------------------------------------------------------------------------------------------------
     # Experiment 1
     # ------------------------------------------------------------------------------------------------------------------
-    # Fit all data (Since E1 is between-subjects, we can fit all data together)
-    model_names = ['delta', 'delta_PVL', 'decay', 'decay_win', 'dual']
-
-    for i, model in enumerate([model_delta, model_delta_PVL, model_decay, model_decay_win, model_dual]):
-            save_dir = f'./data/ModelFitting/E1/{model_names[i]}_results.csv'
-            # Check if the file already exists
-            try:
-             existing_results = pd.read_csv(save_dir)
-             if not existing_results.empty:
-                  print(f"File {save_dir} already exists. Skipping model fitting.")
-                  continue
-            except FileNotFoundError:
-             pass
-
-            if model_names[i] == 'dual':
-                # Fit the dual-process model
-                model_results = model.fit(E1_dict, 'Entropy_Dis_ID', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                          weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
-                                          num_iterations=n_iterations)
-            else:
-            # For other models, fit them directly
-                model_results = model.fit(E1_dict, num_training_trials=150, num_iterations=n_iterations)
-
-            model_results.to_csv(save_dir, index=False)
+    # # Fit all data (Since E1 is between-subjects, we can fit all data together)
+    # model_names = ['delta', 'delta_PVL', 'decay', 'decay_win', 'dual']
+    #
+    # for i, model in enumerate([model_delta, model_delta_PVL, model_decay, model_decay_win, model_dual]):
+    #         save_dir = f'./data/ModelFitting/E1/{model_names[i]}_results.csv'
+    #         # Check if the file already exists
+    #         try:
+    #          existing_results = pd.read_csv(save_dir)
+    #          if not existing_results.empty:
+    #               print(f"File {save_dir} already exists. Skipping model fitting.")
+    #               continue
+    #         except FileNotFoundError:
+    #          pass
+    #
+    #         if model_names[i] == 'dual':
+    #             # Fit the dual-process model
+    #             model_results = model.fit(E1_dict, 'Entropy_Dis_ID', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
+    #                                       num_iterations=n_iterations)
+    #         else:
+    #         # For other models, fit them directly
+    #             model_results = model.fit(E1_dict, num_training_trials=150, num_iterations=n_iterations)
+    #
+    #         model_results.to_csv(save_dir, index=False)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Experiment 2
