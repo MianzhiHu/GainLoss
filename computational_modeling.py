@@ -33,24 +33,25 @@ E2_frequency_dict = dict_generator(E2_frequency)
 
 if __name__ == '__main__':
     # Define the model
-    model_delta = ComputationalModels(model_type='delta', condition='Both')
-    model_delta_PVL = ComputationalModels(model_type='delta_PVL', condition='Both')
-    model_decay = ComputationalModels(model_type='decay', condition='Both')
-    model_decay_win = ComputationalModels(model_type='decay_win', condition='Both')
-    model_dual = DualProcessModel(default_EV=0.0)
+    model_delta = ComputationalModels(model_type='delta')
+    model_delta_PVL = ComputationalModels(model_type='delta_PVL')
+    model_decay = ComputationalModels(model_type='decay')
+    model_decay_win = ComputationalModels(model_type='decay_win')
+    model_dual = DualProcessModel()
 
     model_list = [model_delta, model_delta_PVL, model_decay, model_decay_win, model_dual]
 
     n_iterations = 200
 
-    # test the data
-    # test_data = E1_data[(E1_data['Subnum'] > 1) & (E1_data['Subnum'] < 4)]
+    # # test the data
+    # test_data = E1_data[E1_data['Subnum'] == 1]
     # test_dict = dict_generator(test_data)
-
+    #
     # testing_results = model_dual.fit(test_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
     #                                     weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, num_exp_restart=200,
-    #                                     num_iterations=1)
-    # testing_results = model_delta.fit(test_dict, num_training_trials=150, num_exp_restart=999, num_iterations=1)
+    #                                     num_iterations=1, initial_mode='first_trial')
+    # testing_results = model_delta.fit(test_dict, num_training_trials=150, num_exp_restart=200, num_iterations=1, initial_mode='first_trial')
+
     # ------------------------------------------------------------------------------------------------------------------
     # Experiment 1
     # ------------------------------------------------------------------------------------------------------------------
@@ -73,10 +74,11 @@ if __name__ == '__main__':
             # Fit the dual-process model
             model_results = model.fit(E1_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
-                                      num_iterations=n_iterations)
+                                      num_iterations=n_iterations, num_exp_restart=999, initial_mode='first_trial')
         else:
         # For other models, fit them directly
-            model_results = model.fit(E1_dict, num_training_trials=150, num_iterations=n_iterations)
+            model_results = model.fit(E1_dict, num_training_trials=150, num_exp_restart=999, num_iterations=n_iterations,
+                                      initial_mode='first_trial')
 
         model_results.to_csv(save_dir, index=False)
 
@@ -101,11 +103,11 @@ if __name__ == '__main__':
                 # Fit the dual-process model
                 model_results = model.fit(E2_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                           weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
-                                          num_exp_restart=200, num_iterations=n_iterations)
+                                          num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial')
             else:
             # For other models, fit them directly
                 model_results = model.fit(E2_dict, num_training_trials=120, num_exp_restart=200,
-                                          num_iterations=n_iterations)
+                                          num_iterations=n_iterations, initial_mode='first_trial')
 
             model_results.to_csv(save_dir, index=False)
 
@@ -128,10 +130,11 @@ if __name__ == '__main__':
             # Fit the dual-process model
             model_results = model.fit(E2_baseline_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
-                                      num_iterations=n_iterations)
+                                      num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial')
         else:
         # For other models, fit them directly
-            model_results = model.fit(E2_baseline_dict, num_training_trials=120, num_iterations=n_iterations)
+            model_results = model.fit(E2_baseline_dict, num_training_trials=120, num_iterations=n_iterations,
+                                      num_exp_restart=200, initial_mode='first_trial')
 
         model_results.to_csv(save_dir, index=False)
 
@@ -154,10 +157,11 @@ if __name__ == '__main__':
             # Fit the dual-process model
             model_results = model.fit(E2_frequency_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
-                                      num_iterations=n_iterations)
+                                      num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial')
         else:
         # For other models, fit them directly
-            model_results = model.fit(E2_frequency_dict, num_training_trials=120, num_iterations=n_iterations)
+            model_results = model.fit(E2_frequency_dict, num_training_trials=120, num_iterations=n_iterations,
+                                      num_exp_restart=200, initial_mode='first_trial')
 
         model_results.to_csv(save_dir, index=False)
 
