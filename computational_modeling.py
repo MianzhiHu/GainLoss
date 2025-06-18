@@ -35,28 +35,39 @@ if __name__ == '__main__':
     # Define the model
     model_delta = ComputationalModels(model_type='delta')
     model_delta_PVL = ComputationalModels(model_type='delta_PVL')
+    model_delta_PVL_relative = ComputationalModels(model_type='delta_PVL_relative')
     model_decay = ComputationalModels(model_type='decay')
     model_decay_win = ComputationalModels(model_type='decay_win')
+    model_decay_PVL = ComputationalModels(model_type='decay_PVL')
+    model_decay_PVL_relative = ComputationalModels(model_type='decay_PVL_relative')
+    model_decay_PVPE = ComputationalModels(model_type='decay_PVPE')
     model_dual = DualProcessModel()
 
-    model_list = [model_delta, model_delta_PVL, model_decay, model_decay_win, model_dual]
+    model_list = [model_delta, model_delta_PVL, model_delta_PVL_relative,
+                  model_decay, model_decay_win, model_decay_PVL, model_decay_PVL_relative, model_decay_PVPE,
+                  model_dual]
 
     n_iterations = 200
 
-    # # test the data
+    # test the data
     # test_data = E1_data[E1_data['Subnum'] == 1]
+    # test_data = E1_data[(E1_data['Subnum'] >= 1) & (E1_data['Subnum'] <= 4)]
     # test_dict = dict_generator(test_data)
-    #
+
     # testing_results = model_dual.fit(test_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-    #                                     weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, num_exp_restart=200,
-    #                                     num_iterations=1, initial_mode='first_trial')
-    # testing_results = model_delta.fit(test_dict, num_training_trials=150, num_exp_restart=200, num_iterations=1, initial_mode='first_trial')
+    #                                     weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150, num_exp_restart=250,
+    #                                     num_iterations=1, initial_mode='fixed')
+    # testing_results = model_delta_PVL_relative.fit(test_dict, num_training_trials=150, num_exp_restart=250, num_iterations=1, initial_mode='first_trial')
+
+    # delta_results = model_delta_PVL.fit(E1_dict, num_training_trials=150, num_iterations=100, initial_mode='first_trial')
+    # delta_results.to_csv('./data/ModelFitting/E1/delta_PVL_results.csv', index=False)
 
     # ------------------------------------------------------------------------------------------------------------------
     # Experiment 1
     # ------------------------------------------------------------------------------------------------------------------
     # Fit all data (Since E1 is between-subjects, we can fit all data together)
-    model_names = ['delta', 'delta_PVL', 'decay', 'decay_win', 'dual']
+    model_names = ['delta', 'delta_PVL', 'delta_PVL_relative', 'decay', 'decay_win', 'decay_PVL',
+                   'decay_PVL_relative', 'decay_PVPE', 'dual']
 
     for i, model in enumerate(model_list):
         print(f"Fitting model: {model_names[i]}")
@@ -74,10 +85,10 @@ if __name__ == '__main__':
             # Fit the dual-process model
             model_results = model.fit(E1_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
-                                      num_iterations=n_iterations, num_exp_restart=999, initial_mode='first_trial')
+                                      num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial')
         else:
         # For other models, fit them directly
-            model_results = model.fit(E1_dict, num_training_trials=150, num_exp_restart=999, num_iterations=n_iterations,
+            model_results = model.fit(E1_dict, num_training_trials=150, num_exp_restart=250, num_iterations=n_iterations,
                                       initial_mode='first_trial')
 
         model_results.to_csv(save_dir, index=False)
@@ -86,7 +97,8 @@ if __name__ == '__main__':
     # Experiment 2
     # ------------------------------------------------------------------------------------------------------------------
     # Fit all data (Here we manually force the model to set at trial 200 to account for task switching)
-    model_names = ['delta', 'delta_PVL', 'decay', 'decay_win', 'dual']
+    model_names = ['delta', 'delta_PVL', 'delta_PVL_relative', 'decay', 'decay_win', 'decay_PVL',
+                   'decay_PVL_relative', 'decay_PVPE', 'dual']
 
     for i, model in enumerate([model_delta, model_delta_PVL, model_decay, model_decay_win, model_dual]):
             save_dir = f'./data/ModelFitting/E2/{model_names[i]}_results.csv'
