@@ -57,4 +57,5 @@ def print_mean_bic(results, condition):
             print(f"{name}: {mean_bic}")
 
 print_mean_bic(E1_results, "E1")
+print_mean_bic(E2_all_results, "E2 All")
 
