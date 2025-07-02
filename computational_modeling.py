@@ -44,19 +44,20 @@ if __name__ == '__main__':
     model_decay_PVL_RR = ComputationalModels(model_type='decay_PVL_relative_RR')
     model_decay_PVPE = ComputationalModels(model_type='decay_PVPE')
     model_dual = DualProcessModel()
+    model_dual_sensitivity = DualProcessModel()
 
     model_list = [model_delta, model_delta_PVL, model_delta_PVL_relative, model_delta_PVL_RR,
                   model_decay, model_decay_win, model_decay_PVL, model_decay_PVL_relative, model_decay_PVL_RR, model_decay_PVPE,
-                  model_dual]
+                  model_dual, model_dual_sensitivity]
 
     n_iterations = 100
 
     # # test the data
-    # test_data = E2_data[E2_data['Subnum'] == 1]
+    # test_data = E2_data[E2_data['Subnum'] == 2]
     # # test_data = E1_data[(E1_data['Subnum'] >= 1) & (E1_data['Subnum'] <= 4)]
     # test_dict = dict_generator(test_data)
-
-    # testing_results = model_dual.fit(test_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #
+    # testing_results = model_dual.fit(test_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
     #                                     weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, num_exp_restart=200,
     #                                     num_iterations=1, initial_mode='first_trial_no_alpha')
     # testing_results = model_decay_PVL_RR.fit(test_dict, num_training_trials=120, num_exp_restart=200, num_iterations=1, initial_mode='first_trial_no_alpha')
@@ -66,7 +67,7 @@ if __name__ == '__main__':
     # ------------------------------------------------------------------------------------------------------------------
     # Fit all data (Since E1 is between-subjects, we can fit all data together)
     model_names = ['delta', 'delta_PVL', 'delta_PVL_relative', 'delta_PVL_relative_RR', 'decay', 'decay_win',
-                   'decay_PVL', 'decay_PVL_relative', 'decay_PVL_relative_RR', 'decay_PVPE', 'dual']
+                   'decay_PVL', 'decay_PVL_relative', 'decay_PVL_relative_RR', 'decay_PVPE', 'dual', 'dual_sensitivity']
 
     for i, model in enumerate(model_list):
         print(f"Fitting model: {model_names[i]}")
@@ -83,6 +84,11 @@ if __name__ == '__main__':
         if model_names[i] == 'dual':
             # Fit the dual-process model
             model_results = model.fit(E1_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
+                                      num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial_no_alpha')
+        elif model_names[i] == 'dual_sensitivity':
+            # Fit the dual-process model with sensitivity
+            model_results = model.fit(E1_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
                                       num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial_no_alpha')
         else:
@@ -112,6 +118,11 @@ if __name__ == '__main__':
                 model_results = model.fit(E2_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                           weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
                                           num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
+            elif model_names[i] == 'dual_sensitivity':
+                # Fit the dual-process model with sensitivity
+                model_results = model.fit(E2_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+                                          weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                          num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
             else:
             # For other models, fit them directly
                 model_results = model.fit(E2_dict, num_training_trials=120, num_exp_restart=200,
@@ -139,6 +150,11 @@ if __name__ == '__main__':
             model_results = model.fit(E2_baseline_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
                                       num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
+        elif model_names[i] == 'dual_sensitivity':
+            # Fit the dual-process model with sensitivity
+            model_results = model.fit(E2_baseline_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                      num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
         else:
         # For other models, fit them directly
             model_results = model.fit(E2_baseline_dict, num_training_trials=120, num_iterations=n_iterations,
@@ -164,6 +180,11 @@ if __name__ == '__main__':
         if model_names[i] == 'dual':
             # Fit the dual-process model
             model_results = model.fit(E2_frequency_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                      num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
+        elif model_names[i] == 'dual_sensitivity':
+            # Fit the dual-process model with sensitivity
+            model_results = model.fit(E2_frequency_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
                                       num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
         else:
