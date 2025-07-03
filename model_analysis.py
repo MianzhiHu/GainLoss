@@ -22,7 +22,7 @@ E2_subj_data = E2_data[[col for col in subj_level_col if col in E2_data.columns]
 
 # read the model fitting results
 result_names = ['delta', 'delta_PVL', 'delta_PVL_relative', 'decay', 'decay_win', 'decay_PVL',
-                'decay_PVL_relative', 'decay_PVPE', 'dual']
+                'decay_PVL_relative', 'decay_PVPE', 'dual', 'dual_sensitivity']
 E1_results_dir = './data/ModelFitting/E1/'
 E2_all_results_dir = './data/ModelFitting/E2/'
 E2_baseline_results_dir = './data/ModelFitting/E2/Baseline/'
