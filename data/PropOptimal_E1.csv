@@ -1,199 +1,1483 @@
-"Subnum","ChoiceSet","PropOptimal","RT"
-1,"AB",0.85,0.73437
-1,"CD",0.74,0.8092
-1,"CA",0.16,0.732072
-1,"CB",0.36,1.0794
-1,"AD",0.64,0.77796
-1,"BD",0.44,0.99916
-2,"AB",0.83,0.64691
-2,"CD",0.92,0.71992
-2,"CA",0.28,0.75724
-2,"CB",0.12,1.24036
-2,"AD",0.84,0.91196
-2,"BD",0.8,1.65448
-3,"AB",0.54,1.46951
-3,"CD",0.6,1.30556
-3,"CA",0.32,3.75276
-3,"CB",0.44,1.8022
-3,"AD",0.8,1.17176
-3,"BD",0.56,1.52732
-4,"AB",0.78,1.8402834
-4,"CD",0.62,2.80422
-4,"CA",0.6,0.904892
-4,"CB",0.56,0.97176
-4,"AD",0.68,0.7180272
-4,"BD",0.36,1.505304
-5,"AB",0.86,1.00037
-5,"CD",0.84,0.87784
-5,"CA",0.04,0.85076
-5,"CB",0.04,0.67504
-5,"AD",1,0.6122
-5,"BD",0.96,0.73288
-6,"AB",0.96,0.836771
-6,"CD",0.86,0.915766
-6,"CA",0.48,0.80714
-6,"CB",0.68,0.89216
-6,"AD",0.68,0.79972
-6,"BD",0.4,1.28816
-7,"AB",0.72,1.429
-7,"CD",0.82,1.34502
-7,"CA",0.24,1.05916
-7,"CB",0.32,1.59008
-7,"AD",0.68,1.07228
-7,"BD",0.6,1.4324
-8,"AB",0.55,0.97957
-8,"CD",0.52,1.12574
-8,"CA",0.56,1.21748
-8,"CB",0.44,1.83864
-8,"AD",0.56,1.2214
-8,"BD",0.68,1.6216
-9,"AB",0.78,0.87407
-9,"CD",0.68,1.06648
-9,"CA",0.56,1.1918
-9,"CB",0.44,1.41044
-9,"AD",0.8,1.2048
-9,"BD",0.52,1.56864
-10,"AB",0.74,0.87249
-10,"CD",0.74,1.16614
-10,"CA",0.72,1.01748
-10,"CB",0.96,0.8906
-10,"AD",0.96,0.9192
-10,"BD",1,1.06748
-11,"AB",0.59,1.17166
-11,"CD",0.62,1.26278
-11,"CA",0.24,1.26956
-11,"CB",0.24,1.41492
-11,"AD",1,1.17908
-11,"BD",0.8,1.6348
-12,"AB",0.79,0.60978
-12,"CD",0.7,0.92104
-12,"CA",0.56,0.80824
-12,"CB",0.32,0.71468
-12,"AD",0.68,0.75516
-12,"BD",0.92,0.8356
-13,"AB",0.62,1.31601
-13,"CD",0.54,1.56288
-13,"CA",0.44,1.3862
-13,"CB",0.6,1.37476
-13,"AD",0.64,1.07604
-13,"BD",0.56,1.57788
-14,"AB",0.85,1.27659
-14,"CD",0.72,1.32162
-14,"CA",0.32,1.62408
-14,"CB",0.68,1.52572
-14,"AD",0.84,1.34332
-14,"BD",0.88,1.42812
-15,"AB",0.95,0.66757
-15,"CD",0.92,0.76074
-15,"CA",0.24,0.58208
-15,"CB",0.12,0.49192
-15,"AD",0.92,0.37836
-15,"BD",0.76,0.51844
-16,"AB",0.69,1.02446
-16,"CD",0.82,1.08278
-16,"CA",0.08,1.16932
-16,"CB",0,0.93448
-16,"AD",0.96,1.02704
-16,"BD",1,1.06424
-17,"AB",0.79,1.24001
-17,"CD",0.74,1.06828
-17,"CA",0,0.57572
-17,"CB",0.08,0.59964
-17,"AD",0.96,0.51448
-17,"BD",1,0.56532
-18,"AB",0.92,0.94872
-18,"CD",0.94,0.97064
-18,"CA",0.12,1.66532
-18,"CB",0.04,1.58916
-18,"AD",1,1.53348
-18,"BD",0.88,1.28076
-19,"AB",0.71,0.91546
-19,"CD",0.58,0.94432
-19,"CA",0.44,0.93444
-19,"CB",0.56,1.07196
-19,"AD",0.4,0.75552
-19,"BD",0.72,1.26844
-20,"AB",0.52,0.90164
-20,"CD",0.52,0.97724
-20,"CA",0.6,0.75932
-20,"CB",0.4,1.03808
-20,"AD",0.72,1.03348
-20,"BD",0.52,1.21084
-21,"AB",0.84,1.273732
-21,"CD",0.7,1.93686
-21,"CA",0.4,1.13132
-21,"CB",0.28,0.98692
-21,"AD",0.92,1.0348
-21,"BD",0.72,1.19032
-22,"AB",0.67,1.18136
-22,"CD",0.64,1.37548
-22,"CA",0.36,1.23112
-22,"CB",0.68,1.356
-22,"AD",0.76,0.9882
-22,"BD",0.52,1.50996
-23,"AB",0.73,1.32898
-23,"CD",0.8,1.51468
-23,"CA",0.04,3.74656
-23,"CB",0.08,4.214
-23,"AD",0.88,7.13384
-23,"BD",0.92,6.72964
-24,"AB",0.73,1.038668
-24,"CD",0.86,1.36222
-24,"CA",0.96,1.47408
-24,"CB",1,1.66336
-24,"AD",1,1.81768
-24,"BD",0.44,2.60536
-25,"AB",0.71,0.96438
-25,"CD",0.64,1.42824
-25,"CA",0.44,1.11568
-25,"CB",0.24,0.94248
-25,"AD",0.8,0.78356
-25,"BD",0.48,1.1714
-26,"AB",0.75,2.11688
-26,"CD",0.66,2.05868
-26,"CA",0.44,1.54756
-26,"CB",0.36,1.66672
-26,"AD",0.6,1.58736
-26,"BD",0.64,2.104
-27,"AB",0.6,1.036007
-27,"CD",0.54,1.56309
-27,"CA",0.48,0.7983536
-27,"CB",0.48,0.958692
-27,"AD",0.68,0.796756
-27,"BD",0.6,1.25712
-28,"AB",0.74,0.748135
-28,"CD",0.66,1.13084
-28,"CA",0.76,0.65612
-28,"CB",0.68,0.91436
-28,"AD",0.68,0.643384
-28,"BD",0.6,1.01084
-29,"AB",0.78,1.01527
-29,"CD",0.76,1.60846
-29,"CA",0.36,1.6966
-29,"CB",0.36,1.89188
-29,"AD",0.76,1.99248
-29,"BD",0.56,1.75692
-30,"AB",0.4,0.8406
-30,"CD",0.46,1.31484
-30,"CA",0.84,1.0784
-30,"CB",0.32,0.77216
-30,"AD",0.64,1.07952
-30,"BD",0.68,1.00836
-31,"AB",0.59,1.16348
-31,"CD",0.72,1.3882
-31,"CA",0.72,1.19152
-31,"CB",0.72,1.14864
-31,"AD",0.6,1.3538
-31,"BD",0.72,1.59604
-32,"AB",0.77,0.522287
-32,"CD",0.78,0.86218
-32,"CA",0.04,0.436272
-32,"CB",1,0.650688
-32,"AD",0.92,0.315252
-32,"BD",0,1.11468
-33,"AB",0.74,0.71714
-33,"CD",0.72,0.8958
-33,"CA",0.24,0.4145628
-33,"CB",0.28,0.582596
-33,"AD",0.76,0.48866
-33,"BD",0.8,0.5310968
+Subnum,Condition,SetSeen.,BestOption,Sex,Race,Ethnicity,Big5O,Big5C,Big5E,Big5A,Big5N,Bis11Score,CESD,ESIBF_Disinhibition,ESIBF_SubstanceUse,NPI,PSWQ,STAIS,STAIT,TPM_Boldness,TPM_Disinhibition,TPM_Meanness
+1,Gains,0,0.73,Female,White,Hispanic or Latino,26,29,24,43,32,62,17,9,12,7,61,52,42,26,8,12
+1,Gains,1,0.8,Female,White,Hispanic or Latino,26,29,24,43,32,62,17,9,12,7,61,52,42,26,8,12
+1,Gains,2,0.96,Female,White,Hispanic or Latino,26,29,24,43,32,62,17,9,12,7,61,52,42,26,8,12
+1,Gains,3,0.96,Female,White,Hispanic or Latino,26,29,24,43,32,62,17,9,12,7,61,52,42,26,8,12
+1,Gains,4,1.0,Female,White,Hispanic or Latino,26,29,24,43,32,62,17,9,12,7,61,52,42,26,8,12
+1,Gains,5,0.76,Female,White,Hispanic or Latino,26,29,24,43,32,62,17,9,12,7,61,52,42,26,8,12
+2,GainsEF,0,0.6666666666666666,Female,White,Hispanic or Latino,34,31,29,36,21,56,6,17,27,25,55,36,32,30,18,13
+2,GainsEF,1,0.56,Female,White,Hispanic or Latino,34,31,29,36,21,56,6,17,27,25,55,36,32,30,18,13
+2,GainsEF,2,0.04,Female,White,Hispanic or Latino,34,31,29,36,21,56,6,17,27,25,55,36,32,30,18,13
+2,GainsEF,3,0.16,Female,White,Hispanic or Latino,34,31,29,36,21,56,6,17,27,25,55,36,32,30,18,13
+2,GainsEF,4,0.88,Female,White,Hispanic or Latino,34,31,29,36,21,56,6,17,27,25,55,36,32,30,18,13
+2,GainsEF,5,0.76,Female,White,Hispanic or Latino,34,31,29,36,21,56,6,17,27,25,55,36,32,30,18,13
+3,GainsEF,0,0.7066666666666667,Male,Asian,Not Hispanic or Latino,33,43,20,41,20,51,18,6,0,11,60,33,42,31,8,3
+3,GainsEF,1,0.68,Male,Asian,Not Hispanic or Latino,33,43,20,41,20,51,18,6,0,11,60,33,42,31,8,3
+3,GainsEF,2,0.68,Male,Asian,Not Hispanic or Latino,33,43,20,41,20,51,18,6,0,11,60,33,42,31,8,3
+3,GainsEF,3,0.64,Male,Asian,Not Hispanic or Latino,33,43,20,41,20,51,18,6,0,11,60,33,42,31,8,3
+3,GainsEF,4,0.44,Male,Asian,Not Hispanic or Latino,33,43,20,41,20,51,18,6,0,11,60,33,42,31,8,3
+3,GainsEF,5,0.6,Male,Asian,Not Hispanic or Latino,33,43,20,41,20,51,18,6,0,11,60,33,42,31,8,3
+4,GainsEF,0,0.7466666666666667,Female,White,Not Hispanic or Latino,32,28,22,41,20,58,16,10,1,12,63,48,45,28,9,3
+4,GainsEF,1,0.7066666666666667,Female,White,Not Hispanic or Latino,32,28,22,41,20,58,16,10,1,12,63,48,45,28,9,3
+4,GainsEF,2,0.72,Female,White,Not Hispanic or Latino,32,28,22,41,20,58,16,10,1,12,63,48,45,28,9,3
+4,GainsEF,3,0.88,Female,White,Not Hispanic or Latino,32,28,22,41,20,58,16,10,1,12,63,48,45,28,9,3
+4,GainsEF,4,0.76,Female,White,Not Hispanic or Latino,32,28,22,41,20,58,16,10,1,12,63,48,45,28,9,3
+4,GainsEF,5,0.92,Female,White,Not Hispanic or Latino,32,28,22,41,20,58,16,10,1,12,63,48,45,28,9,3
+5,GainsEF,0,0.8266666666666667,Male,Asian,Hispanic or Latino,33,30,24,31,24,69,7,10,32,9,33,27,28,27,12,21
+5,GainsEF,1,0.7333333333333333,Male,Asian,Hispanic or Latino,33,30,24,31,24,69,7,10,32,9,33,27,28,27,12,21
+5,GainsEF,2,0.92,Male,Asian,Hispanic or Latino,33,30,24,31,24,69,7,10,32,9,33,27,28,27,12,21
+5,GainsEF,3,1.0,Male,Asian,Hispanic or Latino,33,30,24,31,24,69,7,10,32,9,33,27,28,27,12,21
+5,GainsEF,4,0.92,Male,Asian,Hispanic or Latino,33,30,24,31,24,69,7,10,32,9,33,27,28,27,12,21
+5,GainsEF,5,0.0,Male,Asian,Hispanic or Latino,33,30,24,31,24,69,7,10,32,9,33,27,28,27,12,21
+6,GainsEF,0,0.7466666666666667,Female,White,Not Hispanic or Latino,39,34,27,29,31,54,13,4,43,18,61,24,38,38,8,7
+6,GainsEF,1,0.6666666666666666,Female,White,Not Hispanic or Latino,39,34,27,29,31,54,13,4,43,18,61,24,38,38,8,7
+6,GainsEF,2,0.32,Female,White,Not Hispanic or Latino,39,34,27,29,31,54,13,4,43,18,61,24,38,38,8,7
+6,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,39,34,27,29,31,54,13,4,43,18,61,24,38,38,8,7
+6,GainsEF,4,0.68,Female,White,Not Hispanic or Latino,39,34,27,29,31,54,13,4,43,18,61,24,38,38,8,7
+6,GainsEF,5,0.12,Female,White,Not Hispanic or Latino,39,34,27,29,31,54,13,4,43,18,61,24,38,38,8,7
+7,Gains,0,0.71,Female,Asian,Not Hispanic or Latino,41,30,35,34,23,70,15,33,6,18,61,44,47,36,29,11
+7,Gains,1,0.24,Female,Asian,Not Hispanic or Latino,41,30,35,34,23,70,15,33,6,18,61,44,47,36,29,11
+7,Gains,2,0.36,Female,Asian,Not Hispanic or Latino,41,30,35,34,23,70,15,33,6,18,61,44,47,36,29,11
+7,Gains,3,0.48,Female,Asian,Not Hispanic or Latino,41,30,35,34,23,70,15,33,6,18,61,44,47,36,29,11
+7,Gains,4,0.28,Female,Asian,Not Hispanic or Latino,41,30,35,34,23,70,15,33,6,18,61,44,47,36,29,11
+7,Gains,5,0.24,Female,Asian,Not Hispanic or Latino,41,30,35,34,23,70,15,33,6,18,61,44,47,36,29,11
+8,Gains,0,0.42,Female,White,Not Hispanic or Latino,37,35,28,37,17,62,6,4,2,23,35,29,26,41,6,7
+8,Gains,1,0.34,Female,White,Not Hispanic or Latino,37,35,28,37,17,62,6,4,2,23,35,29,26,41,6,7
+8,Gains,2,0.28,Female,White,Not Hispanic or Latino,37,35,28,37,17,62,6,4,2,23,35,29,26,41,6,7
+8,Gains,3,0.12,Female,White,Not Hispanic or Latino,37,35,28,37,17,62,6,4,2,23,35,29,26,41,6,7
+8,Gains,4,0.36,Female,White,Not Hispanic or Latino,37,35,28,37,17,62,6,4,2,23,35,29,26,41,6,7
+8,Gains,5,0.72,Female,White,Not Hispanic or Latino,37,35,28,37,17,62,6,4,2,23,35,29,26,41,6,7
+9,GainsEF,0,0.92,Female,Black or African American,Not Hispanic or Latino,34,32,33,35,33,69,17,18,11,20,75,33,56,20,20,4
+9,GainsEF,1,0.9333333333333333,Female,Black or African American,Not Hispanic or Latino,34,32,33,35,33,69,17,18,11,20,75,33,56,20,20,4
+9,GainsEF,2,0.72,Female,Black or African American,Not Hispanic or Latino,34,32,33,35,33,69,17,18,11,20,75,33,56,20,20,4
+9,GainsEF,3,1.0,Female,Black or African American,Not Hispanic or Latino,34,32,33,35,33,69,17,18,11,20,75,33,56,20,20,4
+9,GainsEF,4,0.88,Female,Black or African American,Not Hispanic or Latino,34,32,33,35,33,69,17,18,11,20,75,33,56,20,20,4
+9,GainsEF,5,0.0,Female,Black or African American,Not Hispanic or Latino,34,32,33,35,33,69,17,18,11,20,75,33,56,20,20,4
+10,Gains,0,0.4,Female,White,Not Hispanic or Latino,30,22,36,25,29,92,33,26,14,21,73,61,55,27,24,18
+10,Gains,1,0.36,Female,White,Not Hispanic or Latino,30,22,36,25,29,92,33,26,14,21,73,61,55,27,24,18
+10,Gains,2,0.0,Female,White,Not Hispanic or Latino,30,22,36,25,29,92,33,26,14,21,73,61,55,27,24,18
+10,Gains,3,0.04,Female,White,Not Hispanic or Latino,30,22,36,25,29,92,33,26,14,21,73,61,55,27,24,18
+10,Gains,4,0.96,Female,White,Not Hispanic or Latino,30,22,36,25,29,92,33,26,14,21,73,61,55,27,24,18
+10,Gains,5,0.84,Female,White,Not Hispanic or Latino,30,22,36,25,29,92,33,26,14,21,73,61,55,27,24,18
+11,Gains,0,0.73,Male,White,Not Hispanic or Latino,38,33,33,39,21,64,7,6,3,12,50,35,29,32,7,8
+11,Gains,1,0.9,Male,White,Not Hispanic or Latino,38,33,33,39,21,64,7,6,3,12,50,35,29,32,7,8
+11,Gains,2,0.0,Male,White,Not Hispanic or Latino,38,33,33,39,21,64,7,6,3,12,50,35,29,32,7,8
+11,Gains,3,0.88,Male,White,Not Hispanic or Latino,38,33,33,39,21,64,7,6,3,12,50,35,29,32,7,8
+11,Gains,4,1.0,Male,White,Not Hispanic or Latino,38,33,33,39,21,64,7,6,3,12,50,35,29,32,7,8
+11,Gains,5,1.0,Male,White,Not Hispanic or Latino,38,33,33,39,21,64,7,6,3,12,50,35,29,32,7,8
+12,GainsEF,0,0.7466666666666667,Female,Asian,Not Hispanic or Latino,39,39,25,38,24,52,9,5,0,6,79,33,46,30,9,6
+12,GainsEF,1,0.7866666666666666,Female,Asian,Not Hispanic or Latino,39,39,25,38,24,52,9,5,0,6,79,33,46,30,9,6
+12,GainsEF,2,0.2,Female,Asian,Not Hispanic or Latino,39,39,25,38,24,52,9,5,0,6,79,33,46,30,9,6
+12,GainsEF,3,1.0,Female,Asian,Not Hispanic or Latino,39,39,25,38,24,52,9,5,0,6,79,33,46,30,9,6
+12,GainsEF,4,1.0,Female,Asian,Not Hispanic or Latino,39,39,25,38,24,52,9,5,0,6,79,33,46,30,9,6
+12,GainsEF,5,0.4,Female,Asian,Not Hispanic or Latino,39,39,25,38,24,52,9,5,0,6,79,33,46,30,9,6
+13,Gains,0,0.97,Female,White,Hispanic or Latino,38,37,34,34,27,51,13,5,4,16,68,41,43,30,7,12
+13,Gains,1,0.94,Female,White,Hispanic or Latino,38,37,34,34,27,51,13,5,4,16,68,41,43,30,7,12
+13,Gains,2,0.08,Female,White,Hispanic or Latino,38,37,34,34,27,51,13,5,4,16,68,41,43,30,7,12
+13,Gains,3,1.0,Female,White,Hispanic or Latino,38,37,34,34,27,51,13,5,4,16,68,41,43,30,7,12
+13,Gains,4,1.0,Female,White,Hispanic or Latino,38,37,34,34,27,51,13,5,4,16,68,41,43,30,7,12
+13,Gains,5,0.0,Female,White,Hispanic or Latino,38,37,34,34,27,51,13,5,4,16,68,41,43,30,7,12
+14,GainsEF,0,0.6266666666666667,Female,White,Hispanic or Latino,29,32,17,38,32,56,29,11,8,11,58,36,48,24,11,8
+14,GainsEF,1,0.5066666666666667,Female,White,Hispanic or Latino,29,32,17,38,32,56,29,11,8,11,58,36,48,24,11,8
+14,GainsEF,2,0.76,Female,White,Hispanic or Latino,29,32,17,38,32,56,29,11,8,11,58,36,48,24,11,8
+14,GainsEF,3,0.32,Female,White,Hispanic or Latino,29,32,17,38,32,56,29,11,8,11,58,36,48,24,11,8
+14,GainsEF,4,0.32,Female,White,Hispanic or Latino,29,32,17,38,32,56,29,11,8,11,58,36,48,24,11,8
+14,GainsEF,5,0.76,Female,White,Hispanic or Latino,29,32,17,38,32,56,29,11,8,11,58,36,48,24,11,8
+15,Gains,0,0.8,Female,White,Not Hispanic or Latino,37,41,27,37,32,59,16,9,4,11,78,41,58,20,11,3
+15,Gains,1,0.94,Female,White,Not Hispanic or Latino,37,41,27,37,32,59,16,9,4,11,78,41,58,20,11,3
+15,Gains,2,0.04,Female,White,Not Hispanic or Latino,37,41,27,37,32,59,16,9,4,11,78,41,58,20,11,3
+15,Gains,3,0.84,Female,White,Not Hispanic or Latino,37,41,27,37,32,59,16,9,4,11,78,41,58,20,11,3
+15,Gains,4,1.0,Female,White,Not Hispanic or Latino,37,41,27,37,32,59,16,9,4,11,78,41,58,20,11,3
+15,Gains,5,1.0,Female,White,Not Hispanic or Latino,37,41,27,37,32,59,16,9,4,11,78,41,58,20,11,3
+16,GainsEF,0,0.4,Female,White,Not Hispanic or Latino,30,31,30,38,27,70,11,10,0,10,58,28,37,31,11,5
+16,GainsEF,1,0.6266666666666667,Female,White,Not Hispanic or Latino,30,31,30,38,27,70,11,10,0,10,58,28,37,31,11,5
+16,GainsEF,2,0.4,Female,White,Not Hispanic or Latino,30,31,30,38,27,70,11,10,0,10,58,28,37,31,11,5
+16,GainsEF,3,0.52,Female,White,Not Hispanic or Latino,30,31,30,38,27,70,11,10,0,10,58,28,37,31,11,5
+16,GainsEF,4,0.44,Female,White,Not Hispanic or Latino,30,31,30,38,27,70,11,10,0,10,58,28,37,31,11,5
+16,GainsEF,5,0.56,Female,White,Not Hispanic or Latino,30,31,30,38,27,70,11,10,0,10,58,28,37,31,11,5
+17,GainsEF,0,0.6133333333333333,Male,White,Not Hispanic or Latino,38,21,27,33,28,78,14,10,0,20,65,31,41,36,21,20
+17,GainsEF,1,0.4533333333333333,Male,White,Not Hispanic or Latino,38,21,27,33,28,78,14,10,0,20,65,31,41,36,21,20
+17,GainsEF,2,0.04,Male,White,Not Hispanic or Latino,38,21,27,33,28,78,14,10,0,20,65,31,41,36,21,20
+17,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,38,21,27,33,28,78,14,10,0,20,65,31,41,36,21,20
+17,GainsEF,4,0.08,Male,White,Not Hispanic or Latino,38,21,27,33,28,78,14,10,0,20,65,31,41,36,21,20
+17,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,38,21,27,33,28,78,14,10,0,20,65,31,41,36,21,20
+18,GainsEF,0,0.5066666666666667,Female,White,Not Hispanic or Latino,32,41,26,43,21,46,4,4,13,13,67,33,41,27,7,3
+18,GainsEF,1,0.6266666666666667,Female,White,Not Hispanic or Latino,32,41,26,43,21,46,4,4,13,13,67,33,41,27,7,3
+18,GainsEF,2,0.76,Female,White,Not Hispanic or Latino,32,41,26,43,21,46,4,4,13,13,67,33,41,27,7,3
+18,GainsEF,3,0.76,Female,White,Not Hispanic or Latino,32,41,26,43,21,46,4,4,13,13,67,33,41,27,7,3
+18,GainsEF,4,0.12,Female,White,Not Hispanic or Latino,32,41,26,43,21,46,4,4,13,13,67,33,41,27,7,3
+18,GainsEF,5,0.16,Female,White,Not Hispanic or Latino,32,41,26,43,21,46,4,4,13,13,67,33,41,27,7,3
+19,GainsEF,0,0.8933333333333333,Male,White,Not Hispanic or Latino,33,29,38,30,15,75,12,7,30,17,20,38,39,39,7,16
+19,GainsEF,1,0.9333333333333333,Male,White,Not Hispanic or Latino,33,29,38,30,15,75,12,7,30,17,20,38,39,39,7,16
+19,GainsEF,2,1.0,Male,White,Not Hispanic or Latino,33,29,38,30,15,75,12,7,30,17,20,38,39,39,7,16
+19,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,33,29,38,30,15,75,12,7,30,17,20,38,39,39,7,16
+19,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,33,29,38,30,15,75,12,7,30,17,20,38,39,39,7,16
+19,GainsEF,5,1.0,Male,White,Not Hispanic or Latino,33,29,38,30,15,75,12,7,30,17,20,38,39,39,7,16
+20,GainsEF,0,0.7066666666666667,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
+20,GainsEF,1,0.5733333333333334,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
+20,GainsEF,2,0.52,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
+20,GainsEF,3,0.52,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
+20,GainsEF,4,0.44,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
+20,GainsEF,5,0.6,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
+21,Gains,0,1.0,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
+21,Gains,1,0.0,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
+21,Gains,2,0.2,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
+21,Gains,3,0.24,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
+21,Gains,4,0.68,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
+21,Gains,5,0.68,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
+22,Gains,0,0.83,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
+22,Gains,1,0.28,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
+22,Gains,2,0.48,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
+22,Gains,3,0.48,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
+22,Gains,4,0.32,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
+22,Gains,5,0.2,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
+23,GainsEF,0,0.9466666666666667,Male,White,Not Hispanic or Latino,36,29,24,36,27,64,23,10,21,14,63,58,53,21,11,16
+23,GainsEF,1,0.9466666666666667,Male,White,Not Hispanic or Latino,36,29,24,36,27,64,23,10,21,14,63,58,53,21,11,16
+23,GainsEF,2,1.0,Male,White,Not Hispanic or Latino,36,29,24,36,27,64,23,10,21,14,63,58,53,21,11,16
+23,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,36,29,24,36,27,64,23,10,21,14,63,58,53,21,11,16
+23,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,36,29,24,36,27,64,23,10,21,14,63,58,53,21,11,16
+23,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,36,29,24,36,27,64,23,10,21,14,63,58,53,21,11,16
+24,GainsEF,0,0.8533333333333334,Female,White,Not Hispanic or Latino,23,27,22,35,33,73,23,7,4,5,75,22,47,19,7,6
+24,GainsEF,1,0.92,Female,White,Not Hispanic or Latino,23,27,22,35,33,73,23,7,4,5,75,22,47,19,7,6
+24,GainsEF,2,0.04,Female,White,Not Hispanic or Latino,23,27,22,35,33,73,23,7,4,5,75,22,47,19,7,6
+24,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,23,27,22,35,33,73,23,7,4,5,75,22,47,19,7,6
+24,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,23,27,22,35,33,73,23,7,4,5,75,22,47,19,7,6
+24,GainsEF,5,0.64,Female,White,Not Hispanic or Latino,23,27,22,35,33,73,23,7,4,5,75,22,47,19,7,6
+25,GainsEF,0,0.7866666666666666,Female,Asian,Not Hispanic or Latino,41,37,23,38,27,55,21,3,12,14,71,31,36,24,3,1
+25,GainsEF,1,0.49333333333333335,Female,Asian,Not Hispanic or Latino,41,37,23,38,27,55,21,3,12,14,71,31,36,24,3,1
+25,GainsEF,2,0.0,Female,Asian,Not Hispanic or Latino,41,37,23,38,27,55,21,3,12,14,71,31,36,24,3,1
+25,GainsEF,3,0.08,Female,Asian,Not Hispanic or Latino,41,37,23,38,27,55,21,3,12,14,71,31,36,24,3,1
+25,GainsEF,4,0.88,Female,Asian,Not Hispanic or Latino,41,37,23,38,27,55,21,3,12,14,71,31,36,24,3,1
+25,GainsEF,5,0.92,Female,Asian,Not Hispanic or Latino,41,37,23,38,27,55,21,3,12,14,71,31,36,24,3,1
+26,GainsEF,0,0.64,Female,White,Not Hispanic or Latino,25,35,37,36,24,80,19,13,20,18,64,49,52,27,13,11
+26,GainsEF,1,0.6666666666666666,Female,White,Not Hispanic or Latino,25,35,37,36,24,80,19,13,20,18,64,49,52,27,13,11
+26,GainsEF,2,0.36,Female,White,Not Hispanic or Latino,25,35,37,36,24,80,19,13,20,18,64,49,52,27,13,11
+26,GainsEF,3,0.52,Female,White,Not Hispanic or Latino,25,35,37,36,24,80,19,13,20,18,64,49,52,27,13,11
+26,GainsEF,4,0.72,Female,White,Not Hispanic or Latino,25,35,37,36,24,80,19,13,20,18,64,49,52,27,13,11
+26,GainsEF,5,0.68,Female,White,Not Hispanic or Latino,25,35,37,36,24,80,19,13,20,18,64,49,52,27,13,11
+27,Gains,0,0.7,Male,White,Not Hispanic or Latino,35,24,26,40,21,79,32,18,46,18,41,35,55,40,19,16
+27,Gains,1,0.78,Male,White,Not Hispanic or Latino,35,24,26,40,21,79,32,18,46,18,41,35,55,40,19,16
+27,Gains,2,0.52,Male,White,Not Hispanic or Latino,35,24,26,40,21,79,32,18,46,18,41,35,55,40,19,16
+27,Gains,3,0.84,Male,White,Not Hispanic or Latino,35,24,26,40,21,79,32,18,46,18,41,35,55,40,19,16
+27,Gains,4,0.92,Male,White,Not Hispanic or Latino,35,24,26,40,21,79,32,18,46,18,41,35,55,40,19,16
+27,Gains,5,0.88,Male,White,Not Hispanic or Latino,35,24,26,40,21,79,32,18,46,18,41,35,55,40,19,16
+28,Gains,0,0.28,Female,Black or African American,Not Hispanic or Latino,39,38,31,36,24,70,17,6,0,16,47,35,38,31,9,9
+28,Gains,1,0.32,Female,Black or African American,Not Hispanic or Latino,39,38,31,36,24,70,17,6,0,16,47,35,38,31,9,9
+28,Gains,2,0.76,Female,Black or African American,Not Hispanic or Latino,39,38,31,36,24,70,17,6,0,16,47,35,38,31,9,9
+28,Gains,3,0.76,Female,Black or African American,Not Hispanic or Latino,39,38,31,36,24,70,17,6,0,16,47,35,38,31,9,9
+28,Gains,4,0.28,Female,Black or African American,Not Hispanic or Latino,39,38,31,36,24,70,17,6,0,16,47,35,38,31,9,9
+28,Gains,5,0.12,Female,Black or African American,Not Hispanic or Latino,39,38,31,36,24,70,17,6,0,16,47,35,38,31,9,9
+29,Gains,0,0.44,Male,White,Not Hispanic or Latino,36,39,40,36,10,67,5,7,14,27,23,20,22,51,9,21
+29,Gains,1,0.6,Male,White,Not Hispanic or Latino,36,39,40,36,10,67,5,7,14,27,23,20,22,51,9,21
+29,Gains,2,0.2,Male,White,Not Hispanic or Latino,36,39,40,36,10,67,5,7,14,27,23,20,22,51,9,21
+29,Gains,3,0.56,Male,White,Not Hispanic or Latino,36,39,40,36,10,67,5,7,14,27,23,20,22,51,9,21
+29,Gains,4,0.52,Male,White,Not Hispanic or Latino,36,39,40,36,10,67,5,7,14,27,23,20,22,51,9,21
+29,Gains,5,0.4,Male,White,Not Hispanic or Latino,36,39,40,36,10,67,5,7,14,27,23,20,22,51,9,21
+30,Gains,0,0.42,Female,White,Not Hispanic or Latino,28,38,25,36,25,55,13,5,5,13,42,41,50,29,9,6
+30,Gains,1,0.48,Female,White,Not Hispanic or Latino,28,38,25,36,25,55,13,5,5,13,42,41,50,29,9,6
+30,Gains,2,0.52,Female,White,Not Hispanic or Latino,28,38,25,36,25,55,13,5,5,13,42,41,50,29,9,6
+30,Gains,3,0.44,Female,White,Not Hispanic or Latino,28,38,25,36,25,55,13,5,5,13,42,41,50,29,9,6
+30,Gains,4,0.52,Female,White,Not Hispanic or Latino,28,38,25,36,25,55,13,5,5,13,42,41,50,29,9,6
+30,Gains,5,0.52,Female,White,Not Hispanic or Latino,28,38,25,36,25,55,13,5,5,13,42,41,50,29,9,6
+31,Gains,0,0.9,Female,Prefer not to answer,Hispanic or Latino,35,36,23,32,19,63,10,9,3,20,30,38,33,35,13,12
+31,Gains,1,0.96,Female,Prefer not to answer,Hispanic or Latino,35,36,23,32,19,63,10,9,3,20,30,38,33,35,13,12
+31,Gains,2,0.96,Female,Prefer not to answer,Hispanic or Latino,35,36,23,32,19,63,10,9,3,20,30,38,33,35,13,12
+31,Gains,3,0.76,Female,Prefer not to answer,Hispanic or Latino,35,36,23,32,19,63,10,9,3,20,30,38,33,35,13,12
+31,Gains,4,1.0,Female,Prefer not to answer,Hispanic or Latino,35,36,23,32,19,63,10,9,3,20,30,38,33,35,13,12
+31,Gains,5,1.0,Female,Prefer not to answer,Hispanic or Latino,35,36,23,32,19,63,10,9,3,20,30,38,33,35,13,12
+32,Gains,0,0.96,Female,White,Not Hispanic or Latino,25,37,26,31,19,61,9,7,9,24,35,26,32,35,7,12
+32,Gains,1,0.92,Female,White,Not Hispanic or Latino,25,37,26,31,19,61,9,7,9,24,35,26,32,35,7,12
+32,Gains,2,0.08,Female,White,Not Hispanic or Latino,25,37,26,31,19,61,9,7,9,24,35,26,32,35,7,12
+32,Gains,3,1.0,Female,White,Not Hispanic or Latino,25,37,26,31,19,61,9,7,9,24,35,26,32,35,7,12
+32,Gains,4,1.0,Female,White,Not Hispanic or Latino,25,37,26,31,19,61,9,7,9,24,35,26,32,35,7,12
+32,Gains,5,0.04,Female,White,Not Hispanic or Latino,25,37,26,31,19,61,9,7,9,24,35,26,32,35,7,12
+33,GainsEF,0,0.44,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
+33,GainsEF,1,0.4,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
+33,GainsEF,2,0.28,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
+33,GainsEF,3,0.44,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
+33,GainsEF,4,0.64,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
+33,GainsEF,5,0.4,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
+34,Gains,0,0.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
+34,Gains,1,1.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
+34,Gains,2,0.08,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
+34,Gains,3,0.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
+34,Gains,4,1.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
+34,Gains,5,0.96,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
+35,GainsEF,0,0.6266666666666667,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
+35,GainsEF,1,0.4666666666666667,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
+35,GainsEF,2,0.52,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
+35,GainsEF,3,0.52,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
+35,GainsEF,4,0.48,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
+35,GainsEF,5,0.44,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
+36,GainsEF,0,0.4533333333333333,Female,White,Not Hispanic or Latino,29,40,27,38,31,67,25,14,10,22,68,47,55,31,13,8
+36,GainsEF,1,0.6266666666666667,Female,White,Not Hispanic or Latino,29,40,27,38,31,67,25,14,10,22,68,47,55,31,13,8
+36,GainsEF,2,0.44,Female,White,Not Hispanic or Latino,29,40,27,38,31,67,25,14,10,22,68,47,55,31,13,8
+36,GainsEF,3,0.84,Female,White,Not Hispanic or Latino,29,40,27,38,31,67,25,14,10,22,68,47,55,31,13,8
+36,GainsEF,4,0.76,Female,White,Not Hispanic or Latino,29,40,27,38,31,67,25,14,10,22,68,47,55,31,13,8
+36,GainsEF,5,0.16,Female,White,Not Hispanic or Latino,29,40,27,38,31,67,25,14,10,22,68,47,55,31,13,8
+37,Gains,0,0.21,Male,White,Not Hispanic or Latino,34,39,23,38,26,59,28,8,0,24,63,41,53,29,12,18
+37,Gains,1,0.1,Male,White,Not Hispanic or Latino,34,39,23,38,26,59,28,8,0,24,63,41,53,29,12,18
+37,Gains,2,0.92,Male,White,Not Hispanic or Latino,34,39,23,38,26,59,28,8,0,24,63,41,53,29,12,18
+37,Gains,3,0.12,Male,White,Not Hispanic or Latino,34,39,23,38,26,59,28,8,0,24,63,41,53,29,12,18
+37,Gains,4,0.08,Male,White,Not Hispanic or Latino,34,39,23,38,26,59,28,8,0,24,63,41,53,29,12,18
+37,Gains,5,0.8,Male,White,Not Hispanic or Latino,34,39,23,38,26,59,28,8,0,24,63,41,53,29,12,18
+38,GainsEF,0,0.5333333333333333,Male,Asian,Not Hispanic or Latino,26,31,14,37,10,52,10,2,3,6,36,32,35,36,3,19
+38,GainsEF,1,0.9333333333333333,Male,Asian,Not Hispanic or Latino,26,31,14,37,10,52,10,2,3,6,36,32,35,36,3,19
+38,GainsEF,2,0.96,Male,Asian,Not Hispanic or Latino,26,31,14,37,10,52,10,2,3,6,36,32,35,36,3,19
+38,GainsEF,3,1.0,Male,Asian,Not Hispanic or Latino,26,31,14,37,10,52,10,2,3,6,36,32,35,36,3,19
+38,GainsEF,4,1.0,Male,Asian,Not Hispanic or Latino,26,31,14,37,10,52,10,2,3,6,36,32,35,36,3,19
+38,GainsEF,5,1.0,Male,Asian,Not Hispanic or Latino,26,31,14,37,10,52,10,2,3,6,36,32,35,36,3,19
+39,Gains,0,0.64,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
+39,Gains,1,0.64,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
+39,Gains,2,0.92,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
+39,Gains,3,0.88,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
+39,Gains,4,1.0,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
+39,Gains,5,1.0,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
+40,GainsEF,0,1.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
+40,GainsEF,1,0.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
+40,GainsEF,2,0.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
+40,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
+40,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
+40,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
+41,Gains,0,0.68,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
+41,Gains,1,0.64,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
+41,Gains,2,0.0,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
+41,Gains,3,0.04,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
+41,Gains,4,0.88,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
+41,Gains,5,0.92,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
+42,GainsEF,0,0.5733333333333334,Female,White,Not Hispanic or Latino,35,42,35,45,27,49,9,0,0,8,80,44,43,19,2,0
+42,GainsEF,1,0.7866666666666666,Female,White,Not Hispanic or Latino,35,42,35,45,27,49,9,0,0,8,80,44,43,19,2,0
+42,GainsEF,2,0.52,Female,White,Not Hispanic or Latino,35,42,35,45,27,49,9,0,0,8,80,44,43,19,2,0
+42,GainsEF,3,0.64,Female,White,Not Hispanic or Latino,35,42,35,45,27,49,9,0,0,8,80,44,43,19,2,0
+42,GainsEF,4,0.88,Female,White,Not Hispanic or Latino,35,42,35,45,27,49,9,0,0,8,80,44,43,19,2,0
+42,GainsEF,5,0.64,Female,White,Not Hispanic or Latino,35,42,35,45,27,49,9,0,0,8,80,44,43,19,2,0
+43,GainsEF,0,0.6533333333333333,Male,White,Not Hispanic or Latino,27,38,24,33,24,62,11,9,15,9,60,35,45,26,7,6
+43,GainsEF,1,0.6666666666666666,Male,White,Not Hispanic or Latino,27,38,24,33,24,62,11,9,15,9,60,35,45,26,7,6
+43,GainsEF,2,0.4,Male,White,Not Hispanic or Latino,27,38,24,33,24,62,11,9,15,9,60,35,45,26,7,6
+43,GainsEF,3,0.88,Male,White,Not Hispanic or Latino,27,38,24,33,24,62,11,9,15,9,60,35,45,26,7,6
+43,GainsEF,4,0.84,Male,White,Not Hispanic or Latino,27,38,24,33,24,62,11,9,15,9,60,35,45,26,7,6
+43,GainsEF,5,0.64,Male,White,Not Hispanic or Latino,27,38,24,33,24,62,11,9,15,9,60,35,45,26,7,6
+44,GainsEF,0,0.68,Female,White,Hispanic or Latino,35,37,22,43,26,74,40,10,12,14,70,32,55,22,10,0
+44,GainsEF,1,0.6933333333333334,Female,White,Hispanic or Latino,35,37,22,43,26,74,40,10,12,14,70,32,55,22,10,0
+44,GainsEF,2,0.24,Female,White,Hispanic or Latino,35,37,22,43,26,74,40,10,12,14,70,32,55,22,10,0
+44,GainsEF,3,0.28,Female,White,Hispanic or Latino,35,37,22,43,26,74,40,10,12,14,70,32,55,22,10,0
+44,GainsEF,4,0.6,Female,White,Hispanic or Latino,35,37,22,43,26,74,40,10,12,14,70,32,55,22,10,0
+44,GainsEF,5,0.84,Female,White,Hispanic or Latino,35,37,22,43,26,74,40,10,12,14,70,32,55,22,10,0
+45,Gains,0,0.76,Female,White,Not Hispanic or Latino,28,40,31,36,24,46,10,0,11,9,54,20,34,34,1,4
+45,Gains,1,0.86,Female,White,Not Hispanic or Latino,28,40,31,36,24,46,10,0,11,9,54,20,34,34,1,4
+45,Gains,2,0.64,Female,White,Not Hispanic or Latino,28,40,31,36,24,46,10,0,11,9,54,20,34,34,1,4
+45,Gains,3,1.0,Female,White,Not Hispanic or Latino,28,40,31,36,24,46,10,0,11,9,54,20,34,34,1,4
+45,Gains,4,0.8,Female,White,Not Hispanic or Latino,28,40,31,36,24,46,10,0,11,9,54,20,34,34,1,4
+45,Gains,5,0.24,Female,White,Not Hispanic or Latino,28,40,31,36,24,46,10,0,11,9,54,20,34,34,1,4
+46,GainsEF,0,0.7066666666666667,Male,White,Not Hispanic or Latino,33,29,29,30,18,88,23,11,13,17,24,28,54,27,13,20
+46,GainsEF,1,0.8533333333333334,Male,White,Not Hispanic or Latino,33,29,29,30,18,88,23,11,13,17,24,28,54,27,13,20
+46,GainsEF,2,0.8,Male,White,Not Hispanic or Latino,33,29,29,30,18,88,23,11,13,17,24,28,54,27,13,20
+46,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,33,29,29,30,18,88,23,11,13,17,24,28,54,27,13,20
+46,GainsEF,4,0.68,Male,White,Not Hispanic or Latino,33,29,29,30,18,88,23,11,13,17,24,28,54,27,13,20
+46,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,33,29,29,30,18,88,23,11,13,17,24,28,54,27,13,20
+47,Gains,0,0.47,Male,White,Not Hispanic or Latino,34,25,12,37,36,77,42,24,0,2,73,54,73,9,23,4
+47,Gains,1,0.56,Male,White,Not Hispanic or Latino,34,25,12,37,36,77,42,24,0,2,73,54,73,9,23,4
+47,Gains,2,0.76,Male,White,Not Hispanic or Latino,34,25,12,37,36,77,42,24,0,2,73,54,73,9,23,4
+47,Gains,3,0.92,Male,White,Not Hispanic or Latino,34,25,12,37,36,77,42,24,0,2,73,54,73,9,23,4
+47,Gains,4,0.8,Male,White,Not Hispanic or Latino,34,25,12,37,36,77,42,24,0,2,73,54,73,9,23,4
+47,Gains,5,0.16,Male,White,Not Hispanic or Latino,34,25,12,37,36,77,42,24,0,2,73,54,73,9,23,4
+48,Gains,0,0.75,Female,White,Not Hispanic or Latino,42,33,24,35,26,56,17,2,0,6,60,34,51,28,4,5
+48,Gains,1,0.66,Female,White,Not Hispanic or Latino,42,33,24,35,26,56,17,2,0,6,60,34,51,28,4,5
+48,Gains,2,0.04,Female,White,Not Hispanic or Latino,42,33,24,35,26,56,17,2,0,6,60,34,51,28,4,5
+48,Gains,3,0.92,Female,White,Not Hispanic or Latino,42,33,24,35,26,56,17,2,0,6,60,34,51,28,4,5
+48,Gains,4,1.0,Female,White,Not Hispanic or Latino,42,33,24,35,26,56,17,2,0,6,60,34,51,28,4,5
+48,Gains,5,1.0,Female,White,Not Hispanic or Latino,42,33,24,35,26,56,17,2,0,6,60,34,51,28,4,5
+49,GainsEF,0,0.8533333333333334,Female,White,Not Hispanic or Latino,36,43,34,36,23,60,23,7,2,19,63,50,48,28,12,7
+49,GainsEF,1,0.4666666666666667,Female,White,Not Hispanic or Latino,36,43,34,36,23,60,23,7,2,19,63,50,48,28,12,7
+49,GainsEF,2,0.96,Female,White,Not Hispanic or Latino,36,43,34,36,23,60,23,7,2,19,63,50,48,28,12,7
+49,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,36,43,34,36,23,60,23,7,2,19,63,50,48,28,12,7
+49,GainsEF,4,0.08,Female,White,Not Hispanic or Latino,36,43,34,36,23,60,23,7,2,19,63,50,48,28,12,7
+49,GainsEF,5,0.0,Female,White,Not Hispanic or Latino,36,43,34,36,23,60,23,7,2,19,63,50,48,28,12,7
+50,GainsEF,0,0.6666666666666666,Female,White,Not Hispanic or Latino,26,31,23,33,20,63,14,6,0,8,52,36,42,28,6,0
+50,GainsEF,1,0.5466666666666666,Female,White,Not Hispanic or Latino,26,31,23,33,20,63,14,6,0,8,52,36,42,28,6,0
+50,GainsEF,2,0.44,Female,White,Not Hispanic or Latino,26,31,23,33,20,63,14,6,0,8,52,36,42,28,6,0
+50,GainsEF,3,0.72,Female,White,Not Hispanic or Latino,26,31,23,33,20,63,14,6,0,8,52,36,42,28,6,0
+50,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,26,31,23,33,20,63,14,6,0,8,52,36,42,28,6,0
+50,GainsEF,5,0.8,Female,White,Not Hispanic or Latino,26,31,23,33,20,63,14,6,0,8,52,36,42,28,6,0
+51,Gains,0,0.7,Male,Prefer not to answer,Hispanic or Latino,42,35,25,25,28,62,14,14,0,19,56,47,45,25,14,29
+51,Gains,1,0.6,Male,Prefer not to answer,Hispanic or Latino,42,35,25,25,28,62,14,14,0,19,56,47,45,25,14,29
+51,Gains,2,0.0,Male,Prefer not to answer,Hispanic or Latino,42,35,25,25,28,62,14,14,0,19,56,47,45,25,14,29
+51,Gains,3,0.96,Male,Prefer not to answer,Hispanic or Latino,42,35,25,25,28,62,14,14,0,19,56,47,45,25,14,29
+51,Gains,4,1.0,Male,Prefer not to answer,Hispanic or Latino,42,35,25,25,28,62,14,14,0,19,56,47,45,25,14,29
+51,Gains,5,1.0,Male,Prefer not to answer,Hispanic or Latino,42,35,25,25,28,62,14,14,0,19,56,47,45,25,14,29
+52,Gains,0,0.35,Female,White,Not Hispanic or Latino,38,25,25,28,34,76,39,18,9,13,63,49,58,26,24,8
+52,Gains,1,0.68,Female,White,Not Hispanic or Latino,38,25,25,28,34,76,39,18,9,13,63,49,58,26,24,8
+52,Gains,2,0.04,Female,White,Not Hispanic or Latino,38,25,25,28,34,76,39,18,9,13,63,49,58,26,24,8
+52,Gains,3,0.04,Female,White,Not Hispanic or Latino,38,25,25,28,34,76,39,18,9,13,63,49,58,26,24,8
+52,Gains,4,0.88,Female,White,Not Hispanic or Latino,38,25,25,28,34,76,39,18,9,13,63,49,58,26,24,8
+52,Gains,5,0.96,Female,White,Not Hispanic or Latino,38,25,25,28,34,76,39,18,9,13,63,49,58,26,24,8
+53,Gains,0,0.76,Female,White,Not Hispanic or Latino,36,40,24,32,34,61,16,5,1,13,76,43,50,23,8,5
+53,Gains,1,0.76,Female,White,Not Hispanic or Latino,36,40,24,32,34,61,16,5,1,13,76,43,50,23,8,5
+53,Gains,2,0.84,Female,White,Not Hispanic or Latino,36,40,24,32,34,61,16,5,1,13,76,43,50,23,8,5
+53,Gains,3,1.0,Female,White,Not Hispanic or Latino,36,40,24,32,34,61,16,5,1,13,76,43,50,23,8,5
+53,Gains,4,0.32,Female,White,Not Hispanic or Latino,36,40,24,32,34,61,16,5,1,13,76,43,50,23,8,5
+53,Gains,5,0.0,Female,White,Not Hispanic or Latino,36,40,24,32,34,61,16,5,1,13,76,43,50,23,8,5
+54,Gains,0,0.89,Female,White,Not Hispanic or Latino,44,38,37,41,12,59,4,2,3,20,19,29,26,44,4,6
+54,Gains,1,0.92,Female,White,Not Hispanic or Latino,44,38,37,41,12,59,4,2,3,20,19,29,26,44,4,6
+54,Gains,2,0.96,Female,White,Not Hispanic or Latino,44,38,37,41,12,59,4,2,3,20,19,29,26,44,4,6
+54,Gains,3,1.0,Female,White,Not Hispanic or Latino,44,38,37,41,12,59,4,2,3,20,19,29,26,44,4,6
+54,Gains,4,1.0,Female,White,Not Hispanic or Latino,44,38,37,41,12,59,4,2,3,20,19,29,26,44,4,6
+54,Gains,5,1.0,Female,White,Not Hispanic or Latino,44,38,37,41,12,59,4,2,3,20,19,29,26,44,4,6
+55,Gains,0,0.84,Female,White,Not Hispanic or Latino,30,26,25,35,29,67,23,21,11,16,60,48,54,17,19,8
+55,Gains,1,0.9,Female,White,Not Hispanic or Latino,30,26,25,35,29,67,23,21,11,16,60,48,54,17,19,8
+55,Gains,2,0.12,Female,White,Not Hispanic or Latino,30,26,25,35,29,67,23,21,11,16,60,48,54,17,19,8
+55,Gains,3,0.08,Female,White,Not Hispanic or Latino,30,26,25,35,29,67,23,21,11,16,60,48,54,17,19,8
+55,Gains,4,0.68,Female,White,Not Hispanic or Latino,30,26,25,35,29,67,23,21,11,16,60,48,54,17,19,8
+55,Gains,5,0.76,Female,White,Not Hispanic or Latino,30,26,25,35,29,67,23,21,11,16,60,48,54,17,19,8
+56,GainsEF,0,0.6133333333333333,Female,White,Hispanic or Latino,37,32,24,31,27,60,32,7,16,23,73,48,55,27,10,9
+56,GainsEF,1,0.6133333333333333,Female,White,Hispanic or Latino,37,32,24,31,27,60,32,7,16,23,73,48,55,27,10,9
+56,GainsEF,2,0.12,Female,White,Hispanic or Latino,37,32,24,31,27,60,32,7,16,23,73,48,55,27,10,9
+56,GainsEF,3,0.96,Female,White,Hispanic or Latino,37,32,24,31,27,60,32,7,16,23,73,48,55,27,10,9
+56,GainsEF,4,0.84,Female,White,Hispanic or Latino,37,32,24,31,27,60,32,7,16,23,73,48,55,27,10,9
+56,GainsEF,5,0.04,Female,White,Hispanic or Latino,37,32,24,31,27,60,32,7,16,23,73,48,55,27,10,9
+57,GainsEF,0,0.29333333333333333,Prefer not to answer,White,Not Hispanic or Latino,39,34,15,36,27,56,21,10,5,5,64,40,54,17,10,8
+57,GainsEF,1,0.6266666666666667,Prefer not to answer,White,Not Hispanic or Latino,39,34,15,36,27,56,21,10,5,5,64,40,54,17,10,8
+57,GainsEF,2,0.8,Prefer not to answer,White,Not Hispanic or Latino,39,34,15,36,27,56,21,10,5,5,64,40,54,17,10,8
+57,GainsEF,3,0.6,Prefer not to answer,White,Not Hispanic or Latino,39,34,15,36,27,56,21,10,5,5,64,40,54,17,10,8
+57,GainsEF,4,0.36,Prefer not to answer,White,Not Hispanic or Latino,39,34,15,36,27,56,21,10,5,5,64,40,54,17,10,8
+57,GainsEF,5,0.8,Prefer not to answer,White,Not Hispanic or Latino,39,34,15,36,27,56,21,10,5,5,64,40,54,17,10,8
+58,Gains,0,0.1,Female,White,Not Hispanic or Latino,25,35,23,41,25,61,24,8,0,8,55,44,36,21,5,4
+58,Gains,1,0.92,Female,White,Not Hispanic or Latino,25,35,23,41,25,61,24,8,0,8,55,44,36,21,5,4
+58,Gains,2,0.2,Female,White,Not Hispanic or Latino,25,35,23,41,25,61,24,8,0,8,55,44,36,21,5,4
+58,Gains,3,0.2,Female,White,Not Hispanic or Latino,25,35,23,41,25,61,24,8,0,8,55,44,36,21,5,4
+58,Gains,4,0.76,Female,White,Not Hispanic or Latino,25,35,23,41,25,61,24,8,0,8,55,44,36,21,5,4
+58,Gains,5,0.84,Female,White,Not Hispanic or Latino,25,35,23,41,25,61,24,8,0,8,55,44,36,21,5,4
+59,GainsEF,0,0.8666666666666667,Female,White,Not Hispanic or Latino,33,42,30,41,24,59,18,2,0,9,76,38,46,22,4,0
+59,GainsEF,1,0.92,Female,White,Not Hispanic or Latino,33,42,30,41,24,59,18,2,0,9,76,38,46,22,4,0
+59,GainsEF,2,0.0,Female,White,Not Hispanic or Latino,33,42,30,41,24,59,18,2,0,9,76,38,46,22,4,0
+59,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,33,42,30,41,24,59,18,2,0,9,76,38,46,22,4,0
+59,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,33,42,30,41,24,59,18,2,0,9,76,38,46,22,4,0
+59,GainsEF,5,1.0,Female,White,Not Hispanic or Latino,33,42,30,41,24,59,18,2,0,9,76,38,46,22,4,0
+60,Gains,0,0.73,Female,White,Not Hispanic or Latino,35,22,19,36,33,76,26,11,23,3,72,66,58,13,14,7
+60,Gains,1,0.66,Female,White,Not Hispanic or Latino,35,22,19,36,33,76,26,11,23,3,72,66,58,13,14,7
+60,Gains,2,0.36,Female,White,Not Hispanic or Latino,35,22,19,36,33,76,26,11,23,3,72,66,58,13,14,7
+60,Gains,3,0.76,Female,White,Not Hispanic or Latino,35,22,19,36,33,76,26,11,23,3,72,66,58,13,14,7
+60,Gains,4,0.72,Female,White,Not Hispanic or Latino,35,22,19,36,33,76,26,11,23,3,72,66,58,13,14,7
+60,Gains,5,0.48,Female,White,Not Hispanic or Latino,35,22,19,36,33,76,26,11,23,3,72,66,58,13,14,7
+61,Gains,0,0.92,Female,White,Not Hispanic or Latino,32,38,21,31,31,65,28,21,15,13,63,49,53,25,22,14
+61,Gains,1,0.94,Female,White,Not Hispanic or Latino,32,38,21,31,31,65,28,21,15,13,63,49,53,25,22,14
+61,Gains,2,0.08,Female,White,Not Hispanic or Latino,32,38,21,31,31,65,28,21,15,13,63,49,53,25,22,14
+61,Gains,3,0.84,Female,White,Not Hispanic or Latino,32,38,21,31,31,65,28,21,15,13,63,49,53,25,22,14
+61,Gains,4,1.0,Female,White,Not Hispanic or Latino,32,38,21,31,31,65,28,21,15,13,63,49,53,25,22,14
+61,Gains,5,0.36,Female,White,Not Hispanic or Latino,32,38,21,31,31,65,28,21,15,13,63,49,53,25,22,14
+62,Gains,0,0.61,Female,White,Hispanic or Latino,31,28,17,29,31,59,32,27,9,10,64,58,51,22,28,24
+62,Gains,1,0.78,Female,White,Hispanic or Latino,31,28,17,29,31,59,32,27,9,10,64,58,51,22,28,24
+62,Gains,2,0.32,Female,White,Hispanic or Latino,31,28,17,29,31,59,32,27,9,10,64,58,51,22,28,24
+62,Gains,3,0.68,Female,White,Hispanic or Latino,31,28,17,29,31,59,32,27,9,10,64,58,51,22,28,24
+62,Gains,4,0.8,Female,White,Hispanic or Latino,31,28,17,29,31,59,32,27,9,10,64,58,51,22,28,24
+62,Gains,5,0.32,Female,White,Hispanic or Latino,31,28,17,29,31,59,32,27,9,10,64,58,51,22,28,24
+63,GainsEF,0,0.41333333333333333,Male,Black or African American,Not Hispanic or Latino,31,27,18,35,14,68,10,17,22,17,38,21,28,36,19,21
+63,GainsEF,1,0.68,Male,Black or African American,Not Hispanic or Latino,31,27,18,35,14,68,10,17,22,17,38,21,28,36,19,21
+63,GainsEF,2,0.32,Male,Black or African American,Not Hispanic or Latino,31,27,18,35,14,68,10,17,22,17,38,21,28,36,19,21
+63,GainsEF,3,0.4,Male,Black or African American,Not Hispanic or Latino,31,27,18,35,14,68,10,17,22,17,38,21,28,36,19,21
+63,GainsEF,4,0.84,Male,Black or African American,Not Hispanic or Latino,31,27,18,35,14,68,10,17,22,17,38,21,28,36,19,21
+63,GainsEF,5,0.68,Male,Black or African American,Not Hispanic or Latino,31,27,18,35,14,68,10,17,22,17,38,21,28,36,19,21
+64,Gains,0,0.89,Male,White,Not Hispanic or Latino,37,38,29,34,23,64,11,13,30,25,50,33,34,37,12,16
+64,Gains,1,0.9,Male,White,Not Hispanic or Latino,37,38,29,34,23,64,11,13,30,25,50,33,34,37,12,16
+64,Gains,2,0.0,Male,White,Not Hispanic or Latino,37,38,29,34,23,64,11,13,30,25,50,33,34,37,12,16
+64,Gains,3,0.96,Male,White,Not Hispanic or Latino,37,38,29,34,23,64,11,13,30,25,50,33,34,37,12,16
+64,Gains,4,0.96,Male,White,Not Hispanic or Latino,37,38,29,34,23,64,11,13,30,25,50,33,34,37,12,16
+64,Gains,5,0.0,Male,White,Not Hispanic or Latino,37,38,29,34,23,64,11,13,30,25,50,33,34,37,12,16
+65,GainsEF,0,0.4533333333333333,Female,White,Not Hispanic or Latino,27,39,26,32,32,50,41,7,6,20,69,58,54,24,7,7
+65,GainsEF,1,0.4666666666666667,Female,White,Not Hispanic or Latino,27,39,26,32,32,50,41,7,6,20,69,58,54,24,7,7
+65,GainsEF,2,0.4,Female,White,Not Hispanic or Latino,27,39,26,32,32,50,41,7,6,20,69,58,54,24,7,7
+65,GainsEF,3,0.84,Female,White,Not Hispanic or Latino,27,39,26,32,32,50,41,7,6,20,69,58,54,24,7,7
+65,GainsEF,4,0.68,Female,White,Not Hispanic or Latino,27,39,26,32,32,50,41,7,6,20,69,58,54,24,7,7
+65,GainsEF,5,0.08,Female,White,Not Hispanic or Latino,27,39,26,32,32,50,41,7,6,20,69,58,54,24,7,7
+66,GainsEF,0,0.8666666666666667,Female,White,Not Hispanic or Latino,28,36,14,31,32,56,26,10,0,8,77,50,58,19,11,4
+66,GainsEF,1,0.84,Female,White,Not Hispanic or Latino,28,36,14,31,32,56,26,10,0,8,77,50,58,19,11,4
+66,GainsEF,2,0.32,Female,White,Not Hispanic or Latino,28,36,14,31,32,56,26,10,0,8,77,50,58,19,11,4
+66,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,28,36,14,31,32,56,26,10,0,8,77,50,58,19,11,4
+66,GainsEF,4,0.88,Female,White,Not Hispanic or Latino,28,36,14,31,32,56,26,10,0,8,77,50,58,19,11,4
+66,GainsEF,5,0.0,Female,White,Not Hispanic or Latino,28,36,14,31,32,56,26,10,0,8,77,50,58,19,11,4
+67,Gains,0,0.6,Female,White,Not Hispanic or Latino,41,40,38,36,23,56,18,8,10,20,38,24,31,49,9,8
+67,Gains,1,0.6,Female,White,Not Hispanic or Latino,41,40,38,36,23,56,18,8,10,20,38,24,31,49,9,8
+67,Gains,2,0.08,Female,White,Not Hispanic or Latino,41,40,38,36,23,56,18,8,10,20,38,24,31,49,9,8
+67,Gains,3,0.92,Female,White,Not Hispanic or Latino,41,40,38,36,23,56,18,8,10,20,38,24,31,49,9,8
+67,Gains,4,1.0,Female,White,Not Hispanic or Latino,41,40,38,36,23,56,18,8,10,20,38,24,31,49,9,8
+67,Gains,5,1.0,Female,White,Not Hispanic or Latino,41,40,38,36,23,56,18,8,10,20,38,24,31,49,9,8
+68,Gains,0,0.74,Female,White,Not Hispanic or Latino,43,38,36,36,25,56,5,6,8,14,68,30,34,26,8,13
+68,Gains,1,0.4,Female,White,Not Hispanic or Latino,43,38,36,36,25,56,5,6,8,14,68,30,34,26,8,13
+68,Gains,2,0.0,Female,White,Not Hispanic or Latino,43,38,36,36,25,56,5,6,8,14,68,30,34,26,8,13
+68,Gains,3,0.04,Female,White,Not Hispanic or Latino,43,38,36,36,25,56,5,6,8,14,68,30,34,26,8,13
+68,Gains,4,1.0,Female,White,Not Hispanic or Latino,43,38,36,36,25,56,5,6,8,14,68,30,34,26,8,13
+68,Gains,5,1.0,Female,White,Not Hispanic or Latino,43,38,36,36,25,56,5,6,8,14,68,30,34,26,8,13
+69,GainsEF,0,0.44,Male,Asian,Hispanic or Latino,32,26,31,37,23,61,11,16,10,11,44,26,34,32,13,9
+69,GainsEF,1,0.29333333333333333,Male,Asian,Hispanic or Latino,32,26,31,37,23,61,11,16,10,11,44,26,34,32,13,9
+69,GainsEF,2,0.12,Male,Asian,Hispanic or Latino,32,26,31,37,23,61,11,16,10,11,44,26,34,32,13,9
+69,GainsEF,3,1.0,Male,Asian,Hispanic or Latino,32,26,31,37,23,61,11,16,10,11,44,26,34,32,13,9
+69,GainsEF,4,1.0,Male,Asian,Hispanic or Latino,32,26,31,37,23,61,11,16,10,11,44,26,34,32,13,9
+69,GainsEF,5,0.72,Male,Asian,Hispanic or Latino,32,26,31,37,23,61,11,16,10,11,44,26,34,32,13,9
+70,Gains,0,0.5,Female,Black or African American,Not Hispanic or Latino,42,34,24,34,32,57,34,8,0,16,68,45,64,14,8,9
+70,Gains,1,0.78,Female,Black or African American,Not Hispanic or Latino,42,34,24,34,32,57,34,8,0,16,68,45,64,14,8,9
+70,Gains,2,0.2,Female,Black or African American,Not Hispanic or Latino,42,34,24,34,32,57,34,8,0,16,68,45,64,14,8,9
+70,Gains,3,0.16,Female,Black or African American,Not Hispanic or Latino,42,34,24,34,32,57,34,8,0,16,68,45,64,14,8,9
+70,Gains,4,0.68,Female,Black or African American,Not Hispanic or Latino,42,34,24,34,32,57,34,8,0,16,68,45,64,14,8,9
+70,Gains,5,0.4,Female,Black or African American,Not Hispanic or Latino,42,34,24,34,32,57,34,8,0,16,68,45,64,14,8,9
+71,Gains,0,0.74,Female,Asian,Not Hispanic or Latino,35,43,21,41,32,52,26,4,0,12,72,52,65,16,8,1
+71,Gains,1,0.56,Female,Asian,Not Hispanic or Latino,35,43,21,41,32,52,26,4,0,12,72,52,65,16,8,1
+71,Gains,2,0.36,Female,Asian,Not Hispanic or Latino,35,43,21,41,32,52,26,4,0,12,72,52,65,16,8,1
+71,Gains,3,0.44,Female,Asian,Not Hispanic or Latino,35,43,21,41,32,52,26,4,0,12,72,52,65,16,8,1
+71,Gains,4,0.76,Female,Asian,Not Hispanic or Latino,35,43,21,41,32,52,26,4,0,12,72,52,65,16,8,1
+71,Gains,5,0.84,Female,Asian,Not Hispanic or Latino,35,43,21,41,32,52,26,4,0,12,72,52,65,16,8,1
+72,GainsEF,0,0.4666666666666667,Male,White,Not Hispanic or Latino,27,30,20,36,20,65,5,9,11,10,42,21,35,19,9,17
+72,GainsEF,1,0.5066666666666667,Male,White,Not Hispanic or Latino,27,30,20,36,20,65,5,9,11,10,42,21,35,19,9,17
+72,GainsEF,2,0.24,Male,White,Not Hispanic or Latino,27,30,20,36,20,65,5,9,11,10,42,21,35,19,9,17
+72,GainsEF,3,0.12,Male,White,Not Hispanic or Latino,27,30,20,36,20,65,5,9,11,10,42,21,35,19,9,17
+72,GainsEF,4,0.24,Male,White,Not Hispanic or Latino,27,30,20,36,20,65,5,9,11,10,42,21,35,19,9,17
+72,GainsEF,5,0.24,Male,White,Not Hispanic or Latino,27,30,20,36,20,65,5,9,11,10,42,21,35,19,9,17
+73,Gains,0,0.7,Female,White,Not Hispanic or Latino,36,40,29,41,20,58,24,7,11,10,65,29,45,32,6,12
+73,Gains,1,0.78,Female,White,Not Hispanic or Latino,36,40,29,41,20,58,24,7,11,10,65,29,45,32,6,12
+73,Gains,2,0.0,Female,White,Not Hispanic or Latino,36,40,29,41,20,58,24,7,11,10,65,29,45,32,6,12
+73,Gains,3,1.0,Female,White,Not Hispanic or Latino,36,40,29,41,20,58,24,7,11,10,65,29,45,32,6,12
+73,Gains,4,0.92,Female,White,Not Hispanic or Latino,36,40,29,41,20,58,24,7,11,10,65,29,45,32,6,12
+73,Gains,5,0.04,Female,White,Not Hispanic or Latino,36,40,29,41,20,58,24,7,11,10,65,29,45,32,6,12
+74,Gains,0,0.71,Female,White,Not Hispanic or Latino,26,36,31,27,27,81,16,12,12,13,59,29,41,19,16,19
+74,Gains,1,0.64,Female,White,Not Hispanic or Latino,26,36,31,27,27,81,16,12,12,13,59,29,41,19,16,19
+74,Gains,2,0.76,Female,White,Not Hispanic or Latino,26,36,31,27,27,81,16,12,12,13,59,29,41,19,16,19
+74,Gains,3,1.0,Female,White,Not Hispanic or Latino,26,36,31,27,27,81,16,12,12,13,59,29,41,19,16,19
+74,Gains,4,0.64,Female,White,Not Hispanic or Latino,26,36,31,27,27,81,16,12,12,13,59,29,41,19,16,19
+74,Gains,5,0.16,Female,White,Not Hispanic or Latino,26,36,31,27,27,81,16,12,12,13,59,29,41,19,16,19
+75,Gains,0,0.49,Female,More than one Race,Not Hispanic or Latino,30,30,30,39,23,68,32,17,19,18,56,35,45,31,15,3
+75,Gains,1,0.52,Female,More than one Race,Not Hispanic or Latino,30,30,30,39,23,68,32,17,19,18,56,35,45,31,15,3
+75,Gains,2,0.08,Female,More than one Race,Not Hispanic or Latino,30,30,30,39,23,68,32,17,19,18,56,35,45,31,15,3
+75,Gains,3,0.32,Female,More than one Race,Not Hispanic or Latino,30,30,30,39,23,68,32,17,19,18,56,35,45,31,15,3
+75,Gains,4,0.76,Female,More than one Race,Not Hispanic or Latino,30,30,30,39,23,68,32,17,19,18,56,35,45,31,15,3
+75,Gains,5,0.84,Female,More than one Race,Not Hispanic or Latino,30,30,30,39,23,68,32,17,19,18,56,35,45,31,15,3
+76,Gains,0,0.74,Female,White,Not Hispanic or Latino,45,43,32,41,23,50,4,2,0,14,59,25,27,34,2,3
+76,Gains,1,0.88,Female,White,Not Hispanic or Latino,45,43,32,41,23,50,4,2,0,14,59,25,27,34,2,3
+76,Gains,2,1.0,Female,White,Not Hispanic or Latino,45,43,32,41,23,50,4,2,0,14,59,25,27,34,2,3
+76,Gains,3,1.0,Female,White,Not Hispanic or Latino,45,43,32,41,23,50,4,2,0,14,59,25,27,34,2,3
+76,Gains,4,0.76,Female,White,Not Hispanic or Latino,45,43,32,41,23,50,4,2,0,14,59,25,27,34,2,3
+76,Gains,5,0.0,Female,White,Not Hispanic or Latino,45,43,32,41,23,50,4,2,0,14,59,25,27,34,2,3
+77,GainsEF,0,0.6933333333333334,Female,White,Not Hispanic or Latino,31,38,22,40,15,70,10,6,30,17,51,31,37,32,14,20
+77,GainsEF,1,0.72,Female,White,Not Hispanic or Latino,31,38,22,40,15,70,10,6,30,17,51,31,37,32,14,20
+77,GainsEF,2,0.04,Female,White,Not Hispanic or Latino,31,38,22,40,15,70,10,6,30,17,51,31,37,32,14,20
+77,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,31,38,22,40,15,70,10,6,30,17,51,31,37,32,14,20
+77,GainsEF,4,0.96,Female,White,Not Hispanic or Latino,31,38,22,40,15,70,10,6,30,17,51,31,37,32,14,20
+77,GainsEF,5,0.2,Female,White,Not Hispanic or Latino,31,38,22,40,15,70,10,6,30,17,51,31,37,32,14,20
+78,Gains,0,0.7,Female,White,Hispanic or Latino,37,28,29,33,31,71,22,9,10,10,48,28,52,26,11,8
+78,Gains,1,0.46,Female,White,Hispanic or Latino,37,28,29,33,31,71,22,9,10,10,48,28,52,26,11,8
+78,Gains,2,0.24,Female,White,Hispanic or Latino,37,28,29,33,31,71,22,9,10,10,48,28,52,26,11,8
+78,Gains,3,0.96,Female,White,Hispanic or Latino,37,28,29,33,31,71,22,9,10,10,48,28,52,26,11,8
+78,Gains,4,1.0,Female,White,Hispanic or Latino,37,28,29,33,31,71,22,9,10,10,48,28,52,26,11,8
+78,Gains,5,0.8,Female,White,Hispanic or Latino,37,28,29,33,31,71,22,9,10,10,48,28,52,26,11,8
+79,Gains,0,0.61,Female,More than one Race,Not Hispanic or Latino,39,32,34,31,27,71,16,13,6,16,63,44,49,23,14,5
+79,Gains,1,0.48,Female,More than one Race,Not Hispanic or Latino,39,32,34,31,27,71,16,13,6,16,63,44,49,23,14,5
+79,Gains,2,0.44,Female,More than one Race,Not Hispanic or Latino,39,32,34,31,27,71,16,13,6,16,63,44,49,23,14,5
+79,Gains,3,0.72,Female,More than one Race,Not Hispanic or Latino,39,32,34,31,27,71,16,13,6,16,63,44,49,23,14,5
+79,Gains,4,0.84,Female,More than one Race,Not Hispanic or Latino,39,32,34,31,27,71,16,13,6,16,63,44,49,23,14,5
+79,Gains,5,0.64,Female,More than one Race,Not Hispanic or Latino,39,32,34,31,27,71,16,13,6,16,63,44,49,23,14,5
+80,Gains,0,0.48,Male,White,Not Hispanic or Latino,17,31,16,32,18,57,22,4,1,18,36,37,40,31,8,17
+80,Gains,1,0.54,Male,White,Not Hispanic or Latino,17,31,16,32,18,57,22,4,1,18,36,37,40,31,8,17
+80,Gains,2,0.4,Male,White,Not Hispanic or Latino,17,31,16,32,18,57,22,4,1,18,36,37,40,31,8,17
+80,Gains,3,0.56,Male,White,Not Hispanic or Latino,17,31,16,32,18,57,22,4,1,18,36,37,40,31,8,17
+80,Gains,4,0.64,Male,White,Not Hispanic or Latino,17,31,16,32,18,57,22,4,1,18,36,37,40,31,8,17
+80,Gains,5,0.48,Male,White,Not Hispanic or Latino,17,31,16,32,18,57,22,4,1,18,36,37,40,31,8,17
+81,GainsEF,0,0.29333333333333333,Male,Asian,Not Hispanic or Latino,32,32,22,35,23,72,15,12,2,10,54,34,34,26,16,13
+81,GainsEF,1,0.9733333333333334,Male,Asian,Not Hispanic or Latino,32,32,22,35,23,72,15,12,2,10,54,34,34,26,16,13
+81,GainsEF,2,0.96,Male,Asian,Not Hispanic or Latino,32,32,22,35,23,72,15,12,2,10,54,34,34,26,16,13
+81,GainsEF,3,1.0,Male,Asian,Not Hispanic or Latino,32,32,22,35,23,72,15,12,2,10,54,34,34,26,16,13
+81,GainsEF,4,0.92,Male,Asian,Not Hispanic or Latino,32,32,22,35,23,72,15,12,2,10,54,34,34,26,16,13
+81,GainsEF,5,0.0,Male,Asian,Not Hispanic or Latino,32,32,22,35,23,72,15,12,2,10,54,34,34,26,16,13
+82,GainsEF,0,0.8533333333333334,Female,Asian,Not Hispanic or Latino,35,28,12,33,34,63,24,19,6,14,75,47,67,21,14,11
+82,GainsEF,1,0.8933333333333333,Female,Asian,Not Hispanic or Latino,35,28,12,33,34,63,24,19,6,14,75,47,67,21,14,11
+82,GainsEF,2,0.56,Female,Asian,Not Hispanic or Latino,35,28,12,33,34,63,24,19,6,14,75,47,67,21,14,11
+82,GainsEF,3,0.92,Female,Asian,Not Hispanic or Latino,35,28,12,33,34,63,24,19,6,14,75,47,67,21,14,11
+82,GainsEF,4,0.76,Female,Asian,Not Hispanic or Latino,35,28,12,33,34,63,24,19,6,14,75,47,67,21,14,11
+82,GainsEF,5,0.52,Female,Asian,Not Hispanic or Latino,35,28,12,33,34,63,24,19,6,14,75,47,67,21,14,11
+83,GainsEF,0,0.49333333333333335,Female,White,Not Hispanic or Latino,39,29,22,44,30,69,43,11,0,4,69,57,70,18,17,8
+83,GainsEF,1,0.49333333333333335,Female,White,Not Hispanic or Latino,39,29,22,44,30,69,43,11,0,4,69,57,70,18,17,8
+83,GainsEF,2,0.52,Female,White,Not Hispanic or Latino,39,29,22,44,30,69,43,11,0,4,69,57,70,18,17,8
+83,GainsEF,3,0.52,Female,White,Not Hispanic or Latino,39,29,22,44,30,69,43,11,0,4,69,57,70,18,17,8
+83,GainsEF,4,0.6,Female,White,Not Hispanic or Latino,39,29,22,44,30,69,43,11,0,4,69,57,70,18,17,8
+83,GainsEF,5,0.48,Female,White,Not Hispanic or Latino,39,29,22,44,30,69,43,11,0,4,69,57,70,18,17,8
+84,GainsEF,0,0.5466666666666666,Male,Asian,Not Hispanic or Latino,49,30,27,34,21,68,7,8,6,21,52,22,41,33,10,11
+84,GainsEF,1,0.6933333333333334,Male,Asian,Not Hispanic or Latino,49,30,27,34,21,68,7,8,6,21,52,22,41,33,10,11
+84,GainsEF,2,0.92,Male,Asian,Not Hispanic or Latino,49,30,27,34,21,68,7,8,6,21,52,22,41,33,10,11
+84,GainsEF,3,1.0,Male,Asian,Not Hispanic or Latino,49,30,27,34,21,68,7,8,6,21,52,22,41,33,10,11
+84,GainsEF,4,1.0,Male,Asian,Not Hispanic or Latino,49,30,27,34,21,68,7,8,6,21,52,22,41,33,10,11
+84,GainsEF,5,0.16,Male,Asian,Not Hispanic or Latino,49,30,27,34,21,68,7,8,6,21,52,22,41,33,10,11
+85,Gains,0,0.91,Female,White,Not Hispanic or Latino,33,39,39,38,28,49,10,5,0,20,66,31,35,30,7,7
+85,Gains,1,0.9,Female,White,Not Hispanic or Latino,33,39,39,38,28,49,10,5,0,20,66,31,35,30,7,7
+85,Gains,2,0.32,Female,White,Not Hispanic or Latino,33,39,39,38,28,49,10,5,0,20,66,31,35,30,7,7
+85,Gains,3,1.0,Female,White,Not Hispanic or Latino,33,39,39,38,28,49,10,5,0,20,66,31,35,30,7,7
+85,Gains,4,1.0,Female,White,Not Hispanic or Latino,33,39,39,38,28,49,10,5,0,20,66,31,35,30,7,7
+85,Gains,5,0.08,Female,White,Not Hispanic or Latino,33,39,39,38,28,49,10,5,0,20,66,31,35,30,7,7
+86,GainsEF,0,0.9333333333333333,Female,More than one Race,Hispanic or Latino,36,34,32,38,28,68,32,10,1,19,73,42,48,30,9,10
+86,GainsEF,1,0.9733333333333334,Female,More than one Race,Hispanic or Latino,36,34,32,38,28,68,32,10,1,19,73,42,48,30,9,10
+86,GainsEF,2,0.52,Female,More than one Race,Hispanic or Latino,36,34,32,38,28,68,32,10,1,19,73,42,48,30,9,10
+86,GainsEF,3,0.44,Female,More than one Race,Hispanic or Latino,36,34,32,38,28,68,32,10,1,19,73,42,48,30,9,10
+86,GainsEF,4,0.48,Female,More than one Race,Hispanic or Latino,36,34,32,38,28,68,32,10,1,19,73,42,48,30,9,10
+86,GainsEF,5,0.36,Female,More than one Race,Hispanic or Latino,36,34,32,38,28,68,32,10,1,19,73,42,48,30,9,10
+87,GainsEF,0,0.8,Female,White,Not Hispanic or Latino,41,39,15,32,33,50,28,7,0,7,70,36,54,16,9,3
+87,GainsEF,1,0.7466666666666667,Female,White,Not Hispanic or Latino,41,39,15,32,33,50,28,7,0,7,70,36,54,16,9,3
+87,GainsEF,2,0.52,Female,White,Not Hispanic or Latino,41,39,15,32,33,50,28,7,0,7,70,36,54,16,9,3
+87,GainsEF,3,0.92,Female,White,Not Hispanic or Latino,41,39,15,32,33,50,28,7,0,7,70,36,54,16,9,3
+87,GainsEF,4,0.92,Female,White,Not Hispanic or Latino,41,39,15,32,33,50,28,7,0,7,70,36,54,16,9,3
+87,GainsEF,5,0.6,Female,White,Not Hispanic or Latino,41,39,15,32,33,50,28,7,0,7,70,36,54,16,9,3
+88,Gains,0,0.94,Female,Prefer not to answer,Hispanic or Latino,36,29,20,31,37,68,29,12,2,11,75,53,60,24,17,21
+88,Gains,1,0.92,Female,Prefer not to answer,Hispanic or Latino,36,29,20,31,37,68,29,12,2,11,75,53,60,24,17,21
+88,Gains,2,0.4,Female,Prefer not to answer,Hispanic or Latino,36,29,20,31,37,68,29,12,2,11,75,53,60,24,17,21
+88,Gains,3,0.8,Female,Prefer not to answer,Hispanic or Latino,36,29,20,31,37,68,29,12,2,11,75,53,60,24,17,21
+88,Gains,4,1.0,Female,Prefer not to answer,Hispanic or Latino,36,29,20,31,37,68,29,12,2,11,75,53,60,24,17,21
+88,Gains,5,0.92,Female,Prefer not to answer,Hispanic or Latino,36,29,20,31,37,68,29,12,2,11,75,53,60,24,17,21
+89,Gains,0,0.78,Female,White,Not Hispanic or Latino,24,29,31,36,21,69,9,9,0,5,31,34,33,30,12,15
+89,Gains,1,0.8,Female,White,Not Hispanic or Latino,24,29,31,36,21,69,9,9,0,5,31,34,33,30,12,15
+89,Gains,2,0.92,Female,White,Not Hispanic or Latino,24,29,31,36,21,69,9,9,0,5,31,34,33,30,12,15
+89,Gains,3,0.96,Female,White,Not Hispanic or Latino,24,29,31,36,21,69,9,9,0,5,31,34,33,30,12,15
+89,Gains,4,1.0,Female,White,Not Hispanic or Latino,24,29,31,36,21,69,9,9,0,5,31,34,33,30,12,15
+89,Gains,5,0.96,Female,White,Not Hispanic or Latino,24,29,31,36,21,69,9,9,0,5,31,34,33,30,12,15
+90,GainsEF,0,0.6533333333333333,Female,Black or African American,Not Hispanic or Latino,37,34,34,35,24,59,23,9,16,21,48,34,34,38,16,8
+90,GainsEF,1,0.4,Female,Black or African American,Not Hispanic or Latino,37,34,34,35,24,59,23,9,16,21,48,34,34,38,16,8
+90,GainsEF,2,0.24,Female,Black or African American,Not Hispanic or Latino,37,34,34,35,24,59,23,9,16,21,48,34,34,38,16,8
+90,GainsEF,3,0.72,Female,Black or African American,Not Hispanic or Latino,37,34,34,35,24,59,23,9,16,21,48,34,34,38,16,8
+90,GainsEF,4,0.72,Female,Black or African American,Not Hispanic or Latino,37,34,34,35,24,59,23,9,16,21,48,34,34,38,16,8
+90,GainsEF,5,0.36,Female,Black or African American,Not Hispanic or Latino,37,34,34,35,24,59,23,9,16,21,48,34,34,38,16,8
+91,Gains,0,0.66,Male,White,Not Hispanic or Latino,47,44,34,45,9,54,2,2,20,22,18,21,20,54,3,6
+91,Gains,1,0.36,Male,White,Not Hispanic or Latino,47,44,34,45,9,54,2,2,20,22,18,21,20,54,3,6
+91,Gains,2,0.24,Male,White,Not Hispanic or Latino,47,44,34,45,9,54,2,2,20,22,18,21,20,54,3,6
+91,Gains,3,0.56,Male,White,Not Hispanic or Latino,47,44,34,45,9,54,2,2,20,22,18,21,20,54,3,6
+91,Gains,4,0.64,Male,White,Not Hispanic or Latino,47,44,34,45,9,54,2,2,20,22,18,21,20,54,3,6
+91,Gains,5,0.48,Male,White,Not Hispanic or Latino,47,44,34,45,9,54,2,2,20,22,18,21,20,54,3,6
+92,GainsEF,0,0.72,Male,White,Not Hispanic or Latino,40,27,34,33,31,98,22,18,0,14,67,47,50,35,18,27
+92,GainsEF,1,0.6266666666666667,Male,White,Not Hispanic or Latino,40,27,34,33,31,98,22,18,0,14,67,47,50,35,18,27
+92,GainsEF,2,0.48,Male,White,Not Hispanic or Latino,40,27,34,33,31,98,22,18,0,14,67,47,50,35,18,27
+92,GainsEF,3,0.44,Male,White,Not Hispanic or Latino,40,27,34,33,31,98,22,18,0,14,67,47,50,35,18,27
+92,GainsEF,4,0.68,Male,White,Not Hispanic or Latino,40,27,34,33,31,98,22,18,0,14,67,47,50,35,18,27
+92,GainsEF,5,0.44,Male,White,Not Hispanic or Latino,40,27,34,33,31,98,22,18,0,14,67,47,50,35,18,27
+93,Gains,0,0.64,Female,White,Not Hispanic or Latino,33,37,39,39,30,68,15,12,12,20,63,22,37,39,15,3
+93,Gains,1,0.86,Female,White,Not Hispanic or Latino,33,37,39,39,30,68,15,12,12,20,63,22,37,39,15,3
+93,Gains,2,0.68,Female,White,Not Hispanic or Latino,33,37,39,39,30,68,15,12,12,20,63,22,37,39,15,3
+93,Gains,3,0.84,Female,White,Not Hispanic or Latino,33,37,39,39,30,68,15,12,12,20,63,22,37,39,15,3
+93,Gains,4,0.96,Female,White,Not Hispanic or Latino,33,37,39,39,30,68,15,12,12,20,63,22,37,39,15,3
+93,Gains,5,0.96,Female,White,Not Hispanic or Latino,33,37,39,39,30,68,15,12,12,20,63,22,37,39,15,3
+94,GainsEF,0,0.6533333333333333,Male,White,Hispanic or Latino,39,35,24,30,25,58,17,12,3,11,39,41,44,27,10,9
+94,GainsEF,1,0.64,Male,White,Hispanic or Latino,39,35,24,30,25,58,17,12,3,11,39,41,44,27,10,9
+94,GainsEF,2,0.56,Male,White,Hispanic or Latino,39,35,24,30,25,58,17,12,3,11,39,41,44,27,10,9
+94,GainsEF,3,0.96,Male,White,Hispanic or Latino,39,35,24,30,25,58,17,12,3,11,39,41,44,27,10,9
+94,GainsEF,4,0.56,Male,White,Hispanic or Latino,39,35,24,30,25,58,17,12,3,11,39,41,44,27,10,9
+94,GainsEF,5,0.16,Male,White,Hispanic or Latino,39,35,24,30,25,58,17,12,3,11,39,41,44,27,10,9
+95,Gains,0,0.44,Female,White,Not Hispanic or Latino,40,28,21,29,37,75,46,20,29,8,79,63,70,25,21,17
+95,Gains,1,0.66,Female,White,Not Hispanic or Latino,40,28,21,29,37,75,46,20,29,8,79,63,70,25,21,17
+95,Gains,2,0.08,Female,White,Not Hispanic or Latino,40,28,21,29,37,75,46,20,29,8,79,63,70,25,21,17
+95,Gains,3,0.92,Female,White,Not Hispanic or Latino,40,28,21,29,37,75,46,20,29,8,79,63,70,25,21,17
+95,Gains,4,1.0,Female,White,Not Hispanic or Latino,40,28,21,29,37,75,46,20,29,8,79,63,70,25,21,17
+95,Gains,5,0.68,Female,White,Not Hispanic or Latino,40,28,21,29,37,75,46,20,29,8,79,63,70,25,21,17
+96,Gains,0,0.52,Male,More than one Race,Hispanic or Latino,46,31,16,30,25,52,22,21,3,25,68,48,57,39,15,34
+96,Gains,1,0.66,Male,More than one Race,Hispanic or Latino,46,31,16,30,25,52,22,21,3,25,68,48,57,39,15,34
+96,Gains,2,0.8,Male,More than one Race,Hispanic or Latino,46,31,16,30,25,52,22,21,3,25,68,48,57,39,15,34
+96,Gains,3,0.36,Male,More than one Race,Hispanic or Latino,46,31,16,30,25,52,22,21,3,25,68,48,57,39,15,34
+96,Gains,4,0.72,Male,More than one Race,Hispanic or Latino,46,31,16,30,25,52,22,21,3,25,68,48,57,39,15,34
+96,Gains,5,0.44,Male,More than one Race,Hispanic or Latino,46,31,16,30,25,52,22,21,3,25,68,48,57,39,15,34
+97,GainsEF,0,0.9333333333333333,Female,White,Not Hispanic or Latino,26,34,23,36,25,61,27,8,4,6,57,35,46,22,9,5
+97,GainsEF,1,0.88,Female,White,Not Hispanic or Latino,26,34,23,36,25,61,27,8,4,6,57,35,46,22,9,5
+97,GainsEF,2,0.84,Female,White,Not Hispanic or Latino,26,34,23,36,25,61,27,8,4,6,57,35,46,22,9,5
+97,GainsEF,3,0.92,Female,White,Not Hispanic or Latino,26,34,23,36,25,61,27,8,4,6,57,35,46,22,9,5
+97,GainsEF,4,0.6,Female,White,Not Hispanic or Latino,26,34,23,36,25,61,27,8,4,6,57,35,46,22,9,5
+97,GainsEF,5,0.08,Female,White,Not Hispanic or Latino,26,34,23,36,25,61,27,8,4,6,57,35,46,22,9,5
+98,Gains,0,0.47,Female,White,Not Hispanic or Latino,33,32,23,25,21,53,16,6,26,17,46,34,41,34,5,8
+98,Gains,1,0.36,Female,White,Not Hispanic or Latino,33,32,23,25,21,53,16,6,26,17,46,34,41,34,5,8
+98,Gains,2,0.48,Female,White,Not Hispanic or Latino,33,32,23,25,21,53,16,6,26,17,46,34,41,34,5,8
+98,Gains,3,0.84,Female,White,Not Hispanic or Latino,33,32,23,25,21,53,16,6,26,17,46,34,41,34,5,8
+98,Gains,4,0.84,Female,White,Not Hispanic or Latino,33,32,23,25,21,53,16,6,26,17,46,34,41,34,5,8
+98,Gains,5,0.44,Female,White,Not Hispanic or Latino,33,32,23,25,21,53,16,6,26,17,46,34,41,34,5,8
+99,Gains,0,0.34,Male,White,Hispanic or Latino,31,28,29,34,23,72,8,13,16,28,35,23,30,41,19,9
+99,Gains,1,0.5,Male,White,Hispanic or Latino,31,28,29,34,23,72,8,13,16,28,35,23,30,41,19,9
+99,Gains,2,1.0,Male,White,Hispanic or Latino,31,28,29,34,23,72,8,13,16,28,35,23,30,41,19,9
+99,Gains,3,1.0,Male,White,Hispanic or Latino,31,28,29,34,23,72,8,13,16,28,35,23,30,41,19,9
+99,Gains,4,0.92,Male,White,Hispanic or Latino,31,28,29,34,23,72,8,13,16,28,35,23,30,41,19,9
+99,Gains,5,0.0,Male,White,Hispanic or Latino,31,28,29,34,23,72,8,13,16,28,35,23,30,41,19,9
+100,Gains,0,0.45,Female,Asian,Not Hispanic or Latino,40,38,16,35,30,59,30,4,7,8,78,46,59,14,11,12
+100,Gains,1,0.72,Female,Asian,Not Hispanic or Latino,40,38,16,35,30,59,30,4,7,8,78,46,59,14,11,12
+100,Gains,2,1.0,Female,Asian,Not Hispanic or Latino,40,38,16,35,30,59,30,4,7,8,78,46,59,14,11,12
+100,Gains,3,0.0,Female,Asian,Not Hispanic or Latino,40,38,16,35,30,59,30,4,7,8,78,46,59,14,11,12
+100,Gains,4,0.0,Female,Asian,Not Hispanic or Latino,40,38,16,35,30,59,30,4,7,8,78,46,59,14,11,12
+100,Gains,5,0.96,Female,Asian,Not Hispanic or Latino,40,38,16,35,30,59,30,4,7,8,78,46,59,14,11,12
+101,Gains,0,0.55,Female,Prefer not to answer,Hispanic or Latino,44,36,37,41,15,61,9,7,18,23,40,21,30,39,10,5
+101,Gains,1,0.72,Female,Prefer not to answer,Hispanic or Latino,44,36,37,41,15,61,9,7,18,23,40,21,30,39,10,5
+101,Gains,2,0.44,Female,Prefer not to answer,Hispanic or Latino,44,36,37,41,15,61,9,7,18,23,40,21,30,39,10,5
+101,Gains,3,0.28,Female,Prefer not to answer,Hispanic or Latino,44,36,37,41,15,61,9,7,18,23,40,21,30,39,10,5
+101,Gains,4,0.72,Female,Prefer not to answer,Hispanic or Latino,44,36,37,41,15,61,9,7,18,23,40,21,30,39,10,5
+101,Gains,5,0.76,Female,Prefer not to answer,Hispanic or Latino,44,36,37,41,15,61,9,7,18,23,40,21,30,39,10,5
+102,Gains,0,0.58,Female,White,Not Hispanic or Latino,40,44,25,39,28,47,16,6,0,9,61,40,44,23,7,1
+102,Gains,1,0.5,Female,White,Not Hispanic or Latino,40,44,25,39,28,47,16,6,0,9,61,40,44,23,7,1
+102,Gains,2,0.52,Female,White,Not Hispanic or Latino,40,44,25,39,28,47,16,6,0,9,61,40,44,23,7,1
+102,Gains,3,0.52,Female,White,Not Hispanic or Latino,40,44,25,39,28,47,16,6,0,9,61,40,44,23,7,1
+102,Gains,4,0.48,Female,White,Not Hispanic or Latino,40,44,25,39,28,47,16,6,0,9,61,40,44,23,7,1
+102,Gains,5,0.48,Female,White,Not Hispanic or Latino,40,44,25,39,28,47,16,6,0,9,61,40,44,23,7,1
+103,GainsEF,0,0.49333333333333335,Female,White,Not Hispanic or Latino,33,44,37,32,35,51,29,7,8,18,79,37,68,25,6,11
+103,GainsEF,1,0.48,Female,White,Not Hispanic or Latino,33,44,37,32,35,51,29,7,8,18,79,37,68,25,6,11
+103,GainsEF,2,0.08,Female,White,Not Hispanic or Latino,33,44,37,32,35,51,29,7,8,18,79,37,68,25,6,11
+103,GainsEF,3,0.2,Female,White,Not Hispanic or Latino,33,44,37,32,35,51,29,7,8,18,79,37,68,25,6,11
+103,GainsEF,4,0.44,Female,White,Not Hispanic or Latino,33,44,37,32,35,51,29,7,8,18,79,37,68,25,6,11
+103,GainsEF,5,0.68,Female,White,Not Hispanic or Latino,33,44,37,32,35,51,29,7,8,18,79,37,68,25,6,11
+104,GainsEF,0,0.8533333333333334,Male,White,Not Hispanic or Latino,33,33,13,36,16,58,7,4,21,8,56,34,34,22,6,11
+104,GainsEF,1,0.12,Male,White,Not Hispanic or Latino,33,33,13,36,16,58,7,4,21,8,56,34,34,22,6,11
+104,GainsEF,2,0.8,Male,White,Not Hispanic or Latino,33,33,13,36,16,58,7,4,21,8,56,34,34,22,6,11
+104,GainsEF,3,0.88,Male,White,Not Hispanic or Latino,33,33,13,36,16,58,7,4,21,8,56,34,34,22,6,11
+104,GainsEF,4,0.04,Male,White,Not Hispanic or Latino,33,33,13,36,16,58,7,4,21,8,56,34,34,22,6,11
+104,GainsEF,5,0.08,Male,White,Not Hispanic or Latino,33,33,13,36,16,58,7,4,21,8,56,34,34,22,6,11
+105,Gains,0,0.89,Female,White,Not Hispanic or Latino,40,17,22,40,29,71,21,19,0,13,63,32,57,13,9,7
+105,Gains,1,0.88,Female,White,Not Hispanic or Latino,40,17,22,40,29,71,21,19,0,13,63,32,57,13,9,7
+105,Gains,2,0.16,Female,White,Not Hispanic or Latino,40,17,22,40,29,71,21,19,0,13,63,32,57,13,9,7
+105,Gains,3,1.0,Female,White,Not Hispanic or Latino,40,17,22,40,29,71,21,19,0,13,63,32,57,13,9,7
+105,Gains,4,1.0,Female,White,Not Hispanic or Latino,40,17,22,40,29,71,21,19,0,13,63,32,57,13,9,7
+105,Gains,5,0.16,Female,White,Not Hispanic or Latino,40,17,22,40,29,71,21,19,0,13,63,32,57,13,9,7
+106,GainsEF,0,0.6666666666666666,Male,White,Hispanic or Latino,39,33,13,32,29,57,34,12,0,9,66,50,51,19,10,9
+106,GainsEF,1,0.92,Male,White,Hispanic or Latino,39,33,13,32,29,57,34,12,0,9,66,50,51,19,10,9
+106,GainsEF,2,1.0,Male,White,Hispanic or Latino,39,33,13,32,29,57,34,12,0,9,66,50,51,19,10,9
+106,GainsEF,3,1.0,Male,White,Hispanic or Latino,39,33,13,32,29,57,34,12,0,9,66,50,51,19,10,9
+106,GainsEF,4,0.96,Male,White,Hispanic or Latino,39,33,13,32,29,57,34,12,0,9,66,50,51,19,10,9
+106,GainsEF,5,1.0,Male,White,Hispanic or Latino,39,33,13,32,29,57,34,12,0,9,66,50,51,19,10,9
+107,GainsEF,0,0.76,Male,More than one Race,Not Hispanic or Latino,41,17,22,24,40,89,48,33,1,4,76,49,73,6,35,16
+107,GainsEF,1,0.72,Male,More than one Race,Not Hispanic or Latino,41,17,22,24,40,89,48,33,1,4,76,49,73,6,35,16
+107,GainsEF,2,1.0,Male,More than one Race,Not Hispanic or Latino,41,17,22,24,40,89,48,33,1,4,76,49,73,6,35,16
+107,GainsEF,3,0.96,Male,More than one Race,Not Hispanic or Latino,41,17,22,24,40,89,48,33,1,4,76,49,73,6,35,16
+107,GainsEF,4,1.0,Male,More than one Race,Not Hispanic or Latino,41,17,22,24,40,89,48,33,1,4,76,49,73,6,35,16
+107,GainsEF,5,1.0,Male,More than one Race,Not Hispanic or Latino,41,17,22,24,40,89,48,33,1,4,76,49,73,6,35,16
+108,GainsEF,0,0.8666666666666667,Female,White,Not Hispanic or Latino,35,40,26,41,20,50,14,0,6,10,57,23,26,29,1,1
+108,GainsEF,1,0.9066666666666666,Female,White,Not Hispanic or Latino,35,40,26,41,20,50,14,0,6,10,57,23,26,29,1,1
+108,GainsEF,2,0.0,Female,White,Not Hispanic or Latino,35,40,26,41,20,50,14,0,6,10,57,23,26,29,1,1
+108,GainsEF,3,0.92,Female,White,Not Hispanic or Latino,35,40,26,41,20,50,14,0,6,10,57,23,26,29,1,1
+108,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,35,40,26,41,20,50,14,0,6,10,57,23,26,29,1,1
+108,GainsEF,5,0.96,Female,White,Not Hispanic or Latino,35,40,26,41,20,50,14,0,6,10,57,23,26,29,1,1
+109,GainsEF,0,0.7733333333333333,Female,White,Not Hispanic or Latino,37,35,34,40,21,69,16,19,16,31,70,43,44,38,19,7
+109,GainsEF,1,0.9066666666666666,Female,White,Not Hispanic or Latino,37,35,34,40,21,69,16,19,16,31,70,43,44,38,19,7
+109,GainsEF,2,0.96,Female,White,Not Hispanic or Latino,37,35,34,40,21,69,16,19,16,31,70,43,44,38,19,7
+109,GainsEF,3,0.6,Female,White,Not Hispanic or Latino,37,35,34,40,21,69,16,19,16,31,70,43,44,38,19,7
+109,GainsEF,4,0.0,Female,White,Not Hispanic or Latino,37,35,34,40,21,69,16,19,16,31,70,43,44,38,19,7
+109,GainsEF,5,0.2,Female,White,Not Hispanic or Latino,37,35,34,40,21,69,16,19,16,31,70,43,44,38,19,7
+110,GainsEF,0,0.6133333333333333,Male,White,Hispanic or Latino,31,36,18,36,14,59,7,7,19,12,30,23,29,29,10,13
+110,GainsEF,1,0.6133333333333333,Male,White,Hispanic or Latino,31,36,18,36,14,59,7,7,19,12,30,23,29,29,10,13
+110,GainsEF,2,0.92,Male,White,Hispanic or Latino,31,36,18,36,14,59,7,7,19,12,30,23,29,29,10,13
+110,GainsEF,3,1.0,Male,White,Hispanic or Latino,31,36,18,36,14,59,7,7,19,12,30,23,29,29,10,13
+110,GainsEF,4,0.96,Male,White,Hispanic or Latino,31,36,18,36,14,59,7,7,19,12,30,23,29,29,10,13
+110,GainsEF,5,0.96,Male,White,Hispanic or Latino,31,36,18,36,14,59,7,7,19,12,30,23,29,29,10,13
+111,GainsEF,0,0.8933333333333333,Female,White,Hispanic or Latino,36,29,30,34,35,66,30,11,0,13,75,34,55,27,10,12
+111,GainsEF,1,0.6133333333333333,Female,White,Hispanic or Latino,36,29,30,34,35,66,30,11,0,13,75,34,55,27,10,12
+111,GainsEF,2,0.08,Female,White,Hispanic or Latino,36,29,30,34,35,66,30,11,0,13,75,34,55,27,10,12
+111,GainsEF,3,1.0,Female,White,Hispanic or Latino,36,29,30,34,35,66,30,11,0,13,75,34,55,27,10,12
+111,GainsEF,4,1.0,Female,White,Hispanic or Latino,36,29,30,34,35,66,30,11,0,13,75,34,55,27,10,12
+111,GainsEF,5,0.0,Female,White,Hispanic or Latino,36,29,30,34,35,66,30,11,0,13,75,34,55,27,10,12
+112,Gains,0,0.7,Female,White,Not Hispanic or Latino,26,35,36,29,24,68,24,10,30,21,46,34,45,34,8,6
+112,Gains,1,0.72,Female,White,Not Hispanic or Latino,26,35,36,29,24,68,24,10,30,21,46,34,45,34,8,6
+112,Gains,2,0.28,Female,White,Not Hispanic or Latino,26,35,36,29,24,68,24,10,30,21,46,34,45,34,8,6
+112,Gains,3,0.6,Female,White,Not Hispanic or Latino,26,35,36,29,24,68,24,10,30,21,46,34,45,34,8,6
+112,Gains,4,0.96,Female,White,Not Hispanic or Latino,26,35,36,29,24,68,24,10,30,21,46,34,45,34,8,6
+112,Gains,5,1.0,Female,White,Not Hispanic or Latino,26,35,36,29,24,68,24,10,30,21,46,34,45,34,8,6
+113,GainsEF,0,0.4666666666666667,Female,White,Not Hispanic or Latino,40,30,18,38,33,65,19,8,2,6,74,53,57,17,7,3
+113,GainsEF,1,0.6133333333333333,Female,White,Not Hispanic or Latino,40,30,18,38,33,65,19,8,2,6,74,53,57,17,7,3
+113,GainsEF,2,0.52,Female,White,Not Hispanic or Latino,40,30,18,38,33,65,19,8,2,6,74,53,57,17,7,3
+113,GainsEF,3,0.68,Female,White,Not Hispanic or Latino,40,30,18,38,33,65,19,8,2,6,74,53,57,17,7,3
+113,GainsEF,4,0.68,Female,White,Not Hispanic or Latino,40,30,18,38,33,65,19,8,2,6,74,53,57,17,7,3
+113,GainsEF,5,0.4,Female,White,Not Hispanic or Latino,40,30,18,38,33,65,19,8,2,6,74,53,57,17,7,3
+114,Gains,0,0.89,Male,White,Hispanic or Latino,42,34,37,41,13,63,4,4,41,23,33,20,22,44,5,11
+114,Gains,1,0.82,Male,White,Hispanic or Latino,42,34,37,41,13,63,4,4,41,23,33,20,22,44,5,11
+114,Gains,2,0.44,Male,White,Hispanic or Latino,42,34,37,41,13,63,4,4,41,23,33,20,22,44,5,11
+114,Gains,3,1.0,Male,White,Hispanic or Latino,42,34,37,41,13,63,4,4,41,23,33,20,22,44,5,11
+114,Gains,4,0.92,Male,White,Hispanic or Latino,42,34,37,41,13,63,4,4,41,23,33,20,22,44,5,11
+114,Gains,5,0.04,Male,White,Hispanic or Latino,42,34,37,41,13,63,4,4,41,23,33,20,22,44,5,11
+115,GainsEF,0,0.84,Female,White,Not Hispanic or Latino,28,40,18,26,29,55,7,4,3,9,60,31,40,21,9,19
+115,GainsEF,1,0.84,Female,White,Not Hispanic or Latino,28,40,18,26,29,55,7,4,3,9,60,31,40,21,9,19
+115,GainsEF,2,0.44,Female,White,Not Hispanic or Latino,28,40,18,26,29,55,7,4,3,9,60,31,40,21,9,19
+115,GainsEF,3,0.76,Female,White,Not Hispanic or Latino,28,40,18,26,29,55,7,4,3,9,60,31,40,21,9,19
+115,GainsEF,4,0.88,Female,White,Not Hispanic or Latino,28,40,18,26,29,55,7,4,3,9,60,31,40,21,9,19
+115,GainsEF,5,0.92,Female,White,Not Hispanic or Latino,28,40,18,26,29,55,7,4,3,9,60,31,40,21,9,19
+116,Gains,0,0.78,Female,White,Not Hispanic or Latino,39,40,32,33,33,58,23,17,29,27,64,37,63,30,16,12
+116,Gains,1,0.86,Female,White,Not Hispanic or Latino,39,40,32,33,33,58,23,17,29,27,64,37,63,30,16,12
+116,Gains,2,0.4,Female,White,Not Hispanic or Latino,39,40,32,33,33,58,23,17,29,27,64,37,63,30,16,12
+116,Gains,3,0.92,Female,White,Not Hispanic or Latino,39,40,32,33,33,58,23,17,29,27,64,37,63,30,16,12
+116,Gains,4,1.0,Female,White,Not Hispanic or Latino,39,40,32,33,33,58,23,17,29,27,64,37,63,30,16,12
+116,Gains,5,0.28,Female,White,Not Hispanic or Latino,39,40,32,33,33,58,23,17,29,27,64,37,63,30,16,12
+117,GainsEF,0,0.84,Female,White,Hispanic or Latino,35,30,26,34,29,72,37,22,13,17,58,47,53,27,26,27
+117,GainsEF,1,0.9066666666666666,Female,White,Hispanic or Latino,35,30,26,34,29,72,37,22,13,17,58,47,53,27,26,27
+117,GainsEF,2,0.04,Female,White,Hispanic or Latino,35,30,26,34,29,72,37,22,13,17,58,47,53,27,26,27
+117,GainsEF,3,0.0,Female,White,Hispanic or Latino,35,30,26,34,29,72,37,22,13,17,58,47,53,27,26,27
+117,GainsEF,4,1.0,Female,White,Hispanic or Latino,35,30,26,34,29,72,37,22,13,17,58,47,53,27,26,27
+117,GainsEF,5,0.96,Female,White,Hispanic or Latino,35,30,26,34,29,72,37,22,13,17,58,47,53,27,26,27
+118,GainsEF,0,0.7333333333333333,Male,White,Hispanic or Latino,38,30,22,28,25,55,11,7,6,10,43,31,37,34,6,21
+118,GainsEF,1,0.7466666666666667,Male,White,Hispanic or Latino,38,30,22,28,25,55,11,7,6,10,43,31,37,34,6,21
+118,GainsEF,2,0.32,Male,White,Hispanic or Latino,38,30,22,28,25,55,11,7,6,10,43,31,37,34,6,21
+118,GainsEF,3,0.96,Male,White,Hispanic or Latino,38,30,22,28,25,55,11,7,6,10,43,31,37,34,6,21
+118,GainsEF,4,1.0,Male,White,Hispanic or Latino,38,30,22,28,25,55,11,7,6,10,43,31,37,34,6,21
+118,GainsEF,5,0.0,Male,White,Hispanic or Latino,38,30,22,28,25,55,11,7,6,10,43,31,37,34,6,21
+119,GainsEF,0,0.48,Male,White,Not Hispanic or Latino,41,33,25,35,18,56,5,2,6,15,45,34,32,39,4,8
+119,GainsEF,1,0.5466666666666666,Male,White,Not Hispanic or Latino,41,33,25,35,18,56,5,2,6,15,45,34,32,39,4,8
+119,GainsEF,2,0.64,Male,White,Not Hispanic or Latino,41,33,25,35,18,56,5,2,6,15,45,34,32,39,4,8
+119,GainsEF,3,0.76,Male,White,Not Hispanic or Latino,41,33,25,35,18,56,5,2,6,15,45,34,32,39,4,8
+119,GainsEF,4,0.76,Male,White,Not Hispanic or Latino,41,33,25,35,18,56,5,2,6,15,45,34,32,39,4,8
+119,GainsEF,5,0.56,Male,White,Not Hispanic or Latino,41,33,25,35,18,56,5,2,6,15,45,34,32,39,4,8
+120,GainsEF,0,0.68,Male,White,Hispanic or Latino,31,33,19,36,18,62,17,19,14,21,37,27,34,37,17,17
+120,GainsEF,1,0.8266666666666667,Male,White,Hispanic or Latino,31,33,19,36,18,62,17,19,14,21,37,27,34,37,17,17
+120,GainsEF,2,0.48,Male,White,Hispanic or Latino,31,33,19,36,18,62,17,19,14,21,37,27,34,37,17,17
+120,GainsEF,3,0.64,Male,White,Hispanic or Latino,31,33,19,36,18,62,17,19,14,21,37,27,34,37,17,17
+120,GainsEF,4,0.6,Male,White,Hispanic or Latino,31,33,19,36,18,62,17,19,14,21,37,27,34,37,17,17
+120,GainsEF,5,0.48,Male,White,Hispanic or Latino,31,33,19,36,18,62,17,19,14,21,37,27,34,37,17,17
+121,GainsEF,0,0.21333333333333335,Male,White,Not Hispanic or Latino,35,32,32,38,25,68,10,17,17,21,52,40,44,31,19,21
+121,GainsEF,1,0.72,Male,White,Not Hispanic or Latino,35,32,32,38,25,68,10,17,17,21,52,40,44,31,19,21
+121,GainsEF,2,0.36,Male,White,Not Hispanic or Latino,35,32,32,38,25,68,10,17,17,21,52,40,44,31,19,21
+121,GainsEF,3,0.08,Male,White,Not Hispanic or Latino,35,32,32,38,25,68,10,17,17,21,52,40,44,31,19,21
+121,GainsEF,4,0.88,Male,White,Not Hispanic or Latino,35,32,32,38,25,68,10,17,17,21,52,40,44,31,19,21
+121,GainsEF,5,1.0,Male,White,Not Hispanic or Latino,35,32,32,38,25,68,10,17,17,21,52,40,44,31,19,21
+122,Gains,0,0.47,Male,White,Not Hispanic or Latino,29,21,26,31,36,92,48,23,8,8,73,53,63,23,25,14
+122,Gains,1,0.28,Male,White,Not Hispanic or Latino,29,21,26,31,36,92,48,23,8,8,73,53,63,23,25,14
+122,Gains,2,0.24,Male,White,Not Hispanic or Latino,29,21,26,31,36,92,48,23,8,8,73,53,63,23,25,14
+122,Gains,3,0.24,Male,White,Not Hispanic or Latino,29,21,26,31,36,92,48,23,8,8,73,53,63,23,25,14
+122,Gains,4,0.64,Male,White,Not Hispanic or Latino,29,21,26,31,36,92,48,23,8,8,73,53,63,23,25,14
+122,Gains,5,0.88,Male,White,Not Hispanic or Latino,29,21,26,31,36,92,48,23,8,8,73,53,63,23,25,14
+123,Gains,0,0.72,Female,White,Not Hispanic or Latino,35,30,19,33,25,56,33,7,0,4,58,46,57,9,9,1
+123,Gains,1,0.42,Female,White,Not Hispanic or Latino,35,30,19,33,25,56,33,7,0,4,58,46,57,9,9,1
+123,Gains,2,0.52,Female,White,Not Hispanic or Latino,35,30,19,33,25,56,33,7,0,4,58,46,57,9,9,1
+123,Gains,3,0.64,Female,White,Not Hispanic or Latino,35,30,19,33,25,56,33,7,0,4,58,46,57,9,9,1
+123,Gains,4,0.44,Female,White,Not Hispanic or Latino,35,30,19,33,25,56,33,7,0,4,58,46,57,9,9,1
+123,Gains,5,0.48,Female,White,Not Hispanic or Latino,35,30,19,33,25,56,33,7,0,4,58,46,57,9,9,1
+124,GainsEF,0,0.9066666666666666,Male,Asian,Not Hispanic or Latino,31,29,33,30,21,61,26,11,0,16,46,31,50,31,9,19
+124,GainsEF,1,0.9733333333333334,Male,Asian,Not Hispanic or Latino,31,29,33,30,21,61,26,11,0,16,46,31,50,31,9,19
+124,GainsEF,2,0.92,Male,Asian,Not Hispanic or Latino,31,29,33,30,21,61,26,11,0,16,46,31,50,31,9,19
+124,GainsEF,3,0.96,Male,Asian,Not Hispanic or Latino,31,29,33,30,21,61,26,11,0,16,46,31,50,31,9,19
+124,GainsEF,4,1.0,Male,Asian,Not Hispanic or Latino,31,29,33,30,21,61,26,11,0,16,46,31,50,31,9,19
+124,GainsEF,5,1.0,Male,Asian,Not Hispanic or Latino,31,29,33,30,21,61,26,11,0,16,46,31,50,31,9,19
+125,Gains,0,0.66,Male,White,Hispanic or Latino,21,24,13,33,29,82,26,19,33,1,70,47,57,14,19,20
+125,Gains,1,0.54,Male,White,Hispanic or Latino,21,24,13,33,29,82,26,19,33,1,70,47,57,14,19,20
+125,Gains,2,0.36,Male,White,Hispanic or Latino,21,24,13,33,29,82,26,19,33,1,70,47,57,14,19,20
+125,Gains,3,0.48,Male,White,Hispanic or Latino,21,24,13,33,29,82,26,19,33,1,70,47,57,14,19,20
+125,Gains,4,0.56,Male,White,Hispanic or Latino,21,24,13,33,29,82,26,19,33,1,70,47,57,14,19,20
+125,Gains,5,0.68,Male,White,Hispanic or Latino,21,24,13,33,29,82,26,19,33,1,70,47,57,14,19,20
+126,GainsEF,0,0.84,Male,Asian,Not Hispanic or Latino,47,23,12,35,30,68,41,12,34,19,54,54,57,32,16,20
+126,GainsEF,1,0.8666666666666667,Male,Asian,Not Hispanic or Latino,47,23,12,35,30,68,41,12,34,19,54,54,57,32,16,20
+126,GainsEF,2,0.96,Male,Asian,Not Hispanic or Latino,47,23,12,35,30,68,41,12,34,19,54,54,57,32,16,20
+126,GainsEF,3,1.0,Male,Asian,Not Hispanic or Latino,47,23,12,35,30,68,41,12,34,19,54,54,57,32,16,20
+126,GainsEF,4,1.0,Male,Asian,Not Hispanic or Latino,47,23,12,35,30,68,41,12,34,19,54,54,57,32,16,20
+126,GainsEF,5,0.36,Male,Asian,Not Hispanic or Latino,47,23,12,35,30,68,41,12,34,19,54,54,57,32,16,20
+127,Gains,0,0.95,Female,White,Not Hispanic or Latino,32,40,29,41,25,52,22,9,15,10,75,37,40,21,13,12
+127,Gains,1,1.0,Female,White,Not Hispanic or Latino,32,40,29,41,25,52,22,9,15,10,75,37,40,21,13,12
+127,Gains,2,0.0,Female,White,Not Hispanic or Latino,32,40,29,41,25,52,22,9,15,10,75,37,40,21,13,12
+127,Gains,3,0.0,Female,White,Not Hispanic or Latino,32,40,29,41,25,52,22,9,15,10,75,37,40,21,13,12
+127,Gains,4,1.0,Female,White,Not Hispanic or Latino,32,40,29,41,25,52,22,9,15,10,75,37,40,21,13,12
+127,Gains,5,1.0,Female,White,Not Hispanic or Latino,32,40,29,41,25,52,22,9,15,10,75,37,40,21,13,12
+128,Gains,0,0.83,Female,White,Hispanic or Latino,34,26,30,42,29,67,18,11,22,13,76,41,56,21,12,1
+128,Gains,1,0.66,Female,White,Hispanic or Latino,34,26,30,42,29,67,18,11,22,13,76,41,56,21,12,1
+128,Gains,2,0.24,Female,White,Hispanic or Latino,34,26,30,42,29,67,18,11,22,13,76,41,56,21,12,1
+128,Gains,3,0.64,Female,White,Hispanic or Latino,34,26,30,42,29,67,18,11,22,13,76,41,56,21,12,1
+128,Gains,4,0.92,Female,White,Hispanic or Latino,34,26,30,42,29,67,18,11,22,13,76,41,56,21,12,1
+128,Gains,5,0.4,Female,White,Hispanic or Latino,34,26,30,42,29,67,18,11,22,13,76,41,56,21,12,1
+129,GainsEF,0,0.84,Female,White,Not Hispanic or Latino,37,22,26,24,32,88,28,21,18,24,70,60,56,40,25,27
+129,GainsEF,1,0.84,Female,White,Not Hispanic or Latino,37,22,26,24,32,88,28,21,18,24,70,60,56,40,25,27
+129,GainsEF,2,0.48,Female,White,Not Hispanic or Latino,37,22,26,24,32,88,28,21,18,24,70,60,56,40,25,27
+129,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,37,22,26,24,32,88,28,21,18,24,70,60,56,40,25,27
+129,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,37,22,26,24,32,88,28,21,18,24,70,60,56,40,25,27
+129,GainsEF,5,0.72,Female,White,Not Hispanic or Latino,37,22,26,24,32,88,28,21,18,24,70,60,56,40,25,27
+130,GainsEF,0,0.6533333333333333,Male,White,Not Hispanic or Latino,31,31,25,40,22,60,15,8,3,9,55,38,35,30,9,6
+130,GainsEF,1,0.49333333333333335,Male,White,Not Hispanic or Latino,31,31,25,40,22,60,15,8,3,9,55,38,35,30,9,6
+130,GainsEF,2,0.44,Male,White,Not Hispanic or Latino,31,31,25,40,22,60,15,8,3,9,55,38,35,30,9,6
+130,GainsEF,3,0.52,Male,White,Not Hispanic or Latino,31,31,25,40,22,60,15,8,3,9,55,38,35,30,9,6
+130,GainsEF,4,0.28,Male,White,Not Hispanic or Latino,31,31,25,40,22,60,15,8,3,9,55,38,35,30,9,6
+130,GainsEF,5,0.76,Male,White,Not Hispanic or Latino,31,31,25,40,22,60,15,8,3,9,55,38,35,30,9,6
+131,GainsEF,0,0.9866666666666667,Male,White,Not Hispanic or Latino,28,23,19,37,20,79,15,10,35,6,31,34,42,31,12,14
+131,GainsEF,1,0.9733333333333334,Male,White,Not Hispanic or Latino,28,23,19,37,20,79,15,10,35,6,31,34,42,31,12,14
+131,GainsEF,2,0.04,Male,White,Not Hispanic or Latino,28,23,19,37,20,79,15,10,35,6,31,34,42,31,12,14
+131,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,28,23,19,37,20,79,15,10,35,6,31,34,42,31,12,14
+131,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,28,23,19,37,20,79,15,10,35,6,31,34,42,31,12,14
+131,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,28,23,19,37,20,79,15,10,35,6,31,34,42,31,12,14
+132,GainsEF,0,0.5333333333333333,Male,White,Not Hispanic or Latino,32,32,32,33,12,70,4,14,28,26,33,26,25,49,15,41
+132,GainsEF,1,0.6266666666666667,Male,White,Not Hispanic or Latino,32,32,32,33,12,70,4,14,28,26,33,26,25,49,15,41
+132,GainsEF,2,0.68,Male,White,Not Hispanic or Latino,32,32,32,33,12,70,4,14,28,26,33,26,25,49,15,41
+132,GainsEF,3,0.48,Male,White,Not Hispanic or Latino,32,32,32,33,12,70,4,14,28,26,33,26,25,49,15,41
+132,GainsEF,4,0.64,Male,White,Not Hispanic or Latino,32,32,32,33,12,70,4,14,28,26,33,26,25,49,15,41
+132,GainsEF,5,0.56,Male,White,Not Hispanic or Latino,32,32,32,33,12,70,4,14,28,26,33,26,25,49,15,41
+133,Gains,0,0.82,Female,White,Not Hispanic or Latino,34,36,23,37,28,54,41,9,3,8,80,75,68,27,8,4
+133,Gains,1,0.82,Female,White,Not Hispanic or Latino,34,36,23,37,28,54,41,9,3,8,80,75,68,27,8,4
+133,Gains,2,0.28,Female,White,Not Hispanic or Latino,34,36,23,37,28,54,41,9,3,8,80,75,68,27,8,4
+133,Gains,3,0.88,Female,White,Not Hispanic or Latino,34,36,23,37,28,54,41,9,3,8,80,75,68,27,8,4
+133,Gains,4,1.0,Female,White,Not Hispanic or Latino,34,36,23,37,28,54,41,9,3,8,80,75,68,27,8,4
+133,Gains,5,1.0,Female,White,Not Hispanic or Latino,34,36,23,37,28,54,41,9,3,8,80,75,68,27,8,4
+134,GainsEF,0,0.4666666666666667,Male,White,Not Hispanic or Latino,42,35,36,40,24,65,19,13,31,14,76,46,60,42,18,9
+134,GainsEF,1,0.49333333333333335,Male,White,Not Hispanic or Latino,42,35,36,40,24,65,19,13,31,14,76,46,60,42,18,9
+134,GainsEF,2,0.92,Male,White,Not Hispanic or Latino,42,35,36,40,24,65,19,13,31,14,76,46,60,42,18,9
+134,GainsEF,3,0.04,Male,White,Not Hispanic or Latino,42,35,36,40,24,65,19,13,31,14,76,46,60,42,18,9
+134,GainsEF,4,0.2,Male,White,Not Hispanic or Latino,42,35,36,40,24,65,19,13,31,14,76,46,60,42,18,9
+134,GainsEF,5,0.72,Male,White,Not Hispanic or Latino,42,35,36,40,24,65,19,13,31,14,76,46,60,42,18,9
+135,GainsEF,0,0.9333333333333333,Female,Prefer not to answer,Hispanic or Latino,36,30,15,42,33,59,17,6,0,5,73,44,52,17,7,5
+135,GainsEF,1,0.9333333333333333,Female,Prefer not to answer,Hispanic or Latino,36,30,15,42,33,59,17,6,0,5,73,44,52,17,7,5
+135,GainsEF,2,0.88,Female,Prefer not to answer,Hispanic or Latino,36,30,15,42,33,59,17,6,0,5,73,44,52,17,7,5
+135,GainsEF,3,0.96,Female,Prefer not to answer,Hispanic or Latino,36,30,15,42,33,59,17,6,0,5,73,44,52,17,7,5
+135,GainsEF,4,1.0,Female,Prefer not to answer,Hispanic or Latino,36,30,15,42,33,59,17,6,0,5,73,44,52,17,7,5
+135,GainsEF,5,0.04,Female,Prefer not to answer,Hispanic or Latino,36,30,15,42,33,59,17,6,0,5,73,44,52,17,7,5
+136,GainsEF,0,0.5333333333333333,Female,White,Not Hispanic or Latino,39,28,35,37,22,80,41,23,10,19,47,63,42,35,24,3
+136,GainsEF,1,0.6266666666666667,Female,White,Not Hispanic or Latino,39,28,35,37,22,80,41,23,10,19,47,63,42,35,24,3
+136,GainsEF,2,0.56,Female,White,Not Hispanic or Latino,39,28,35,37,22,80,41,23,10,19,47,63,42,35,24,3
+136,GainsEF,3,0.72,Female,White,Not Hispanic or Latino,39,28,35,37,22,80,41,23,10,19,47,63,42,35,24,3
+136,GainsEF,4,0.52,Female,White,Not Hispanic or Latino,39,28,35,37,22,80,41,23,10,19,47,63,42,35,24,3
+136,GainsEF,5,0.32,Female,White,Not Hispanic or Latino,39,28,35,37,22,80,41,23,10,19,47,63,42,35,24,3
+137,Gains,0,0.59,Female,White,Hispanic or Latino,33,32,20,34,32,60,17,14,22,13,67,52,60,18,9,13
+137,Gains,1,0.58,Female,White,Hispanic or Latino,33,32,20,34,32,60,17,14,22,13,67,52,60,18,9,13
+137,Gains,2,0.36,Female,White,Hispanic or Latino,33,32,20,34,32,60,17,14,22,13,67,52,60,18,9,13
+137,Gains,3,0.8,Female,White,Hispanic or Latino,33,32,20,34,32,60,17,14,22,13,67,52,60,18,9,13
+137,Gains,4,1.0,Female,White,Hispanic or Latino,33,32,20,34,32,60,17,14,22,13,67,52,60,18,9,13
+137,Gains,5,0.76,Female,White,Hispanic or Latino,33,32,20,34,32,60,17,14,22,13,67,52,60,18,9,13
+138,GainsEF,0,0.7333333333333333,Male,White,Hispanic or Latino,33,27,16,33,26,69,22,13,0,4,57,49,51,19,13,8
+138,GainsEF,1,0.9466666666666667,Male,White,Hispanic or Latino,33,27,16,33,26,69,22,13,0,4,57,49,51,19,13,8
+138,GainsEF,2,1.0,Male,White,Hispanic or Latino,33,27,16,33,26,69,22,13,0,4,57,49,51,19,13,8
+138,GainsEF,3,1.0,Male,White,Hispanic or Latino,33,27,16,33,26,69,22,13,0,4,57,49,51,19,13,8
+138,GainsEF,4,0.96,Male,White,Hispanic or Latino,33,27,16,33,26,69,22,13,0,4,57,49,51,19,13,8
+138,GainsEF,5,0.16,Male,White,Hispanic or Latino,33,27,16,33,26,69,22,13,0,4,57,49,51,19,13,8
+139,GainsEF,0,0.7466666666666667,Male,White,Not Hispanic or Latino,32,38,28,38,16,64,12,4,3,17,34,27,34,29,7,8
+139,GainsEF,1,0.92,Male,White,Not Hispanic or Latino,32,38,28,38,16,64,12,4,3,17,34,27,34,29,7,8
+139,GainsEF,2,0.84,Male,White,Not Hispanic or Latino,32,38,28,38,16,64,12,4,3,17,34,27,34,29,7,8
+139,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,32,38,28,38,16,64,12,4,3,17,34,27,34,29,7,8
+139,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,32,38,28,38,16,64,12,4,3,17,34,27,34,29,7,8
+139,GainsEF,5,0.2,Male,White,Not Hispanic or Latino,32,38,28,38,16,64,12,4,3,17,34,27,34,29,7,8
+140,Gains,0,0.6,Female,White,Not Hispanic or Latino,30,32,24,31,27,58,14,12,13,23,71,50,49,26,13,20
+140,Gains,1,0.52,Female,White,Not Hispanic or Latino,30,32,24,31,27,58,14,12,13,23,71,50,49,26,13,20
+140,Gains,2,0.52,Female,White,Not Hispanic or Latino,30,32,24,31,27,58,14,12,13,23,71,50,49,26,13,20
+140,Gains,3,0.52,Female,White,Not Hispanic or Latino,30,32,24,31,27,58,14,12,13,23,71,50,49,26,13,20
+140,Gains,4,0.6,Female,White,Not Hispanic or Latino,30,32,24,31,27,58,14,12,13,23,71,50,49,26,13,20
+140,Gains,5,0.6,Female,White,Not Hispanic or Latino,30,32,24,31,27,58,14,12,13,23,71,50,49,26,13,20
+141,Gains,0,0.86,Female,More than one Race,Not Hispanic or Latino,34,26,19,30,31,76,35,28,5,8,68,55,62,21,25,22
+141,Gains,1,0.84,Female,More than one Race,Not Hispanic or Latino,34,26,19,30,31,76,35,28,5,8,68,55,62,21,25,22
+141,Gains,2,1.0,Female,More than one Race,Not Hispanic or Latino,34,26,19,30,31,76,35,28,5,8,68,55,62,21,25,22
+141,Gains,3,0.96,Female,More than one Race,Not Hispanic or Latino,34,26,19,30,31,76,35,28,5,8,68,55,62,21,25,22
+141,Gains,4,0.8,Female,More than one Race,Not Hispanic or Latino,34,26,19,30,31,76,35,28,5,8,68,55,62,21,25,22
+141,Gains,5,0.04,Female,More than one Race,Not Hispanic or Latino,34,26,19,30,31,76,35,28,5,8,68,55,62,21,25,22
+142,GainsEF,0,0.6133333333333333,Female,White,Not Hispanic or Latino,38,29,29,38,28,75,14,13,5,9,49,27,46,28,15,3
+142,GainsEF,1,0.7466666666666667,Female,White,Not Hispanic or Latino,38,29,29,38,28,75,14,13,5,9,49,27,46,28,15,3
+142,GainsEF,2,0.88,Female,White,Not Hispanic or Latino,38,29,29,38,28,75,14,13,5,9,49,27,46,28,15,3
+142,GainsEF,3,0.84,Female,White,Not Hispanic or Latino,38,29,29,38,28,75,14,13,5,9,49,27,46,28,15,3
+142,GainsEF,4,0.2,Female,White,Not Hispanic or Latino,38,29,29,38,28,75,14,13,5,9,49,27,46,28,15,3
+142,GainsEF,5,0.12,Female,White,Not Hispanic or Latino,38,29,29,38,28,75,14,13,5,9,49,27,46,28,15,3
+143,GainsEF,0,0.37333333333333335,Male,White,Not Hispanic or Latino,25,42,13,40,19,59,13,4,11,14,45,28,37,32,5,8
+143,GainsEF,1,0.64,Male,White,Not Hispanic or Latino,25,42,13,40,19,59,13,4,11,14,45,28,37,32,5,8
+143,GainsEF,2,0.52,Male,White,Not Hispanic or Latino,25,42,13,40,19,59,13,4,11,14,45,28,37,32,5,8
+143,GainsEF,3,0.4,Male,White,Not Hispanic or Latino,25,42,13,40,19,59,13,4,11,14,45,28,37,32,5,8
+143,GainsEF,4,0.48,Male,White,Not Hispanic or Latino,25,42,13,40,19,59,13,4,11,14,45,28,37,32,5,8
+143,GainsEF,5,0.52,Male,White,Not Hispanic or Latino,25,42,13,40,19,59,13,4,11,14,45,28,37,32,5,8
+144,Gains,0,0.94,Male,White,Not Hispanic or Latino,38,38,26,33,30,51,30,3,0,10,70,50,55,16,8,13
+144,Gains,1,0.92,Male,White,Not Hispanic or Latino,38,38,26,33,30,51,30,3,0,10,70,50,55,16,8,13
+144,Gains,2,0.52,Male,White,Not Hispanic or Latino,38,38,26,33,30,51,30,3,0,10,70,50,55,16,8,13
+144,Gains,3,0.72,Male,White,Not Hispanic or Latino,38,38,26,33,30,51,30,3,0,10,70,50,55,16,8,13
+144,Gains,4,0.56,Male,White,Not Hispanic or Latino,38,38,26,33,30,51,30,3,0,10,70,50,55,16,8,13
+144,Gains,5,0.28,Male,White,Not Hispanic or Latino,38,38,26,33,30,51,30,3,0,10,70,50,55,16,8,13
+145,Gains,0,0.59,Female,More than one Race,Hispanic or Latino,39,35,29,39,30,58,42,15,15,14,65,56,64,25,16,5
+145,Gains,1,0.46,Female,More than one Race,Hispanic or Latino,39,35,29,39,30,58,42,15,15,14,65,56,64,25,16,5
+145,Gains,2,0.16,Female,More than one Race,Hispanic or Latino,39,35,29,39,30,58,42,15,15,14,65,56,64,25,16,5
+145,Gains,3,0.56,Female,More than one Race,Hispanic or Latino,39,35,29,39,30,58,42,15,15,14,65,56,64,25,16,5
+145,Gains,4,0.64,Female,More than one Race,Hispanic or Latino,39,35,29,39,30,58,42,15,15,14,65,56,64,25,16,5
+145,Gains,5,0.24,Female,More than one Race,Hispanic or Latino,39,35,29,39,30,58,42,15,15,14,65,56,64,25,16,5
+146,Gains,0,0.71,Male,White,Not Hispanic or Latino,39,29,35,38,15,72,7,12,21,20,39,26,23,39,13,15
+146,Gains,1,0.82,Male,White,Not Hispanic or Latino,39,29,35,38,15,72,7,12,21,20,39,26,23,39,13,15
+146,Gains,2,0.96,Male,White,Not Hispanic or Latino,39,29,35,38,15,72,7,12,21,20,39,26,23,39,13,15
+146,Gains,3,1.0,Male,White,Not Hispanic or Latino,39,29,35,38,15,72,7,12,21,20,39,26,23,39,13,15
+146,Gains,4,1.0,Male,White,Not Hispanic or Latino,39,29,35,38,15,72,7,12,21,20,39,26,23,39,13,15
+146,Gains,5,1.0,Male,White,Not Hispanic or Latino,39,29,35,38,15,72,7,12,21,20,39,26,23,39,13,15
+147,Gains,0,0.85,Female,White,Not Hispanic or Latino,26,30,28,36,17,76,19,16,27,10,48,33,35,32,15,10
+147,Gains,1,0.24,Female,White,Not Hispanic or Latino,26,30,28,36,17,76,19,16,27,10,48,33,35,32,15,10
+147,Gains,2,0.16,Female,White,Not Hispanic or Latino,26,30,28,36,17,76,19,16,27,10,48,33,35,32,15,10
+147,Gains,3,0.2,Female,White,Not Hispanic or Latino,26,30,28,36,17,76,19,16,27,10,48,33,35,32,15,10
+147,Gains,4,0.76,Female,White,Not Hispanic or Latino,26,30,28,36,17,76,19,16,27,10,48,33,35,32,15,10
+147,Gains,5,0.8,Female,White,Not Hispanic or Latino,26,30,28,36,17,76,19,16,27,10,48,33,35,32,15,10
+148,Gains,0,0.56,Female,White,Not Hispanic or Latino,28,35,29,37,24,68,2,8,15,16,61,42,41,24,11,10
+148,Gains,1,0.74,Female,White,Not Hispanic or Latino,28,35,29,37,24,68,2,8,15,16,61,42,41,24,11,10
+148,Gains,2,0.8,Female,White,Not Hispanic or Latino,28,35,29,37,24,68,2,8,15,16,61,42,41,24,11,10
+148,Gains,3,0.88,Female,White,Not Hispanic or Latino,28,35,29,37,24,68,2,8,15,16,61,42,41,24,11,10
+148,Gains,4,0.68,Female,White,Not Hispanic or Latino,28,35,29,37,24,68,2,8,15,16,61,42,41,24,11,10
+148,Gains,5,0.48,Female,White,Not Hispanic or Latino,28,35,29,37,24,68,2,8,15,16,61,42,41,24,11,10
+149,Gains,0,0.72,Male,White,Not Hispanic or Latino,25,29,31,34,24,63,25,27,8,17,54,22,42,28,27,10
+149,Gains,1,0.36,Male,White,Not Hispanic or Latino,25,29,31,34,24,63,25,27,8,17,54,22,42,28,27,10
+149,Gains,2,0.2,Male,White,Not Hispanic or Latino,25,29,31,34,24,63,25,27,8,17,54,22,42,28,27,10
+149,Gains,3,0.28,Male,White,Not Hispanic or Latino,25,29,31,34,24,63,25,27,8,17,54,22,42,28,27,10
+149,Gains,4,0.68,Male,White,Not Hispanic or Latino,25,29,31,34,24,63,25,27,8,17,54,22,42,28,27,10
+149,Gains,5,0.56,Male,White,Not Hispanic or Latino,25,29,31,34,24,63,25,27,8,17,54,22,42,28,27,10
+150,GainsEF,0,0.5066666666666667,Female,White,Not Hispanic or Latino,40,31,37,43,28,65,25,20,40,22,63,34,49,33,23,2
+150,GainsEF,1,0.72,Female,White,Not Hispanic or Latino,40,31,37,43,28,65,25,20,40,22,63,34,49,33,23,2
+150,GainsEF,2,0.68,Female,White,Not Hispanic or Latino,40,31,37,43,28,65,25,20,40,22,63,34,49,33,23,2
+150,GainsEF,3,0.64,Female,White,Not Hispanic or Latino,40,31,37,43,28,65,25,20,40,22,63,34,49,33,23,2
+150,GainsEF,4,0.72,Female,White,Not Hispanic or Latino,40,31,37,43,28,65,25,20,40,22,63,34,49,33,23,2
+150,GainsEF,5,0.88,Female,White,Not Hispanic or Latino,40,31,37,43,28,65,25,20,40,22,63,34,49,33,23,2
+151,GainsEF,0,0.5733333333333334,Female,White,Not Hispanic or Latino,34,35,24,41,20,59,9,9,10,15,49,38,43,29,9,5
+151,GainsEF,1,0.4666666666666667,Female,White,Not Hispanic or Latino,34,35,24,41,20,59,9,9,10,15,49,38,43,29,9,5
+151,GainsEF,2,0.52,Female,White,Not Hispanic or Latino,34,35,24,41,20,59,9,9,10,15,49,38,43,29,9,5
+151,GainsEF,3,0.48,Female,White,Not Hispanic or Latino,34,35,24,41,20,59,9,9,10,15,49,38,43,29,9,5
+151,GainsEF,4,0.48,Female,White,Not Hispanic or Latino,34,35,24,41,20,59,9,9,10,15,49,38,43,29,9,5
+151,GainsEF,5,0.24,Female,White,Not Hispanic or Latino,34,35,24,41,20,59,9,9,10,15,49,38,43,29,9,5
+152,Gains,0,0.63,Female,White,Not Hispanic or Latino,28,27,33,34,28,65,9,11,14,26,62,36,37,28,12,9
+152,Gains,1,0.42,Female,White,Not Hispanic or Latino,28,27,33,34,28,65,9,11,14,26,62,36,37,28,12,9
+152,Gains,2,0.52,Female,White,Not Hispanic or Latino,28,27,33,34,28,65,9,11,14,26,62,36,37,28,12,9
+152,Gains,3,0.64,Female,White,Not Hispanic or Latino,28,27,33,34,28,65,9,11,14,26,62,36,37,28,12,9
+152,Gains,4,0.64,Female,White,Not Hispanic or Latino,28,27,33,34,28,65,9,11,14,26,62,36,37,28,12,9
+152,Gains,5,0.52,Female,White,Not Hispanic or Latino,28,27,33,34,28,65,9,11,14,26,62,36,37,28,12,9
+153,GainsEF,0,0.72,Male,White,Not Hispanic or Latino,32,30,18,40,17,69,9,9,10,6,58,23,43,23,11,12
+153,GainsEF,1,0.84,Male,White,Not Hispanic or Latino,32,30,18,40,17,69,9,9,10,6,58,23,43,23,11,12
+153,GainsEF,2,0.96,Male,White,Not Hispanic or Latino,32,30,18,40,17,69,9,9,10,6,58,23,43,23,11,12
+153,GainsEF,3,0.96,Male,White,Not Hispanic or Latino,32,30,18,40,17,69,9,9,10,6,58,23,43,23,11,12
+153,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,32,30,18,40,17,69,9,9,10,6,58,23,43,23,11,12
+153,GainsEF,5,1.0,Male,White,Not Hispanic or Latino,32,30,18,40,17,69,9,9,10,6,58,23,43,23,11,12
+154,GainsEF,0,0.4,Female,White,Not Hispanic or Latino,45,38,23,43,30,53,9,4,34,18,80,32,51,27,7,1
+154,GainsEF,1,0.8666666666666667,Female,White,Not Hispanic or Latino,45,38,23,43,30,53,9,4,34,18,80,32,51,27,7,1
+154,GainsEF,2,1.0,Female,White,Not Hispanic or Latino,45,38,23,43,30,53,9,4,34,18,80,32,51,27,7,1
+154,GainsEF,3,0.32,Female,White,Not Hispanic or Latino,45,38,23,43,30,53,9,4,34,18,80,32,51,27,7,1
+154,GainsEF,4,0.8,Female,White,Not Hispanic or Latino,45,38,23,43,30,53,9,4,34,18,80,32,51,27,7,1
+154,GainsEF,5,1.0,Female,White,Not Hispanic or Latino,45,38,23,43,30,53,9,4,34,18,80,32,51,27,7,1
+155,GainsEF,0,0.9466666666666667,Female,Asian,Not Hispanic or Latino,41,21,32,28,33,79,37,41,35,30,70,48,56,39,36,33
+155,GainsEF,1,0.9466666666666667,Female,Asian,Not Hispanic or Latino,41,21,32,28,33,79,37,41,35,30,70,48,56,39,36,33
+155,GainsEF,2,1.0,Female,Asian,Not Hispanic or Latino,41,21,32,28,33,79,37,41,35,30,70,48,56,39,36,33
+155,GainsEF,3,1.0,Female,Asian,Not Hispanic or Latino,41,21,32,28,33,79,37,41,35,30,70,48,56,39,36,33
+155,GainsEF,4,0.08,Female,Asian,Not Hispanic or Latino,41,21,32,28,33,79,37,41,35,30,70,48,56,39,36,33
+155,GainsEF,5,0.0,Female,Asian,Not Hispanic or Latino,41,21,32,28,33,79,37,41,35,30,70,48,56,39,36,33
+156,Gains,0,0.02,Female,White,Not Hispanic or Latino,36,27,29,28,23,75,41,40,40,27,42,49,49,41,39,33
+156,Gains,1,0.02,Female,White,Not Hispanic or Latino,36,27,29,28,23,75,41,40,40,27,42,49,49,41,39,33
+156,Gains,2,0.88,Female,White,Not Hispanic or Latino,36,27,29,28,23,75,41,40,40,27,42,49,49,41,39,33
+156,Gains,3,0.64,Female,White,Not Hispanic or Latino,36,27,29,28,23,75,41,40,40,27,42,49,49,41,39,33
+156,Gains,4,0.48,Female,White,Not Hispanic or Latino,36,27,29,28,23,75,41,40,40,27,42,49,49,41,39,33
+156,Gains,5,0.84,Female,White,Not Hispanic or Latino,36,27,29,28,23,75,41,40,40,27,42,49,49,41,39,33
+157,Gains,0,0.82,Male,Black or African American,Not Hispanic or Latino,39,39,25,35,17,59,11,12,3,14,51,26,43,23,17,11
+157,Gains,1,0.74,Male,Black or African American,Not Hispanic or Latino,39,39,25,35,17,59,11,12,3,14,51,26,43,23,17,11
+157,Gains,2,0.68,Male,Black or African American,Not Hispanic or Latino,39,39,25,35,17,59,11,12,3,14,51,26,43,23,17,11
+157,Gains,3,0.6,Male,Black or African American,Not Hispanic or Latino,39,39,25,35,17,59,11,12,3,14,51,26,43,23,17,11
+157,Gains,4,0.2,Male,Black or African American,Not Hispanic or Latino,39,39,25,35,17,59,11,12,3,14,51,26,43,23,17,11
+157,Gains,5,0.28,Male,Black or African American,Not Hispanic or Latino,39,39,25,35,17,59,11,12,3,14,51,26,43,23,17,11
+158,GainsEF,0,0.24,Female,White,Hispanic or Latino,41,33,27,29,21,71,23,14,38,22,52,49,46,27,27,24
+158,GainsEF,1,0.36,Female,White,Hispanic or Latino,41,33,27,29,21,71,23,14,38,22,52,49,46,27,27,24
+158,GainsEF,2,0.92,Female,White,Hispanic or Latino,41,33,27,29,21,71,23,14,38,22,52,49,46,27,27,24
+158,GainsEF,3,0.76,Female,White,Hispanic or Latino,41,33,27,29,21,71,23,14,38,22,52,49,46,27,27,24
+158,GainsEF,4,0.0,Female,White,Hispanic or Latino,41,33,27,29,21,71,23,14,38,22,52,49,46,27,27,24
+158,GainsEF,5,0.28,Female,White,Hispanic or Latino,41,33,27,29,21,71,23,14,38,22,52,49,46,27,27,24
+159,GainsEF,0,0.56,Male,White,Not Hispanic or Latino,37,36,28,34,25,72,13,27,26,22,52,47,50,36,26,25
+159,GainsEF,1,0.4666666666666667,Male,White,Not Hispanic or Latino,37,36,28,34,25,72,13,27,26,22,52,47,50,36,26,25
+159,GainsEF,2,0.0,Male,White,Not Hispanic or Latino,37,36,28,34,25,72,13,27,26,22,52,47,50,36,26,25
+159,GainsEF,3,0.0,Male,White,Not Hispanic or Latino,37,36,28,34,25,72,13,27,26,22,52,47,50,36,26,25
+159,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,37,36,28,34,25,72,13,27,26,22,52,47,50,36,26,25
+159,GainsEF,5,0.16,Male,White,Not Hispanic or Latino,37,36,28,34,25,72,13,27,26,22,52,47,50,36,26,25
+160,GainsEF,0,0.7733333333333333,Female,White,Not Hispanic or Latino,33,37,19,39,27,71,36,6,15,12,79,58,58,27,9,9
+160,GainsEF,1,0.8666666666666667,Female,White,Not Hispanic or Latino,33,37,19,39,27,71,36,6,15,12,79,58,58,27,9,9
+160,GainsEF,2,0.0,Female,White,Not Hispanic or Latino,33,37,19,39,27,71,36,6,15,12,79,58,58,27,9,9
+160,GainsEF,3,0.88,Female,White,Not Hispanic or Latino,33,37,19,39,27,71,36,6,15,12,79,58,58,27,9,9
+160,GainsEF,4,0.96,Female,White,Not Hispanic or Latino,33,37,19,39,27,71,36,6,15,12,79,58,58,27,9,9
+160,GainsEF,5,1.0,Female,White,Not Hispanic or Latino,33,37,19,39,27,71,36,6,15,12,79,58,58,27,9,9
+161,GainsEF,0,0.44,Female,White,Not Hispanic or Latino,39,32,28,38,12,59,5,7,9,9,22,29,32,35,19,4
+161,GainsEF,1,0.3333333333333333,Female,White,Not Hispanic or Latino,39,32,28,38,12,59,5,7,9,9,22,29,32,35,19,4
+161,GainsEF,2,0.52,Female,White,Not Hispanic or Latino,39,32,28,38,12,59,5,7,9,9,22,29,32,35,19,4
+161,GainsEF,3,0.48,Female,White,Not Hispanic or Latino,39,32,28,38,12,59,5,7,9,9,22,29,32,35,19,4
+161,GainsEF,4,0.56,Female,White,Not Hispanic or Latino,39,32,28,38,12,59,5,7,9,9,22,29,32,35,19,4
+161,GainsEF,5,0.48,Female,White,Not Hispanic or Latino,39,32,28,38,12,59,5,7,9,9,22,29,32,35,19,4
+162,GainsEF,0,0.6666666666666666,Female,White,Hispanic or Latino,32,36,27,41,33,60,24,14,0,7,59,24,54,26,18,3
+162,GainsEF,1,0.8266666666666667,Female,White,Hispanic or Latino,32,36,27,41,33,60,24,14,0,7,59,24,54,26,18,3
+162,GainsEF,2,0.48,Female,White,Hispanic or Latino,32,36,27,41,33,60,24,14,0,7,59,24,54,26,18,3
+162,GainsEF,3,0.52,Female,White,Hispanic or Latino,32,36,27,41,33,60,24,14,0,7,59,24,54,26,18,3
+162,GainsEF,4,0.48,Female,White,Hispanic or Latino,32,36,27,41,33,60,24,14,0,7,59,24,54,26,18,3
+162,GainsEF,5,0.52,Female,White,Hispanic or Latino,32,36,27,41,33,60,24,14,0,7,59,24,54,26,18,3
+163,GainsEF,0,0.6666666666666666,Male,White,Hispanic or Latino,35,25,17,31,31,66,27,15,0,8,60,46,57,27,15,16
+163,GainsEF,1,0.6133333333333333,Male,White,Hispanic or Latino,35,25,17,31,31,66,27,15,0,8,60,46,57,27,15,16
+163,GainsEF,2,0.0,Male,White,Hispanic or Latino,35,25,17,31,31,66,27,15,0,8,60,46,57,27,15,16
+163,GainsEF,3,1.0,Male,White,Hispanic or Latino,35,25,17,31,31,66,27,15,0,8,60,46,57,27,15,16
+163,GainsEF,4,1.0,Male,White,Hispanic or Latino,35,25,17,31,31,66,27,15,0,8,60,46,57,27,15,16
+163,GainsEF,5,1.0,Male,White,Hispanic or Latino,35,25,17,31,31,66,27,15,0,8,60,46,57,27,15,16
+164,Gains,0,0.78,Male,White,Not Hispanic or Latino,35,20,30,36,25,74,20,15,15,7,54,32,43,31,15,16
+164,Gains,1,0.82,Male,White,Not Hispanic or Latino,35,20,30,36,25,74,20,15,15,7,54,32,43,31,15,16
+164,Gains,2,0.16,Male,White,Not Hispanic or Latino,35,20,30,36,25,74,20,15,15,7,54,32,43,31,15,16
+164,Gains,3,0.88,Male,White,Not Hispanic or Latino,35,20,30,36,25,74,20,15,15,7,54,32,43,31,15,16
+164,Gains,4,0.76,Male,White,Not Hispanic or Latino,35,20,30,36,25,74,20,15,15,7,54,32,43,31,15,16
+164,Gains,5,0.2,Male,White,Not Hispanic or Latino,35,20,30,36,25,74,20,15,15,7,54,32,43,31,15,16
+165,Gains,0,0.97,Other,More than one Race,Hispanic or Latino,44,27,26,33,17,57,8,4,0,14,36,40,37,32,6,9
+165,Gains,1,0.04,Other,More than one Race,Hispanic or Latino,44,27,26,33,17,57,8,4,0,14,36,40,37,32,6,9
+165,Gains,2,0.0,Other,More than one Race,Hispanic or Latino,44,27,26,33,17,57,8,4,0,14,36,40,37,32,6,9
+165,Gains,3,0.0,Other,More than one Race,Hispanic or Latino,44,27,26,33,17,57,8,4,0,14,36,40,37,32,6,9
+165,Gains,4,1.0,Other,More than one Race,Hispanic or Latino,44,27,26,33,17,57,8,4,0,14,36,40,37,32,6,9
+165,Gains,5,0.96,Other,More than one Race,Hispanic or Latino,44,27,26,33,17,57,8,4,0,14,36,40,37,32,6,9
+166,GainsEF,0,0.8933333333333333,Female,White,Not Hispanic or Latino,30,32,24,34,26,56,7,4,6,9,53,39,42,22,5,5
+166,GainsEF,1,0.92,Female,White,Not Hispanic or Latino,30,32,24,34,26,56,7,4,6,9,53,39,42,22,5,5
+166,GainsEF,2,0.08,Female,White,Not Hispanic or Latino,30,32,24,34,26,56,7,4,6,9,53,39,42,22,5,5
+166,GainsEF,3,0.96,Female,White,Not Hispanic or Latino,30,32,24,34,26,56,7,4,6,9,53,39,42,22,5,5
+166,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,30,32,24,34,26,56,7,4,6,9,53,39,42,22,5,5
+166,GainsEF,5,0.96,Female,White,Not Hispanic or Latino,30,32,24,34,26,56,7,4,6,9,53,39,42,22,5,5
+167,Gains,0,0.69,Male,White,Not Hispanic or Latino,45,35,15,44,34,58,12,4,0,5,67,33,54,17,7,0
+167,Gains,1,0.76,Male,White,Not Hispanic or Latino,45,35,15,44,34,58,12,4,0,5,67,33,54,17,7,0
+167,Gains,2,0.04,Male,White,Not Hispanic or Latino,45,35,15,44,34,58,12,4,0,5,67,33,54,17,7,0
+167,Gains,3,1.0,Male,White,Not Hispanic or Latino,45,35,15,44,34,58,12,4,0,5,67,33,54,17,7,0
+167,Gains,4,1.0,Male,White,Not Hispanic or Latino,45,35,15,44,34,58,12,4,0,5,67,33,54,17,7,0
+167,Gains,5,1.0,Male,White,Not Hispanic or Latino,45,35,15,44,34,58,12,4,0,5,67,33,54,17,7,0
+168,Gains,0,0.7,Female,Black or African American,Not Hispanic or Latino,32,14,17,36,21,76,23,26,18,16,46,46,47,30,30,17
+168,Gains,1,0.5,Female,Black or African American,Not Hispanic or Latino,32,14,17,36,21,76,23,26,18,16,46,46,47,30,30,17
+168,Gains,2,0.08,Female,Black or African American,Not Hispanic or Latino,32,14,17,36,21,76,23,26,18,16,46,46,47,30,30,17
+168,Gains,3,1.0,Female,Black or African American,Not Hispanic or Latino,32,14,17,36,21,76,23,26,18,16,46,46,47,30,30,17
+168,Gains,4,0.92,Female,Black or African American,Not Hispanic or Latino,32,14,17,36,21,76,23,26,18,16,46,46,47,30,30,17
+168,Gains,5,0.04,Female,Black or African American,Not Hispanic or Latino,32,14,17,36,21,76,23,26,18,16,46,46,47,30,30,17
+169,Gains,0,0.96,Female,Asian,Not Hispanic or Latino,38,35,30,41,20,64,8,9,2,14,46,25,36,30,9,4
+169,Gains,1,0.98,Female,Asian,Not Hispanic or Latino,38,35,30,41,20,64,8,9,2,14,46,25,36,30,9,4
+169,Gains,2,0.84,Female,Asian,Not Hispanic or Latino,38,35,30,41,20,64,8,9,2,14,46,25,36,30,9,4
+169,Gains,3,1.0,Female,Asian,Not Hispanic or Latino,38,35,30,41,20,64,8,9,2,14,46,25,36,30,9,4
+169,Gains,4,0.52,Female,Asian,Not Hispanic or Latino,38,35,30,41,20,64,8,9,2,14,46,25,36,30,9,4
+169,Gains,5,0.04,Female,Asian,Not Hispanic or Latino,38,35,30,41,20,64,8,9,2,14,46,25,36,30,9,4
+170,GainsEF,0,0.0,Female,Asian,Not Hispanic or Latino,36,33,30,36,26,64,16,13,12,10,50,29,48,41,14,15
+170,GainsEF,1,0.14666666666666667,Female,Asian,Not Hispanic or Latino,36,33,30,36,26,64,16,13,12,10,50,29,48,41,14,15
+170,GainsEF,2,1.0,Female,Asian,Not Hispanic or Latino,36,33,30,36,26,64,16,13,12,10,50,29,48,41,14,15
+170,GainsEF,3,0.32,Female,Asian,Not Hispanic or Latino,36,33,30,36,26,64,16,13,12,10,50,29,48,41,14,15
+170,GainsEF,4,0.0,Female,Asian,Not Hispanic or Latino,36,33,30,36,26,64,16,13,12,10,50,29,48,41,14,15
+170,GainsEF,5,0.28,Female,Asian,Not Hispanic or Latino,36,33,30,36,26,64,16,13,12,10,50,29,48,41,14,15
+171,Gains,0,0.77,Male,White,Hispanic or Latino,32,35,24,45,16,53,7,5,4,10,29,25,32,26,5,8
+171,Gains,1,0.72,Male,White,Hispanic or Latino,32,35,24,45,16,53,7,5,4,10,29,25,32,26,5,8
+171,Gains,2,0.68,Male,White,Hispanic or Latino,32,35,24,45,16,53,7,5,4,10,29,25,32,26,5,8
+171,Gains,3,0.68,Male,White,Hispanic or Latino,32,35,24,45,16,53,7,5,4,10,29,25,32,26,5,8
+171,Gains,4,0.8,Male,White,Hispanic or Latino,32,35,24,45,16,53,7,5,4,10,29,25,32,26,5,8
+171,Gains,5,0.68,Male,White,Hispanic or Latino,32,35,24,45,16,53,7,5,4,10,29,25,32,26,5,8
+172,GainsEF,0,0.4266666666666667,Male,White,Hispanic or Latino,33,28,11,34,23,65,20,9,20,5,34,38,56,16,11,17
+172,GainsEF,1,0.6266666666666667,Male,White,Hispanic or Latino,33,28,11,34,23,65,20,9,20,5,34,38,56,16,11,17
+172,GainsEF,2,1.0,Male,White,Hispanic or Latino,33,28,11,34,23,65,20,9,20,5,34,38,56,16,11,17
+172,GainsEF,3,1.0,Male,White,Hispanic or Latino,33,28,11,34,23,65,20,9,20,5,34,38,56,16,11,17
+172,GainsEF,4,1.0,Male,White,Hispanic or Latino,33,28,11,34,23,65,20,9,20,5,34,38,56,16,11,17
+172,GainsEF,5,0.96,Male,White,Hispanic or Latino,33,28,11,34,23,65,20,9,20,5,34,38,56,16,11,17
+173,Gains,0,0.78,Female,White,Not Hispanic or Latino,36,28,36,37,21,74,12,9,16,15,71,36,46,33,10,1
+173,Gains,1,0.46,Female,White,Not Hispanic or Latino,36,28,36,37,21,74,12,9,16,15,71,36,46,33,10,1
+173,Gains,2,0.04,Female,White,Not Hispanic or Latino,36,28,36,37,21,74,12,9,16,15,71,36,46,33,10,1
+173,Gains,3,0.28,Female,White,Not Hispanic or Latino,36,28,36,37,21,74,12,9,16,15,71,36,46,33,10,1
+173,Gains,4,0.16,Female,White,Not Hispanic or Latino,36,28,36,37,21,74,12,9,16,15,71,36,46,33,10,1
+173,Gains,5,0.16,Female,White,Not Hispanic or Latino,36,28,36,37,21,74,12,9,16,15,71,36,46,33,10,1
+174,GainsEF,0,0.5466666666666666,Female,White,Not Hispanic or Latino,34,38,23,31,34,60,28,6,15,10,69,40,48,20,7,5
+174,GainsEF,1,0.4533333333333333,Female,White,Not Hispanic or Latino,34,38,23,31,34,60,28,6,15,10,69,40,48,20,7,5
+174,GainsEF,2,0.2,Female,White,Not Hispanic or Latino,34,38,23,31,34,60,28,6,15,10,69,40,48,20,7,5
+174,GainsEF,3,0.12,Female,White,Not Hispanic or Latino,34,38,23,31,34,60,28,6,15,10,69,40,48,20,7,5
+174,GainsEF,4,0.96,Female,White,Not Hispanic or Latino,34,38,23,31,34,60,28,6,15,10,69,40,48,20,7,5
+174,GainsEF,5,0.92,Female,White,Not Hispanic or Latino,34,38,23,31,34,60,28,6,15,10,69,40,48,20,7,5
+175,GainsEF,0,0.4,Male,White,Not Hispanic or Latino,37,37,36,27,22,62,9,12,28,25,46,22,32,44,11,26
+175,GainsEF,1,0.37333333333333335,Male,White,Not Hispanic or Latino,37,37,36,27,22,62,9,12,28,25,46,22,32,44,11,26
+175,GainsEF,2,1.0,Male,White,Not Hispanic or Latino,37,37,36,27,22,62,9,12,28,25,46,22,32,44,11,26
+175,GainsEF,3,0.08,Male,White,Not Hispanic or Latino,37,37,36,27,22,62,9,12,28,25,46,22,32,44,11,26
+175,GainsEF,4,0.04,Male,White,Not Hispanic or Latino,37,37,36,27,22,62,9,12,28,25,46,22,32,44,11,26
+175,GainsEF,5,0.8,Male,White,Not Hispanic or Latino,37,37,36,27,22,62,9,12,28,25,46,22,32,44,11,26
+176,GainsEF,0,0.6,Female,Black or African American,Not Hispanic or Latino,49,28,36,38,21,77,16,21,32,20,39,35,44,29,23,15
+176,GainsEF,1,0.56,Female,Black or African American,Not Hispanic or Latino,49,28,36,38,21,77,16,21,32,20,39,35,44,29,23,15
+176,GainsEF,2,0.52,Female,Black or African American,Not Hispanic or Latino,49,28,36,38,21,77,16,21,32,20,39,35,44,29,23,15
+176,GainsEF,3,0.68,Female,Black or African American,Not Hispanic or Latino,49,28,36,38,21,77,16,21,32,20,39,35,44,29,23,15
+176,GainsEF,4,0.68,Female,Black or African American,Not Hispanic or Latino,49,28,36,38,21,77,16,21,32,20,39,35,44,29,23,15
+176,GainsEF,5,0.64,Female,Black or African American,Not Hispanic or Latino,49,28,36,38,21,77,16,21,32,20,39,35,44,29,23,15
+177,GainsEF,0,0.6533333333333333,Female,Asian,Not Hispanic or Latino,42,30,17,33,30,67,34,21,3,10,58,38,53,20,21,13
+177,GainsEF,1,0.68,Female,Asian,Not Hispanic or Latino,42,30,17,33,30,67,34,21,3,10,58,38,53,20,21,13
+177,GainsEF,2,1.0,Female,Asian,Not Hispanic or Latino,42,30,17,33,30,67,34,21,3,10,58,38,53,20,21,13
+177,GainsEF,3,1.0,Female,Asian,Not Hispanic or Latino,42,30,17,33,30,67,34,21,3,10,58,38,53,20,21,13
+177,GainsEF,4,1.0,Female,Asian,Not Hispanic or Latino,42,30,17,33,30,67,34,21,3,10,58,38,53,20,21,13
+177,GainsEF,5,1.0,Female,Asian,Not Hispanic or Latino,42,30,17,33,30,67,34,21,3,10,58,38,53,20,21,13
+178,GainsEF,0,0.5066666666666667,Male,White,Hispanic or Latino,31,34,17,41,16,53,12,9,0,5,40,30,35,23,9,5
+178,GainsEF,1,0.52,Male,White,Hispanic or Latino,31,34,17,41,16,53,12,9,0,5,40,30,35,23,9,5
+178,GainsEF,2,1.0,Male,White,Hispanic or Latino,31,34,17,41,16,53,12,9,0,5,40,30,35,23,9,5
+178,GainsEF,3,0.96,Male,White,Hispanic or Latino,31,34,17,41,16,53,12,9,0,5,40,30,35,23,9,5
+178,GainsEF,4,0.92,Male,White,Hispanic or Latino,31,34,17,41,16,53,12,9,0,5,40,30,35,23,9,5
+178,GainsEF,5,0.08,Male,White,Hispanic or Latino,31,34,17,41,16,53,12,9,0,5,40,30,35,23,9,5
+179,GainsEF,0,0.7066666666666667,Male,White,Hispanic or Latino,38,35,19,34,14,51,14,9,1,13,38,35,35,33,8,26
+179,GainsEF,1,0.8,Male,White,Hispanic or Latino,38,35,19,34,14,51,14,9,1,13,38,35,35,33,8,26
+179,GainsEF,2,0.56,Male,White,Hispanic or Latino,38,35,19,34,14,51,14,9,1,13,38,35,35,33,8,26
+179,GainsEF,3,0.92,Male,White,Hispanic or Latino,38,35,19,34,14,51,14,9,1,13,38,35,35,33,8,26
+179,GainsEF,4,0.8,Male,White,Hispanic or Latino,38,35,19,34,14,51,14,9,1,13,38,35,35,33,8,26
+179,GainsEF,5,0.08,Male,White,Hispanic or Latino,38,35,19,34,14,51,14,9,1,13,38,35,35,33,8,26
+180,Gains,0,0.71,Female,More than one Race,Not Hispanic or Latino,37,39,20,33,22,67,28,10,0,11,60,48,52,27,13,15
+180,Gains,1,0.64,Female,More than one Race,Not Hispanic or Latino,37,39,20,33,22,67,28,10,0,11,60,48,52,27,13,15
+180,Gains,2,0.76,Female,More than one Race,Not Hispanic or Latino,37,39,20,33,22,67,28,10,0,11,60,48,52,27,13,15
+180,Gains,3,0.92,Female,More than one Race,Not Hispanic or Latino,37,39,20,33,22,67,28,10,0,11,60,48,52,27,13,15
+180,Gains,4,1.0,Female,More than one Race,Not Hispanic or Latino,37,39,20,33,22,67,28,10,0,11,60,48,52,27,13,15
+180,Gains,5,0.12,Female,More than one Race,Not Hispanic or Latino,37,39,20,33,22,67,28,10,0,11,60,48,52,27,13,15
+181,GainsEF,0,0.6533333333333333,Male,White,Hispanic or Latino,43,22,33,23,26,74,15,24,32,23,39,42,54,37,21,27
+181,GainsEF,1,0.8533333333333334,Male,White,Hispanic or Latino,43,22,33,23,26,74,15,24,32,23,39,42,54,37,21,27
+181,GainsEF,2,0.96,Male,White,Hispanic or Latino,43,22,33,23,26,74,15,24,32,23,39,42,54,37,21,27
+181,GainsEF,3,0.56,Male,White,Hispanic or Latino,43,22,33,23,26,74,15,24,32,23,39,42,54,37,21,27
+181,GainsEF,4,1.0,Male,White,Hispanic or Latino,43,22,33,23,26,74,15,24,32,23,39,42,54,37,21,27
+181,GainsEF,5,1.0,Male,White,Hispanic or Latino,43,22,33,23,26,74,15,24,32,23,39,42,54,37,21,27
+182,GainsEF,0,0.7333333333333333,Female,White,Not Hispanic or Latino,34,25,35,36,27,84,22,15,25,11,57,42,45,30,13,12
+182,GainsEF,1,0.64,Female,White,Not Hispanic or Latino,34,25,35,36,27,84,22,15,25,11,57,42,45,30,13,12
+182,GainsEF,2,0.6,Female,White,Not Hispanic or Latino,34,25,35,36,27,84,22,15,25,11,57,42,45,30,13,12
+182,GainsEF,3,0.68,Female,White,Not Hispanic or Latino,34,25,35,36,27,84,22,15,25,11,57,42,45,30,13,12
+182,GainsEF,4,0.68,Female,White,Not Hispanic or Latino,34,25,35,36,27,84,22,15,25,11,57,42,45,30,13,12
+182,GainsEF,5,0.48,Female,White,Not Hispanic or Latino,34,25,35,36,27,84,22,15,25,11,57,42,45,30,13,12
+183,Gains,0,0.59,Female,White,Not Hispanic or Latino,35,36,28,42,30,62,18,9,6,10,55,30,45,27,9,4
+183,Gains,1,0.72,Female,White,Not Hispanic or Latino,35,36,28,42,30,62,18,9,6,10,55,30,45,27,9,4
+183,Gains,2,0.08,Female,White,Not Hispanic or Latino,35,36,28,42,30,62,18,9,6,10,55,30,45,27,9,4
+183,Gains,3,0.96,Female,White,Not Hispanic or Latino,35,36,28,42,30,62,18,9,6,10,55,30,45,27,9,4
+183,Gains,4,1.0,Female,White,Not Hispanic or Latino,35,36,28,42,30,62,18,9,6,10,55,30,45,27,9,4
+183,Gains,5,0.16,Female,White,Not Hispanic or Latino,35,36,28,42,30,62,18,9,6,10,55,30,45,27,9,4
+184,Gains,0,0.53,Female,White,Hispanic or Latino,42,26,33,37,25,66,23,20,15,15,58,38,49,34,22,10
+184,Gains,1,0.6,Female,White,Hispanic or Latino,42,26,33,37,25,66,23,20,15,15,58,38,49,34,22,10
+184,Gains,2,0.6,Female,White,Hispanic or Latino,42,26,33,37,25,66,23,20,15,15,58,38,49,34,22,10
+184,Gains,3,0.6,Female,White,Hispanic or Latino,42,26,33,37,25,66,23,20,15,15,58,38,49,34,22,10
+184,Gains,4,0.72,Female,White,Hispanic or Latino,42,26,33,37,25,66,23,20,15,15,58,38,49,34,22,10
+184,Gains,5,0.68,Female,White,Hispanic or Latino,42,26,33,37,25,66,23,20,15,15,58,38,49,34,22,10
+185,GainsEF,0,0.9333333333333333,Female,White,Not Hispanic or Latino,29,36,36,42,21,62,8,9,6,22,37,33,32,35,10,10
+185,GainsEF,1,0.92,Female,White,Not Hispanic or Latino,29,36,36,42,21,62,8,9,6,22,37,33,32,35,10,10
+185,GainsEF,2,0.76,Female,White,Not Hispanic or Latino,29,36,36,42,21,62,8,9,6,22,37,33,32,35,10,10
+185,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,29,36,36,42,21,62,8,9,6,22,37,33,32,35,10,10
+185,GainsEF,4,0.92,Female,White,Not Hispanic or Latino,29,36,36,42,21,62,8,9,6,22,37,33,32,35,10,10
+185,GainsEF,5,0.08,Female,White,Not Hispanic or Latino,29,36,36,42,21,62,8,9,6,22,37,33,32,35,10,10
+186,GainsEF,0,0.5333333333333333,Female,White,Not Hispanic or Latino,33,34,38,41,19,77,6,12,10,15,32,24,28,30,12,2
+186,GainsEF,1,0.5866666666666667,Female,White,Not Hispanic or Latino,33,34,38,41,19,77,6,12,10,15,32,24,28,30,12,2
+186,GainsEF,2,0.44,Female,White,Not Hispanic or Latino,33,34,38,41,19,77,6,12,10,15,32,24,28,30,12,2
+186,GainsEF,3,0.84,Female,White,Not Hispanic or Latino,33,34,38,41,19,77,6,12,10,15,32,24,28,30,12,2
+186,GainsEF,4,0.76,Female,White,Not Hispanic or Latino,33,34,38,41,19,77,6,12,10,15,32,24,28,30,12,2
+186,GainsEF,5,0.52,Female,White,Not Hispanic or Latino,33,34,38,41,19,77,6,12,10,15,32,24,28,30,12,2
+187,Gains,0,0.72,Male,More than one Race,Hispanic or Latino,29,37,25,33,25,61,14,19,22,27,64,24,37,34,17,27
+187,Gains,1,0.72,Male,More than one Race,Hispanic or Latino,29,37,25,33,25,61,14,19,22,27,64,24,37,34,17,27
+187,Gains,2,0.12,Male,More than one Race,Hispanic or Latino,29,37,25,33,25,61,14,19,22,27,64,24,37,34,17,27
+187,Gains,3,1.0,Male,More than one Race,Hispanic or Latino,29,37,25,33,25,61,14,19,22,27,64,24,37,34,17,27
+187,Gains,4,0.96,Male,More than one Race,Hispanic or Latino,29,37,25,33,25,61,14,19,22,27,64,24,37,34,17,27
+187,Gains,5,0.0,Male,More than one Race,Hispanic or Latino,29,37,25,33,25,61,14,19,22,27,64,24,37,34,17,27
+188,Gains,0,0.99,Male,White,Not Hispanic or Latino,31,29,19,35,29,64,17,14,11,17,71,36,52,24,16,23
+188,Gains,1,0.5,Male,White,Not Hispanic or Latino,31,29,19,35,29,64,17,14,11,17,71,36,52,24,16,23
+188,Gains,2,1.0,Male,White,Not Hispanic or Latino,31,29,19,35,29,64,17,14,11,17,71,36,52,24,16,23
+188,Gains,3,0.88,Male,White,Not Hispanic or Latino,31,29,19,35,29,64,17,14,11,17,71,36,52,24,16,23
+188,Gains,4,0.04,Male,White,Not Hispanic or Latino,31,29,19,35,29,64,17,14,11,17,71,36,52,24,16,23
+188,Gains,5,0.08,Male,White,Not Hispanic or Latino,31,29,19,35,29,64,17,14,11,17,71,36,52,24,16,23
+189,GainsEF,0,0.44,Female,White,Not Hispanic or Latino,28,39,20,40,26,63,13,9,21,8,71,42,56,21,11,6
+189,GainsEF,1,0.49333333333333335,Female,White,Not Hispanic or Latino,28,39,20,40,26,63,13,9,21,8,71,42,56,21,11,6
+189,GainsEF,2,0.72,Female,White,Not Hispanic or Latino,28,39,20,40,26,63,13,9,21,8,71,42,56,21,11,6
+189,GainsEF,3,0.24,Female,White,Not Hispanic or Latino,28,39,20,40,26,63,13,9,21,8,71,42,56,21,11,6
+189,GainsEF,4,0.44,Female,White,Not Hispanic or Latino,28,39,20,40,26,63,13,9,21,8,71,42,56,21,11,6
+189,GainsEF,5,0.56,Female,White,Not Hispanic or Latino,28,39,20,40,26,63,13,9,21,8,71,42,56,21,11,6
+190,GainsEF,0,0.7466666666666667,Male,Asian,Not Hispanic or Latino,35,38,30,40,12,59,9,11,3,12,25,23,34,39,10,9
+190,GainsEF,1,0.88,Male,Asian,Not Hispanic or Latino,35,38,30,40,12,59,9,11,3,12,25,23,34,39,10,9
+190,GainsEF,2,0.96,Male,Asian,Not Hispanic or Latino,35,38,30,40,12,59,9,11,3,12,25,23,34,39,10,9
+190,GainsEF,3,0.96,Male,Asian,Not Hispanic or Latino,35,38,30,40,12,59,9,11,3,12,25,23,34,39,10,9
+190,GainsEF,4,1.0,Male,Asian,Not Hispanic or Latino,35,38,30,40,12,59,9,11,3,12,25,23,34,39,10,9
+190,GainsEF,5,1.0,Male,Asian,Not Hispanic or Latino,35,38,30,40,12,59,9,11,3,12,25,23,34,39,10,9
+191,GainsEF,0,0.36,Male,White,Not Hispanic or Latino,31,29,31,33,15,73,7,21,27,15,30,34,34,36,21,22
+191,GainsEF,1,0.6,Male,White,Not Hispanic or Latino,31,29,31,33,15,73,7,21,27,15,30,34,34,36,21,22
+191,GainsEF,2,0.6,Male,White,Not Hispanic or Latino,31,29,31,33,15,73,7,21,27,15,30,34,34,36,21,22
+191,GainsEF,3,0.48,Male,White,Not Hispanic or Latino,31,29,31,33,15,73,7,21,27,15,30,34,34,36,21,22
+191,GainsEF,4,0.48,Male,White,Not Hispanic or Latino,31,29,31,33,15,73,7,21,27,15,30,34,34,36,21,22
+191,GainsEF,5,0.56,Male,White,Not Hispanic or Latino,31,29,31,33,15,73,7,21,27,15,30,34,34,36,21,22
+192,Gains,0,0.75,Female,Asian,Not Hispanic or Latino,41,32,13,34,32,57,31,10,0,7,70,43,57,19,8,3
+192,Gains,1,0.8,Female,Asian,Not Hispanic or Latino,41,32,13,34,32,57,31,10,0,7,70,43,57,19,8,3
+192,Gains,2,0.4,Female,Asian,Not Hispanic or Latino,41,32,13,34,32,57,31,10,0,7,70,43,57,19,8,3
+192,Gains,3,0.84,Female,Asian,Not Hispanic or Latino,41,32,13,34,32,57,31,10,0,7,70,43,57,19,8,3
+192,Gains,4,1.0,Female,Asian,Not Hispanic or Latino,41,32,13,34,32,57,31,10,0,7,70,43,57,19,8,3
+192,Gains,5,1.0,Female,Asian,Not Hispanic or Latino,41,32,13,34,32,57,31,10,0,7,70,43,57,19,8,3
+193,Gains,0,0.56,Female,White,Not Hispanic or Latino,30,29,30,34,34,59,22,16,9,22,64,57,50,29,13,11
+193,Gains,1,0.34,Female,White,Not Hispanic or Latino,30,29,30,34,34,59,22,16,9,22,64,57,50,29,13,11
+193,Gains,2,0.4,Female,White,Not Hispanic or Latino,30,29,30,34,34,59,22,16,9,22,64,57,50,29,13,11
+193,Gains,3,0.44,Female,White,Not Hispanic or Latino,30,29,30,34,34,59,22,16,9,22,64,57,50,29,13,11
+193,Gains,4,0.6,Female,White,Not Hispanic or Latino,30,29,30,34,34,59,22,16,9,22,64,57,50,29,13,11
+193,Gains,5,0.44,Female,White,Not Hispanic or Latino,30,29,30,34,34,59,22,16,9,22,64,57,50,29,13,11
+194,GainsEF,0,0.6666666666666666,Female,White,Not Hispanic or Latino,29,37,31,31,21,61,17,7,13,12,55,34,41,29,7,11
+194,GainsEF,1,0.6933333333333334,Female,White,Not Hispanic or Latino,29,37,31,31,21,61,17,7,13,12,55,34,41,29,7,11
+194,GainsEF,2,0.92,Female,White,Not Hispanic or Latino,29,37,31,31,21,61,17,7,13,12,55,34,41,29,7,11
+194,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,29,37,31,31,21,61,17,7,13,12,55,34,41,29,7,11
+194,GainsEF,4,0.92,Female,White,Not Hispanic or Latino,29,37,31,31,21,61,17,7,13,12,55,34,41,29,7,11
+194,GainsEF,5,0.08,Female,White,Not Hispanic or Latino,29,37,31,31,21,61,17,7,13,12,55,34,41,29,7,11
+195,Gains,0,0.45,Male,American Indian or Alaskan Native,Not Hispanic or Latino,36,32,33,33,19,73,13,17,31,25,48,20,33,37,17,26
+195,Gains,1,0.82,Male,American Indian or Alaskan Native,Not Hispanic or Latino,36,32,33,33,19,73,13,17,31,25,48,20,33,37,17,26
+195,Gains,2,0.12,Male,American Indian or Alaskan Native,Not Hispanic or Latino,36,32,33,33,19,73,13,17,31,25,48,20,33,37,17,26
+195,Gains,3,0.88,Male,American Indian or Alaskan Native,Not Hispanic or Latino,36,32,33,33,19,73,13,17,31,25,48,20,33,37,17,26
+195,Gains,4,1.0,Male,American Indian or Alaskan Native,Not Hispanic or Latino,36,32,33,33,19,73,13,17,31,25,48,20,33,37,17,26
+195,Gains,5,0.16,Male,American Indian or Alaskan Native,Not Hispanic or Latino,36,32,33,33,19,73,13,17,31,25,48,20,33,37,17,26
+196,Gains,0,0.67,Female,Asian,Not Hispanic or Latino,44,33,28,32,26,60,21,5,6,17,71,55,59,31,10,4
+196,Gains,1,0.72,Female,Asian,Not Hispanic or Latino,44,33,28,32,26,60,21,5,6,17,71,55,59,31,10,4
+196,Gains,2,0.2,Female,Asian,Not Hispanic or Latino,44,33,28,32,26,60,21,5,6,17,71,55,59,31,10,4
+196,Gains,3,0.72,Female,Asian,Not Hispanic or Latino,44,33,28,32,26,60,21,5,6,17,71,55,59,31,10,4
+196,Gains,4,0.44,Female,Asian,Not Hispanic or Latino,44,33,28,32,26,60,21,5,6,17,71,55,59,31,10,4
+196,Gains,5,0.2,Female,Asian,Not Hispanic or Latino,44,33,28,32,26,60,21,5,6,17,71,55,59,31,10,4
+197,GainsEF,0,0.72,Female,White,Not Hispanic or Latino,33,42,21,41,28,72,27,5,8,18,51,61,36,32,7,5
+197,GainsEF,1,0.8533333333333334,Female,White,Not Hispanic or Latino,33,42,21,41,28,72,27,5,8,18,51,61,36,32,7,5
+197,GainsEF,2,0.96,Female,White,Not Hispanic or Latino,33,42,21,41,28,72,27,5,8,18,51,61,36,32,7,5
+197,GainsEF,3,0.88,Female,White,Not Hispanic or Latino,33,42,21,41,28,72,27,5,8,18,51,61,36,32,7,5
+197,GainsEF,4,0.16,Female,White,Not Hispanic or Latino,33,42,21,41,28,72,27,5,8,18,51,61,36,32,7,5
+197,GainsEF,5,0.12,Female,White,Not Hispanic or Latino,33,42,21,41,28,72,27,5,8,18,51,61,36,32,7,5
+198,GainsEF,0,0.6133333333333333,Female,White,Not Hispanic or Latino,38,34,19,40,29,56,23,13,0,6,73,30,46,24,14,7
+198,GainsEF,1,0.68,Female,White,Not Hispanic or Latino,38,34,19,40,29,56,23,13,0,6,73,30,46,24,14,7
+198,GainsEF,2,0.56,Female,White,Not Hispanic or Latino,38,34,19,40,29,56,23,13,0,6,73,30,46,24,14,7
+198,GainsEF,3,0.92,Female,White,Not Hispanic or Latino,38,34,19,40,29,56,23,13,0,6,73,30,46,24,14,7
+198,GainsEF,4,0.96,Female,White,Not Hispanic or Latino,38,34,19,40,29,56,23,13,0,6,73,30,46,24,14,7
+198,GainsEF,5,0.72,Female,White,Not Hispanic or Latino,38,34,19,40,29,56,23,13,0,6,73,30,46,24,14,7
+199,Gains,0,0.91,Female,White,Hispanic or Latino,32,35,40,38,16,81,10,11,8,16,34,35,37,37,14,19
+199,Gains,1,0.86,Female,White,Hispanic or Latino,32,35,40,38,16,81,10,11,8,16,34,35,37,37,14,19
+199,Gains,2,0.8,Female,White,Hispanic or Latino,32,35,40,38,16,81,10,11,8,16,34,35,37,37,14,19
+199,Gains,3,0.84,Female,White,Hispanic or Latino,32,35,40,38,16,81,10,11,8,16,34,35,37,37,14,19
+199,Gains,4,0.76,Female,White,Hispanic or Latino,32,35,40,38,16,81,10,11,8,16,34,35,37,37,14,19
+199,Gains,5,0.08,Female,White,Hispanic or Latino,32,35,40,38,16,81,10,11,8,16,34,35,37,37,14,19
+200,Gains,0,0.53,Female,Asian,Hispanic or Latino,31,35,26,29,17,60,22,5,0,8,66,22,52,29,5,17
+200,Gains,1,0.46,Female,Asian,Hispanic or Latino,31,35,26,29,17,60,22,5,0,8,66,22,52,29,5,17
+200,Gains,2,0.32,Female,Asian,Hispanic or Latino,31,35,26,29,17,60,22,5,0,8,66,22,52,29,5,17
+200,Gains,3,0.52,Female,Asian,Hispanic or Latino,31,35,26,29,17,60,22,5,0,8,66,22,52,29,5,17
+200,Gains,4,0.8,Female,Asian,Hispanic or Latino,31,35,26,29,17,60,22,5,0,8,66,22,52,29,5,17
+200,Gains,5,0.84,Female,Asian,Hispanic or Latino,31,35,26,29,17,60,22,5,0,8,66,22,52,29,5,17
+201,GainsEF,0,0.16,Female,White,Hispanic or Latino,39,36,26,28,21,64,23,31,40,23,57,49,47,35,36,22
+201,GainsEF,1,0.84,Female,White,Hispanic or Latino,39,36,26,28,21,64,23,31,40,23,57,49,47,35,36,22
+201,GainsEF,2,0.6,Female,White,Hispanic or Latino,39,36,26,28,21,64,23,31,40,23,57,49,47,35,36,22
+201,GainsEF,3,0.36,Female,White,Hispanic or Latino,39,36,26,28,21,64,23,31,40,23,57,49,47,35,36,22
+201,GainsEF,4,0.52,Female,White,Hispanic or Latino,39,36,26,28,21,64,23,31,40,23,57,49,47,35,36,22
+201,GainsEF,5,0.8,Female,White,Hispanic or Latino,39,36,26,28,21,64,23,31,40,23,57,49,47,35,36,22
+202,GainsEF,0,0.6933333333333334,Female,White,Not Hispanic or Latino,37,38,34,26,24,53,14,9,7,34,63,43,43,36,7,19
+202,GainsEF,1,0.6933333333333334,Female,White,Not Hispanic or Latino,37,38,34,26,24,53,14,9,7,34,63,43,43,36,7,19
+202,GainsEF,2,0.4,Female,White,Not Hispanic or Latino,37,38,34,26,24,53,14,9,7,34,63,43,43,36,7,19
+202,GainsEF,3,0.72,Female,White,Not Hispanic or Latino,37,38,34,26,24,53,14,9,7,34,63,43,43,36,7,19
+202,GainsEF,4,0.92,Female,White,Not Hispanic or Latino,37,38,34,26,24,53,14,9,7,34,63,43,43,36,7,19
+202,GainsEF,5,0.8,Female,White,Not Hispanic or Latino,37,38,34,26,24,53,14,9,7,34,63,43,43,36,7,19
+203,Gains,0,0.53,Male,White,Not Hispanic or Latino,35,33,31,31,26,63,14,16,0,19,59,37,45,28,20,13
+203,Gains,1,0.54,Male,White,Not Hispanic or Latino,35,33,31,31,26,63,14,16,0,19,59,37,45,28,20,13
+203,Gains,2,0.36,Male,White,Not Hispanic or Latino,35,33,31,31,26,63,14,16,0,19,59,37,45,28,20,13
+203,Gains,3,0.64,Male,White,Not Hispanic or Latino,35,33,31,31,26,63,14,16,0,19,59,37,45,28,20,13
+203,Gains,4,0.64,Male,White,Not Hispanic or Latino,35,33,31,31,26,63,14,16,0,19,59,37,45,28,20,13
+203,Gains,5,0.48,Male,White,Not Hispanic or Latino,35,33,31,31,26,63,14,16,0,19,59,37,45,28,20,13
+204,Gains,0,0.62,Female,White,Not Hispanic or Latino,27,34,29,38,36,90,27,25,19,13,69,55,56,22,26,23
+204,Gains,1,0.5,Female,White,Not Hispanic or Latino,27,34,29,38,36,90,27,25,19,13,69,55,56,22,26,23
+204,Gains,2,0.08,Female,White,Not Hispanic or Latino,27,34,29,38,36,90,27,25,19,13,69,55,56,22,26,23
+204,Gains,3,0.28,Female,White,Not Hispanic or Latino,27,34,29,38,36,90,27,25,19,13,69,55,56,22,26,23
+204,Gains,4,0.96,Female,White,Not Hispanic or Latino,27,34,29,38,36,90,27,25,19,13,69,55,56,22,26,23
+204,Gains,5,0.92,Female,White,Not Hispanic or Latino,27,34,29,38,36,90,27,25,19,13,69,55,56,22,26,23
+205,GainsEF,0,0.37333333333333335,Male,White,Hispanic or Latino,32,36,30,31,20,65,7,11,0,23,63,32,35,39,9,23
+205,GainsEF,1,0.49333333333333335,Male,White,Hispanic or Latino,32,36,30,31,20,65,7,11,0,23,63,32,35,39,9,23
+205,GainsEF,2,1.0,Male,White,Hispanic or Latino,32,36,30,31,20,65,7,11,0,23,63,32,35,39,9,23
+205,GainsEF,3,0.92,Male,White,Hispanic or Latino,32,36,30,31,20,65,7,11,0,23,63,32,35,39,9,23
+205,GainsEF,4,0.96,Male,White,Hispanic or Latino,32,36,30,31,20,65,7,11,0,23,63,32,35,39,9,23
+205,GainsEF,5,1.0,Male,White,Hispanic or Latino,32,36,30,31,20,65,7,11,0,23,63,32,35,39,9,23
+206,Gains,0,0.93,Male,White,Not Hispanic or Latino,46,32,20,33,35,70,38,25,12,18,79,49,65,16,19,17
+206,Gains,1,0.96,Male,White,Not Hispanic or Latino,46,32,20,33,35,70,38,25,12,18,79,49,65,16,19,17
+206,Gains,2,0.88,Male,White,Not Hispanic or Latino,46,32,20,33,35,70,38,25,12,18,79,49,65,16,19,17
+206,Gains,3,0.84,Male,White,Not Hispanic or Latino,46,32,20,33,35,70,38,25,12,18,79,49,65,16,19,17
+206,Gains,4,0.08,Male,White,Not Hispanic or Latino,46,32,20,33,35,70,38,25,12,18,79,49,65,16,19,17
+206,Gains,5,0.12,Male,White,Not Hispanic or Latino,46,32,20,33,35,70,38,25,12,18,79,49,65,16,19,17
+207,GainsEF,0,0.32,Female,White,Hispanic or Latino,35,39,27,36,30,50,5,6,0,18,80,49,45,26,8,1
+207,GainsEF,1,0.8266666666666667,Female,White,Hispanic or Latino,35,39,27,36,30,50,5,6,0,18,80,49,45,26,8,1
+207,GainsEF,2,0.72,Female,White,Hispanic or Latino,35,39,27,36,30,50,5,6,0,18,80,49,45,26,8,1
+207,GainsEF,3,0.36,Female,White,Hispanic or Latino,35,39,27,36,30,50,5,6,0,18,80,49,45,26,8,1
+207,GainsEF,4,0.96,Female,White,Hispanic or Latino,35,39,27,36,30,50,5,6,0,18,80,49,45,26,8,1
+207,GainsEF,5,0.96,Female,White,Hispanic or Latino,35,39,27,36,30,50,5,6,0,18,80,49,45,26,8,1
+208,Gains,0,0.6,Female,More than one Race,Hispanic or Latino,27,39,36,40,29,53,8,5,12,17,69,28,39,34,8,9
+208,Gains,1,0.54,Female,More than one Race,Hispanic or Latino,27,39,36,40,29,53,8,5,12,17,69,28,39,34,8,9
+208,Gains,2,0.8,Female,More than one Race,Hispanic or Latino,27,39,36,40,29,53,8,5,12,17,69,28,39,34,8,9
+208,Gains,3,1.0,Female,More than one Race,Hispanic or Latino,27,39,36,40,29,53,8,5,12,17,69,28,39,34,8,9
+208,Gains,4,0.92,Female,More than one Race,Hispanic or Latino,27,39,36,40,29,53,8,5,12,17,69,28,39,34,8,9
+208,Gains,5,0.8,Female,More than one Race,Hispanic or Latino,27,39,36,40,29,53,8,5,12,17,69,28,39,34,8,9
+209,GainsEF,0,0.72,Female,White,Not Hispanic or Latino,35,27,22,29,32,68,34,12,26,13,69,48,58,20,12,17
+209,GainsEF,1,0.44,Female,White,Not Hispanic or Latino,35,27,22,29,32,68,34,12,26,13,69,48,58,20,12,17
+209,GainsEF,2,0.56,Female,White,Not Hispanic or Latino,35,27,22,29,32,68,34,12,26,13,69,48,58,20,12,17
+209,GainsEF,3,0.64,Female,White,Not Hispanic or Latino,35,27,22,29,32,68,34,12,26,13,69,48,58,20,12,17
+209,GainsEF,4,0.44,Female,White,Not Hispanic or Latino,35,27,22,29,32,68,34,12,26,13,69,48,58,20,12,17
+209,GainsEF,5,0.28,Female,White,Not Hispanic or Latino,35,27,22,29,32,68,34,12,26,13,69,48,58,20,12,17
+210,GainsEF,0,0.6133333333333333,Female,White,Not Hispanic or Latino,34,28,34,39,33,72,36,11,11,21,77,55,65,22,13,6
+210,GainsEF,1,0.52,Female,White,Not Hispanic or Latino,34,28,34,39,33,72,36,11,11,21,77,55,65,22,13,6
+210,GainsEF,2,0.12,Female,White,Not Hispanic or Latino,34,28,34,39,33,72,36,11,11,21,77,55,65,22,13,6
+210,GainsEF,3,0.8,Female,White,Not Hispanic or Latino,34,28,34,39,33,72,36,11,11,21,77,55,65,22,13,6
+210,GainsEF,4,0.92,Female,White,Not Hispanic or Latino,34,28,34,39,33,72,36,11,11,21,77,55,65,22,13,6
+210,GainsEF,5,0.28,Female,White,Not Hispanic or Latino,34,28,34,39,33,72,36,11,11,21,77,55,65,22,13,6
+211,GainsEF,0,0.37333333333333335,Female,White,Not Hispanic or Latino,34,34,27,43,26,64,15,8,5,11,58,31,47,31,9,6
+211,GainsEF,1,0.3333333333333333,Female,White,Not Hispanic or Latino,34,34,27,43,26,64,15,8,5,11,58,31,47,31,9,6
+211,GainsEF,2,0.72,Female,White,Not Hispanic or Latino,34,34,27,43,26,64,15,8,5,11,58,31,47,31,9,6
+211,GainsEF,3,0.36,Female,White,Not Hispanic or Latino,34,34,27,43,26,64,15,8,5,11,58,31,47,31,9,6
+211,GainsEF,4,0.28,Female,White,Not Hispanic or Latino,34,34,27,43,26,64,15,8,5,11,58,31,47,31,9,6
+211,GainsEF,5,0.48,Female,White,Not Hispanic or Latino,34,34,27,43,26,64,15,8,5,11,58,31,47,31,9,6
+212,Gains,0,0.91,Female,White,Not Hispanic or Latino,33,32,31,27,23,74,34,11,10,24,51,48,47,49,11,27
+212,Gains,1,0.8,Female,White,Not Hispanic or Latino,33,32,31,27,23,74,34,11,10,24,51,48,47,49,11,27
+212,Gains,2,0.16,Female,White,Not Hispanic or Latino,33,32,31,27,23,74,34,11,10,24,51,48,47,49,11,27
+212,Gains,3,1.0,Female,White,Not Hispanic or Latino,33,32,31,27,23,74,34,11,10,24,51,48,47,49,11,27
+212,Gains,4,1.0,Female,White,Not Hispanic or Latino,33,32,31,27,23,74,34,11,10,24,51,48,47,49,11,27
+212,Gains,5,0.0,Female,White,Not Hispanic or Latino,33,32,31,27,23,74,34,11,10,24,51,48,47,49,11,27
+213,GainsEF,0,0.6133333333333333,Female,White,Not Hispanic or Latino,26,27,35,27,27,62,15,25,18,21,58,44,50,31,23,17
+213,GainsEF,1,0.7066666666666667,Female,White,Not Hispanic or Latino,26,27,35,27,27,62,15,25,18,21,58,44,50,31,23,17
+213,GainsEF,2,0.76,Female,White,Not Hispanic or Latino,26,27,35,27,27,62,15,25,18,21,58,44,50,31,23,17
+213,GainsEF,3,0.96,Female,White,Not Hispanic or Latino,26,27,35,27,27,62,15,25,18,21,58,44,50,31,23,17
+213,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,26,27,35,27,27,62,15,25,18,21,58,44,50,31,23,17
+213,GainsEF,5,0.84,Female,White,Not Hispanic or Latino,26,27,35,27,27,62,15,25,18,21,58,44,50,31,23,17
+214,Gains,0,0.67,Female,Prefer not to answer,Hispanic or Latino,36,25,29,27,39,93,52,26,2,16,79,77,75,22,26,17
+214,Gains,1,0.78,Female,Prefer not to answer,Hispanic or Latino,36,25,29,27,39,93,52,26,2,16,79,77,75,22,26,17
+214,Gains,2,0.6,Female,Prefer not to answer,Hispanic or Latino,36,25,29,27,39,93,52,26,2,16,79,77,75,22,26,17
+214,Gains,3,0.24,Female,Prefer not to answer,Hispanic or Latino,36,25,29,27,39,93,52,26,2,16,79,77,75,22,26,17
+214,Gains,4,0.52,Female,Prefer not to answer,Hispanic or Latino,36,25,29,27,39,93,52,26,2,16,79,77,75,22,26,17
+214,Gains,5,0.92,Female,Prefer not to answer,Hispanic or Latino,36,25,29,27,39,93,52,26,2,16,79,77,75,22,26,17
+215,GainsEF,0,0.6266666666666667,Female,White,Hispanic or Latino,37,31,22,36,29,78,23,20,17,7,63,43,56,22,21,14
+215,GainsEF,1,0.72,Female,White,Hispanic or Latino,37,31,22,36,29,78,23,20,17,7,63,43,56,22,21,14
+215,GainsEF,2,0.48,Female,White,Hispanic or Latino,37,31,22,36,29,78,23,20,17,7,63,43,56,22,21,14
+215,GainsEF,3,0.72,Female,White,Hispanic or Latino,37,31,22,36,29,78,23,20,17,7,63,43,56,22,21,14
+215,GainsEF,4,0.4,Female,White,Hispanic or Latino,37,31,22,36,29,78,23,20,17,7,63,43,56,22,21,14
+215,GainsEF,5,0.36,Female,White,Hispanic or Latino,37,31,22,36,29,78,23,20,17,7,63,43,56,22,21,14
+216,Gains,0,0.99,Female,White,Not Hispanic or Latino,36,36,15,23,23,57,18,5,3,24,65,48,43,36,5,34
+216,Gains,1,0.96,Female,White,Not Hispanic or Latino,36,36,15,23,23,57,18,5,3,24,65,48,43,36,5,34
+216,Gains,2,0.56,Female,White,Not Hispanic or Latino,36,36,15,23,23,57,18,5,3,24,65,48,43,36,5,34
+216,Gains,3,0.96,Female,White,Not Hispanic or Latino,36,36,15,23,23,57,18,5,3,24,65,48,43,36,5,34
+216,Gains,4,0.36,Female,White,Not Hispanic or Latino,36,36,15,23,23,57,18,5,3,24,65,48,43,36,5,34
+216,Gains,5,0.0,Female,White,Not Hispanic or Latino,36,36,15,23,23,57,18,5,3,24,65,48,43,36,5,34
+217,GainsEF,0,0.4533333333333333,Female,White,Not Hispanic or Latino,33,36,24,38,24,75,24,4,20,12,66,49,53,34,7,6
+217,GainsEF,1,0.5466666666666666,Female,White,Not Hispanic or Latino,33,36,24,38,24,75,24,4,20,12,66,49,53,34,7,6
+217,GainsEF,2,0.72,Female,White,Not Hispanic or Latino,33,36,24,38,24,75,24,4,20,12,66,49,53,34,7,6
+217,GainsEF,3,0.64,Female,White,Not Hispanic or Latino,33,36,24,38,24,75,24,4,20,12,66,49,53,34,7,6
+217,GainsEF,4,0.52,Female,White,Not Hispanic or Latino,33,36,24,38,24,75,24,4,20,12,66,49,53,34,7,6
+217,GainsEF,5,0.88,Female,White,Not Hispanic or Latino,33,36,24,38,24,75,24,4,20,12,66,49,53,34,7,6
+218,Gains,0,0.27,Male,White,Not Hispanic or Latino,36,37,26,40,21,61,5,5,25,13,37,32,35,30,6,10
+218,Gains,1,0.86,Male,White,Not Hispanic or Latino,36,37,26,40,21,61,5,5,25,13,37,32,35,30,6,10
+218,Gains,2,0.08,Male,White,Not Hispanic or Latino,36,37,26,40,21,61,5,5,25,13,37,32,35,30,6,10
+218,Gains,3,0.12,Male,White,Not Hispanic or Latino,36,37,26,40,21,61,5,5,25,13,37,32,35,30,6,10
+218,Gains,4,0.76,Male,White,Not Hispanic or Latino,36,37,26,40,21,61,5,5,25,13,37,32,35,30,6,10
+218,Gains,5,0.24,Male,White,Not Hispanic or Latino,36,37,26,40,21,61,5,5,25,13,37,32,35,30,6,10
+219,GainsEF,0,0.8,Male,White,Not Hispanic or Latino,44,26,31,27,39,93,43,27,30,25,78,61,66,33,31,31
+219,GainsEF,1,0.8533333333333334,Male,White,Not Hispanic or Latino,44,26,31,27,39,93,43,27,30,25,78,61,66,33,31,31
+219,GainsEF,2,0.92,Male,White,Not Hispanic or Latino,44,26,31,27,39,93,43,27,30,25,78,61,66,33,31,31
+219,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,44,26,31,27,39,93,43,27,30,25,78,61,66,33,31,31
+219,GainsEF,4,0.12,Male,White,Not Hispanic or Latino,44,26,31,27,39,93,43,27,30,25,78,61,66,33,31,31
+219,GainsEF,5,0.04,Male,White,Not Hispanic or Latino,44,26,31,27,39,93,43,27,30,25,78,61,66,33,31,31
+220,Gains,0,0.16,Male,White,Hispanic or Latino,32,41,31,32,12,52,1,4,4,27,20,20,22,55,4,31
+220,Gains,1,0.8,Male,White,Hispanic or Latino,32,41,31,32,12,52,1,4,4,27,20,20,22,55,4,31
+220,Gains,2,0.28,Male,White,Hispanic or Latino,32,41,31,32,12,52,1,4,4,27,20,20,22,55,4,31
+220,Gains,3,0.56,Male,White,Hispanic or Latino,32,41,31,32,12,52,1,4,4,27,20,20,22,55,4,31
+220,Gains,4,0.4,Male,White,Hispanic or Latino,32,41,31,32,12,52,1,4,4,27,20,20,22,55,4,31
+220,Gains,5,0.36,Male,White,Hispanic or Latino,32,41,31,32,12,52,1,4,4,27,20,20,22,55,4,31
+221,Gains,0,0.96,Female,White,Hispanic or Latino,37,38,23,39,25,59,15,7,4,11,65,50,46,23,9,5
+221,Gains,1,0.84,Female,White,Hispanic or Latino,37,38,23,39,25,59,15,7,4,11,65,50,46,23,9,5
+221,Gains,2,0.16,Female,White,Hispanic or Latino,37,38,23,39,25,59,15,7,4,11,65,50,46,23,9,5
+221,Gains,3,0.8,Female,White,Hispanic or Latino,37,38,23,39,25,59,15,7,4,11,65,50,46,23,9,5
+221,Gains,4,0.88,Female,White,Hispanic or Latino,37,38,23,39,25,59,15,7,4,11,65,50,46,23,9,5
+221,Gains,5,0.04,Female,White,Hispanic or Latino,37,38,23,39,25,59,15,7,4,11,65,50,46,23,9,5
+222,Gains,0,0.78,Male,White,Hispanic or Latino,44,40,25,43,19,63,27,6,3,9,51,46,50,34,5,10
+222,Gains,1,0.84,Male,White,Hispanic or Latino,44,40,25,43,19,63,27,6,3,9,51,46,50,34,5,10
+222,Gains,2,0.2,Male,White,Hispanic or Latino,44,40,25,43,19,63,27,6,3,9,51,46,50,34,5,10
+222,Gains,3,1.0,Male,White,Hispanic or Latino,44,40,25,43,19,63,27,6,3,9,51,46,50,34,5,10
+222,Gains,4,1.0,Male,White,Hispanic or Latino,44,40,25,43,19,63,27,6,3,9,51,46,50,34,5,10
+222,Gains,5,0.0,Male,White,Hispanic or Latino,44,40,25,43,19,63,27,6,3,9,51,46,50,34,5,10
+223,Gains,0,0.68,Female,White,Hispanic or Latino,34,34,27,35,26,68,12,5,24,18,50,48,27,21,3,13
+223,Gains,1,0.6,Female,White,Hispanic or Latino,34,34,27,35,26,68,12,5,24,18,50,48,27,21,3,13
+223,Gains,2,0.32,Female,White,Hispanic or Latino,34,34,27,35,26,68,12,5,24,18,50,48,27,21,3,13
+223,Gains,3,0.64,Female,White,Hispanic or Latino,34,34,27,35,26,68,12,5,24,18,50,48,27,21,3,13
+223,Gains,4,0.84,Female,White,Hispanic or Latino,34,34,27,35,26,68,12,5,24,18,50,48,27,21,3,13
+223,Gains,5,0.68,Female,White,Hispanic or Latino,34,34,27,35,26,68,12,5,24,18,50,48,27,21,3,13
+224,Gains,0,0.71,Female,White,Not Hispanic or Latino,38,36,29,39,23,57,16,11,0,17,61,45,46,31,14,12
+224,Gains,1,0.66,Female,White,Not Hispanic or Latino,38,36,29,39,23,57,16,11,0,17,61,45,46,31,14,12
+224,Gains,2,0.04,Female,White,Not Hispanic or Latino,38,36,29,39,23,57,16,11,0,17,61,45,46,31,14,12
+224,Gains,3,0.2,Female,White,Not Hispanic or Latino,38,36,29,39,23,57,16,11,0,17,61,45,46,31,14,12
+224,Gains,4,0.88,Female,White,Not Hispanic or Latino,38,36,29,39,23,57,16,11,0,17,61,45,46,31,14,12
+224,Gains,5,0.72,Female,White,Not Hispanic or Latino,38,36,29,39,23,57,16,11,0,17,61,45,46,31,14,12
+225,GainsEF,0,0.5733333333333334,Male,White,Not Hispanic or Latino,41,31,22,38,10,62,9,6,27,11,28,27,33,37,4,17
+225,GainsEF,1,0.5066666666666667,Male,White,Not Hispanic or Latino,41,31,22,38,10,62,9,6,27,11,28,27,33,37,4,17
+225,GainsEF,2,0.4,Male,White,Not Hispanic or Latino,41,31,22,38,10,62,9,6,27,11,28,27,33,37,4,17
+225,GainsEF,3,0.88,Male,White,Not Hispanic or Latino,41,31,22,38,10,62,9,6,27,11,28,27,33,37,4,17
+225,GainsEF,4,0.96,Male,White,Not Hispanic or Latino,41,31,22,38,10,62,9,6,27,11,28,27,33,37,4,17
+225,GainsEF,5,0.76,Male,White,Not Hispanic or Latino,41,31,22,38,10,62,9,6,27,11,28,27,33,37,4,17
+226,GainsEF,0,0.8266666666666667,Female,White,Hispanic or Latino,39,38,32,36,24,56,27,11,21,16,63,48,58,32,8,23
+226,GainsEF,1,0.84,Female,White,Hispanic or Latino,39,38,32,36,24,56,27,11,21,16,63,48,58,32,8,23
+226,GainsEF,2,0.12,Female,White,Hispanic or Latino,39,38,32,36,24,56,27,11,21,16,63,48,58,32,8,23
+226,GainsEF,3,0.12,Female,White,Hispanic or Latino,39,38,32,36,24,56,27,11,21,16,63,48,58,32,8,23
+226,GainsEF,4,0.96,Female,White,Hispanic or Latino,39,38,32,36,24,56,27,11,21,16,63,48,58,32,8,23
+226,GainsEF,5,0.88,Female,White,Hispanic or Latino,39,38,32,36,24,56,27,11,21,16,63,48,58,32,8,23
+227,Gains,0,0.45,Female,White,Not Hispanic or Latino,33,32,23,35,30,64,22,12,10,17,66,46,49,29,12,14
+227,Gains,1,0.88,Female,White,Not Hispanic or Latino,33,32,23,35,30,64,22,12,10,17,66,46,49,29,12,14
+227,Gains,2,0.96,Female,White,Not Hispanic or Latino,33,32,23,35,30,64,22,12,10,17,66,46,49,29,12,14
+227,Gains,3,1.0,Female,White,Not Hispanic or Latino,33,32,23,35,30,64,22,12,10,17,66,46,49,29,12,14
+227,Gains,4,0.84,Female,White,Not Hispanic or Latino,33,32,23,35,30,64,22,12,10,17,66,46,49,29,12,14
+227,Gains,5,0.88,Female,White,Not Hispanic or Latino,33,32,23,35,30,64,22,12,10,17,66,46,49,29,12,14
+228,Gains,0,0.43,Female,White,Not Hispanic or Latino,35,36,21,42,23,69,22,10,19,14,53,31,33,31,8,4
+228,Gains,1,0.5,Female,White,Not Hispanic or Latino,35,36,21,42,23,69,22,10,19,14,53,31,33,31,8,4
+228,Gains,2,0.88,Female,White,Not Hispanic or Latino,35,36,21,42,23,69,22,10,19,14,53,31,33,31,8,4
+228,Gains,3,0.4,Female,White,Not Hispanic or Latino,35,36,21,42,23,69,22,10,19,14,53,31,33,31,8,4
+228,Gains,4,0.72,Female,White,Not Hispanic or Latino,35,36,21,42,23,69,22,10,19,14,53,31,33,31,8,4
+228,Gains,5,0.72,Female,White,Not Hispanic or Latino,35,36,21,42,23,69,22,10,19,14,53,31,33,31,8,4
+229,Gains,0,0.81,Female,White,Hispanic or Latino,24,31,21,29,34,67,27,17,16,22,69,45,57,26,19,7
+229,Gains,1,0.92,Female,White,Hispanic or Latino,24,31,21,29,34,67,27,17,16,22,69,45,57,26,19,7
+229,Gains,2,0.04,Female,White,Hispanic or Latino,24,31,21,29,34,67,27,17,16,22,69,45,57,26,19,7
+229,Gains,3,0.36,Female,White,Hispanic or Latino,24,31,21,29,34,67,27,17,16,22,69,45,57,26,19,7
+229,Gains,4,1.0,Female,White,Hispanic or Latino,24,31,21,29,34,67,27,17,16,22,69,45,57,26,19,7
+229,Gains,5,1.0,Female,White,Hispanic or Latino,24,31,21,29,34,67,27,17,16,22,69,45,57,26,19,7
+230,GainsEF,0,0.64,Female,White,Not Hispanic or Latino,25,27,33,39,33,75,15,21,15,11,66,30,52,20,17,5
+230,GainsEF,1,0.8666666666666667,Female,White,Not Hispanic or Latino,25,27,33,39,33,75,15,21,15,11,66,30,52,20,17,5
+230,GainsEF,2,0.8,Female,White,Not Hispanic or Latino,25,27,33,39,33,75,15,21,15,11,66,30,52,20,17,5
+230,GainsEF,3,0.96,Female,White,Not Hispanic or Latino,25,27,33,39,33,75,15,21,15,11,66,30,52,20,17,5
+230,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,25,27,33,39,33,75,15,21,15,11,66,30,52,20,17,5
+230,GainsEF,5,0.96,Female,White,Not Hispanic or Latino,25,27,33,39,33,75,15,21,15,11,66,30,52,20,17,5
+231,Gains,0,0.58,Male,More than one Race,Hispanic or Latino,36,26,36,16,24,79,17,21,26,32,30,23,30,38,21,38
+231,Gains,1,0.72,Male,More than one Race,Hispanic or Latino,36,26,36,16,24,79,17,21,26,32,30,23,30,38,21,38
+231,Gains,2,0.4,Male,More than one Race,Hispanic or Latino,36,26,36,16,24,79,17,21,26,32,30,23,30,38,21,38
+231,Gains,3,1.0,Male,More than one Race,Hispanic or Latino,36,26,36,16,24,79,17,21,26,32,30,23,30,38,21,38
+231,Gains,4,0.88,Male,More than one Race,Hispanic or Latino,36,26,36,16,24,79,17,21,26,32,30,23,30,38,21,38
+231,Gains,5,0.04,Male,More than one Race,Hispanic or Latino,36,26,36,16,24,79,17,21,26,32,30,23,30,38,21,38
+232,Gains,0,0.75,Other,Asian,Not Hispanic or Latino,38,23,13,30,33,70,19,23,4,6,56,45,55,10,21,8
+232,Gains,1,0.58,Other,Asian,Not Hispanic or Latino,38,23,13,30,33,70,19,23,4,6,56,45,55,10,21,8
+232,Gains,2,0.24,Other,Asian,Not Hispanic or Latino,38,23,13,30,33,70,19,23,4,6,56,45,55,10,21,8
+232,Gains,3,0.92,Other,Asian,Not Hispanic or Latino,38,23,13,30,33,70,19,23,4,6,56,45,55,10,21,8
+232,Gains,4,0.96,Other,Asian,Not Hispanic or Latino,38,23,13,30,33,70,19,23,4,6,56,45,55,10,21,8
+232,Gains,5,0.28,Other,Asian,Not Hispanic or Latino,38,23,13,30,33,70,19,23,4,6,56,45,55,10,21,8
+233,GainsEF,0,0.7733333333333333,Female,White,Not Hispanic or Latino,29,32,23,26,34,68,29,15,32,17,77,53,61,13,10,8
+233,GainsEF,1,0.9733333333333334,Female,White,Not Hispanic or Latino,29,32,23,26,34,68,29,15,32,17,77,53,61,13,10,8
+233,GainsEF,2,1.0,Female,White,Not Hispanic or Latino,29,32,23,26,34,68,29,15,32,17,77,53,61,13,10,8
+233,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,29,32,23,26,34,68,29,15,32,17,77,53,61,13,10,8
+233,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,29,32,23,26,34,68,29,15,32,17,77,53,61,13,10,8
+233,GainsEF,5,1.0,Female,White,Not Hispanic or Latino,29,32,23,26,34,68,29,15,32,17,77,53,61,13,10,8
+234,GainsEF,0,0.48,Male,White,Hispanic or Latino,35,32,26,29,35,80,25,30,36,24,69,32,59,32,28,24
+234,GainsEF,1,0.14666666666666667,Male,White,Hispanic or Latino,35,32,26,29,35,80,25,30,36,24,69,32,59,32,28,24
+234,GainsEF,2,0.96,Male,White,Hispanic or Latino,35,32,26,29,35,80,25,30,36,24,69,32,59,32,28,24
+234,GainsEF,3,0.96,Male,White,Hispanic or Latino,35,32,26,29,35,80,25,30,36,24,69,32,59,32,28,24
+234,GainsEF,4,0.08,Male,White,Hispanic or Latino,35,32,26,29,35,80,25,30,36,24,69,32,59,32,28,24
+234,GainsEF,5,0.04,Male,White,Hispanic or Latino,35,32,26,29,35,80,25,30,36,24,69,32,59,32,28,24
+235,Gains,0,0.99,Male,White,Not Hispanic or Latino,29,30,35,38,16,72,6,21,31,25,48,23,30,41,23,14
+235,Gains,1,0.84,Male,White,Not Hispanic or Latino,29,30,35,38,16,72,6,21,31,25,48,23,30,41,23,14
+235,Gains,2,0.0,Male,White,Not Hispanic or Latino,29,30,35,38,16,72,6,21,31,25,48,23,30,41,23,14
+235,Gains,3,1.0,Male,White,Not Hispanic or Latino,29,30,35,38,16,72,6,21,31,25,48,23,30,41,23,14
+235,Gains,4,1.0,Male,White,Not Hispanic or Latino,29,30,35,38,16,72,6,21,31,25,48,23,30,41,23,14
+235,Gains,5,0.0,Male,White,Not Hispanic or Latino,29,30,35,38,16,72,6,21,31,25,48,23,30,41,23,14
+236,GainsEF,0,0.72,Male,White,Not Hispanic or Latino,30,32,29,38,12,61,9,5,21,12,37,24,30,37,9,5
+236,GainsEF,1,0.7066666666666667,Male,White,Not Hispanic or Latino,30,32,29,38,12,61,9,5,21,12,37,24,30,37,9,5
+236,GainsEF,2,1.0,Male,White,Not Hispanic or Latino,30,32,29,38,12,61,9,5,21,12,37,24,30,37,9,5
+236,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,30,32,29,38,12,61,9,5,21,12,37,24,30,37,9,5
+236,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,30,32,29,38,12,61,9,5,21,12,37,24,30,37,9,5
+236,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,30,32,29,38,12,61,9,5,21,12,37,24,30,37,9,5
+237,Gains,0,0.67,Female,White,Not Hispanic or Latino,32,44,17,40,32,42,27,1,13,6,70,51,57,25,0,2
+237,Gains,1,0.72,Female,White,Not Hispanic or Latino,32,44,17,40,32,42,27,1,13,6,70,51,57,25,0,2
+237,Gains,2,0.84,Female,White,Not Hispanic or Latino,32,44,17,40,32,42,27,1,13,6,70,51,57,25,0,2
+237,Gains,3,1.0,Female,White,Not Hispanic or Latino,32,44,17,40,32,42,27,1,13,6,70,51,57,25,0,2
+237,Gains,4,0.92,Female,White,Not Hispanic or Latino,32,44,17,40,32,42,27,1,13,6,70,51,57,25,0,2
+237,Gains,5,0.08,Female,White,Not Hispanic or Latino,32,44,17,40,32,42,27,1,13,6,70,51,57,25,0,2
+238,Gains,0,0.95,Female,White,Not Hispanic or Latino,38,33,18,40,31,64,17,10,10,9,58,40,50,19,13,13
+238,Gains,1,0.94,Female,White,Not Hispanic or Latino,38,33,18,40,31,64,17,10,10,9,58,40,50,19,13,13
+238,Gains,2,0.08,Female,White,Not Hispanic or Latino,38,33,18,40,31,64,17,10,10,9,58,40,50,19,13,13
+238,Gains,3,0.4,Female,White,Not Hispanic or Latino,38,33,18,40,31,64,17,10,10,9,58,40,50,19,13,13
+238,Gains,4,1.0,Female,White,Not Hispanic or Latino,38,33,18,40,31,64,17,10,10,9,58,40,50,19,13,13
+238,Gains,5,0.88,Female,White,Not Hispanic or Latino,38,33,18,40,31,64,17,10,10,9,58,40,50,19,13,13
+239,GainsEF,0,0.5466666666666666,Female,White,Not Hispanic or Latino,25,33,28,36,28,61,6,8,7,12,57,25,36,25,10,5
+239,GainsEF,1,0.6533333333333333,Female,White,Not Hispanic or Latino,25,33,28,36,28,61,6,8,7,12,57,25,36,25,10,5
+239,GainsEF,2,0.4,Female,White,Not Hispanic or Latino,25,33,28,36,28,61,6,8,7,12,57,25,36,25,10,5
+239,GainsEF,3,0.84,Female,White,Not Hispanic or Latino,25,33,28,36,28,61,6,8,7,12,57,25,36,25,10,5
+239,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,25,33,28,36,28,61,6,8,7,12,57,25,36,25,10,5
+239,GainsEF,5,0.88,Female,White,Not Hispanic or Latino,25,33,28,36,28,61,6,8,7,12,57,25,36,25,10,5
+240,GainsEF,0,0.37333333333333335,Female,Prefer not to answer,Hispanic or Latino,29,19,14,28,27,85,25,25,16,11,59,43,57,19,30,31
+240,GainsEF,1,0.38666666666666666,Female,Prefer not to answer,Hispanic or Latino,29,19,14,28,27,85,25,25,16,11,59,43,57,19,30,31
+240,GainsEF,2,0.48,Female,Prefer not to answer,Hispanic or Latino,29,19,14,28,27,85,25,25,16,11,59,43,57,19,30,31
+240,GainsEF,3,0.28,Female,Prefer not to answer,Hispanic or Latino,29,19,14,28,27,85,25,25,16,11,59,43,57,19,30,31
+240,GainsEF,4,0.28,Female,Prefer not to answer,Hispanic or Latino,29,19,14,28,27,85,25,25,16,11,59,43,57,19,30,31
+240,GainsEF,5,0.6,Female,Prefer not to answer,Hispanic or Latino,29,19,14,28,27,85,25,25,16,11,59,43,57,19,30,31
+241,Gains,0,0.86,Male,White,Not Hispanic or Latino,36,35,28,32,27,55,16,12,5,16,53,38,40,31,13,19
+241,Gains,1,0.5,Male,White,Not Hispanic or Latino,36,35,28,32,27,55,16,12,5,16,53,38,40,31,13,19
+241,Gains,2,0.4,Male,White,Not Hispanic or Latino,36,35,28,32,27,55,16,12,5,16,53,38,40,31,13,19
+241,Gains,3,0.6,Male,White,Not Hispanic or Latino,36,35,28,32,27,55,16,12,5,16,53,38,40,31,13,19
+241,Gains,4,0.76,Male,White,Not Hispanic or Latino,36,35,28,32,27,55,16,12,5,16,53,38,40,31,13,19
+241,Gains,5,0.76,Male,White,Not Hispanic or Latino,36,35,28,32,27,55,16,12,5,16,53,38,40,31,13,19
+242,GainsEF,0,0.9733333333333334,Male,White,Not Hispanic or Latino,36,38,31,37,24,73,6,16,6,27,65,35,29,36,14,15
+242,GainsEF,1,0.9333333333333333,Male,White,Not Hispanic or Latino,36,38,31,37,24,73,6,16,6,27,65,35,29,36,14,15
+242,GainsEF,2,0.96,Male,White,Not Hispanic or Latino,36,38,31,37,24,73,6,16,6,27,65,35,29,36,14,15
+242,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,36,38,31,37,24,73,6,16,6,27,65,35,29,36,14,15
+242,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,36,38,31,37,24,73,6,16,6,27,65,35,29,36,14,15
+242,GainsEF,5,1.0,Male,White,Not Hispanic or Latino,36,38,31,37,24,73,6,16,6,27,65,35,29,36,14,15
+243,Gains,0,0.8,Female,White,Not Hispanic or Latino,35,34,29,37,25,70,16,22,8,6,60,56,49,21,18,3
+243,Gains,1,0.4,Female,White,Not Hispanic or Latino,35,34,29,37,25,70,16,22,8,6,60,56,49,21,18,3
+243,Gains,2,0.32,Female,White,Not Hispanic or Latino,35,34,29,37,25,70,16,22,8,6,60,56,49,21,18,3
+243,Gains,3,0.72,Female,White,Not Hispanic or Latino,35,34,29,37,25,70,16,22,8,6,60,56,49,21,18,3
+243,Gains,4,0.76,Female,White,Not Hispanic or Latino,35,34,29,37,25,70,16,22,8,6,60,56,49,21,18,3
+243,Gains,5,0.72,Female,White,Not Hispanic or Latino,35,34,29,37,25,70,16,22,8,6,60,56,49,21,18,3
+244,Gains,0,0.81,Female,White,Not Hispanic or Latino,32,37,16,36,23,60,12,7,0,8,61,41,44,17,8,4
+244,Gains,1,0.84,Female,White,Not Hispanic or Latino,32,37,16,36,23,60,12,7,0,8,61,41,44,17,8,4
+244,Gains,2,0.88,Female,White,Not Hispanic or Latino,32,37,16,36,23,60,12,7,0,8,61,41,44,17,8,4
+244,Gains,3,0.24,Female,White,Not Hispanic or Latino,32,37,16,36,23,60,12,7,0,8,61,41,44,17,8,4
+244,Gains,4,1.0,Female,White,Not Hispanic or Latino,32,37,16,36,23,60,12,7,0,8,61,41,44,17,8,4
+244,Gains,5,1.0,Female,White,Not Hispanic or Latino,32,37,16,36,23,60,12,7,0,8,61,41,44,17,8,4
+245,GainsEF,0,0.48,Male,White,Hispanic or Latino,36,35,18,38,22,66,13,12,22,7,44,26,36,25,13,16
+245,GainsEF,1,0.64,Male,White,Hispanic or Latino,36,35,18,38,22,66,13,12,22,7,44,26,36,25,13,16
+245,GainsEF,2,0.28,Male,White,Hispanic or Latino,36,35,18,38,22,66,13,12,22,7,44,26,36,25,13,16
+245,GainsEF,3,0.96,Male,White,Hispanic or Latino,36,35,18,38,22,66,13,12,22,7,44,26,36,25,13,16
+245,GainsEF,4,0.96,Male,White,Hispanic or Latino,36,35,18,38,22,66,13,12,22,7,44,26,36,25,13,16
+245,GainsEF,5,0.84,Male,White,Hispanic or Latino,36,35,18,38,22,66,13,12,22,7,44,26,36,25,13,16
+246,Gains,0,0.93,Male,More than one Race,Not Hispanic or Latino,36,31,31,40,35,46,12,5,11,8,70,40,39,26,3,7
+246,Gains,1,0.76,Male,More than one Race,Not Hispanic or Latino,36,31,31,40,35,46,12,5,11,8,70,40,39,26,3,7
+246,Gains,2,0.12,Male,More than one Race,Not Hispanic or Latino,36,31,31,40,35,46,12,5,11,8,70,40,39,26,3,7
+246,Gains,3,1.0,Male,More than one Race,Not Hispanic or Latino,36,31,31,40,35,46,12,5,11,8,70,40,39,26,3,7
+246,Gains,4,0.96,Male,More than one Race,Not Hispanic or Latino,36,31,31,40,35,46,12,5,11,8,70,40,39,26,3,7
+246,Gains,5,0.96,Male,More than one Race,Not Hispanic or Latino,36,31,31,40,35,46,12,5,11,8,70,40,39,26,3,7
+247,GainsEF,0,0.6666666666666666,Female,White,Not Hispanic or Latino,40,35,36,39,31,66,18,15,7,19,70,44,55,22,14,8
+247,GainsEF,1,0.7333333333333333,Female,White,Not Hispanic or Latino,40,35,36,39,31,66,18,15,7,19,70,44,55,22,14,8
+247,GainsEF,2,1.0,Female,White,Not Hispanic or Latino,40,35,36,39,31,66,18,15,7,19,70,44,55,22,14,8
+247,GainsEF,3,1.0,Female,White,Not Hispanic or Latino,40,35,36,39,31,66,18,15,7,19,70,44,55,22,14,8
+247,GainsEF,4,1.0,Female,White,Not Hispanic or Latino,40,35,36,39,31,66,18,15,7,19,70,44,55,22,14,8
+247,GainsEF,5,0.92,Female,White,Not Hispanic or Latino,40,35,36,39,31,66,18,15,7,19,70,44,55,22,14,8
