@@ -6,8 +6,8 @@ from utils.Within_Subj_Preprocessing import preprocess_data, extract_numbers
 # Process Gains and Losses Data
 # ======================================================================================================================
 # Read in the data
-data_raw = pd.read_csv('./data/ABCDGainsLossesData_F2023.csv')
-data_2nd_raw = pd.read_csv('./data/ABCDGainsLossesData_F20232ndBatch.csv')
+data_raw = pd.read_csv('./data/RawData/ABCDGainsLossesData_F2023.csv')
+data_2nd_raw = pd.read_csv('./data/RawData/ABCDGainsLossesData_F20232ndBatch.csv')
 
 # combine the data
 gain_losses = pd.concat([data_raw, data_2nd_raw], ignore_index=True)
@@ -53,12 +53,14 @@ numeric_var = ['ReactTime', 'Reward', 'BestOption', 'KeyResponse', 'SetSeen ', '
                'PSWQScore', 'STAITScore', 'STAISScore']
 dict_var = ['Gender', 'Ethnicity', 'Race', 'Age']
 
-data_BF, knowledge_BF = preprocess_data('./data/BF', behavior_var, other_var, numeric_var, dict_var,
+data_BF, knowledge_BF = preprocess_data('./data/RawData/BF', behavior_var, other_var, numeric_var, dict_var,
                                         estimate=True)
-data_FB, knowledge_FB = preprocess_data('./data/FB', behavior_var, other_var, numeric_var, dict_var,
+data_FB, knowledge_FB = preprocess_data('./data/RawData/FB', behavior_var, other_var, numeric_var, dict_var,
                                         baseline_pos=11, compare_pos=0, estimate=True)
 
 # remove knowledge data with from data
+data_BF['order'] = 'BF'
+data_FB['order'] = 'FB'
 data_BF = data_BF.drop(columns=knowledge_var)
 data_FB = data_FB.drop(columns=knowledge_var)
 
@@ -77,18 +79,43 @@ knowledge['Subnum'] = ids_knowledge
 # clean the age column
 data['Age'] = extract_numbers(data['Age'])
 
+# rename the columns and categorize the trial types
+data.rename(columns={'SetSeen ': 'TrialType'}, inplace=True)
+data['TrialType'] = data['TrialType'].replace({0: 'AB', 1: 'CD', 2: 'CA', 3: 'CB', 4: 'AD', 5: 'BD'})
+
 # calculate the proportion of optimal choices
-E2_demo_cols = [col for col in data.columns if col not in ['Subnum', 'Condition', 'SetSeen ', 'BestOption',
+E2_demo_cols = [col for col in data.columns if col not in ['Subnum', 'Condition', 'TrialType', 'BestOption',
                                                       'KeyResponse', 'ReactTime', 'Reward', 'OptionRwdMean']]
-propoptimal = data.groupby(['Subnum', 'Condition', 'SetSeen ']).agg(
+propoptimal = data.groupby(['Subnum', 'Condition', 'TrialType']).agg(
     BestOption=('BestOption', 'mean'),
     **{col: (col, 'first') for col in E2_demo_cols}
 ).reset_index()
 
-# save the data
-data.to_csv('./data/data_id.csv', index=False)
-knowledge.to_csv('./data/knowledge_id.csv', index=False)
-propoptimal.to_csv('./data/propoptimal_id.csv', index=False)
+propoptimal_training = propoptimal[propoptimal['TrialType'].isin(['AB', 'CD'])].reset_index(drop=True)
 
+# Find inattentive participants (those with 0 or 1 accuracy only)
+inattentive = propoptimal_training.groupby(['Subnum'])['BestOption'].agg(
+    lambda x: all(i in [0, 1] for i in x.unique())
+).reset_index()
+inattentive = inattentive[inattentive['BestOption']].reset_index(drop=True)
+print(f"Inattentive participants: {len(inattentive['Subnum'].unique())}")
+print(f"Inattentive participants: {inattentive['Subnum'].unique()}")
 
+# Save the inattentive participants
+inattentive.to_csv('./data/inattentive_participants.csv', index=False)
+
+# Remove inattentive participants from the data
+data_filtered = data[~data['Subnum'].isin(inattentive['Subnum'].unique())].reset_index(drop=True)
+knowledge_filtered = knowledge[~knowledge['Subnum'].isin(inattentive['Subnum'].unique())].reset_index(drop=True)
+propoptimal_filtered = propoptimal[~propoptimal['Subnum'].isin(inattentive['Subnum'].unique())].reset_index(drop=True)
+
+# save the unfiltered data
+data.to_csv('./data/data_id_unfiltered.csv', index=False)
+knowledge.to_csv('./data/knowledge_id_unfiltered.csv', index=False)
+propoptimal.to_csv('./data/propoptimal_id_unfiltered.csv', index=False)
+
+# save the filtered data
+data_filtered.to_csv('./data/data_id.csv', index=False)
+knowledge_filtered.to_csv('./data/knowledge_id.csv', index=False)
+propoptimal_filtered.to_csv('./data/propoptimal_id.csv', index=False)
 

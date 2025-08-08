@@ -1,1 +1,0 @@
-{"ESIBF_aggreResp":[[4,1,1,4,4,4,4,4,4,2,3,4,3,1,4,1,4,1,1]],"ESIBF_aggreScore":[7],"studyCode":"UCRwRdahVek","studyId":"27","studyTitle":"GainLoss_BF","batchId":"36","batchTitle":"Spring 2024 Batch1","componentId":"314","componentPos":8,"componentTitle":"ESIBF_aggre","workerId":"1010","studyResultId":"1200","componentResultId":"6911","groupResultId":"null","groupMemberId":null}

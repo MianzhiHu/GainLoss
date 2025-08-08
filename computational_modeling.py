@@ -54,12 +54,13 @@ if __name__ == '__main__':
 
     # # test the data
     # test_data = E2_data[E2_data['Subnum'] == 2]
-    # # test_data = E1_data[(E1_data['Subnum'] >= 1) & (E1_data['Subnum'] <= 4)]
+    # test_data = E1_data[(E1_data['Subnum'] >= 1) & (E1_data['Subnum'] <= 4)]
     # test_dict = dict_generator(test_data)
     #
     # testing_results = model_dual.fit(test_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
     #                                     weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, num_exp_restart=200,
     #                                     num_iterations=1, initial_mode='first_trial_no_alpha')
+    # obj_weight = testing_results['EV_Gau_history'].values[0]
     # testing_results = model_decay_PVL_RR.fit(test_dict, num_training_trials=120, num_exp_restart=200, num_iterations=1, initial_mode='first_trial_no_alpha')
 
     # ------------------------------------------------------------------------------------------------------------------

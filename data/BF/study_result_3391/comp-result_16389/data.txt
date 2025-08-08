@@ -1,1 +1,0 @@
-{"ESIBF_sResp":[[4,4,4,4,4,4,4,4,4,4,4,4,1,4,4,4,1,1]],"ESIBF_sScore":[3],"studyCode":"8mOq1R61S3h","studyId":"27","studyTitle":"GainLoss_BF","batchId":"49","batchTitle":"Fall 2024 Batch1","componentId":"315","componentPos":9,"componentTitle":"ESIBF_sub","workerId":"3157","studyResultId":"3391","componentResultId":"16389","groupResultId":"null","groupMemberId":null}

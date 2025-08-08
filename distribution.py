@@ -7,21 +7,20 @@ from utilities.utility_tests import normality_test, bimodal_test
 
 
 # Read in the data
-data = pd.read_csv('./data/data_PropOptimal.csv')
-data_with_assignment = pd.read_csv('./data/data_with_assignment.csv')
-
+data = pd.read_csv('./data/E2_summary_with_assignments.csv')
+data_with_assignment = pd.read_csv('./data/E2_data_with_assignments.csv')
 print(data_with_assignment['Ethnicity'].value_counts()/6)
 
 # Subset the data
-ABoptimal = data[data['ChoiceSet'] == 'AB']
-CDoptimal = data[data['ChoiceSet'] == 'CD']
-CAoptimal = data[data['ChoiceSet'] == 'CA']
-BDoptimal = data[data['ChoiceSet'] == 'BD']
-CBoptimal = data[data['ChoiceSet'] == 'CB']
-ADoptimal = data[data['ChoiceSet'] == 'AD']
+ABoptimal = data[data['SetSeen '] == 0]
+CDoptimal = data[data['SetSeen '] == 1]
+CAoptimal = data[data['SetSeen '] == 2]
+BDoptimal = data[data['SetSeen '] == 5]
+CBoptimal = data[data['SetSeen '] == 3]
+ADoptimal = data[data['SetSeen '] == 4]
 
-CAoptimal_with_assignment = data_with_assignment[data_with_assignment['ChoiceSet'] == 'CA']
-CA_group1 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 1]
+CAoptimal_with_assignment = data_with_assignment[data_with_assignment['SetSeen '] == 'CA']
+CA_group1 = CAoptimal_with_assignment[CAoptimal_with_assignment['group'] == 1]
 CA_group2 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 2]
 CA_group3 = CAoptimal_with_assignment[CAoptimal_with_assignment['assignments'] == 3]
 
@@ -52,17 +51,17 @@ condition_list = ['Losses', 'LossesEF', 'Gains', 'GainsEF']
 # stats.probplot(ABoptimal['PropOptimal'], plot=plt)
 # plt.show()
 
-# # Plot the distribution of PropOptimal for each trial
-# fig, axes = plt.subplots(3, 2, figsize=(15, 10))
-#
+# Plot the distribution of PropOptimal for each trial
+fig, axes = plt.subplots(3, 2, figsize=(15, 10))
+
 # Subset the data based on ChoiceSet values
 trial_data = {
-    'AB': data[data['ChoiceSet'] == 'AB'],
-    'CD': data[data['ChoiceSet'] == 'CD'],
-    'CA': data[data['ChoiceSet'] == 'CA'],
-    'BD': data[data['ChoiceSet'] == 'BD'],
-    'CB': data[data['ChoiceSet'] == 'CB'],
-    'AD': data[data['ChoiceSet'] == 'AD']
+    'AB': data[data['SetSeen '] == 0],
+    'CD': data[data['SetSeen '] == 1],
+    'CA': data[data['SetSeen '] == 2],
+    'BD': data[data['SetSeen '] == 5],
+    'CB': data[data['SetSeen '] == 3],
+    'AD': data[data['SetSeen '] == 4]
 }
 
 group_data = {
@@ -71,26 +70,26 @@ group_data = {
     'Bad Learners': CA_group3
 }
 
-condition_order = ['Gains', 'GainsEF', 'Losses', 'LossesEF']
+condition_order = ['Baseline', 'Frequency']
 
-# # Create a 3x2 grid of plots
-# fig, axes = plt.subplots(3, 2, figsize=(10, 18))
-#
-# # Loop through each subset of data and plot
-# for i, (name, trial) in enumerate(trial_data.items()):
-#     sns.kdeplot(data=trial, x='PropOptimal', hue='Condition', ax=axes[i // 2, i % 2],
-#                 hue_order=condition_order)
-#     axes[i // 2, i % 2].set_title(name)
-#
-#     # Set only the left boundary of x-axis
-#     current_xlim = axes[i // 2, i % 2].get_xlim()
-#     axes[i // 2, i % 2].set_xlim(0, current_xlim[1])  # 0 is the new left boundary
-#
-#     # axes[i // 2, i % 2].set_xlim(0.75, 1)  # Ensuring all plots have the same x-axis limit
-#
-# # Adjust the layout for a neat look
-# plt.tight_layout()
-# plt.show()
+# Create a 3x2 grid of plots
+fig, axes = plt.subplots(3, 2, figsize=(10, 18))
+
+# Loop through each subset of data and plot
+for i, (name, trial) in enumerate(trial_data.items()):
+    sns.kdeplot(data=trial, x='PropOptimal', hue='Condition', ax=axes[i // 2, i % 2],
+                hue_order=condition_order)
+    axes[i // 2, i % 2].set_title(name)
+
+    # Set only the left boundary of x-axis
+    current_xlim = axes[i // 2, i % 2].get_xlim()
+    axes[i // 2, i % 2].set_xlim(0, current_xlim[1])  # 0 is the new left boundary
+
+    # axes[i // 2, i % 2].set_xlim(0.75, 1)  # Ensuring all plots have the same x-axis limit
+
+# Adjust the layout for a neat look
+plt.tight_layout()
+plt.show()
 
 # create plots individually
 ax = sns.kdeplot(data=CA_group3, x='PropOptimal', hue='Condition', hue_order=condition_order)

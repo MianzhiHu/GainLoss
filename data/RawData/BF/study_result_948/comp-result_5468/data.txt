@@ -1,0 +1,1 @@
+{"CESDResp":[[1,2,2,2,2,2,2,2,2,2,2,3,2,2,3,2,2,2,2,2]],"CESDScore":[23],"studyCode":"UCRwRdahVek","studyId":"27","studyTitle":"GainLoss_BF","batchId":"36","batchTitle":"Spring 2024 Batch1","componentId":"312","componentPos":6,"componentTitle":"CESD","workerId":"770","studyResultId":"948","componentResultId":"5468","groupResultId":"null","groupMemberId":null}

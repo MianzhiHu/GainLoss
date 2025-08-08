@@ -16,8 +16,8 @@ E2_data = pd.read_csv('./data/data_id.csv')
 # Subset the data
 E1_CA_Baseline = E1_PropOptimal[(E1_PropOptimal['Condition'] == 'GainsEF') & (E1_PropOptimal['SetSeen.'] == 2)]
 E1_CA_Frequency = E1_PropOptimal[(E1_PropOptimal['Condition'] == 'Gains') & (E1_PropOptimal['SetSeen.'] == 2)]
-E2_CA_Baseline = E2_PropOptimal[(E2_PropOptimal['Condition'] == 'Baseline') & (E2_PropOptimal['SetSeen '] == 2)]
-E2_CA_Frequency = E2_PropOptimal[(E2_PropOptimal['Condition'] == 'Frequency') & (E2_PropOptimal['SetSeen '] == 2)]
+E2_CA_Baseline = E2_PropOptimal[(E2_PropOptimal['Condition'] == 'Baseline') & (E2_PropOptimal['TrialType'] == 'CA')]
+E2_CA_Frequency = E2_PropOptimal[(E2_PropOptimal['Condition'] == 'Frequency') & (E2_PropOptimal['TrialType'] == 'CA')]
 
 # validate the model with 1000 iterations
 # In BD trials, too many participants had 0 optimal choices, which makes the model fail to converge

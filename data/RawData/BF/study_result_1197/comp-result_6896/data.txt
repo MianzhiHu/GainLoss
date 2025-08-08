@@ -1,0 +1,1 @@
+{"PSWQResp":[[1,4,1,4,4,4,3,2,4,1,1,4,4,4,4,5]],"PSWQScore":[68],"studyCode":"UCRwRdahVek","studyId":"27","studyTitle":"GainLoss_BF","batchId":"36","batchTitle":"Spring 2024 Batch1","componentId":"316","componentPos":10,"componentTitle":"PSWQ","workerId":"1007","studyResultId":"1197","componentResultId":"6896","groupResultId":"null","groupMemberId":null}

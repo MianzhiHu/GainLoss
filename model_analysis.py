@@ -1,11 +1,17 @@
+import ast
+import re
+
 import numpy as np
 import pandas as pd
-from utils.ComputationalModeling import parameter_extractor
+import pingouin as pg
+from utils.ComputationalModeling import parameter_extractor, trialwise_extractor
 
 # read behavioral data
 E1_data = pd.read_csv('./data/E1_data_with_assignments.csv')
-E2_data = pd.read_csv('./data/E2_data_with_assignments.csv')
-print(E1_data.columns)
+E2_data = pd.read_csv('./data/E2_data_full.csv')
+E2_summary = pd.read_csv('./data/E2_summary_full.csv')
+
+print(E2_summary.columns)
 print(E1_data.groupby('Condition')['Sex'].value_counts())
 
 # Rename E2 columns to match E1
@@ -13,7 +19,7 @@ E2_data.rename(columns={'Gender': 'Sex','BISScore': 'Bis11Score', 'CESDScore': '
                         'ESIBF_disinhScore': 'ESIBF_Disinhibition', 'ESIBF_sScore': 'ESIBF_SubstanceUse',
                         'ESIBF_aggreScore': 'ESIBF_Aggression', 'PSWQScore': 'PSWQ', 'STAI_Score': 'STAIS',
                         'STAI_TScore': 'STAIT'}, inplace=True)
-subj_level_col = ['Subnum', 'Condition', 'Age', 'Sex', 'Race', 'Ethnicity', 'Big5O', 'Big5C', 'Big5E', 'Big5A', 'Big5N',
+subj_level_col = ['Subnum', 'Age', 'Sex', 'Race', 'Ethnicity', 'Big5O', 'Big5C', 'Big5E', 'Big5A', 'Big5N',
                      'Bis11Score', 'CESD', 'ESIBF_Disinhibition', 'ESIBF_SubstanceUse', 'NPI', 'PSWQ', 'STAIS', 'STAIT',
                      'TPM_Boldness', 'TPM_Disinhibition', 'TPM_Meanness']
 E1_subj_level_col = subj_level_col + ['prob1', 'prob2', 'prob3', 'assignments']
@@ -56,7 +62,7 @@ def print_mean_bic(results, condition):
     print(f"Mean BIC for {condition}:")
     for name, df in results.items():
         if not df.empty:
-            mean_bic = df.groupby('Condition')['BIC'].mean()
+            mean_bic = df['BIC'].mean()
             print(f"{name}: {mean_bic}")
 
 print_mean_bic(E1_results, "E1")
@@ -65,14 +71,68 @@ print_mean_bic(E2_baseline_results, "E2 Baseline")
 print_mean_bic(E2_freq_results, "E2 Frequency")
 
 # ======================================================================================================================
+# Best model
+# ======================================================================================================================
+model_baseline_nlls = []
+for model_name, df in E2_baseline_results.items():
+    model_df = df[['Subnum', 'BIC']].copy()
+    model_df['model'] = model_name
+    model_df['Condition'] = 'Baseline'
+    model_baseline_nlls.append(model_df)
+
+model_frequency_nlls = []
+for model_name, df in E2_freq_results.items():
+    model_df = df[['Subnum', 'BIC']].copy()
+    model_df['model'] = model_name
+    model_df['Condition'] = 'Frequency'
+    model_frequency_nlls.append(model_df)
+
+# Step 2: Concatenate all models
+all_nlls = pd.concat(model_baseline_nlls + model_frequency_nlls, ignore_index=True)
+
+# Step 3: Find the best model (lowest nll) per participant
+best_model_per_participant = (
+    all_nlls.sort_values('BIC')
+            .drop_duplicates(['Subnum', 'Condition'], keep='first')
+            .reset_index(drop=True)
+)
+# Assuming 'group' is in any of the model DataFrames, like decay
+group_info = E2_baseline_results['delta'][['Subnum', 'group_baseline']]
+all_nlls = all_nlls.merge(group_info, on='Subnum', how='left')
+best_model_per_participant = best_model_per_participant.merge(group_info, on='Subnum', how='left')
+
+model_counts = (best_model_per_participant.groupby(['group_baseline', 'Condition', 'model']).size().unstack(fill_value=0))
+
+avg_bic = (all_nlls.groupby(['group_baseline', 'Condition', 'model'])['BIC'].mean().unstack(level='model').round(2))
+
+print(avg_bic)
+
+print(model_counts)
+
+# ======================================================================================================================
 # Extract the dual process model for model analysis
 # ======================================================================================================================
-E2_all_dual = E2_all_results['dual'].copy()
-E2_baseline_dual = E2_baseline_results['dual'].copy()
-E2_freq_dual = E2_freq_results['dual'].copy()
+model = 'dual'
+# param_name = ['t', 'alpha', 'w', 'lambda']
+param_name = ['t', 'alpha', 'subj_weight']
 
-E2_all_dual = parameter_extractor(E2_all_dual)
-E2_baseline_dual = parameter_extractor(E2_baseline_dual)
-E2_freq_dual = parameter_extractor(E2_freq_dual)
+E2_all_model = E2_all_results[model].copy()
+E2_baseline_model = E2_baseline_results[model].copy()
+E2_freq_model = E2_freq_results[model].copy()
 
-print(E2_freq_dual.groupby('group_baseline')['subj_weight'].mean())
+E2_all_model = parameter_extractor(E2_all_model, param_name)
+E2_baseline_model = parameter_extractor(E2_baseline_model, param_name)
+E2_freq_model = parameter_extractor(E2_freq_model, param_name)
+
+# combine them and add a column for the condition
+E2_baseline_model['Condition'] = 'Baseline'
+E2_freq_model['Condition'] = 'Frequency'
+E2_all_model['Condition'] = 'All'
+E2_dual = pd.concat([E2_baseline_model, E2_freq_model], ignore_index=True).sort_values(by=['Subnum']). reset_index(drop=True)
+# remove group 2
+E2_group13 = E2_dual[E2_dual['group_baseline'] != 2].copy()
+
+# Mixed ANOVA for dual process model
+var = 'subj_weight'  # the variable to analyze
+mixed_anova_dual = pg.mixed_anova(E2_dual, dv=var, within='Condition', between='group_baseline', subject='Subnum')
+print(E2_dual.groupby(['group_baseline', 'Condition'])[var].mean().reset_index())

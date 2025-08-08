@@ -1,0 +1,1 @@
+{"STAISResp":[[3,3,2,2,3,1,1,3,1,3,3,1,1,1,3,3,1,1,3,3]],"STAISScore":[32],"studyCode":"s5v5hJHeTkm","studyId":"26","studyTitle":"GainLoss_FB","batchId":"46","batchTitle":"Fall 2024 Batch1","componentId":"305","componentPos":12,"componentTitle":"STAIS","workerId":"2238","studyResultId":"2471","componentResultId":"12660","groupResultId":"null","groupMemberId":null}

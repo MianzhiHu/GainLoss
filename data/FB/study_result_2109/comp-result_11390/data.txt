@@ -1,1 +1,0 @@
-{"STAITResp":[[3,3,2,3,2,1,2,3,4,3,1,2,2,2,2,3,4,3,2,4]],"STAITScore":[56],"studyCode":"s5v5hJHeTkm","studyId":"26","studyTitle":"GainLoss_FB","batchId":"46","batchTitle":"Fall 2024 Batch1","componentId":"304","componentPos":11,"componentTitle":"STAIT","workerId":"1876","studyResultId":"2109","componentResultId":"11390","groupResultId":"null","groupMemberId":null}
