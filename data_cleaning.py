@@ -2,39 +2,55 @@ import pandas as pd
 import numpy as np
 from utils.Within_Subj_Preprocessing import preprocess_data, extract_numbers
 
-# ======================================================================================================================
-# Process Gains and Losses Data
-# ======================================================================================================================
-# Read in the data
-data_raw = pd.read_csv('./data/RawData/ABCDGainsLossesData_F2023.csv')
-data_2nd_raw = pd.read_csv('./data/RawData/ABCDGainsLossesData_F20232ndBatch.csv')
-
-# combine the data
-gain_losses = pd.concat([data_raw, data_2nd_raw], ignore_index=True)
-
-# keep only gains data
-gain_losses = gain_losses[gain_losses['Condition'].isin(['Gains', 'GainsEF'])].reset_index(drop=True)
-
-# reassign the subnum every 250 rows
-gain_losses['Subnum'] = gain_losses.index // 250 + 1
-
-# Drop the first column and the last 7 columns
-gain_losses = gain_losses.drop(columns=['Unnamed: 0'])
-
-# Print the frequency of AB and CD trials during training per condition
-print(gain_losses.groupby(['Condition', 'SetSeen.']).size().unstack(fill_value=0))
-
-# Get Proportion of Optimal Choices
-E1_demo_cols = [col for col in gain_losses.columns if col not in ['Subnum', 'Condition', 'SetSeen.', 'BestOption',
-                                                               'KeyResponse', 'ReactTime', 'Reward', 'OptionRwdMean', 'Phase']]
-propoptimal_E1 = gain_losses.groupby(['Subnum', 'Condition', 'SetSeen.']).agg(
-    BestOption=('BestOption', 'mean'),
-    **{col: (col, 'first') for col in E1_demo_cols}
-).reset_index()
-
-# save the data
-gain_losses.to_csv('./data/data_gains.csv', index=False)
-propoptimal_E1.to_csv('./data/propoptimal_E1.csv', index=False)
+# # ======================================================================================================================
+# # Process Gains and Losses Data
+# # ======================================================================================================================
+# # Read in the data
+# data_raw = pd.read_csv('./data/RawData/ABCDGainsLossesData_F2023.csv')
+# data_2nd_raw = pd.read_csv('./data/RawData/ABCDGainsLossesData_F20232ndBatch.csv')
+#
+# # combine the data
+# gain_losses = pd.concat([data_raw, data_2nd_raw], ignore_index=True)
+#
+# # keep only gains data
+# gain_losses = gain_losses[gain_losses['Condition'].isin(['Gains', 'GainsEF'])].reset_index(drop=True)
+#
+# # reassign the subnum every 250 rows
+# gain_losses['Subnum'] = gain_losses.index // 250 + 1
+#
+# # Drop the first column and the last 7 columns
+# gain_losses = gain_losses.drop(columns=['Unnamed: 0'])
+#
+# # Print the frequency of AB and CD trials during training per condition
+# print(gain_losses.groupby(['Condition', 'SetSeen.']).size().unstack(fill_value=0))
+#
+# # Get Proportion of Optimal Choices
+# E1_demo_cols = [col for col in gain_losses.columns if col not in ['Subnum', 'Condition', 'SetSeen.', 'BestOption',
+#                                                                'KeyResponse', 'ReactTime', 'Reward', 'OptionRwdMean', 'Phase']]
+# propoptimal_E1 = gain_losses.groupby(['Subnum', 'Condition', 'SetSeen.']).agg(
+#     BestOption=('BestOption', 'mean'),
+#     **{col: (col, 'first') for col in E1_demo_cols}
+# ).reset_index()
+#
+# E1_propoptimal_training = propoptimal_E1[propoptimal_E1['SetSeen.'].isin([0, 1])].reset_index(drop=True)
+#
+# inattentive = E1_propoptimal_training.groupby(['Subnum'])['BestOption'].agg(
+#     lambda x: all(i in [0, 1] for i in x.unique())
+# ).reset_index()
+# inattentive = inattentive[inattentive['BestOption']].reset_index(drop=True)
+# print(f"Inattentive participants: {len(inattentive['Subnum'].unique())}")
+# print(f"Inattentive participants: {inattentive['Subnum'].unique()}")
+#
+# # Save the inattentive participants
+# inattentive.to_csv('./data/E1_inattentive_participants.csv', index=False)
+#
+# # Remove inattentive participants from the data
+# gain_losses = gain_losses[~gain_losses['Subnum'].isin(inattentive['Subnum'].unique())].reset_index(drop=True)
+# propoptimal_E1 = propoptimal_E1[~propoptimal_E1['Subnum'].isin(inattentive['Subnum'].unique())].reset_index(drop=True)
+#
+# # save the data
+# gain_losses.to_csv('./data/data_gains.csv', index=False)
+# propoptimal_E1.to_csv('./data/propoptimal_E1.csv', index=False)
 
 # ======================================================================================================================
 # Process Within-Subject Data
@@ -102,7 +118,7 @@ print(f"Inattentive participants: {len(inattentive['Subnum'].unique())}")
 print(f"Inattentive participants: {inattentive['Subnum'].unique()}")
 
 # Save the inattentive participants
-inattentive.to_csv('./data/inattentive_participants.csv', index=False)
+inattentive.to_csv('./data/E2_inattentive_participants.csv', index=False)
 
 # Remove inattentive participants from the data
 data_filtered = data[~data['Subnum'].isin(inattentive['Subnum'].unique())].reset_index(drop=True)

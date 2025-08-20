@@ -15,6 +15,8 @@ E2_data = pd.read_csv('./data/data_id.csv')
 E1_data['KeyResponse'] = E1_data['KeyResponse'] - 1
 
 E2_data = E2_data.reset_index(drop=True)
+E2_data.rename(columns={'TrialType': 'SetSeen '}, inplace=True)
+E2_data['SetSeen '] = E2_data['SetSeen '].replace({'AB': 0, 'CD': 1, 'CA': 2, 'CB': 3, 'AD': 4, 'BD': 5})
 E2_data['KeyResponse'] = E2_data['KeyResponse'] - 1
 
 # Divide by condition
@@ -35,6 +37,7 @@ if __name__ == '__main__':
     # Define the model
     model_delta = ComputationalModels(model_type='delta')
     model_delta_PVL = ComputationalModels(model_type='delta_PVL')
+    model_delta_asymmetric = ComputationalModels(model_type='delta_asymmetric')
     model_delta_PVL_relative = ComputationalModels(model_type='delta_PVL_relative')
     model_delta_PVL_RR = ComputationalModels(model_type='delta_PVL_relative_RR')
     model_decay = ComputationalModels(model_type='decay')
@@ -43,16 +46,26 @@ if __name__ == '__main__':
     model_decay_PVL_relative = ComputationalModels(model_type='decay_PVL_relative')
     model_decay_PVL_RR = ComputationalModels(model_type='decay_PVL_relative_RR')
     model_decay_PVPE = ComputationalModels(model_type='decay_PVPE')
+    model_delta_decay = ComputationalModels(model_type='delta_decay_weight')
+    model_delta_decay_PVL = ComputationalModels(model_type='delta_decay_PVL_weight')
+    model_delta_decay_PVL_relative = ComputationalModels(model_type='delta_decay_PVL_relative_weight')
+    model_delta_decay_win = ComputationalModels(model_type='delta_decay_win_asymmetric_weight')
+    model_delta_asymmetric_decay_win = ComputationalModels(model_type='delta_decay_win_asymmetric_weight')
+    model_delta_decay_PVL_win = ComputationalModels(model_type='delta_decay_win_PVL_weight')
+    model_delta_decay_PVL_relative_win = ComputationalModels(model_type='delta_decay_win_PVL_relative_weight')
     model_dual = DualProcessModel()
     model_dual_sensitivity = DualProcessModel()
 
     model_list = [model_delta, model_delta_PVL, model_delta_PVL_relative, model_delta_PVL_RR,
                   model_decay, model_decay_win, model_decay_PVL, model_decay_PVL_relative, model_decay_PVL_RR, model_decay_PVPE,
-                  model_dual, model_dual_sensitivity]
+                  model_dual, model_dual_sensitivity, model_delta_decay, model_delta_decay_PVL, model_delta_decay_PVL_relative,
+                  model_delta_decay_win, model_delta_decay_PVL_win, model_delta_decay_PVL_relative_win, model_delta_asymmetric,
+                  model_delta_asymmetric_decay_win]
 
     n_iterations = 100
 
     # # test the data
+    # test_data = E2_data[E2_data['Subnum'] == 2]
     # test_data = E2_data[E2_data['Subnum'] == 2]
     # test_data = E1_data[(E1_data['Subnum'] >= 1) & (E1_data['Subnum'] <= 4)]
     # test_dict = dict_generator(test_data)
@@ -61,76 +74,78 @@ if __name__ == '__main__':
     #                                     weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, num_exp_restart=200,
     #                                     num_iterations=1, initial_mode='first_trial_no_alpha')
     # obj_weight = testing_results['EV_Gau_history'].values[0]
-    # testing_results = model_decay_PVL_RR.fit(test_dict, num_training_trials=120, num_exp_restart=200, num_iterations=1, initial_mode='first_trial_no_alpha')
+    # testing_results = model_delta_decay_PVL_win.fit(test_dict, num_training_trials=120, num_exp_restart=200, num_iterations=1, initial_mode='first_trial_no_alpha')
 
     # ------------------------------------------------------------------------------------------------------------------
     # Experiment 1
     # ------------------------------------------------------------------------------------------------------------------
     # Fit all data (Since E1 is between-subjects, we can fit all data together)
     model_names = ['delta', 'delta_PVL', 'delta_PVL_relative', 'delta_PVL_relative_RR', 'decay', 'decay_win',
-                   'decay_PVL', 'decay_PVL_relative', 'decay_PVL_relative_RR', 'decay_PVPE', 'dual', 'dual_sensitivity']
+                   'decay_PVL', 'decay_PVL_relative', 'decay_PVL_relative_RR', 'decay_PVPE', 'dual', 'dual_sensitivity',
+                   'delta_decay', 'delta_decay_PVL', 'delta_decay_PVL_relative', 'delta_decay_win', 'delta_decay_PVL_win',
+                   'delta_decay_PVL_relative_win', 'delta_asymmetric', 'delta_asymmetric_decay_win']
 
-    for i, model in enumerate(model_list):
-        print(f"Fitting model: {model_names[i]}")
-        save_dir = f'./data/ModelFitting/E1/{model_names[i]}_results.csv'
-        # Check if the file already exists
-        try:
-         existing_results = pd.read_csv(save_dir)
-         if not existing_results.empty:
-              print(f"File {save_dir} already exists. Skipping model fitting.")
-              continue
-        except FileNotFoundError:
-         pass
-
-        if model_names[i] == 'dual':
-            # Fit the dual-process model
-            model_results = model.fit(E1_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
-                                      num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial_no_alpha')
-        elif model_names[i] == 'dual_sensitivity':
-            # Fit the dual-process model with sensitivity
-            model_results = model.fit(E1_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150,
-                                      num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial_no_alpha')
-        else:
-        # For other models, fit them directly
-            model_results = model.fit(E1_dict, num_training_trials=150, num_exp_restart=250, num_iterations=n_iterations,
-                                      initial_mode='first_trial_no_alpha')
-
-        model_results.to_csv(save_dir, index=False)
-
-    # ------------------------------------------------------------------------------------------------------------------
-    # Experiment 2
-    # ------------------------------------------------------------------------------------------------------------------
-    # Fit all data (Here we manually force the model to set at trial 200 to account for task switching)
-    for i, model in enumerate(model_list):
-            save_dir = f'./data/ModelFitting/E2/{model_names[i]}_results.csv'
-            # Check if the file already exists
-            try:
-             existing_results = pd.read_csv(save_dir)
-             if not existing_results.empty:
-                  print(f"File {save_dir} already exists. Skipping model fitting.")
-                  continue
-            except FileNotFoundError:
-             pass
-
-            if model_names[i] == 'dual':
-                # Fit the dual-process model
-                model_results = model.fit(E2_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                          weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
-                                          num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
-            elif model_names[i] == 'dual_sensitivity':
-                # Fit the dual-process model with sensitivity
-                model_results = model.fit(E2_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                          weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
-                                          num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
-            else:
-            # For other models, fit them directly
-                model_results = model.fit(E2_dict, num_training_trials=120, num_exp_restart=200,
-                                          num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
-
-            model_results.to_csv(save_dir, index=False)
-
+    # for i, model in enumerate(model_list):
+    #     print(f"Fitting model: {model_names[i]}")
+    #     save_dir = f'./data/ModelFitting/E1/{model_names[i]}_results.csv'
+    #     # Check if the file already exists
+    #     try:
+    #      existing_results = pd.read_csv(save_dir)
+    #      if not existing_results.empty:
+    #           print(f"File {save_dir} already exists. Skipping model fitting.")
+    #           continue
+    #     except FileNotFoundError:
+    #      pass
+    #
+    #     if model_names[i] == 'dual':
+    #         # Fit the dual-process model
+    #         model_results = model.fit(E1_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #                                   weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150, a_min=1,
+    #                                   num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial_no_alpha')
+    #     elif model_names[i] == 'dual_sensitivity':
+    #         # Fit the dual-process model with sensitivity
+    #         model_results = model.fit(E1_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #                                   weight_Dir='softmax', weight_Gau='softmax', num_training_trials=150, a_min=1,
+    #                                   num_iterations=n_iterations, num_exp_restart=250, initial_mode='first_trial_no_alpha')
+    #     else:
+    #     # For other models, fit them directly
+    #         model_results = model.fit(E1_dict, num_training_trials=150, num_exp_restart=250, num_iterations=n_iterations,
+    #                                   initial_mode='first_trial_no_alpha')
+    #
+    #     model_results.to_csv(save_dir, index=False)
+    #
+    # # ------------------------------------------------------------------------------------------------------------------
+    # # Experiment 2
+    # # ------------------------------------------------------------------------------------------------------------------
+    # # Fit all data (Here we manually force the model to set at trial 200 to account for task switching)
+    # for i, model in enumerate(model_list):
+    #         save_dir = f'./data/ModelFitting/E2/{model_names[i]}_results.csv'
+    #         # Check if the file already exists
+    #         try:
+    #          existing_results = pd.read_csv(save_dir)
+    #          if not existing_results.empty:
+    #               print(f"File {save_dir} already exists. Skipping model fitting.")
+    #               continue
+    #         except FileNotFoundError:
+    #          pass
+    #
+    #         if model_names[i] == 'dual':
+    #             # Fit the dual-process model
+    #             model_results = model.fit(E2_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, a_min=1,
+    #                                       num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
+    #         elif model_names[i] == 'dual_sensitivity':
+    #             # Fit the dual-process model with sensitivity
+    #             model_results = model.fit(E2_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
+    #                                       weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, a_min=1,
+    #                                       num_exp_restart=200, num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
+    #         else:
+    #         # For other models, fit them directly
+    #             model_results = model.fit(E2_dict, num_training_trials=120, num_exp_restart=200,
+    #                                       num_iterations=n_iterations, initial_mode='first_trial_no_alpha')
+    #
+    #         model_results.to_csv(save_dir, index=False)
+    #
     # ------------------------------------------------------------------------------------------------------------------
     # for baseline data
     # ------------------------------------------------------------------------------------------------------------------
@@ -149,12 +164,12 @@ if __name__ == '__main__':
         if model_names[i] == 'dual':
             # Fit the dual-process model
             model_results = model.fit(E2_baseline_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, a_min=1,
                                       num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
         elif model_names[i] == 'dual_sensitivity':
             # Fit the dual-process model with sensitivity
             model_results = model.fit(E2_baseline_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, a_min=1,
                                       num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
         else:
         # For other models, fit them directly
@@ -181,12 +196,12 @@ if __name__ == '__main__':
         if model_names[i] == 'dual':
             # Fit the dual-process model
             model_results = model.fit(E2_frequency_dict, 'Dual_Process', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, a_min=1,
                                       num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
         elif model_names[i] == 'dual_sensitivity':
             # Fit the dual-process model with sensitivity
             model_results = model.fit(E2_frequency_dict, 'Dual_Process_Sensitivity', Gau_fun='Naive_Recency', Dir_fun='Linear_Recency',
-                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120,
+                                      weight_Dir='softmax', weight_Gau='softmax', num_training_trials=120, a_min=1,
                                       num_iterations=n_iterations, num_exp_restart=200, initial_mode='first_trial_no_alpha')
         else:
         # For other models, fit them directly

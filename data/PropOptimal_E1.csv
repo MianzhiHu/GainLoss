@@ -119,12 +119,6 @@ Subnum,Condition,SetSeen.,BestOption,Sex,Race,Ethnicity,Big5O,Big5C,Big5E,Big5A,
 20,GainsEF,3,0.52,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
 20,GainsEF,4,0.44,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
 20,GainsEF,5,0.6,Female,White,Hispanic or Latino,28,33,19,40,12,66,12,7,14,20,25,22,25,42,9,17
-21,Gains,0,1.0,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
-21,Gains,1,0.0,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
-21,Gains,2,0.2,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
-21,Gains,3,0.24,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
-21,Gains,4,0.68,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
-21,Gains,5,0.68,Female,White,Not Hispanic or Latino,39,31,33,29,30,83,35,24,3,12,64,44,60,26,21,20
 22,Gains,0,0.83,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
 22,Gains,1,0.28,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
 22,Gains,2,0.48,Male,White,Not Hispanic or Latino,29,40,27,26,24,50,20,9,6,25,68,40,52,43,8,29
@@ -197,12 +191,6 @@ Subnum,Condition,SetSeen.,BestOption,Sex,Race,Ethnicity,Big5O,Big5C,Big5E,Big5A,
 33,GainsEF,3,0.44,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
 33,GainsEF,4,0.64,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
 33,GainsEF,5,0.4,Female,White,Not Hispanic or Latino,26,41,20,28,28,54,13,7,7,12,75,42,41,25,10,16
-34,Gains,0,0.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
-34,Gains,1,1.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
-34,Gains,2,0.08,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
-34,Gains,3,0.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
-34,Gains,4,1.0,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
-34,Gains,5,0.96,Female,Asian,Not Hispanic or Latino,34,35,23,40,25,64,27,9,0,14,80,32,46,24,13,5
 35,GainsEF,0,0.6266666666666667,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
 35,GainsEF,1,0.4666666666666667,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
 35,GainsEF,2,0.52,Female,Asian,Not Hispanic or Latino,44,28,37,42,29,64,20,8,0,13,73,34,50,22,12,6
@@ -233,12 +221,6 @@ Subnum,Condition,SetSeen.,BestOption,Sex,Race,Ethnicity,Big5O,Big5C,Big5E,Big5A,
 39,Gains,3,0.88,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
 39,Gains,4,1.0,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
 39,Gains,5,1.0,Male,White,Not Hispanic or Latino,30,29,19,31,24,68,17,9,2,10,59,47,52,22,10,11
-40,GainsEF,0,1.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
-40,GainsEF,1,0.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
-40,GainsEF,2,0.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
-40,GainsEF,3,1.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
-40,GainsEF,4,1.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
-40,GainsEF,5,0.0,Male,White,Not Hispanic or Latino,48,37,31,45,8,76,2,12,30,26,17,20,20,46,13,0
 41,Gains,0,0.68,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
 41,Gains,1,0.64,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
 41,Gains,2,0.0,Female,White,Not Hispanic or Latino,24,26,16,29,36,93,39,14,1,21,79,80,64,14,16,18
