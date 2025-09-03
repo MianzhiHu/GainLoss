@@ -8,7 +8,6 @@ library(mgcv)
 library(sjPlot)
 library(segmented)
 library(survival)
-library(changepoint)
 library(car)
 library(emmeans)
 library(nnet)
@@ -16,6 +15,7 @@ library(MASS)
 library(lavaan)
 library(ez)
 library(semPlot)
+library(purrr)
 
 # ==============================================================================
 # Summary Data
@@ -90,14 +90,24 @@ model <- lmer(BestOption_Frequency ~ BestOption_Baseline * TrialType +
 summary(model)
 plot(allEffects(model))
 
+model <- lmer(BestOption ~ Condition * TrialType +
+                (1|Subnum), data = data)
+summary(model)
+plot(allEffects(model))
+
 # focus on the interaction BestOption_Baseline:TrialType
-rng <- range(frequency$BestOption_Baseline, na.rm = TRUE)
+rng <- range(frequency_CA$BestOption_Baseline, na.rm = TRUE)
 eff <- effect(
   "BestOption_Baseline:TrialType", model,
   xlevels = list(BestOption_Baseline = seq(rng[1], rng[2], length.out = 200))
 )
 eff_df <- as.data.frame(eff)
 write.csv(eff_df, "eff_df.csv", row.names = FALSE)
+
+# Order effects
+order_effects_model <- lmer(BestOption ~ Condition + TrialType * order + (1|Subnum), data = data)
+summary(order_effects_model)
+plot(allEffects(order_effects_model))
 
 
 accuracy_wide_AB <- accuracy_wide %>%
@@ -332,10 +342,27 @@ model_summary_baseline <- model_summary %>%
 model_summary_frequency <- model_summary %>%
   filter(Condition == 'Frequency')
 
+model_summary_long <- model_summary %>%
+  pivot_longer(
+    cols = -c(Subnum, AIC, BIC, model, Condition, BestOption, BestOption_Baseline, training_accuracy),
+    names_to = "parameter",
+    values_to = "value"
+  ) %>%
+  mutate(
+    Condition = as.factor(Condition),
+    model = as.factor(model),
+    Subnum = as.factor(Subnum)
+  )
+
+wide_df <- model_summary_long %>%
+  dplyr::select(Subnum, Condition, parameter, value, model)%>%
+  pivot_wider(names_from = Condition, values_from = value)
+
 model_list <- c('delta', 'delta_PVL', 'delta_asymmetric', 'decay', 'decay_PVL', 
                 'decay_win')
 model_list <- c('delta_asymmetric_decay_win')
-model_list <- c('delta_PVL', 'decay_PVL')
+model_list <- c('delta_decay_win', 'delta_decay_PVL_win', 'delta_asymmetric_decay_win')
+model_list <- c('delta_decay_win')
 model_data <- model_summary_frequency %>%
   filter(model%in%model_list)
 
@@ -343,34 +370,67 @@ model <- lmer(BIC ~ BestOption_Baseline + model + (1|Subnum), data = model_data)
 summary(model)
 plot(allEffects(model))
 
-model <- lmer(alpha ~ BestOption * Condition + model + (1|Subnum), data = model_data)
-summary(model)
-plot(allEffects(model))
+model_t <- lmer(BestOption ~ t * Condition + model + (1|Subnum), data = model_summary)
+model_alpha <- lmer(BestOption ~ alpha * Condition + model + (1|Subnum), data = model_summary)
+model_alpha_neg <- lmer(BestOption ~ alpha_neg * Condition + model + (1|Subnum), data = model_summary)
+model_scale <- lmer(BestOption ~ scale * Condition + model + (1|Subnum), data = model_summary)
+model_la <- lmer(BestOption ~ la * Condition + model + (1|Subnum), data = model_summary)
+model_weight <- lmer(BestOption ~ weight * Condition + (1|Subnum), data = model_summary)
+
+mods <- list(
+  t         = model_t,
+  alpha     = model_alpha,
+  alpha_neg = model_alpha_neg,
+  scale     = model_scale,
+  la        = model_la,
+  weight    = model_weight
+)
+
+for (nm in names(mods)) {
+  cat("\n====================\n")
+  cat("Model:", nm, "\n")
+  cat("====================\n")
+  print(summary(mods[[nm]]))
+}
+
+# Supplement
+model_summary_frequency$model <- factor(
+  model_summary_frequency$model,
+  levels = c('delta_asymmetric_decay_win', 'delta_decay', 'delta_decay_PVL', 'delta_decay_win', 'delta_decay_PVL_win'),
+  labels = c('DeltaAsymmetric-DecayWin', 'Delta-Decay', 'DeltaPVL-DecayPVL', 'Delta-DecayWin', 'DeltaPVL-DecayWin')
+)
+
+all_hybrid_model <- lmer(weight ~ BestOption_Baseline * model + (1|Subnum), 
+                         data = model_summary_frequency)
+
+# 3) Plot the interaction effect (one panel per model)
+eff_int <- Effect(c("BestOption_Baseline", "model"), all_hybrid_model)
+
+plt <- plot(
+  eff_int,
+  multiline = FALSE,                
+  ci.style = "bands",
+  xlab = "% C Choices in Baseline", 
+  ylab = "Delta Learning Weight",        
+  main = "Delta Learning Weights By Baseline C Choice Rates",
+  layout = c(3, 2)
+)
+
+print(plt)
 
 model <- glm(weight ~ BestOption * Condition, data = model_data)
 summary(model)
 plot(allEffects(model))
-
-rng <- range(model_data$BestOption_Baseline, na.rm = TRUE)
-eff <- effect(
-  "BestOption_Baseline:model", model,
-  xlevels = list(BestOption_Baseline = seq(rng[1], rng[2], length.out = 50))
-)
-
-plot(
-  eff,
-  multiline = FALSE,              # -> separate panels (facets) by TrialType
-  confint   = TRUE,
-  rug       = TRUE,
-  xlab      = "BestOption_Baseline",
-  ylab      = "Predicted BestOption_Frequency"
-)
 
 model <- lmer(BIC ~ BestOption_Baseline + (1|Subnum), data = model_data)
 summary(model)
 plot(allEffects(model))
 
 model <- glm(weight ~ BestOption_Baseline + training_accuracy, data = model_data)
+summary(model)
+plot(allEffects(model))
+
+model <- lmer(Baseline ~ Frequency + parameter + model + (1|Subnum), data = wide_df)
 summary(model)
 plot(allEffects(model))
 

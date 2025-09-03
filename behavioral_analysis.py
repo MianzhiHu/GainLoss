@@ -5,6 +5,7 @@ import scipy.stats as stats
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
+from dask.array.stats import ttest_rel
 from scipy.stats import ttest_1samp
 from statsmodels.stats.anova import AnovaRM
 from statsmodels.stats.multitest import multipletests
@@ -75,24 +76,53 @@ E2_summary = pd.merge(E2_summary, added_info[[c for c in added_info.columns if c
 E2_summary_testing = E2_summary[E2_summary['TrialType'].isin(['CA', 'CB', 'AD', 'BD'])].copy()
 E2_data_testing = E2_data[E2_data['TrialType'].isin(['CA', 'CB', 'AD', 'BD'])].copy()
 
+# Columns to remove
+print(E2_summary.columns)
+E2_summary_final = E2_summary.copy()
+cols_to_remove = ['prob1_baseline', 'prob2_baseline', 'prob3_baseline', 'group_baseline', 'prob1_frequency',
+                  'prob2_frequency', 'prob3_frequency', 'group_frequency', 'group_training', 'group_training_baseline',
+                  'group_training_frequency', 'C_diff']
+E2_summary_final.drop(columns=cols_to_remove, inplace=True)
+
 # Save data
 # E2_summary.to_csv('./data/E2_summary_full.csv', index=False)
 # E2_summary_testing.to_csv('./data/E2_summary_testing.csv', index=False)
 # E2_summary_CA.to_csv('./data/E2_summary_CA.csv', index=False)
+E2_summary_final.to_csv('./data/E2_summary_final.csv', index=False)
 # E2_data.to_csv('./data/E2_data_full.csv', index=False)
 # E2_data_testing.to_csv('./data/E2_data_testing.csv', index=False)
 
 # ======================================================================================================================
 # Data Analysis
 # ======================================================================================================================
+# Demographics
+print(E2_data.groupby('Subnum')['Gender'].first().value_counts()) # Gender
+print(E2_data.groupby('Subnum')['Age'].first().describe()) # Age
+print(E2_data.groupby('Subnum')['Race'].first().value_counts()) # Race
+print(E2_data.groupby('Subnum')['Ethnicity'].first().value_counts()) #
+print(E2_data.groupby('Subnum')['order'].first().value_counts()) # Education
+
 # ANOVA for 2 TrialTypes × 6 Blocks × 2 Conditions
 E2_training_blocked = E2_data[E2_data['TrialType'].isin(['AB', 'CD'])].groupby(['Subnum', 'Condition', 'TrialType', 'Phase'])['BestOption'].mean().reset_index()
 # anova_3way = AnovaRM(data=E2_training_blocked, depvar='BestOption', subject='Subnum', within=['Condition', 'TrialType', 'Phase']).fit()
 
+# Order effects
+E2_order_data = E2_data.groupby(['Subnum', 'Condition', 'TrialType', 'order'])['BestOption'].mean().reset_index()
+
+# for each trial type in each condition, compare the two orders
+order_results = []
+for (trial_type, condition), subdf in E2_order_data.groupby(['TrialType', 'Condition']):
+    t, p = stats.ttest_ind(subdf[subdf['order'] == 'BF']['BestOption'],
+                           subdf[subdf['order'] == 'FB']['BestOption'])
+    order_results.append({'TrialType': trial_type, 'Condition': condition, 't': t, 'p': p})
+order_res_df = pd.DataFrame(order_results)
+order_res_df['p_adj'] = multipletests(order_res_df['p'], method='fdr_bh')[1]
+print(order_res_df)
+
 # Compare against chance level
 results = []
 for (trial_type, condition), subdf in E2_summary.groupby(["TrialType", "Condition"]):
-    t, p = ttest_1samp(subdf["BestOption"], 0.536)
+    t, p = ttest_1samp(subdf["BestOption"], 0.500)
     results.append({"TrialType": trial_type, "Condition": condition, "t": t, "p": p, "mean": subdf["BestOption"].mean()})
 
 res_df = pd.DataFrame(results)

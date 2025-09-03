@@ -42,9 +42,8 @@ E1_data['trial'] = E1_data.groupby('Subnum').cumcount() + 1
 E2_data['trial'] = E2_data.groupby(['Subnum', 'Condition']).cumcount() + 1
 
 # read the model fitting results
-# result_names = ['delta', 'delta_PVL', 'delta_PVL_relative', 'decay', 'decay_PVL',
-#                 'decay_PVL_relative', 'delta_decay', 'delta_decay_PVL', 'delta_decay_PVL_relative', 'dual']
-result_names = ['delta', 'delta_PVL', 'delta_asymmetric', 'decay', 'decay_PVL', 'decay_win', 'delta_asymmetric_decay_win']
+result_names = ['delta_decay', 'delta_decay_PVL', 'delta_decay_win', 'delta_decay_PVL_win', 'delta_asymmetric_decay_win']
+# result_names = ['delta', 'delta_PVL', 'delta_asymmetric', 'decay', 'decay_PVL', 'decay_win', 'delta_asymmetric_decay_win']
 E1_results_dir = './data/ModelFitting/E1/'
 E2_all_results_dir = './data/ModelFitting/E2/'
 E2_baseline_results_dir = './data/ModelFitting/E2/Baseline/'
@@ -132,7 +131,7 @@ best_model_per_participant = (
             .reset_index(drop=True)
 )
 # Assuming 'group' is in any of the model DataFrames, like decay
-group_info = E2_baseline_results['delta'][['Subnum', 'group_baseline']]
+group_info = E2_baseline_results['delta_asymmetric_decay_win'][['Subnum', 'group_baseline']]
 all_bics = all_bics.merge(group_info, on='Subnum', how='left')
 best_model_per_participant = best_model_per_participant.merge(group_info, on='Subnum', how='left')
 
@@ -147,7 +146,7 @@ print(model_counts)
 # Combine all BIC values into one DataFrame for summary
 model_summary = pd.concat(model_baseline_bics + model_frequency_bics, ignore_index=True)
 model_summary = model_summary.sort_values(['Subnum', 'Condition'], ignore_index=True)
-model_summary.to_csv('./data/model_summary.csv', index=False)
+model_summary.to_csv('./data/model_summary_supplementary.csv', index=False)
 
 # # Combine all BIC values into the original summary DataFrame
 # for i, df in enumerate(model_frequency_bics):
@@ -186,11 +185,12 @@ print(summary_df)
 # Calculate Bayes Factor for model comparison
 best_model = 'delta_asymmetric_decay_win'
 bayes_factor_results = []
+condition = model_frequency_bics
 
-for df in model_frequency_bics:
+for df in condition:
     model_name = df['model'].iloc[0]
     cond = df['Condition'].iloc[0]
-    best_df = get_best_df(model_frequency_bics, best_model, cond)
+    best_df = get_best_df(condition, best_model, cond)
 
     BF = bayes_factor(null_results=df, alternative_results=best_df)  # returns a float
 
@@ -204,11 +204,11 @@ bf_table = pd.DataFrame(bayes_factor_results).sort_values(['Condition', 'model']
 print(bf_table)
 
 # Now calculate variational Bayes indices
-K = 7 # number of models
+K = 5 # number of models
 
 # select columns that end with BIC
 dfs = []
-for df in model_baseline_bics:
+for df in condition:
     model_name = df['model'].iloc[0]
     cond = df['Condition'].iloc[0]
     tmp = df[['Subnum', 'Condition', 'BIC']].copy()
@@ -236,94 +236,94 @@ print("Final alpha (Dirichlet parameters):", alpha_est_df.round(3))
 print("Expected model frequencies:", model_freq.round(3))
 print("Exceedance probabilities:", ex_probs_df.round(3))
 
-# ======================================================================================================================
-# E2 - Extract the dual process model for model analysis
-# ======================================================================================================================
-model      = "dual"
-param_name = ["t", "alpha", "subj_weight"]
-# param_name = ['t', 'alpha', 'w', 'lambda']
-var_name   = ["best_weight", "best_obj_weight"]
+# # ======================================================================================================================
+# # E2 - Extract the dual process model for model analysis
+# # ======================================================================================================================
+# model      = "dual"
+# param_name = ["t", "alpha", "subj_weight"]
+# # param_name = ['t', 'alpha', 'w', 'lambda']
+# var_name   = ["best_weight", "best_obj_weight"]
+#
+# sources = {
+#     "Baseline" : E2_baseline_results,
+#     "Frequency": E2_freq_results,
+#     "All"      : E2_all_results,
+# }
+#
+# wide_dfs = []
+# for cond, results in sources.items():
+#     # Extract the model parameters
+#     df = results[model].copy()
+#     df = parameter_extractor(df, param_name)
+#     df = df[["Subnum"] + param_name + var_name]
+#
+#     # Explode trial‐wise variables
+#     for col in var_name:
+#         df[col] = df[col].apply(parse_np_list_str)
+#     df = df.explode(var_name).reset_index(drop=True)
+#
+#     # Rename the columns to include the condition and model
+#     if cond == "All":
+#         suffix = f"_{cond}"
+#         rename_map = {p: p + suffix for p in (param_name + var_name)}
+#         df = df.rename(columns=rename_map)
+#     else:
+#         suffix = ''
+#
+#     df["Condition"] = cond
+#
+#     # Insert the first trial for each subject because the first trial is not modeled
+#     param_cols = [p + suffix for p in param_name]
+#     var_cols = [v + suffix for v in var_name]
+#
+#     first = (
+#         df.groupby("Subnum")[param_cols]
+#         .first()
+#         .reset_index()
+#     )
+#     for vcol in var_cols:
+#         first[vcol] = np.nan
+#     first["Condition"] = cond
+#
+#     # --- 5) stitch them together & sort
+#     df = pd.concat([first, df], ignore_index=True)
+#     df = df.sort_values('Subnum').reset_index(drop=True)
+#
+#     # (optional) drop the trial column if you don’t need it downstream
+#     # df = df.drop(columns="trial")
+#
+#     wide_dfs.append(df)
+#
+# # Combine baseline and frequency into a long format
+# E2_conditionwise = pd.merge(wide_dfs[0], wide_dfs[1],
+#                             on=['Subnum', 'Condition', 't', 'alpha', 'subj_weight', 'best_weight', 'best_obj_weight'],
+#                             how='outer', suffixes=('_baseline', '_frequency'))
+# E2_conditionwise['trial'] = E2_conditionwise.groupby(['Subnum', 'Condition']).cumcount() + 1
+#
+# # Combine the data with the subject-level data
+# E2_data_merged = pd.merge(E2_conditionwise, E2_data, on=['Subnum', 'Condition', 'trial'], how='outer')
+# E2_data_merged = pd.concat([E2_data_merged, wide_dfs[2][['t_All', 'alpha_All', 'subj_weight_All', 'best_weight_All', 'best_obj_weight_All']]], axis=1).reset_index(drop=True)
+# E2_data_merged[E2_data_merged['TrialType'].isin(['CA', 'CB', 'AD', 'BD'])].to_csv('./data/E2_data_testing_modeled.csv', index=False)
+# E2_data_merged.to_csv('./data/E2_data_modeled.csv', index=False)
+#
+# E2_summary = pd.merge(E2_summary, E2_conditionwise[['Subnum', 'Condition', 't', 'alpha', 'subj_weight']].drop_duplicates(),
+#                         on=['Subnum', 'Condition'], how='left')
+# E2_summary = pd.merge(E2_summary, wide_dfs[2][['Subnum', 't_All', 'alpha_All', 'subj_weight_All']].drop_duplicates(),
+#                         on='Subnum', how='left')
+# E2_summary.to_csv('./data/E2_summary_modeled.csv', index=False)
 
-sources = {
-    "Baseline" : E2_baseline_results,
-    "Frequency": E2_freq_results,
-    "All"      : E2_all_results,
-}
-
-wide_dfs = []
-for cond, results in sources.items():
-    # Extract the model parameters
-    df = results[model].copy()
-    df = parameter_extractor(df, param_name)
-    df = df[["Subnum"] + param_name + var_name]
-
-    # Explode trial‐wise variables
-    for col in var_name:
-        df[col] = df[col].apply(parse_np_list_str)
-    df = df.explode(var_name).reset_index(drop=True)
-
-    # Rename the columns to include the condition and model
-    if cond == "All":
-        suffix = f"_{cond}"
-        rename_map = {p: p + suffix for p in (param_name + var_name)}
-        df = df.rename(columns=rename_map)
-    else:
-        suffix = ''
-
-    df["Condition"] = cond
-
-    # Insert the first trial for each subject because the first trial is not modeled
-    param_cols = [p + suffix for p in param_name]
-    var_cols = [v + suffix for v in var_name]
-
-    first = (
-        df.groupby("Subnum")[param_cols]
-        .first()
-        .reset_index()
-    )
-    for vcol in var_cols:
-        first[vcol] = np.nan
-    first["Condition"] = cond
-
-    # --- 5) stitch them together & sort
-    df = pd.concat([first, df], ignore_index=True)
-    df = df.sort_values('Subnum').reset_index(drop=True)
-
-    # (optional) drop the trial column if you don’t need it downstream
-    # df = df.drop(columns="trial")
-
-    wide_dfs.append(df)
-
-# Combine baseline and frequency into a long format
-E2_conditionwise = pd.merge(wide_dfs[0], wide_dfs[1],
-                            on=['Subnum', 'Condition', 't', 'alpha', 'subj_weight', 'best_weight', 'best_obj_weight'],
-                            how='outer', suffixes=('_baseline', '_frequency'))
-E2_conditionwise['trial'] = E2_conditionwise.groupby(['Subnum', 'Condition']).cumcount() + 1
-
-# Combine the data with the subject-level data
-E2_data_merged = pd.merge(E2_conditionwise, E2_data, on=['Subnum', 'Condition', 'trial'], how='outer')
-E2_data_merged = pd.concat([E2_data_merged, wide_dfs[2][['t_All', 'alpha_All', 'subj_weight_All', 'best_weight_All', 'best_obj_weight_All']]], axis=1).reset_index(drop=True)
-E2_data_merged[E2_data_merged['TrialType'].isin(['CA', 'CB', 'AD', 'BD'])].to_csv('./data/E2_data_testing_modeled.csv', index=False)
-E2_data_merged.to_csv('./data/E2_data_modeled.csv', index=False)
-
-E2_summary = pd.merge(E2_summary, E2_conditionwise[['Subnum', 'Condition', 't', 'alpha', 'subj_weight']].drop_duplicates(),
-                        on=['Subnum', 'Condition'], how='left')
-E2_summary = pd.merge(E2_summary, wide_dfs[2][['Subnum', 't_All', 'alpha_All', 'subj_weight_All']].drop_duplicates(),
-                        on='Subnum', how='left')
-E2_summary.to_csv('./data/E2_summary_modeled.csv', index=False)
-
-# Correlate the condition-wise parameters with all-condition parameters
-for param in param_name:
-    baseline_param = wide_dfs[0][['Subnum', param]].drop_duplicates()
-    frequency_param = wide_dfs[1][['Subnum', param]].drop_duplicates()
-    all_param = wide_dfs[2][['Subnum', f"{param}_All"]].drop_duplicates()
-
-    print(f'Correlation between {param} in Baseline and All:')
-    print(stats.pearsonr(baseline_param[param], all_param[f"{param}_All"]))
-    print(f'Correlation between {param} in Frequency and All:')
-    print(stats.pearsonr(frequency_param[param], all_param[f"{param}_All"]))
-    print(f'Correlation between {param} in Baseline and Frequency:')
-    print(stats.pearsonr(baseline_param[param], frequency_param[param]))
+# # Correlate the condition-wise parameters with all-condition parameters
+# for param in param_name:
+#     baseline_param = wide_dfs[0][['Subnum', param]].drop_duplicates()
+#     frequency_param = wide_dfs[1][['Subnum', param]].drop_duplicates()
+#     all_param = wide_dfs[2][['Subnum', f"{param}_All"]].drop_duplicates()
+#
+#     print(f'Correlation between {param} in Baseline and All:')
+#     print(stats.pearsonr(baseline_param[param], all_param[f"{param}_All"]))
+#     print(f'Correlation between {param} in Frequency and All:')
+#     print(stats.pearsonr(frequency_param[param], all_param[f"{param}_All"]))
+#     print(f'Correlation between {param} in Baseline and Frequency:')
+#     print(stats.pearsonr(baseline_param[param], frequency_param[param]))
 
 # Extract individual differences parameters for E2
 accuracy_wide = E2_summary.pivot(index=['Subnum', 'Condition'], columns='TrialType', values='BestOption').reset_index()
@@ -335,6 +335,14 @@ accuracy_wide[accuracy_wide['Condition'] == 'Baseline'].drop(columns='Condition'
 accuracy_wide[accuracy_wide['Condition'] == 'Frequency'].drop(columns='Condition').to_csv('./data/E2_summary_CA_frequency.csv', index=False)
 subj_data = E2_data[[col for col in psychiatric_col if col in E2_data]].drop_duplicates().to_csv('./data/E2_subj_data.csv', index=False)
 print(E2_data[[col for col in psychiatric_col if col in E2_data]].describe())
+
+# remove additional columns in E2 data
+print(E2_data.columns)
+cols_to_remove = ['prob1_baseline', 'prob2_baseline', 'prob3_baseline', 'group_baseline', 'prob1_frequency',
+                  'prob2_frequency', 'prob3_frequency', 'group_frequency','group_training','group_training_baseline',
+                  'group_training_frequency', 'C_diff']
+E2_data_final = E2_data.drop(columns=[col for col in cols_to_remove if col in E2_data.columns])
+E2_data_final.to_csv('./data/E2_data_final.csv', index=False)
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Extract model fit parameters for E2

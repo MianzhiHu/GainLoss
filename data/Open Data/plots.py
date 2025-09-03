@@ -9,9 +9,9 @@ import matplotlib.ticker as mticker
 import seaborn as sns
 
 # Read the data
-data = pd.read_csv('./data/E2_data_modeled.csv')
-data_summary = pd.read_csv('./data/E2_summary_modeled.csv')
-model_summary = pd.read_csv('./data/model_summary.csv')
+data = pd.read_csv('data.csv')
+data_summary = pd.read_csv('data_summary.csv')
+model_summary = pd.read_csv('model_summary.csv')
 palette = "deep"
 sns.set_theme(style="whitegrid", font="Arial")
 
@@ -112,7 +112,7 @@ plt.savefig('./figures/Figure_2a.png', dpi=600)
 plt.show()
 
 # Figure 2b: best option in frequency predicted by best option in baseline per trial type
-eff = pd.read_csv("./data/eff_df.csv")
+eff = pd.read_csv("model_6_effects.csv")
 if "lower.CL" in eff.columns:
     eff = eff.rename(columns={"lower.CL":"lower","upper.CL":"upper"})
 eff["TrialType"] = pd.Categorical(eff["TrialType"], categories=['AB', 'CD', 'CA', 'CB', 'AD', 'BD'], ordered=True)
@@ -190,7 +190,6 @@ model_summary = model_summary.merge(CA_summary[['Subnum', 'Condition', 'BestOpti
 data_3c = model_summary.melt(id_vars=['Subnum', 'Condition', 'model', 'model_class', 'BIC', 'BestOption'],
                              value_vars=['t', 'alpha', 'alpha_neg', 'scale', 'la',  'weight'],
                              var_name='Parameter', value_name='Value')
-
 title_map = {
     "t": "Inverse Temperature (c)",
     "alpha": "Learning Rate (α/α+)",
