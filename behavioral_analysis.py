@@ -18,6 +18,10 @@ E2_data = pd.read_csv('./data/E2_data_with_assignments.csv')
 E2_summary = pd.read_csv('./data/E2_summary_with_assignments.csv')
 E2_data['Phase'] = (E2_data.groupby(['Subnum', 'Condition']).cumcount() // 20) + 1
 print(E2_data.columns)
+# print E2_summary CA with best option > 0.4 < 0.6
+print(E2_summary[(E2_summary['TrialType'] == 'CA') & (E2_summary['BestOption'] > 0.40) & (E2_summary['BestOption'] < 0.60)].groupby('Condition').size())  #
+
+
 
 # Rename the trial type
 E2_training = E2_data[E2_data['TrialType'].isin(['AB', 'CD'])].copy()
@@ -120,9 +124,17 @@ order_res_df['p_adj'] = multipletests(order_res_df['p'], method='fdr_bh')[1]
 print(order_res_df)
 
 # Compare against chance level
+ab_ratio = 0.65 / (0.65 + 0.35)  # Reward ratio for AB trials
+cd_ratio = 0.75 / (0.75 + 0.25)  # Reward ratio for CD trials
+ca_ratio = 0.75 / (0.75 + 0.65)  # Reward ratio for CA trials
+cb_ratio = 0.75 / (0.75 + 0.35)  # Reward ratio for CB trials
+ad_ratio = 0.65 / (0.65 + 0.25)  # Reward ratio for AD trials
+bd_ratio = 0.35 / (0.35 + 0.25)  # Reward ratio for BD trials
+random_chance = 0.5
+
 results = []
 for (trial_type, condition), subdf in E2_summary.groupby(["TrialType", "Condition"]):
-    t, p = ttest_1samp(subdf["BestOption"], 0.500)
+    t, p = ttest_1samp(subdf["BestOption"], cb_ratio)
     results.append({"TrialType": trial_type, "Condition": condition, "t": t, "p": p, "mean": subdf["BestOption"].mean()})
 
 res_df = pd.DataFrame(results)

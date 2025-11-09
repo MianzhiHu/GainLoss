@@ -150,6 +150,39 @@ model <- lmer(BestOption ~ training_accuracy * TrialType * Condition + (1|Subnum
 summary(model)
 plot(allEffects(model))
 
+# Accuracy predicted by AB and CD separately
+training_separate <- data %>%
+  filter(TrialType %in% c("AB", "CD", "CA")) %>%
+  
+  # join CD training accuracy
+  left_join(
+    data %>%
+      filter(TrialType == "CD") %>%
+      dplyr::select(Subnum, Condition, training_accuracy_CD = BestOption),
+    by = c("Subnum", "Condition")
+  ) %>%
+  
+  # join AB training accuracy
+  left_join(
+    data %>%
+      filter(TrialType == "AB") %>%
+      dplyr::select(Subnum, Condition, training_accuracy_AB = BestOption),
+    by = c("Subnum", "Condition")
+  ) %>%
+  
+  # remove AB and CD rows (keep only test trials)
+  filter(!(TrialType %in% c("AB","CD")))
+
+model <- lmer(BestOption ~ training_accuracy_AB * Condition + (1|Subnum), data = training_separate)
+summary(model)
+plot(allEffects(model))
+
+model <- glmer(BestOption ~ training_accuracy_AB * Condition + (1|Subnum), family=binomial, data = CA)
+summary(model)
+plot(allEffects(model), xlab="AB Training Accuracy",
+     ylab='Probability Selecting C in CA Trials',
+     main='CA Accuracy ~ AB Training Accuracy * Condition')
+
 # Calculate the residual
 individual_trend <- ranef(model)$Subnum[["(Intercept)"]]
 names(individual_trend) <- rownames(ranef(model)$Subnum)
@@ -189,6 +222,32 @@ model <- glm(subj_weight ~ Gender + Ethnicity + Age + Race + Condition * (Big5O 
              data = CA)
 summary(model)
 plot(allEffects(model))
+
+# AB * CD
+training_wider <- training %>%
+  pivot_wider(id_cols = c(Subnum, Condition), 
+              names_from = TrialType, 
+              values_from = BestOption)
+training_wider_baseline <- training_wider %>%
+  filter(Condition == 'Baseline')
+training_wider_frequency <- training_wider %>%
+  filter(Condition == 'Frequency')
+  
+model <- glm(CD ~ AB * Condition, data = training_wider)
+summary(model)
+plot(allEffects(model), 
+     main = 'CD Accuracy Predicted By AB Accuracy Per Condition (AB * CD)',
+     xlab = '% of Optimal Choice in AB Trials',
+     ylab = 'Predicted % of Optimal Choice in CD Trials')
+
+model <- glm(CD ~ AB, data = training_wider_baseline)
+summary(model)
+
+model <- glm(CD ~ AB, data = training_wider_frequency)
+summary(model)
+
+# Individual Training Trials
+separate_training <- 
 
 # ------------------------------------------------------------------------------
 # Model Parameter Analyses
@@ -237,8 +296,8 @@ data <- data %>%
     by = c("Subnum", "TrialType")
   ) %>%
   left_join(
-    model_data %>% dplyr::select(Subnum, alpha_neg, weight),
-    by = "Subnum"
+    training_separate %>% dplyr::select(Subnum, Condition, training_accuracy_AB, training_accuracy_CD),
+    by = c("Subnum", "Condition")
   ) %>%
   mutate(
     Condition = factor(Condition, levels = c("Baseline","Frequency")),
@@ -270,7 +329,7 @@ frequency_CA <- CA %>%
 
 # Predict p optimal choice by training accuracy
 model <- glmer(BestOption ~ training_accuracy * Condition + (1|Subnum), 
-               family=binomial, data = CB)
+               family=binomial, data = CA)
 summary(model)
 plot(allEffects(model))
 
@@ -363,10 +422,16 @@ model_list <- c('delta', 'delta_PVL', 'delta_asymmetric', 'decay', 'decay_PVL',
 model_list <- c('delta_asymmetric_decay_win')
 model_list <- c('delta_decay_win', 'delta_decay_PVL_win', 'delta_asymmetric_decay_win')
 model_list <- c('delta_decay_win')
-model_data <- model_summary_frequency %>%
+model_data <- model_summary_baseline %>%
   filter(model%in%model_list)
+unique(model_summary_baseline$model)
 
-model <- lmer(BIC ~ BestOption_Baseline + model + (1|Subnum), data = model_data)
+model <- lmer(BIC ~ BestOption_Baseline * model + (1|Subnum), data = model_data)
+summary(model)
+anova(model)
+plot(allEffects(model))
+
+model <- glm(BIC ~ BestOption_Baseline * model, data = model_data)
 summary(model)
 plot(allEffects(model))
 

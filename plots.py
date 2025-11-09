@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import seaborn as sns
 
+# Figure 1 was not created here, so in this file,
+# the index of figures is -1 compared to the manuscript (e.g., Figure 2a in the manuscript is Figure 1a here)
 # Read the data
 data = pd.read_csv('./data/E2_data_modeled.csv')
 data_summary = pd.read_csv('./data/E2_summary_modeled.csv')
@@ -111,13 +113,76 @@ plt.tight_layout()
 plt.savefig('./figures/Figure_2a.png', dpi=600)
 plt.show()
 
-# Figure 2b: best option in frequency predicted by best option in baseline per trial type
+# For response to reviewers
+data_2aS = data_summary.copy()
+data_2aS['TrialType'] = pd.Categorical(data_2aS['TrialType'], categories=['AB', 'CD', 'CA', 'CB', 'AD', 'BD'], ordered=True)
+g = sns.FacetGrid(data_2aS, row="TrialType", col="Condition", height=5, aspect=1.2)
+g.map(sns.histplot, "BestOption", bins=20, kde=True, stat="count", color=sns.color_palette(palette)[5])
+g.set_axis_labels("% of Optimal Choices", "N Participants")
+g.set_titles("{row_name} - {col_name}", size=30)
+for ax in g.axes.flat:
+    ax.axvline(0.5, color=sns.color_palette(palette)[7], linestyle='--', label='Random Chance')
+    if ax == g.axes.flat[0]:
+        ax.legend(fontsize=20, loc='upper right')
+    ax.tick_params(axis="both", labelsize=20)
+g.set_xlabels(size=25)
+g.set_ylabels(size=25)
+plt.tight_layout()
+plt.savefig('./figures/Figure_2a_histograms.png', dpi=600)
+plt.show()
+
+# Figure 2b1: CA choice predicted by AB
+data_2b1 = data_summary[data_summary['TrialType'].isin(['AB', 'CA'])].copy()
+data_2b1 = data_2b1.merge(
+    data_summary[data_summary['TrialType'] == 'AB'][['Subnum', 'Condition', 'BestOption']].rename(columns={'BestOption': 'training_accuracy_AB'}),
+    on=['Subnum', 'Condition'],
+    how='left'
+)
+data_2b1 = data_2b1[data_2b1['TrialType'] != 'AB'].copy()
+data_2b1['TrialType'] = pd.Categorical(data_2b1['TrialType'], categories=['CA'], ordered=True)
+
+g = sns.lmplot(data=data_2b1, x='training_accuracy_AB', y='BestOption', hue='Condition', scatter_kws={"s": 25, "alpha": 0.4},
+           palette=palette_1b, ci=95, legend=False)
+g.set_axis_labels("AB Training Accuracy", "% of Optimal Choices in CA Trials", fontsize=20)
+for ax in plt.gcf().axes:
+    ax.tick_params(axis='both', labelsize=18)
+    ax.set_xticks(np.arange(0, 1.1, 0.2))
+plt.subplots_adjust(top=0.9)
+plt.tight_layout()
+plt.savefig('./figures/Figure_2b1.png', dpi=600)
+plt.show()
+
+# Figure 2b2: CA choice predicted by CD
+data_2b2 = data_summary[data_summary['TrialType'].isin(['CD', 'CA'])].copy()
+data_2b2 = data_2b2.merge(
+    data_summary[data_summary['TrialType'] == 'CD'][['Subnum', 'Condition', 'BestOption']].rename(columns={'BestOption': 'training_accuracy_CD'}),
+    on=['Subnum', 'Condition'],
+    how='left'
+)
+data_2b2 = data_2b2[data_2b2['TrialType'] != 'CD'].copy()
+data_2b2['TrialType'] = pd.Categorical(data_2b2['TrialType'], categories=['CA'], ordered=True)
+
+g = sns.lmplot(data=data_2b2, x='training_accuracy_CD', y='BestOption', hue='Condition', scatter_kws={"s": 25, "alpha": 0.4},
+           palette=palette_1b, ci=95, legend=False)
+g.set_axis_labels("CD Training Accuracy", "% of Optimal Choices in CA Trials", fontsize=20)
+for ax in plt.gcf().axes:
+    ax.tick_params(axis='both', labelsize=18)
+    ax.set_xticks(np.arange(0, 1.1, 0.2))
+leg = ax.legend(loc='lower left', fontsize=18, title='Condition', title_fontsize=20)
+leg.get_frame().set_linewidth(0.0)
+plt.subplots_adjust(top=0.9)
+plt.tight_layout()
+plt.savefig('./figures/Figure_2b2.png', dpi=600)
+plt.show()
+
+
+# Figure 2c: best option in frequency predicted by best option in baseline per trial type
 eff = pd.read_csv("./data/eff_df.csv")
 if "lower.CL" in eff.columns:
     eff = eff.rename(columns={"lower.CL":"lower","upper.CL":"upper"})
 eff["TrialType"] = pd.Categorical(eff["TrialType"], categories=['AB', 'CD', 'CA', 'CB', 'AD', 'BD'], ordered=True)
 
-g = sns.FacetGrid(eff, col="TrialType", col_wrap=2, height=2.5, aspect=1, sharex=True, sharey=True, palette=palette_1b)
+g = sns.FacetGrid(eff, col="TrialType", col_wrap=3, height=2.5, aspect=1, sharex=True, sharey=True, palette=palette_1b)
 for tt, ax in zip(eff["TrialType"].cat.categories, g.axes.flatten()):
     d = eff[eff["TrialType"]==tt]
     ax.fill_between(d["BestOption_Baseline"], d["lower"], d["upper"], alpha=0.15, color=sns.color_palette(palette)[5])
@@ -126,12 +191,12 @@ for ax in g.axes.flat:
     ax.set_xlabel(""); ax.set_ylabel("")
 g.fig.tight_layout(rect=(0.08, 0.06, 0.98, 0.98))  # leave room for big labels
 g.fig.supxlabel("% of Optimal Choices in Baseline", fontsize=15, y=0.02)
-g.fig.supylabel("Predicted Probability of Selecting Optimal Choices in Frequency", fontsize=15, x=0.02)
+g.fig.supylabel("Predicted % of Optimal Choices in Frequency", fontsize=15, x=0.02)
 g.set_titles("{col_name}", size=15)
 for ax in g.axes.flatten():
     ax.tick_params(axis="both", labelsize=12)
 plt.tight_layout()
-plt.savefig("./figures/Figure_2b.png", dpi=600, bbox_inches="tight")
+plt.savefig("./figures/Figure_2c.png", dpi=600, bbox_inches="tight")
 plt.show()
 
 # Figure 3a: Model Fit predicted by Baseline performance
@@ -145,7 +210,7 @@ model_summary['model_class'] = np.where(
         'Hybrid'
     )
 )
-data_3a = model_summary[(model_summary['Condition'] == 'Frequency') & (model_summary['model_class'].isin(['Delta Rule Models', 'Decay Rule Models']))].copy()
+data_3a = model_summary[(model_summary['Condition'] == 'Baseline') & (model_summary['model_class'].isin(['Delta Rule Models', 'Decay Rule Models']))].copy()
 label_map = {
     "delta": "Delta",
     "delta_PVL": "Delta PVL",
@@ -287,4 +352,74 @@ for ax in g.axes.flat:
 g.fig.subplots_adjust(left=0.12, bottom=0.12, right=0.80, top=0.95)
 plt.tight_layout()
 plt.savefig('./figures/Figure_S1b3.png', dpi=600)
+plt.show()
+
+# Supplementary Figure S2: AB * CD
+data_S2 = data_summary[data_summary['TrialType'].isin(['AB', 'CD'])].copy()
+data_S2['TrialType'] = pd.Categorical(data_S2['TrialType'], categories=['AB', 'CD'], ordered=True)
+data_S2 = data_S2.pivot_table(index=['Subnum', 'Condition'], columns='TrialType', values='BestOption', observed=False).reset_index()
+
+plt.figure(figsize=(10, 6))
+palette_S2 = {"Baseline": sns.color_palette(palette)[0], "Frequency": sns.color_palette(palette)[3]}
+g = sns.lmplot(data=data_S2, x='AB', y='CD', hue='Condition', markers=["o", "s"], palette=palette_S2,
+               height=6, aspect=1, scatter_kws={"s": 25, "alpha": 0.4}, legend=False, ci=95)
+g.set_axis_labels("% of Optimal Choices in AB Trials", "% of Optimal Choices in CD Trials", fontsize=20)
+plt.subplots_adjust(top=0.9)
+for ax in plt.gcf().axes:
+    ax.tick_params(axis='both', labelsize=18)
+    ax.set_xticks(np.arange(0, 1.1, 0.2))
+    ax.set_yticks(np.arange(0, 1.1, 0.2))
+leg = ax.legend(loc='lower right', fontsize=18, title='Condition', title_fontsize=20)
+leg.get_frame().set_linewidth(0.0)
+plt.tight_layout()
+plt.savefig('./figures/Figure_S2.png', dpi=600)
+plt.show()
+
+# Supplementary Figure S3a: best option predicted by training performance per trial type
+data_S3a = data_summary[data_summary['TrialType'].isin(['AB', 'CA', 'CA', 'CB', 'AD', 'BD'])].copy()
+data_S3a = data_S3a.merge(
+    data_summary[data_summary['TrialType'] == 'AB'][['Subnum', 'Condition', 'BestOption']].rename(columns={'BestOption': 'training_accuracy_AB'}),
+    on=['Subnum', 'Condition'],
+    how='left'
+)
+data_S3a = data_S3a[data_S3a['TrialType'] != 'AB'].copy()
+data_S3a['TrialType'] = pd.Categorical(data_S3a['TrialType'], categories=['CA', 'CB', 'AD', 'BD'], ordered=True)
+
+g = sns.lmplot(data=data_S3a, x='training_accuracy_AB', y='BestOption', hue='Condition', col='TrialType', markers=[".", "+"],
+               palette=palette_1b, height=5, aspect=1, col_wrap=2, scatter_kws={"s": 25, "alpha": 0.4}, legend=False, ci=95)
+g.set_axis_labels("AB Training Accuracy", "% of Optimal Choices", fontsize=20)
+g.set_titles("{col_name}", size=20)
+ax_ll = g.axes.flatten()[-2]  # second-to-last subplot in FacetGrid = lower-left
+leg = ax_ll.legend(loc='lower left', fontsize=18, title='Condition', title_fontsize=20)
+leg.get_frame().set_linewidth(0.0)
+plt.subplots_adjust(top=0.9)
+for ax in plt.gcf().axes:
+    ax.tick_params(axis='both', labelsize=18)
+    ax.set_xticks(np.arange(0, 1.1, 0.2))
+plt.tight_layout()
+plt.savefig('./figures/Figure_S3a.png', dpi=600)
+plt.show()
+
+# Supplementary Figure S3b: best option predicted by training performance per trial type
+data_S3b = data_summary[data_summary['TrialType'].isin(['CD', 'CA', 'CB', 'AD', 'BD'])].copy()
+data_S3b = data_S3b.merge(
+    data_summary[data_summary['TrialType'] == 'CD'][['Subnum', 'Condition', 'BestOption']].rename(columns={'BestOption': 'training_accuracy_CD'}),
+    on=['Subnum', 'Condition'],
+    how='left'
+)
+data_S3b = data_S3b[data_S3b['TrialType'] != 'CD'].copy()
+data_S3b['TrialType'] = pd.Categorical(data_S3b['TrialType'], categories=['CA', 'CB', 'AD', 'BD'], ordered=True)
+g = sns.lmplot(data=data_S3b, x='training_accuracy_CD', y='BestOption', hue='Condition', col='TrialType', markers=[".", "+"],
+               palette=palette_1b, height=5, aspect=1, col_wrap=2, scatter_kws={"s": 25, "alpha": 0.4}, legend=False, ci=95)
+g.set_axis_labels("CD Training Accuracy", "% of Optimal Choices", fontsize=20)
+g.set_titles("{col_name}", size=20)
+ax_ll = g.axes.flatten()[-2]  # second-to-last subplot in FacetGrid = lower-left
+leg = ax_ll.legend(loc='lower left', fontsize=18, title='Condition', title_fontsize=20)
+leg.get_frame().set_linewidth(0.0)
+plt.subplots_adjust(top=0.9)
+for ax in plt.gcf().axes:
+    ax.tick_params(axis='both', labelsize=18)
+    ax.set_xticks(np.arange(0, 1.1, 0.2))
+plt.tight_layout()
+plt.savefig('./figures/Figure_S3b.png', dpi=600)
 plt.show()
